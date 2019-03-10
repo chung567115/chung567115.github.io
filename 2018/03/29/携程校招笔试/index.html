@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="博学de叫兽">
+  
+  
+  <title>携程校招笔试 | 博学de叫兽</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="笔经面经,Java,校招,携程,">
+  
+
+  
+  <meta name="description" content="2018年3月29日19:00–20:30，参与了携程旅行春招在线考试，第一部分20道选择题，第二部分3道编程题。现将编程题记录如下：">
+
+  
+
+  <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"BC5HXTROXDidWBaQPTdAAcgU-gzGzoHsz","appkey":"tLTVFMxoabrQCkBOqTDYzzm7","comment":false,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-03-08",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "博学de叫兽",
+    share: {"twitter":false,"facebook":false,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: ""
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">博学de叫兽</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 博学之，审问之</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/chung567115" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2018-03-29
+    </span>
+    
+      <span>
+        | <a href="/categories/笔经面经/"><i class="fa fa-bookmark"></i>笔经面经</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    携程校招笔试
+  </h1>
+  
+  <article class="passage-article">
+    <h1 id="携程校招笔试"><a href="#携程校招笔试" class="headerlink" title="携程校招笔试"></a>携程校招笔试</h1><h2 id="移动数组中的“0”"><a href="#移动数组中的“0”" class="headerlink" title="移动数组中的“0”"></a>移动数组中的“0”</h2><p><strong>题目描述：</strong><br>&emsp;&emsp;给定一个整型数组，将数组中所有的“0”移动到末尾，非“0”项保持顺序不变，<strong><em>在原始数组上进行移动操作，勿创建新的数组</em></strong>。</p>
+<p><strong>输入</strong><br>第一行是数组长度<br>后续每一行是数组的一条记录</p>
+<p><strong>输出</strong><br>调整后的数组内容</p>
+<p><strong>样例输入</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">0</span><br><span class="line">7</span><br><span class="line">0</span><br><span class="line">2</span><br></pre></td></tr></table></figure></p>
+<p><strong>样例输出</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">7</span><br><span class="line">2</span><br><span class="line">0</span><br><span class="line">0</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>时间限制：C/C++语言 1000MS；其他语言 3000MS<br>内存限制：C/C++语言 65536KB；其他语言 589824KB</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> n = scanner.nextInt();</span><br><span class="line">        <span class="keyword">int</span> zero = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> arr[] = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> scan = scanner.nextInt();</span><br><span class="line">            <span class="keyword">if</span> (scan == <span class="number">0</span>) &#123;</span><br><span class="line">                zero++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                arr[j++] = scan;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        scanner.close();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = zero; j &gt; <span class="number">0</span>; j--) &#123;</span><br><span class="line">            arr[n - j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; n; k++) &#123;</span><br><span class="line">            System.out.println(arr[k]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二维矩阵旋转"><a href="#二维矩阵旋转" class="headerlink" title="二维矩阵旋转"></a>二维矩阵旋转</h2><p><strong>题目描述：</strong><br>&emsp;&emsp;给一个$N*N$的二维矩阵，将该矩阵顺时针旋转90度。</p>
+<p><strong>输入</strong><br>输入一个$N*N$二维矩阵</p>
+<p><strong>输出</strong><br>将输入的二维矩阵顺时针旋转90度</p>
+<p><strong>样例输入</strong><br>$$<br>  \begin{matrix}<br>   1 &amp; 4 &amp; 7 \<br>   2 &amp; 5 &amp; 8 \<br>   3 &amp; 6 &amp; 9<br>  \end{matrix}<br>$$</p>
+<p><strong>样例输出</strong><br>$$<br>  \begin{matrix}<br>   3 &amp; 2 &amp; 1 \<br>   6 &amp; 5 &amp; 4 \<br>   9 &amp; 8 &amp; 7<br>  \end{matrix}<br>$$</p>
+<blockquote>
+<p>时间限制：C/C++语言 1000MS；其他语言 3000MS<br>内存限制：C/C++语言 65536KB；其他语言 589824KB</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        Map&lt;Integer, String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> N = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (scanner.hasNext()) &#123;</span><br><span class="line">            map.put(N++, scanner.next());</span><br><span class="line">        &#125;</span><br><span class="line">        scanner.close();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> n = (<span class="keyword">int</span>) Math.sqrt(N);</span><br><span class="line">        String num[][] = <span class="keyword">new</span> String[n][n];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">                num[i][j] = map.get(i * n + j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> p = <span class="number">0</span>; p &lt; n; p++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> q = n - <span class="number">1</span>; q &gt;= <span class="number">0</span>; q--) &#123;</span><br><span class="line">                System.out.print(num[q][p]);</span><br><span class="line">                System.out.print(<span class="string">"\t"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.print(<span class="string">"\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="搜索符合用户需求且价格最低的房型"><a href="#搜索符合用户需求且价格最低的房型" class="headerlink" title="搜索符合用户需求且价格最低的房型"></a>搜索符合用户需求且价格最低的房型</h2><p><strong>题目描述：</strong><br>&emsp;&emsp;有$N$种房型，每种房型有如下属性：可入住成人数，可入住儿童数，价格；根据用户输入的$X$(需入住成人数)，$Y$(需入住儿童数)，$Z$(需入住几晚)，返回$N$种房型的间数及价格。<br>输出样例(特别说明)：<br><img src="https://img-blog.csdn.net/20180329213324313?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTIxMDIxMDQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="说明"></p>
+<p><strong>输入</strong><br>第一行表示一共有几种房型，设为整型$N$；<br>接下来的$N$行，每行三列分别表示每种房型能够容纳的成人数、能够容纳的儿童数、单价；<br>最后一行的三列分别表示需要入住的成人数、儿童数，几晚。</p>
+<p><strong>输出</strong><br>打出房型输入的顺序号，顺序号&gt;0，表示选择了此房型数量；<br>顺序号为0表示未选择此房型，最后一列为总价格。</p>
+<p><strong>样例输入</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">2 2 100</span><br><span class="line">4 3 180</span><br><span class="line">3 2 1</span><br></pre></td></tr></table></figure></p>
+<p><strong>样例输出</strong><br>正常输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0,1,180.0</span><br></pre></td></tr></table></figure></p>
+<p>异常输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-1</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>时间限制：C/C++语言 1000MS；其他语言 3000MS<br>内存限制：C/C++语言 65536KB；其他语言 589824KB</p>
+</blockquote>
+<p>（没有做……有兴趣的朋友可以贴出代码）</p>
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#携程校招笔试"><span class="toc-text">携程校招笔试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#移动数组中的“0”"><span class="toc-text">移动数组中的“0”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二维矩阵旋转"><span class="toc-text">二维矩阵旋转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搜索符合用户需求且价格最低的房型"><span class="toc-text">搜索符合用户需求且价格最低的房型</span></a></li></ol></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 博学de叫兽</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://zhangchong.xin/2018/03/29/携程校招笔试/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 可右下角点击打赏，转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/Java/"><i class="fa fa-tags"></i>Java</a>
+     
+      <a href="/tags/校招/"><i class="fa fa-tags"></i>校招</a>
+     
+      <a href="/tags/携程/"><i class="fa fa-tags"></i>携程</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">博客推荐</h5>
+        
+          <span class="site-footer-item">
+            <a href="http://youzhixueyuan.com" target="_blank">优知学院</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://github.com/Snailclimb/JavaGuide" target="_blank">Snailclimb</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">系列教程</h5>
+        
+          <span class="site-footer-item">
+            <a href="http://www.runoob.com" target="_blank">菜鸟教程</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://www.w3cschool.cn" target="_blank">W3Cschool</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">我的主页</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://github.com/chung567115" target="_blank">GitHub</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://chung567115.blog.csdn.net" target="_blank">CSDN</a>
+          </span>
+        
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: chung567115@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+        
+          <div>
+            <img src="/images/wechat.png" alt="微信">
+            
+              <p>微信</p>
+            
+          </div>
+        
+          <div>
+            <img src="/images/alipay.png" alt="支付宝">
+            
+              <p>支付宝</p>
+            
+          </div>
+        
+      </div>
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/2018/04/09/京东校招笔试/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/2018/03/22/美团校招笔试/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    <a href="javascript:void(0);" id="site-reward">
+      <i class="fa fa-thumbs-up"></i>
+    </a>
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+  <script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+  <script async>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+  </script>
+
+
+
+  <script async>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+
+
+
+    
+  </body>
+</html>
