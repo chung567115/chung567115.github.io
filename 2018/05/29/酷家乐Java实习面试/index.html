@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="博学de叫兽">
+  
+  
+  <title>酷家乐Java实习面试 | 博学de叫兽</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="笔经面经,Java,酷家乐,">
+  
+
+  
+  <meta name="description" content="2018年3月20日15时00分到酷家乐赴约Java实习现场面试，进行了接近2小时，记录如下：">
+
+  
+
+  <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"BC5HXTROXDidWBaQPTdAAcgU-gzGzoHsz","appkey":"tLTVFMxoabrQCkBOqTDYzzm7","comment":false,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-03-08",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "博学de叫兽",
+    share: {"twitter":false,"facebook":false,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: ""
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">博学de叫兽</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 博学之，审问之</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/chung567115" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2018-05-29
+    </span>
+    
+      <span>
+        | <a href="/categories/笔经面经/"><i class="fa fa-bookmark"></i>笔经面经</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    酷家乐Java实习面试
+  </h1>
+  
+  <article class="passage-article">
+    <h1 id="酷家乐Java实习面试（40MIN）"><a href="#酷家乐Java实习面试（40MIN）" class="headerlink" title="酷家乐Java实习面试（40MIN）"></a>酷家乐Java实习面试（40MIN）</h1><h2 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h2><h3 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h3><h3 id="多线程实现"><a href="#多线程实现" class="headerlink" title="多线程实现"></a>多线程实现</h3><ol>
+<li>继承Thread类创建线程</li>
+<li>实现Callable接口创建线程</li>
+<li>实现Runnable接口创建新线程<h3 id="流量削峰的一种解决方案"><a href="#流量削峰的一种解决方案" class="headerlink" title="流量削峰的一种解决方案"></a>流量削峰的一种解决方案</h3></li>
+</ol>
+<ul>
+<li>MQ推送模式改为定时或者批量拉取模式</li>
+<li>消息接收方实现批量处理等方式<h3 id="介绍Redis"><a href="#介绍Redis" class="headerlink" title="介绍Redis"></a>介绍Redis</h3>&emsp;&emsp;基于C语言开发的一种非关系型数据库，数据放在内存，使用<strong>RDB</strong>[快照]方式或者<strong>AOF</strong>[日志]方式持久化。</li>
+</ul>
+<p>&emsp;&emsp;Redis的优势包括速度、对富数据类型的支持（String、Hash、List、Set、Zset）、原子性操作、通用性。</p>
+<h3 id="Redis使用场景（回答得不好）"><a href="#Redis使用场景（回答得不好）" class="headerlink" title="Redis使用场景（回答得不好）"></a>Redis使用场景（<em>回答得不好</em>）</h3><ul>
+<li>缓存（<strong> 热数据 </strong>）</li>
+<li>共享Session</li>
+<li>队列 / 栈</li>
+<li>位操作（<strong> 大数据处理 </strong>）</li>
+<li>分布式锁与单线程机制（<strong> 秒杀系统 </strong>）</li>
+<li>排行榜 / 计数器（<strong> ZSet ZADD命令 </strong>）</li>
+<li>发布 / 订阅<h3 id="Redis如何保证原子性（不会）"><a href="#Redis如何保证原子性（不会）" class="headerlink" title="Redis如何保证原子性（不会）"></a>Redis如何保证原子性（<em>不会</em>）</h3></li>
+</ul>
+<ol>
+<li>单个操作是原子性的</li>
+<li>多个操作也支持事务，即原子性，通过MULTI和EXEC指令包起来<h3 id="介绍对MyBatis的理解"><a href="#介绍对MyBatis的理解" class="headerlink" title="介绍对MyBatis的理解"></a>介绍对MyBatis的理解</h3>&emsp;&emsp;MyBatis 是一款优秀的持久层框架，它支持定制化 SQL、存储过程以及高级映射。MyBatis 避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集，它可以使用简单的 XML 或注解来配置和映射原生信息，将接口和 Java 的 POJO 映射成数据库中的记录。<h3 id="SpringMVC的核心"><a href="#SpringMVC的核心" class="headerlink" title="SpringMVC的核心"></a>SpringMVC的核心</h3></li>
+</ol>
+<ul>
+<li>控制器核心类：DispatcherServlet</li>
+<li>加载配置文件核心类：ContextLoaderListener</li>
+<li>处理url映射核心类：BeanNameUrlHandlerMapping</li>
+<li>处理视图资源核心类：ResourceBundleViewResolver</li>
+<li><p>方法动态调用核心类ParameterMethodNameResolver</p>
+<h3 id="介绍对Spring的理解"><a href="#介绍对Spring的理解" class="headerlink" title="介绍对Spring的理解"></a>介绍对Spring的理解</h3><p>&emsp;&emsp;Spring是一个轻量级的控制反转(IoC)和面向切面(AOP)的容器框架。</p>
+</li>
+<li><p>IoC：控制反转（Inversion of Control）和依赖注入（Dependecy Injection）广义上讲是同一个概念，具体的讲：在Spring中创建被调用者的工作不再由调用者来完成，因此称为控制反转。创建被调用者的工作由Spring来完成，然后注入调用者，因此也称为依赖注入。</p>
+</li>
+<li><p>AOP：面向切面编程（AOP）在Spring中主要表现为两个方面 1. 面向切面编程提供声明式事务管理 。2. Spring支持用户自定义的切面。</p>
+<h3 id="Java-8新特性（答得不好）"><a href="#Java-8新特性（答得不好）" class="headerlink" title="Java 8新特性（答得不好）"></a>Java 8新特性（答得不好）</h3><p>&emsp;&emsp;主要有以下几个新特性：</p>
+</li>
+<li><p><strong>默认方法</strong>：在接口里面有了一个实现的方法</p>
+</li>
+<li>Lambda 表达式：Lambda允许把函数作为一个方法的参数</li>
+<li>Stream API：把真正的函数式编程风格引入到Java中</li>
+<li>Date Time API：加强对日期与时间的处理</li>
+<li>Optional 类：Optional 类已成为 Java 8 类库的一部分，用来解决空指针异常</li>
+<li>方法引用：可以直接引用已有Java类或对象的方法或构造器</li>
+<li><p>新编译工具：Nashorn引擎（一个新的JavaScript引擎）、 类依赖分析器</p>
+<h3 id="λ表达式的理解"><a href="#λ表达式的理解" class="headerlink" title="λ表达式的理解"></a>λ表达式的理解</h3><p>&emsp;&emsp;流式数据处理</p>
+<h3 id="对RESTful的理解"><a href="#对RESTful的理解" class="headerlink" title="对RESTful的理解"></a>对RESTful的理解</h3><p>&emsp;&emsp;<strong>URL定位资源，HTTP动词描述操作</strong></p>
+</li>
+<li><p>GET    用来获取资源</p>
+</li>
+<li>POST  用来新建 / 更新资源</li>
+<li>PUT    用来更新资源</li>
+<li>DELETE  用来删除资源<h3 id="对微服务的了解"><a href="#对微服务的了解" class="headerlink" title="对微服务的了解"></a>对微服务的了解</h3>&emsp;&emsp;微服务架构风格是一种使用一套小服务来开发单个应用的方式，每个服务运行在自己的进程中，并使用轻量级机制通信（通常是HTTP API），这些服务能够通过自动化部署机制来独立部署、可以使用不同的编程语言实现、可以使用不同的数据存储技术，并保持最低限度的集中式管理。<h3 id="DiskLruCache海量图片缓存"><a href="#DiskLruCache海量图片缓存" class="headerlink" title="DiskLruCache海量图片缓存"></a>DiskLruCache海量图片缓存</h3>&emsp;&emsp;<strong>三级缓存</strong>:内存LruCache + 磁盘DiskLruCache + 网络Retrofit 2<blockquote>
+<p>这是面试官问到本人以前做过的Android项目</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="遇到过什么技术难题，最终如何解决的"><a href="#遇到过什么技术难题，最终如何解决的" class="headerlink" title="遇到过什么技术难题，最终如何解决的"></a>遇到过什么技术难题，最终如何解决的</h3><h3 id="有什么需要问的"><a href="#有什么需要问的" class="headerlink" title="有什么需要问的"></a>有什么需要问的</h3><hr>
+<h2 id="笔试（1H，共4道题，忘了一道）"><a href="#笔试（1H，共4道题，忘了一道）" class="headerlink" title="笔试（1H，共4道题，忘了一道）"></a>笔试（1H，共4道题，忘了一道）</h2><h3 id="给定一元素可重复的有序数组和一个值，找出数组内该值首次出现和最后出现的数组下标"><a href="#给定一元素可重复的有序数组和一个值，找出数组内该值首次出现和最后出现的数组下标" class="headerlink" title="给定一元素可重复的有序数组和一个值，找出数组内该值首次出现和最后出现的数组下标"></a>给定一元素可重复的有序数组和一个值，找出数组内该值首次出现和最后出现的数组下标</h3><ol>
+<li>不限时间复杂度</li>
+<li>时间复杂度 &lt; O（N）<blockquote>
+<p>可用改进的二分法解答：若当前单位的左右值均不等于给定值时命中。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="给定一单向列表头部，判断队列有无环路"><a href="#给定一单向列表头部，判断队列有无环路" class="headerlink" title="给定一单向列表头部，判断队列有无环路"></a>给定一单向列表头部，判断队列有无环路</h3><ol>
+<li>不限空间复杂度</li>
+<li>空间复杂度  &lt; O（N）<blockquote>
+<p>可用双指针追逐法解答：步长分别为 k 和 k+1，某一步两指针相遇则有环路。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="游戏道具：足够大圆桌、足够多黑白围棋。游戏规则：黑白方回合制落子，直至桌面无法再放一颗棋子，则最后落子方胜。如何保证必赢？"><a href="#游戏道具：足够大圆桌、足够多黑白围棋。游戏规则：黑白方回合制落子，直至桌面无法再放一颗棋子，则最后落子方胜。如何保证必赢？" class="headerlink" title="游戏道具：足够大圆桌、足够多黑白围棋。游戏规则：黑白方回合制落子，直至桌面无法再放一颗棋子，则最后落子方胜。如何保证必赢？"></a>游戏道具：足够大圆桌、足够多黑白围棋。游戏规则：黑白方回合制落子，直至桌面无法再放一颗棋子，则最后落子方胜。如何保证必赢？</h3><blockquote>
+<p>第一步占圆心，然后与对方镜像对称下棋，能保证必赢。</p>
+</blockquote>
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#酷家乐Java实习面试（40MIN）"><span class="toc-text">酷家乐Java实习面试（40MIN）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#面试"><span class="toc-text">面试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#自我介绍"><span class="toc-text">自我介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多线程实现"><span class="toc-text">多线程实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#流量削峰的一种解决方案"><span class="toc-text">流量削峰的一种解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#介绍Redis"><span class="toc-text">介绍Redis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis使用场景（回答得不好）"><span class="toc-text">Redis使用场景（回答得不好）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis如何保证原子性（不会）"><span class="toc-text">Redis如何保证原子性（不会）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#介绍对MyBatis的理解"><span class="toc-text">介绍对MyBatis的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringMVC的核心"><span class="toc-text">SpringMVC的核心</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#介绍对Spring的理解"><span class="toc-text">介绍对Spring的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-8新特性（答得不好）"><span class="toc-text">Java 8新特性（答得不好）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#λ表达式的理解"><span class="toc-text">λ表达式的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对RESTful的理解"><span class="toc-text">对RESTful的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对微服务的了解"><span class="toc-text">对微服务的了解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DiskLruCache海量图片缓存"><span class="toc-text">DiskLruCache海量图片缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#遇到过什么技术难题，最终如何解决的"><span class="toc-text">遇到过什么技术难题，最终如何解决的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#有什么需要问的"><span class="toc-text">有什么需要问的</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#笔试（1H，共4道题，忘了一道）"><span class="toc-text">笔试（1H，共4道题，忘了一道）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#给定一元素可重复的有序数组和一个值，找出数组内该值首次出现和最后出现的数组下标"><span class="toc-text">给定一元素可重复的有序数组和一个值，找出数组内该值首次出现和最后出现的数组下标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#给定一单向列表头部，判断队列有无环路"><span class="toc-text">给定一单向列表头部，判断队列有无环路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#游戏道具：足够大圆桌、足够多黑白围棋。游戏规则：黑白方回合制落子，直至桌面无法再放一颗棋子，则最后落子方胜。如何保证必赢？"><span class="toc-text">游戏道具：足够大圆桌、足够多黑白围棋。游戏规则：黑白方回合制落子，直至桌面无法再放一颗棋子，则最后落子方胜。如何保证必赢？</span></a></li></ol></li></ol></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 博学de叫兽</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://zhangchong.xin/2018/05/29/酷家乐Java实习面试/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 可右下角点击打赏，转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/Java/"><i class="fa fa-tags"></i>Java</a>
+     
+      <a href="/tags/酷家乐/"><i class="fa fa-tags"></i>酷家乐</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">博客推荐</h5>
+        
+          <span class="site-footer-item">
+            <a href="http://youzhixueyuan.com" target="_blank">优知学院</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://github.com/Snailclimb/JavaGuide" target="_blank">Snailclimb</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">系列教程</h5>
+        
+          <span class="site-footer-item">
+            <a href="http://www.runoob.com" target="_blank">菜鸟教程</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://www.w3cschool.cn" target="_blank">W3Cschool</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">我的主页</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://github.com/chung567115" target="_blank">GitHub</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://chung567115.blog.csdn.net" target="_blank">CSDN</a>
+          </span>
+        
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: chung567115@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+        
+          <div>
+            <img src="/images/wechat.png" alt="微信">
+            
+              <p>微信</p>
+            
+          </div>
+        
+          <div>
+            <img src="/images/alipay.png" alt="支付宝">
+            
+              <p>支付宝</p>
+            
+          </div>
+        
+      </div>
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/2018/05/29/蘑菇街Java实习面试/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/2018/05/07/51信用卡校招笔试/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    <a href="javascript:void(0);" id="site-reward">
+      <i class="fa fa-thumbs-up"></i>
+    </a>
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+  <script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+  <script async>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+  </script>
+
+
+
+  <script async>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+
+
+
+    
+  </body>
+</html>
