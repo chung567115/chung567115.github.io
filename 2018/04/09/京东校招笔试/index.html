@@ -1,68 +1,411 @@
-extends base
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="博学de叫兽">
+  
+  
+  <title>京东校招笔试 | 博学de叫兽</title>
 
-block title
-  title= page.title + ' | ' + config.title
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-      if theme.wordcount == true
-        include _partial/wordcount.pug
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if theme.changyan
-      a.ds-thread-count(href=url_for(page.path) + '#SOHUCS')
-        span#changyan_count_unit(style='font-size: 15px; color: #6E7173;') 0
-        span= ' ' + __('Comment')
-      script(src='https://assets.changyan.sohu.com/upload/plugins/plugins.count.js', async)
-    if theme.valine.enable
-      a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
-        span.valine-comment-count(data-xid=url_for(page.path))
-        span= ' ' + __('Comment')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content, {list_number: theme.toc_number})
-    .post-content
-      != page.content
-    if theme.donate.enable == true
-      iframe(src='/donate/?AliPayQR=' + theme.donate.alipay_qr + '&WeChatQR=' + theme.donate.wechat_qr + '&GitHub=' + theme.donate.github + '&BTCQR=' + theme.donate.btc_qr + '&BTCKEY='+ theme.donate.btc_key + '&PayPal=' + theme.donate.paypal_url, style='overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;', frameborder='0', scrolling='no')
+  
+    <meta name="keywords" content="笔经面经,Java,校招,京东,">
+  
 
-    if theme.post_copyright.enable == true && page.copyright != false
-      div
-        ul.post-copyright
-          li.post-copyright-author
-            strong= __('copyright_author_prefix')
-            = theme.post_copyright.author
-          li.post-copyright-link
-            strong= __('copyright_link_prefix')
-            a(href='/' + page.path)= page.permalink
-          li.post-copyright-license
-            strong= __('copyright_declare_prefix')
-            if theme.post_copyright.copyright_text
-              != theme.post_copyright.copyright_text
-            else
-              != __('copyright_default_text')
-      br
+  
+  <meta name="description" content="2018年4月9日19:00–21:00，参与了京东春招在线考试，3道编程题记录如下：">
 
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url=page.permalink, data-id=page._id, data-qrcode=qrcode(page.permalink))= __('shareto')
+  
 
-    include _partial/tag.pug
-    include _partial/post_nav.pug
+  <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
 
-    if page.comments
-      include _partial/comments.pug
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"BC5HXTROXDidWBaQPTdAAcgU-gzGzoHsz","appkey":"tLTVFMxoabrQCkBOqTDYzzm7","comment":false,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-03-08",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "博学de叫兽",
+    share: {"twitter":false,"facebook":false,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: ""
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">博学de叫兽</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 博学之，审问之</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/chung567115" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2018-04-09
+    </span>
+    
+      <span>
+        | <a href="/categories/笔经面经/"><i class="fa fa-bookmark"></i>笔经面经</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    京东校招笔试
+  </h1>
+  
+  <article class="passage-article">
+    <h1 id="京东校招笔试"><a href="#京东校招笔试" class="headerlink" title="京东校招笔试"></a>京东校招笔试</h1><h2 id="生成回文串"><a href="#生成回文串" class="headerlink" title="生成回文串"></a>生成回文串</h2><p><strong>题目描述：</strong><br>&emsp;&emsp;对于一个字符串，从前开始读和从后开始读是一样的，我们就称这个字符串是回文串。例如$ABCBA$，$AA$，$A$是回文串，而$ABCD$和$AAB$不是回文串。牛牛特别喜欢回文串，他手中有一个字符串 $s$ ，牛牛在思考能否从字符串中移除部分（0个或多个）字符使其变为回文串。并且牛牛认为空串不是回文串。<br>&emsp;&emsp;牛牛发现移除的方案可能有很多种，希望你帮他计算一下一共有多少种移除方案可以使 $s$ 变为回文串。<em>对于两种移除方案，如果移除的字符构成的序列不一样就是不同的方案。</em></p>
+<p><strong>输入描述</strong><br>输入包括一个字符串$ s (1 \leq length(s) \leq 50 )$，$s$ 中只包含大写字母。</p>
+<p><strong>输出描述</strong><br>对于每个测试用例，输出一个正整数表示方案数。</p>
+<p><strong>样例输入1</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XXY</span><br></pre></td></tr></table></figure></p>
+<p><strong>样例输出1</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure></p>
+<p><strong>样例输入2</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ABA</span><br></pre></td></tr></table></figure></p>
+<p><strong>样例输出2</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>时间限制：C/C++语言 1秒；其他语言 2秒<br>内存限制：C/C++语言 32768KB；其他语言 65536KB</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">未完成</span><br></pre></td></tr></table></figure>
+<h2 id="分解整数"><a href="#分解整数" class="headerlink" title="分解整数"></a>分解整数</h2><p><strong>题目描述：</strong><br>&emsp;&emsp; 牛牛的数学老师给了他一个整数 $N$ ，问牛牛能否将 $N$ 分解为两个整数 $X$ 和 $Y$ 相乘，并且满足 $X$ 为奇数， $Y$ 为偶数。即奇数 $X$ 和偶数 $Y$ 满足 $X * Y = N$ 。牛牛被这个问题难住了，希望你能帮他计算。</p>
+<p><strong>输入描述</strong><br>输入的第一行包含一个正整数 $t (1 \leq t \leq 1000)$，表示测试样例数。接下来 $t$ 行，每行一个正整数 $N (2 \leq N \leq 2^{63})$，表示给出的 $N $，保证 $N$ 不是 2 的幂次。</p>
+<p><strong>输出描述</strong><br>如果能找到这样的 $X$，$Y$ 则依次输出，以空格分割，如果有多解，输出 $Y$ 最小的那组解。否则输出 $No$。</p>
+<p><strong>样例输入</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">10</span><br><span class="line">5</span><br></pre></td></tr></table></figure></p>
+<p><strong>样例输出</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5 2</span><br><span class="line">No</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>时间限制：C/C++语言 3秒；其他语言 6秒<br>内存限制：C/C++语言 32768KB；其他语言 65536KB</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> t = in.nextInt();</span><br><span class="line">        Long num[] = <span class="keyword">new</span> Long[t];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; t; i++) &#123;</span><br><span class="line">            num[i] = in.nextLong();</span><br><span class="line">            find(num[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">find</span><span class="params">(Long num)</span> </span>&#123;</span><br><span class="line">        Long x = <span class="number">1L</span>, y = <span class="number">2L</span>;</span><br><span class="line">        <span class="keyword">boolean</span> NONE = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (num % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (Long k = <span class="number">1L</span>; k &lt; num / <span class="number">4</span>; k++) &#123;</span><br><span class="line">                y = <span class="number">2</span> * k;</span><br><span class="line">                x = num / y;</span><br><span class="line">                <span class="keyword">if</span> (num % y == <span class="number">0</span> &amp;&amp; x % <span class="number">2</span> == <span class="number">1</span>) &#123;</span><br><span class="line">                    NONE = <span class="keyword">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(NONE ? <span class="string">"No"</span> : x + <span class="string">" "</span> + y);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="括号匹配"><a href="#括号匹配" class="headerlink" title="括号匹配"></a>括号匹配</h2><p><strong>题目描述：</strong><br>&emsp;&emsp;如果一个括号序列中的每一个左括号都有一个右括号与之完成配对，这个序列就是一个合法的括号匹配序列。例如$((()))$，$()()()$是合法的括号匹配序列。而$(((())$，$()((()$不是。牛牛得到了一系列的括号序列，他要从这个序列中任意选取两个位置进行一次交换操作（必须进行且仅一次），牛牛想知道能否通过这次操作，把这个序列变为合法括号匹配序列。例如序列$())($，对第三个位置和第四个位置进行交换，就能变成一个合法序列。</p>
+<p><strong>输入描述</strong><br>输入的第一行包括测试样例数 $t (1 \leq  t \leq 1000)$，接下来的 $t$ 行，每行一个括号序列 $s (1 \leq length(s) \leq 100000)$，表示每个括号序列。</p>
+<p><strong>输出描述</strong><br>如果可以通过一次交换操作变换为合法括号匹配序列，则输出 $Yes$ ，否则输出 $No$ 。</p>
+<p><strong>样例输入</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">())(</span><br><span class="line">)))(((</span><br></pre></td></tr></table></figure></p>
+<p><strong>样例输出</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Yes</span><br><span class="line">No</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>时间限制：C/C++语言 2秒；其他语言 4秒<br>内存限制：C/C++语言 32768KB；其他语言 65536KB</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//(70%)</span></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> t = Integer.parseInt(in.nextLine());</span><br><span class="line">        String[] s = <span class="keyword">new</span> String[t];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; t; i++) &#123;</span><br><span class="line">            s[i] = in.nextLine();</span><br><span class="line">            judge(s[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">judge</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">int</span> error = <span class="number">0</span>;</span><br><span class="line">        Stack stack = <span class="keyword">new</span> Stack();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.trim().length(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s.trim().substring(i, i + <span class="number">1</span>).equals(<span class="string">"("</span>)) &#123;</span><br><span class="line">                stack.push(<span class="string">"("</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (error == <span class="number">1</span>) &#123;</span><br><span class="line">                    flag = <span class="keyword">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (stack.empty()) &#123;</span><br><span class="line">                    error++;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    stack.pop();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">            <span class="keyword">if</span> (error == <span class="number">1</span>) &#123;</span><br><span class="line">                stack.pop();</span><br><span class="line">                <span class="keyword">if</span> (!stack.empty()) &#123;</span><br><span class="line">                    flag = <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (!stack.empty()) &#123;</span><br><span class="line">                    flag = <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(flag ? <span class="string">"Yes"</span> : <span class="string">"No"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#京东校招笔试"><span class="toc-text">京东校招笔试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#生成回文串"><span class="toc-text">生成回文串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分解整数"><span class="toc-text">分解整数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#括号匹配"><span class="toc-text">括号匹配</span></a></li></ol></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 博学de叫兽</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://zhangchong.xin/2018/04/09/京东校招笔试/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 可右下角点击打赏，转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/Java/"><i class="fa fa-tags"></i>Java</a>
+     
+      <a href="/tags/校招/"><i class="fa fa-tags"></i>校招</a>
+     
+      <a href="/tags/京东/"><i class="fa fa-tags"></i>京东</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">博客推荐</h5>
+        
+          <span class="site-footer-item">
+            <a href="http://youzhixueyuan.com" target="_blank">优知学院</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://github.com/Snailclimb/JavaGuide" target="_blank">Snailclimb</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">系列教程</h5>
+        
+          <span class="site-footer-item">
+            <a href="http://www.runoob.com" target="_blank">菜鸟教程</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://www.w3cschool.cn" target="_blank">W3Cschool</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">我的主页</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://github.com/chung567115" target="_blank">GitHub</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://chung567115.blog.csdn.net" target="_blank">CSDN</a>
+          </span>
+        
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: chung567115@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+        
+          <div>
+            <img src="/images/wechat.png" alt="微信">
+            
+              <p>微信</p>
+            
+          </div>
+        
+          <div>
+            <img src="/images/alipay.png" alt="支付宝">
+            
+              <p>支付宝</p>
+            
+          </div>
+        
+      </div>
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/2018/04/13/Windows IDEA常用快捷键/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/2018/03/29/携程校招笔试/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    <a href="javascript:void(0);" id="site-reward">
+      <i class="fa fa-thumbs-up"></i>
+    </a>
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+  <script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+  <script async>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+  </script>
+
+
+
+  <script async>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+
+
+
+    
+  </body>
+</html>

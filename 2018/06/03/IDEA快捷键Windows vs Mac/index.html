@@ -1,68 +1,913 @@
-extends base
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="博学de叫兽">
+  
+  
+  <title>IDEA快捷键Windows vs Mac | 博学de叫兽</title>
 
-block title
-  title= page.title + ' | ' + config.title
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-      if theme.wordcount == true
-        include _partial/wordcount.pug
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if theme.changyan
-      a.ds-thread-count(href=url_for(page.path) + '#SOHUCS')
-        span#changyan_count_unit(style='font-size: 15px; color: #6E7173;') 0
-        span= ' ' + __('Comment')
-      script(src='https://assets.changyan.sohu.com/upload/plugins/plugins.count.js', async)
-    if theme.valine.enable
-      a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
-        span.valine-comment-count(data-xid=url_for(page.path))
-        span= ' ' + __('Comment')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content, {list_number: theme.toc_number})
-    .post-content
-      != page.content
-    if theme.donate.enable == true
-      iframe(src='/donate/?AliPayQR=' + theme.donate.alipay_qr + '&WeChatQR=' + theme.donate.wechat_qr + '&GitHub=' + theme.donate.github + '&BTCQR=' + theme.donate.btc_qr + '&BTCKEY='+ theme.donate.btc_key + '&PayPal=' + theme.donate.paypal_url, style='overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;', frameborder='0', scrolling='no')
+  
+    <meta name="keywords" content="开发工具,IDEA,Mac,Windows,">
+  
 
-    if theme.post_copyright.enable == true && page.copyright != false
-      div
-        ul.post-copyright
-          li.post-copyright-author
-            strong= __('copyright_author_prefix')
-            = theme.post_copyright.author
-          li.post-copyright-link
-            strong= __('copyright_link_prefix')
-            a(href='/' + page.path)= page.permalink
-          li.post-copyright-license
-            strong= __('copyright_declare_prefix')
-            if theme.post_copyright.copyright_text
-              != theme.post_copyright.copyright_text
-            else
-              != __('copyright_default_text')
-      br
+  
+  <meta name="description" content="IDEA快捷键Windows版本和Mac版本">
 
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url=page.permalink, data-id=page._id, data-qrcode=qrcode(page.permalink))= __('shareto')
+  
 
-    include _partial/tag.pug
-    include _partial/post_nav.pug
+  <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
 
-    if page.comments
-      include _partial/comments.pug
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"BC5HXTROXDidWBaQPTdAAcgU-gzGzoHsz","appkey":"tLTVFMxoabrQCkBOqTDYzzm7","comment":false,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-03-08",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "博学de叫兽",
+    share: {"twitter":false,"facebook":false,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: ""
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">博学de叫兽</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 博学之，审问之</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/chung567115" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2018-06-03
+    </span>
+    
+      <span>
+        | <a href="/categories/开发工具/"><i class="fa fa-bookmark"></i>开发工具</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    IDEA快捷键Windows vs Mac
+  </h1>
+  
+  <article class="passage-article">
+    <h1 id="IDEA快捷键Windows-vs-Mac"><a href="#IDEA快捷键Windows-vs-Mac" class="headerlink" title="IDEA快捷键Windows vs Mac"></a>IDEA快捷键Windows vs Mac</h1><h2 id="Mac-键盘符号说明"><a href="#Mac-键盘符号说明" class="headerlink" title="Mac 键盘符号说明"></a>Mac 键盘符号说明</h2><ul>
+<li><code>⌘</code> == <code>Command</code></li>
+<li><code>⇧</code> == <code>Shift</code></li>
+<li><code>⇪</code> == <code>Caps Lock</code></li>
+<li><code>⌥</code> == <code>Option</code></li>
+<li><code>⌃</code> == <code>Control</code></li>
+<li><code>↩</code> == <code>Return/Enter</code></li>
+<li><code>⌫</code> == <code>Delete</code></li>
+<li><code>⌦</code> == <code>向前删除键（Fn+Delete）</code></li>
+<li><code>↑</code> == <code>上箭头</code></li>
+<li><code>↓</code> == <code>下箭头</code></li>
+<li><code>←</code> == <code>左箭头</code></li>
+<li><code>→</code> == <code>右箭头</code></li>
+<li><code>Page Up</code> == <code>Fn +↑</code></li>
+<li><code>Page Down</code> == <code>Fn +↓</code></li>
+<li><code>Home</code> == <code>Fn + ←</code></li>
+<li><code>End</code> == <code>Fn + →</code></li>
+<li><code>⇥</code> == <code>右制表符（Tab键）</code></li>
+<li><code>⇤</code> == <code>左制表符（Shift+Tab）</code></li>
+<li><code>⎋</code> == <code>Escape (Esc)</code></li>
+<li><code>⏏</code> == <code>电源开关键</code></li>
+</ul>
+<h2 id="Ctrl"><a href="#Ctrl" class="headerlink" title="Ctrl"></a>Ctrl</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">Win 快捷键</th>
+<th style="text-align:center">Mac 快捷键</th>
+<th style="text-align:center">介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Ctrl + F</td>
+<td style="text-align:center">Command + F</td>
+<td style="text-align:center">在当前文件进行文本查找</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + R</td>
+<td style="text-align:center">Command + R</td>
+<td style="text-align:center">在当前文件进行文本替换</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Z</td>
+<td style="text-align:center">Command + Z</td>
+<td style="text-align:center">撤销</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Y</td>
+<td style="text-align:center">Command + Delete</td>
+<td style="text-align:center">删除光标所在行 或 删除选中的行</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + D</td>
+<td style="text-align:center">Command + D</td>
+<td style="text-align:center">复制光标所在行 或 复制选择内容，并把复制内容插入光标位置下面</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + W</td>
+<td style="text-align:center">Option + 方向键上</td>
+<td style="text-align:center">递进式选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展选中范围</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + E</td>
+<td style="text-align:center">Command + E</td>
+<td style="text-align:center">显示最近打开的文件记录列表</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + N</td>
+<td style="text-align:center">Command + O</td>
+<td style="text-align:center">根据输入的 类名 查找类文件</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + J</td>
+<td style="text-align:center">Command + J</td>
+<td style="text-align:center">插入自定义动态代码模板</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + P</td>
+<td style="text-align:center">Command + P</td>
+<td style="text-align:center">方法参数提示显示</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + U</td>
+<td style="text-align:center">Command + U</td>
+<td style="text-align:center">前往当前光标所在的方法的父类的方法 / 接口定义</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + B</td>
+<td style="text-align:center">Command + B</td>
+<td style="text-align:center">进入光标所在的方法/变量的接口或是定义处，等效于 <code>Ctrl + 左键单击</code></td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + /</td>
+<td style="text-align:center">Command + /</td>
+<td style="text-align:center">注释光标所在行代码，会根据当前不同文件类型使用不同的注释符号</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + F1</td>
+<td style="text-align:center">Command + F1</td>
+<td style="text-align:center">在光标所在的错误代码处显示错误信息</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + F11</td>
+<td style="text-align:center">Option + F3</td>
+<td style="text-align:center">选中文件 / 文件夹，使用助记符设定 / 取消书签</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Space</td>
+<td style="text-align:center">Control + Space</td>
+<td style="text-align:center">基础代码补全，默认在 Windows 系统上被输入法占用，需要进行修改，建议修改为 <code>Ctrl + 逗号</code></td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Delete</td>
+<td style="text-align:center">Option + Fn + Delete</td>
+<td style="text-align:center">删除光标后面的单词或是中文句</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + BackSpace</td>
+<td style="text-align:center">Option + Delete</td>
+<td style="text-align:center">删除光标前面的单词或是中文句</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + 1,2,3…9</td>
+<td style="text-align:center">Control + 1,2,3…9</td>
+<td style="text-align:center">定位到对应数值的书签位置</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + 加号</td>
+<td style="text-align:center">Command + 加号</td>
+<td style="text-align:center">展开代码</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + 减号</td>
+<td style="text-align:center">Command + 减号</td>
+<td style="text-align:center">折叠代码</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + 左键单击</td>
+<td style="text-align:center">Control + 左键单击</td>
+<td style="text-align:center">在打开的文件标题上，弹出该文件路径</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + 左方向键</td>
+<td style="text-align:center">Option + 左方向键</td>
+<td style="text-align:center">光标跳转到当前单词 / 中文句的左侧开头位置</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + 右方向键</td>
+<td style="text-align:center">Option + 右方向键</td>
+<td style="text-align:center">光标跳转到当前单词 / 中文句的右侧开头位置</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + 前方向键</td>
+<td style="text-align:center">预设中没有该快捷键</td>
+<td style="text-align:center">等效于鼠标滚轮向前效果</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + 后方向键</td>
+<td style="text-align:center">预设中没有该快捷键</td>
+<td style="text-align:center">等效于鼠标滚轮向后效果</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Alt"><a href="#Alt" class="headerlink" title="Alt"></a>Alt</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">Win 快捷键</th>
+<th style="text-align:center">Mac 快捷键</th>
+<th style="text-align:center">介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Alt + `</td>
+<td style="text-align:center">Control + V</td>
+<td style="text-align:center">显示版本控制常用操作菜单弹出层</td>
+</tr>
+<tr>
+<td style="text-align:center">Alt + F1</td>
+<td style="text-align:center">Option + F1</td>
+<td style="text-align:center">显示当前文件选择目标弹出层，弹出层中有很多目标可以进行选择</td>
+</tr>
+<tr>
+<td style="text-align:center">Alt + F7</td>
+<td style="text-align:center">Option + F7</td>
+<td style="text-align:center">查询所选对象/变量被引用</td>
+</tr>
+<tr>
+<td style="text-align:center">Alt + Enter</td>
+<td style="text-align:center">Option + Enter</td>
+<td style="text-align:center">IntelliJ IDEA 根据光标所在问题，提供快速修复选择，光标放在的位置不同提示的结果也不同</td>
+</tr>
+<tr>
+<td style="text-align:center">Alt + Insert</td>
+<td style="text-align:center">Command + N</td>
+<td style="text-align:center">代码自动生成，如生成对象的 set / get 方法，构造函数，toString() 等</td>
+</tr>
+<tr>
+<td style="text-align:center">Alt + 左方向键</td>
+<td style="text-align:center">Control + 左方向键</td>
+<td style="text-align:center">切换当前已打开的窗口中的子视图，比如Debug窗口中有Output、Debugger等子视图，用此快捷键就可以在子视图中切换</td>
+</tr>
+<tr>
+<td style="text-align:center">Alt + 右方向键</td>
+<td style="text-align:center">Control + 右方向键</td>
+<td style="text-align:center">切换当前已打开的窗口中的子视图，比如Debug窗口中有Output、Debugger等子视图，用此快捷键就可以在子视图中切换</td>
+</tr>
+<tr>
+<td style="text-align:center">Alt + 前方向键</td>
+<td style="text-align:center">Control + 前方向键</td>
+<td style="text-align:center">当前光标跳转到当前文件的前一个方法名位置</td>
+</tr>
+<tr>
+<td style="text-align:center">Alt + 后方向键</td>
+<td style="text-align:center">Control + 后方向键</td>
+<td style="text-align:center">当前光标跳转到当前文件的后一个方法名位置</td>
+</tr>
+<tr>
+<td style="text-align:center">Alt + 1,2,3…9</td>
+<td style="text-align:center">Command + 1,2,3…9</td>
+<td style="text-align:center">显示对应数值的选项卡，其中 1 是 Project 用得最多</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Shift"><a href="#Shift" class="headerlink" title="Shift"></a>Shift</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">Win 快捷键</th>
+<th style="text-align:center">Mac 快捷键</th>
+<th style="text-align:center">介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Shift + F11</td>
+<td style="text-align:center">Command + F3</td>
+<td style="text-align:center">弹出书签显示层</td>
+</tr>
+<tr>
+<td style="text-align:center">Shift + Tab</td>
+<td style="text-align:center">Shift + Tab</td>
+<td style="text-align:center">取消缩进</td>
+</tr>
+<tr>
+<td style="text-align:center">Shift + Enter</td>
+<td style="text-align:center">Shift + Enter</td>
+<td style="text-align:center">开始新一行。光标所在行下空出一行，光标定位到新行位置</td>
+</tr>
+<tr>
+<td style="text-align:center">Shift + 左键单击</td>
+<td style="text-align:center">Shift + 左键单击</td>
+<td style="text-align:center">在打开的文件名上按此快捷键，可以关闭当前打开文件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Ctrl-Alt"><a href="#Ctrl-Alt" class="headerlink" title="Ctrl + Alt"></a>Ctrl + Alt</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">Win 快捷键</th>
+<th style="text-align:center">Mac 快捷键</th>
+<th style="text-align:center">介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Ctrl + Alt + L</td>
+<td style="text-align:center">Command + Option + L</td>
+<td style="text-align:center">格式化代码，可以对当前文件和整个包目录使用</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Alt + O</td>
+<td style="text-align:center">Control + Option + O</td>
+<td style="text-align:center">优化导入的类，可以对当前文件和整个包目录使用</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Alt + T</td>
+<td style="text-align:center">Command + Option + T</td>
+<td style="text-align:center">对选中的代码弹出环绕选项弹出层</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Alt + S</td>
+<td style="text-align:center">Command + 逗号</td>
+<td style="text-align:center">打开 IntelliJ IDEA 系统设置</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Alt + Enter</td>
+<td style="text-align:center">Command + Option + Enter</td>
+<td style="text-align:center">光标所在行上空出一行，光标定位到新行</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Alt + 左方向键</td>
+<td style="text-align:center">Command + Option + 左方向键</td>
+<td style="text-align:center">退回到上一个操作的地方</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Alt + 右方向键</td>
+<td style="text-align:center">Command + Option + 右方向键</td>
+<td style="text-align:center">前进到上一个操作的地方</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Ctrl-Shift"><a href="#Ctrl-Shift" class="headerlink" title="Ctrl + Shift"></a>Ctrl + Shift</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">Win 快捷键</th>
+<th style="text-align:center">Mac 快捷键</th>
+<th style="text-align:center">介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Ctrl + Shift + F</td>
+<td style="text-align:center">Command + Shift + F</td>
+<td style="text-align:center">根据输入内容查找整个项目 或 指定目录内文件</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + R</td>
+<td style="text-align:center">Command + Shift + F</td>
+<td style="text-align:center">根据输入内容替换对应内容，范围为整个项目 或 指定目录内文件</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + J</td>
+<td style="text-align:center">Control + Shift + J</td>
+<td style="text-align:center">自动将下一行合并到当前行末尾</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + Z</td>
+<td style="text-align:center">Command + Shift + Z</td>
+<td style="text-align:center">取消撤销</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + W</td>
+<td style="text-align:center">Option + 方向键下</td>
+<td style="text-align:center">递进式取消选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展取消选中范围</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + N</td>
+<td style="text-align:center">Command + Shift + O</td>
+<td style="text-align:center">通过文件名定位 / 打开文件 / 目录，打开目录需要在输入的内容后面多加一个正斜杠</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + U</td>
+<td style="text-align:center">Command + Shift + U</td>
+<td style="text-align:center">对选中的代码进行大 / 小写轮流转换</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + T</td>
+<td style="text-align:center">Command + Shift + T</td>
+<td style="text-align:center">对当前类生成单元测试类，如果已经存在的单元测试类则可以进行选择</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + C</td>
+<td style="text-align:center">Command + Shift + C</td>
+<td style="text-align:center">复制当前文件磁盘路径到剪贴板</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + B</td>
+<td style="text-align:center">Control + Shift + B</td>
+<td style="text-align:center">跳转到类型声明处</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + /</td>
+<td style="text-align:center">Command + Option + /</td>
+<td style="text-align:center">代码块注释</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + [</td>
+<td style="text-align:center">Command + Shift + [</td>
+<td style="text-align:center">选中从光标所在位置到它的顶部中括号位置</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + ]</td>
+<td style="text-align:center">Command + Shift + ]</td>
+<td style="text-align:center">选中从光标所在位置到它的底部中括号位置</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + 加号</td>
+<td style="text-align:center">Command + Shift + 加号</td>
+<td style="text-align:center">展开所有代码</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + 减号</td>
+<td style="text-align:center">Command + Shift + 减号</td>
+<td style="text-align:center">折叠所有代码</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + F7</td>
+<td style="text-align:center">Command + Shift + F7</td>
+<td style="text-align:center">高亮显示所有该选中文本，按Esc高亮消失</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + F12</td>
+<td style="text-align:center">Command + Shift + F12</td>
+<td style="text-align:center">编辑器最大化</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + Enter</td>
+<td style="text-align:center">Command + Shift + Enter</td>
+<td style="text-align:center">自动结束代码，行末自动添加分号</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + Backspace</td>
+<td style="text-align:center">Ctrl + Shift + Backspace</td>
+<td style="text-align:center">退回到上次修改的地方</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + 1,2,3…9</td>
+<td style="text-align:center">Control + Shift + 1,2,3…9</td>
+<td style="text-align:center">快速添加指定数值的书签</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + 左键单击</td>
+<td style="text-align:center">Command + Shift + 左键单击</td>
+<td style="text-align:center">把光标放在某个类变量上，按此快捷键可以直接定位到该类中</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + 左方向键</td>
+<td style="text-align:center">Option + Shift + 左方向键</td>
+<td style="text-align:center">在代码文件上，光标跳转到当前单词 / 中文句的左侧开头位置，同时选中该单词 / 中文句</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + 右方向键</td>
+<td style="text-align:center">Option + Shift + 右方向键</td>
+<td style="text-align:center">在代码文件上，光标跳转到当前单词 / 中文句的右侧开头位置，同时选中该单词 / 中文句</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + 前方向键</td>
+<td style="text-align:center">Command + Shift + 前方向键</td>
+<td style="text-align:center">光标放在方法名上，将方法移动到上一个方法前面，调整方法排序</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + 后方向键</td>
+<td style="text-align:center">Command + Shift + 后方向键</td>
+<td style="text-align:center">光标放在方法名上，将方法移动到下一个方法前面，调整方法排序</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Alt-Shift"><a href="#Alt-Shift" class="headerlink" title="Alt + Shift"></a>Alt + Shift</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">Win 快捷键</th>
+<th style="text-align:center">Mac</th>
+<th style="text-align:center">快捷键</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Alt + Shift + N</td>
+<td style="text-align:center">Option + Shift + B</td>
+<td style="text-align:center">选择 / 添加 task</td>
+</tr>
+<tr>
+<td style="text-align:center">Alt + Shift + 左键双击</td>
+<td style="text-align:center">Option + Shift + 左键双击</td>
+<td style="text-align:center">选择被双击的单词 / 中文句，按住不放，可以同时选择其他单词 / 中文句</td>
+</tr>
+<tr>
+<td style="text-align:center">Alt + Shift + 前方向键</td>
+<td style="text-align:center">Option + Shift + 前方向键</td>
+<td style="text-align:center">移动光标所在行向上移动</td>
+</tr>
+<tr>
+<td style="text-align:center">Alt + Shift + 后方向键</td>
+<td style="text-align:center">Option + Shift + 后方向键</td>
+<td style="text-align:center">移动光标所在行向下移动</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Ctrl-Shift-Alt"><a href="#Ctrl-Shift-Alt" class="headerlink" title="Ctrl + Shift + Alt"></a>Ctrl + Shift + Alt</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">Win 快捷键</th>
+<th style="text-align:center">Mac 快捷键</th>
+<th style="text-align:center">介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Ctrl + Shift + Alt + V</td>
+<td style="text-align:center">Command + Shift + Option + V</td>
+<td style="text-align:center">无格式黏贴</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + Shift + Alt + S</td>
+<td style="text-align:center">Command + ;</td>
+<td style="text-align:center">打开当前项目设置</td>
+</tr>
+</tbody>
+</table>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">Win 快捷键</th>
+<th style="text-align:center">Mac 快捷键</th>
+<th style="text-align:center">介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">F2</td>
+<td style="text-align:center">F2</td>
+<td style="text-align:center">跳转到下一个高亮错误 或 警告位置</td>
+</tr>
+<tr>
+<td style="text-align:center">F4</td>
+<td style="text-align:center">F4</td>
+<td style="text-align:center">编辑源</td>
+</tr>
+<tr>
+<td style="text-align:center">F11</td>
+<td style="text-align:center">F3</td>
+<td style="text-align:center">添加书签</td>
+</tr>
+<tr>
+<td style="text-align:center">F12</td>
+<td style="text-align:center">F12</td>
+<td style="text-align:center">回到前一个工具窗口</td>
+</tr>
+<tr>
+<td style="text-align:center">Tab</td>
+<td style="text-align:center">Tab</td>
+<td style="text-align:center">缩进</td>
+</tr>
+<tr>
+<td style="text-align:center">ESC</td>
+<td style="text-align:center">ESC</td>
+<td style="text-align:center">从工具窗口进入代码文件窗口</td>
+</tr>
+</tbody>
+</table>
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#IDEA快捷键Windows-vs-Mac"><span class="toc-text">IDEA快捷键Windows vs Mac</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Mac-键盘符号说明"><span class="toc-text">Mac 键盘符号说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ctrl"><span class="toc-text">Ctrl</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Alt"><span class="toc-text">Alt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Shift"><span class="toc-text">Shift</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ctrl-Alt"><span class="toc-text">Ctrl + Alt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ctrl-Shift"><span class="toc-text">Ctrl + Shift</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Alt-Shift"><span class="toc-text">Alt + Shift</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ctrl-Shift-Alt"><span class="toc-text">Ctrl + Shift + Alt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-text">其他</span></a></li></ol></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 博学de叫兽</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://zhangchong.xin/2018/06/03/IDEA快捷键Windows vs Mac/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 可右下角点击打赏，转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/IDEA/"><i class="fa fa-tags"></i>IDEA</a>
+     
+      <a href="/tags/Mac/"><i class="fa fa-tags"></i>Mac</a>
+     
+      <a href="/tags/Windows/"><i class="fa fa-tags"></i>Windows</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">博客推荐</h5>
+        
+          <span class="site-footer-item">
+            <a href="http://youzhixueyuan.com" target="_blank">优知学院</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://github.com/Snailclimb/JavaGuide" target="_blank">Snailclimb</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">系列教程</h5>
+        
+          <span class="site-footer-item">
+            <a href="http://www.runoob.com" target="_blank">菜鸟教程</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://www.w3cschool.cn" target="_blank">W3Cschool</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">我的主页</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://github.com/chung567115" target="_blank">GitHub</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://chung567115.blog.csdn.net" target="_blank">CSDN</a>
+          </span>
+        
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: chung567115@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+        
+          <div>
+            <img src="/images/wechat.png" alt="微信">
+            
+              <p>微信</p>
+            
+          </div>
+        
+          <div>
+            <img src="/images/alipay.png" alt="支付宝">
+            
+              <p>支付宝</p>
+            
+          </div>
+        
+      </div>
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/2018/06/03/Mac Book Pro常用快捷键/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/2018/06/02/美团Java实习面试/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    <a href="javascript:void(0);" id="site-reward">
+      <i class="fa fa-thumbs-up"></i>
+    </a>
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+  <script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+  <script async>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+  </script>
+
+
+
+  <script async>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+
+
+
+    
+  </body>
+</html>

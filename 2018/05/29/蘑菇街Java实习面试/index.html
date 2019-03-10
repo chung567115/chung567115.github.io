@@ -1,68 +1,542 @@
-extends base
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="博学de叫兽">
+  
+  
+  <title>蘑菇街Java实习面试 | 博学de叫兽</title>
 
-block title
-  title= page.title + ' | ' + config.title
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-      if theme.wordcount == true
-        include _partial/wordcount.pug
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if theme.changyan
-      a.ds-thread-count(href=url_for(page.path) + '#SOHUCS')
-        span#changyan_count_unit(style='font-size: 15px; color: #6E7173;') 0
-        span= ' ' + __('Comment')
-      script(src='https://assets.changyan.sohu.com/upload/plugins/plugins.count.js', async)
-    if theme.valine.enable
-      a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
-        span.valine-comment-count(data-xid=url_for(page.path))
-        span= ' ' + __('Comment')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content, {list_number: theme.toc_number})
-    .post-content
-      != page.content
-    if theme.donate.enable == true
-      iframe(src='/donate/?AliPayQR=' + theme.donate.alipay_qr + '&WeChatQR=' + theme.donate.wechat_qr + '&GitHub=' + theme.donate.github + '&BTCQR=' + theme.donate.btc_qr + '&BTCKEY='+ theme.donate.btc_key + '&PayPal=' + theme.donate.paypal_url, style='overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;', frameborder='0', scrolling='no')
+  
+    <meta name="keywords" content="笔经面经,Java,蘑菇街,">
+  
 
-    if theme.post_copyright.enable == true && page.copyright != false
-      div
-        ul.post-copyright
-          li.post-copyright-author
-            strong= __('copyright_author_prefix')
-            = theme.post_copyright.author
-          li.post-copyright-link
-            strong= __('copyright_link_prefix')
-            a(href='/' + page.path)= page.permalink
-          li.post-copyright-license
-            strong= __('copyright_declare_prefix')
-            if theme.post_copyright.copyright_text
-              != theme.post_copyright.copyright_text
-            else
-              != __('copyright_default_text')
-      br
+  
+  <meta name="description" content="2018年4月17日16时20分接到蘑菇街Java实习生电话初面，面试进行了30分钟，记录如下：">
 
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url=page.permalink, data-id=page._id, data-qrcode=qrcode(page.permalink))= __('shareto')
+  
 
-    include _partial/tag.pug
-    include _partial/post_nav.pug
+  <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
 
-    if page.comments
-      include _partial/comments.pug
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"BC5HXTROXDidWBaQPTdAAcgU-gzGzoHsz","appkey":"tLTVFMxoabrQCkBOqTDYzzm7","comment":false,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-03-08",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "博学de叫兽",
+    share: {"twitter":false,"facebook":false,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: ""
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">博学de叫兽</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 博学之，审问之</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/chung567115" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2018-05-29
+    </span>
+    
+      <span>
+        | <a href="/categories/笔经面经/"><i class="fa fa-bookmark"></i>笔经面经</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    蘑菇街Java实习面试
+  </h1>
+  
+  <article class="passage-article">
+    <h1 id="蘑菇街Java实习面试"><a href="#蘑菇街Java实习面试" class="headerlink" title="蘑菇街Java实习面试"></a>蘑菇街Java实习面试</h1><h2 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h2><h2 id="Java-和-C"><a href="#Java-和-C" class="headerlink" title="Java 和 C++"></a>Java 和 C++</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">比较点</th>
+<th style="text-align:center">Java</th>
+<th style="text-align:center">C++</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">面向对象思想</td>
+<td style="text-align:center">完全对象化</td>
+<td style="text-align:center">可采用非面向对象(兼容C)</td>
+</tr>
+<tr>
+<td style="text-align:center">内存管理机制</td>
+<td style="text-align:center">Java自身管理</td>
+<td style="text-align:center">程序员管理</td>
+</tr>
+<tr>
+<td style="text-align:center">异常机制</td>
+<td style="text-align:center">完善</td>
+<td style="text-align:center">欠缺</td>
+</tr>
+<tr>
+<td style="text-align:center">第三方库</td>
+<td style="text-align:center">丰富(Log、JUnit等等)</td>
+<td style="text-align:center">较少(STL)</td>
+</tr>
+<tr>
+<td style="text-align:center">执行效率</td>
+<td style="text-align:center">慢</td>
+<td style="text-align:center">快</td>
+</tr>
+<tr>
+<td style="text-align:center">操控底层</td>
+<td style="text-align:center">麻烦</td>
+<td style="text-align:center">方便</td>
+</tr>
+</tbody>
+</table>
+<h2 id="访问网页全过程"><a href="#访问网页全过程" class="headerlink" title="访问网页全过程"></a>访问网页全过程</h2><ol>
+<li>输入URL；</li>
+<li>DNS将域名解析成IP地址；</li>
+<li>建立TCP连接；</li>
+<li>OSPF（内部网关协议）决定经过哪些路由器，ARP（地址解析协议）负责求下一个节点地址；</li>
+<li>发送HTTP请求；</li>
+<li>得到响应，展现HTML界面。</li>
+</ol>
+<h2 id="GET-POST-区别"><a href="#GET-POST-区别" class="headerlink" title="GET POST 区别"></a>GET POST 区别</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">幂等性</th>
+<th>安全性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">POST</td>
+<td style="text-align:center">向指定资源提交数据进行处理请求（例如提交表单或上传文件）</td>
+<td style="text-align:center">否</td>
+<td>否</td>
+</tr>
+<tr>
+<td style="text-align:center">PUT</td>
+<td style="text-align:center">向指定资源位置上传其最新内容</td>
+<td style="text-align:center">是</td>
+<td>否</td>
+</tr>
+<tr>
+<td style="text-align:center">DELETE</td>
+<td style="text-align:center">请求服务器删除所标识的资源</td>
+<td style="text-align:center">是</td>
+<td>否</td>
+</tr>
+<tr>
+<td style="text-align:center">GET</td>
+<td style="text-align:center">向特定的资源发出请求</td>
+<td style="text-align:center">是</td>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+<h2 id="TCP-UDP-HTTP"><a href="#TCP-UDP-HTTP" class="headerlink" title="TCP UDP HTTP"></a>TCP UDP HTTP</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">TCP</th>
+<th style="text-align:center">UDP</th>
+<th style="text-align:center">HTTP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">是否连接</td>
+<td style="text-align:center">面向连接</td>
+<td style="text-align:center">面向非连接</td>
+<td style="text-align:center">基于TCP</td>
+</tr>
+<tr>
+<td style="text-align:center">传输可靠性</td>
+<td style="text-align:center">可靠</td>
+<td style="text-align:center">不可靠</td>
+<td style="text-align:center">–</td>
+</tr>
+<tr>
+<td style="text-align:center">应用场合</td>
+<td style="text-align:center">传输大量的数据，对可靠性要求较高的场合</td>
+<td style="text-align:center">传送少量数据、对可靠性要求不高的场景</td>
+<td style="text-align:center">–</td>
+</tr>
+<tr>
+<td style="text-align:center">速度</td>
+<td style="text-align:center">慢</td>
+<td style="text-align:center">快</td>
+<td style="text-align:center">–</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Linux常用命令"><a href="#Linux常用命令" class="headerlink" title="Linux常用命令"></a>Linux常用命令</h2><ul>
+<li>vim命令：文本编辑</li>
+<li>gcc命令：编译</li>
+<li>ps命令：进程运行情况</li>
+<li>kill命令：停止进程</li>
+<li>atop / htop命令：查看内存使用情况</li>
+</ul>
+<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><p>&emsp;&emsp;基于C语言开发的一种非关系型数据库，数据放在内存，使用RDB[快照]方式或者AOF[日志]方式持久化。 Redis的优势包括速度、对富数据类型的支持（String、Hash、List、Set、Zset）、原子性操作、通用性。</p>
+<h2 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a>RabbitMQ</h2><p>&emsp;&emsp;消息队列中间件是分布式系统中重要的组件，主要主要解决应用耦合、异步消息、流量削锋等问题，具有异步性、可靠性（存储到本地硬盘）、松耦合、分布式的特性。</p>
+<ul>
+<li>主要特点是异步处理</li>
+<li>主要目的是减少请求响应时间、解耦</li>
+<li>主要使用场景是将比较耗时且不需同步返回结果的操作当做消息存入队列</li>
+</ul>
+<h2 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h2><ul>
+<li>正向代理：隐藏真实的请求客户端，服务端不知道真实的客户端是谁，正向代理服务器会代替客户端向服务器发送请求。正向代理代理的对象是客户端。</li>
+<li>反向代理：隐藏真实的响应服务端，客户端不知道真实的服务端是谁，反向代理服务器会把请求转发到真实的服务器。反向代理代理的对象是服务端。</li>
+</ul>
+<blockquote>
+<p>10086总机就是一种反向代理，客户不知道真正提供服务人的是谁。</p>
+</blockquote>
+<h2 id="Spring-Boot-启动流程（不会）"><a href="#Spring-Boot-启动流程（不会）" class="headerlink" title="Spring Boot 启动流程（不会）"></a>Spring Boot 启动流程（不会）</h2><p>参考博文 <a href="https://www.cnblogs.com/zheting/p/6707035.html" target="_blank" rel="noopener">https://www.cnblogs.com/zheting/p/6707035.html</a><br><img src="https://img-blog.csdn.net/20180418105832948?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTIxMDIxMDQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="Spring Boot 启动流程"></p>
+<h2 id="自定义starter（不会）"><a href="#自定义starter（不会）" class="headerlink" title="自定义starter（不会）"></a>自定义starter（不会）</h2><p>参考博文 <a href="https://blog.csdn.net/liuchuanhong1/article/details/55057135" target="_blank" rel="noopener">https://blog.csdn.net/liuchuanhong1/article/details/55057135</a></p>
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><p>&emsp;&emsp;实现多线程的几种方式</p>
+<ul>
+<li>继承Thread类创建线程</li>
+<li>实现Callable接口创建线程</li>
+<li>实现Runnable接口创建新线程(可用Future返回结果)</li>
+</ul>
+<h2 id="ThreadLocal"><a href="#ThreadLocal" class="headerlink" title="ThreadLocal"></a>ThreadLocal</h2><p>&emsp;&emsp;设计理念是为了减少同一个线程内多个函数或者组件之间一些公共变量的传递的复杂度。作用是提供线程内部的局部变量，这些变量在多线程环境下访问(get/set)时能保证与其它线程里的变量相对独立。打个比方，多人(多个线程)使用自己的交通卡(线程私有变量)乘公交转地铁(两个函数)。</p>
+<blockquote>
+<p>synchronized用于线程间的数据共享，而ThreadLocal则用于线程间的数据隔离。</p>
+</blockquote>
+<h2 id="ThreadLocal-不清空会有什么影响（答得不好）"><a href="#ThreadLocal-不清空会有什么影响（答得不好）" class="headerlink" title="ThreadLocal 不清空会有什么影响（答得不好）"></a>ThreadLocal 不清空会有什么影响（答得不好）</h2><p>&emsp;&emsp;如果使用了线程池，那么即使即使父线程已经结束，子线程依然存在并被池化。这样，线程池中的线程在下一次请求被执行的时候，ThreadLocal 对象的 get() 方法返回的将不是当前线程中设定的变量，因为池中的子线程根本不是当前线程创建的，当前线程设定的 ThreadLocal 变量也就无法传递给线程池中的线程。<br>&emsp;&emsp;因此，必须将外部线程中的 ThreadLocal 变量显式地传递给线程池中的线程，或者每个请求来的时候先 threadLocal.set(null) 。</p>
+<h2 id="ThreadPool"><a href="#ThreadPool" class="headerlink" title="ThreadPool"></a>ThreadPool</h2><p>&emsp;&emsp;使用线程池的优势：</p>
+<ul>
+<li>降低资源消耗：重复利用已创建的线程，降低创建和销毁造成的消耗。</li>
+<li>提高响应速度：任务可以不需要等到线程创建就能立即执行(参考上条)。</li>
+<li>提高管理性：可以进行统一的分配、调优和监控。</li>
+</ul>
+<h2 id="有什么问题要问的"><a href="#有什么问题要问的" class="headerlink" title="有什么问题要问的"></a>有什么问题要问的</h2>
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#蘑菇街Java实习面试"><span class="toc-text">蘑菇街Java实习面试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#自我介绍"><span class="toc-text">自我介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-和-C"><span class="toc-text">Java 和 C++</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问网页全过程"><span class="toc-text">访问网页全过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GET-POST-区别"><span class="toc-text">GET POST 区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-UDP-HTTP"><span class="toc-text">TCP UDP HTTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux常用命令"><span class="toc-text">Linux常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis"><span class="toc-text">Redis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RabbitMQ"><span class="toc-text">RabbitMQ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx"><span class="toc-text">Nginx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-Boot-启动流程（不会）"><span class="toc-text">Spring Boot 启动流程（不会）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义starter（不会）"><span class="toc-text">自定义starter（不会）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多线程"><span class="toc-text">多线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ThreadLocal"><span class="toc-text">ThreadLocal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ThreadLocal-不清空会有什么影响（答得不好）"><span class="toc-text">ThreadLocal 不清空会有什么影响（答得不好）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ThreadPool"><span class="toc-text">ThreadPool</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有什么问题要问的"><span class="toc-text">有什么问题要问的</span></a></li></ol></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 博学de叫兽</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://zhangchong.xin/2018/05/29/蘑菇街Java实习面试/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 可右下角点击打赏，转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/Java/"><i class="fa fa-tags"></i>Java</a>
+     
+      <a href="/tags/蘑菇街/"><i class="fa fa-tags"></i>蘑菇街</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">博客推荐</h5>
+        
+          <span class="site-footer-item">
+            <a href="http://youzhixueyuan.com" target="_blank">优知学院</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://github.com/Snailclimb/JavaGuide" target="_blank">Snailclimb</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">系列教程</h5>
+        
+          <span class="site-footer-item">
+            <a href="http://www.runoob.com" target="_blank">菜鸟教程</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://www.w3cschool.cn" target="_blank">W3Cschool</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">我的主页</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://github.com/chung567115" target="_blank">GitHub</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://chung567115.blog.csdn.net" target="_blank">CSDN</a>
+          </span>
+        
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: chung567115@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+        
+          <div>
+            <img src="/images/wechat.png" alt="微信">
+            
+              <p>微信</p>
+            
+          </div>
+        
+          <div>
+            <img src="/images/alipay.png" alt="支付宝">
+            
+              <p>支付宝</p>
+            
+          </div>
+        
+      </div>
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/2018/06/02/美团Java实习面试/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/2018/05/29/酷家乐Java实习面试/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    <a href="javascript:void(0);" id="site-reward">
+      <i class="fa fa-thumbs-up"></i>
+    </a>
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+  <script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+  <script async>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+  </script>
+
+
+
+  <script async>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+
+
+
+    
+  </body>
+</html>

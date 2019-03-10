@@ -1,60 +1,114 @@
-(function($){
-
-  // article-share
-  $('body').on('click', function(){
-    $('.article-share-box.on').removeClass('on');
-  }).on('click', '.article-share-link', function(e){
-    e.stopPropagation();
-
-    var $this = $(this),
-      url = $this.attr('data-url'),
-      qrcode_img = $this.attr('data-qrcode'),
-      encodedUrl = encodeURIComponent(url),
-      id = 'article-share-box-' + $this.attr('data-id'),
-      title = document.title,
-      offset = $this.offset();
-
-    if ($('#' + id).length){
-      var box = $('#' + id);
-
-      if (box.hasClass('on')){
-        box.removeClass('on');
-        return;
-      }
-    } else {
-      var html = [
-        '<div id="' + id + '" class="article-share-box">',
-          '<input class="article-share-input" value="' + url + '">',
-          '<div class="article-share-links">',
-            '<a href="//twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-            '<a href="//www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-            '<a href="//service.weibo.com/share/share.php?title=' + title + '&url=' + encodedUrl + '&searchPic=true&style=number' + '" class="article-share-weibo" target="_blank" title="Weibo"></a>',
-            '<a href="' + qrcode_img + '" class="article-share-qrcode" target="_blank" title="QR code"></a>',
-            '<div class="qrcode"><img src=' + qrcode_img + '></div>',
-          '</div>',
-        '</div>'
-      ].join('');
-
-      var box = $(html);
-
-      $('body').append(box);
+(() => {
+  function stringfy(params = {}) {
+    let str = '?';
+    for(let key of Reflect.ownKeys(params)) {
+      let value = !!params[key] ? encodeURIComponent(params[key]) : ''; 
+      str = `${str}${key}=${value}&`;
     }
+    return str.slice(0, str.length - 1);
+  }
 
-    $('.article-share-box.on').hide();
+  function toggleShareBtn() {
+    let show = false;
+    const shareBtnDOM = document.querySelector('#share-btn');
 
-    box.css({
-      top: offset.top + 25,
-      left: offset.left
-    }).addClass('on');
-  }).on('click', '.article-share-box', function(e){
-    e.stopPropagation();
-  }).on('click', '.article-share-box-input', function(){
-    $(this).select();
-  }).on('click', '.article-share-box-link', function(e){
+    return (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      show = !show;
+      shareBtnDOM.style.display = show ? 'flex' : 'none';
+    };
+  }
+
+  const mapSocialToUrl = (() => {
+    const baseUrls = {
+      twitter: 'https://twitter.com/intent/tweet',
+      facebook: 'https://www.facebook.com/sharer/sharer.php',
+      qq: 'http://connect.qq.com/widget/shareqq/index.html',
+      weibo: 'http://service.weibo.com/share/share.php'
+    };
+
+    const title = document.title;
+    const description = document.querySelector("meta[name='description']").getAttribute('content');
+    const url = `${window.location.origin}${window.location.pathname}`;
+
+    const params = {
+      twitter: {
+        url,
+        text: `${title}\n\n${description}\n\n`,
+        via: window.location.origin
+      },
+      facebook: {
+        u: url
+      },
+      weibo: {
+        url,
+        title: `${title}\n\n${description}`
+      },
+      qq: {
+        url,
+        title,
+        desc: description
+      },
+    };
+
+    return {
+      twitter: `${baseUrls.twitter}${stringfy(params.twitter)}`,
+      facebook: `${baseUrls.facebook}${stringfy(params.facebook)}`,
+      weibo: `${baseUrls.weibo}${stringfy(params.weibo)}`,
+      qq: `${baseUrls.qq}${stringfy(params.qq)}`,
+    }
+  })();
+
+  const pfxCls = '#share-btn';
+  const { share } = window.AD_CONFIG;
+  const socials = Reflect.ownKeys(share).filter(social => share[social]);
+
+  for(let social of socials) {
+    if(social === 'wechat') {
+      continue;
+    }
+    document
+      .querySelector(`${pfxCls}-${social}`)
+      .setAttribute('href', mapSocialToUrl[social]);
+  }
+
+  if(!socials.includes('wechat')) {
+    return;
+  }
+
+  // wechat share by qrcode
+  document.querySelector('#share-btn-wechat').addEventListener('click', (e) => {
     e.preventDefault();
     e.stopPropagation();
 
-    window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+    const layer = document.querySelector('#site-layer'),
+      container = document.querySelector('#site-layer-container'),
+      title = document.querySelector('#site-layer-title'),
+      newDOM = document.createElement('div');
+
+    layer.style.display = 'block';
+    title.innerHTML = '微信分享';
+    container.appendChild(newDOM);
+
+    const qrcode = new QRCode(newDOM, {
+      text: `${window.location.origin}${window.location.pathname}`,
+      width: 256,
+      height: 256,
+      colorDark: "#000000",
+      colorLight: "#ffffff",
+      correctLevel : QRCode.CorrectLevel.H
+    });
+
+    window.AD_CONFIG.layer.add(() => {
+      title.innerHTML = '';
+      qrcode.clear();
+      newDOM.remove();
+    });
   });
 
-})(jQuery);
+  // control btn panel if show in mobile phone
+  if(socials.length > 0) {
+    document.querySelector('#site-toggle-share-btn').addEventListener('click', toggleShareBtn());
+  }
+})();
