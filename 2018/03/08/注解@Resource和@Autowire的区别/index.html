@@ -177,14 +177,16 @@
 </ul>
 <ul>
 <li><p><code>@Autowire</code>和<code>@Qualifier</code>配合使用效果和<code>@Resource</code>一样：</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span>(required = <span class="keyword">false</span>) <span class="meta">@Qualifier</span>(<span class="string">"example"</span>)</span><br><span class="line"><span class="keyword">private</span> Example example;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Resource</span>(name = <span class="string">"example"</span>)</span><br><span class="line"><span class="keyword">private</span> Example example;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span>(required = <span class="keyword">false</span>) <span class="meta">@Qualifier</span>(<span class="string">"example"</span>)</span><br><span class="line"><span class="keyword">private</span> Example example;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Resource</span>(name = <span class="string">"example"</span>)</span><br><span class="line"><span class="keyword">private</span> Example example;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>@Resource</code>装配顺序</p>
-<pre><code>1. 如果同时指定name和type，则从容器中查找唯一匹配的bean装配，找不到则抛出异常
-2. 如果指定name属性，则从容器中查找名称匹配的bean装配，找不到则抛出异常
-3. 如果指定type属性，则从容器中查找类型唯一匹配的bean装配，找不到或者找到多个抛出异常
-4. 如果都不指定，则自动按照byName方式装配，如果没有匹配，则回退一个原始类型进行匹配，如果匹配则自动装配
-</code></pre></li>
+<ol>
+<li>如果同时指定name和type，则从容器中查找唯一匹配的bean装配，找不到则抛出异常</li>
+<li>如果指定name属性，则从容器中查找名称匹配的bean装配，找不到则抛出异常</li>
+<li>如果指定type属性，则从容器中查找类型唯一匹配的bean装配，找不到或者找到多个抛出异常</li>
+<li>如果都不指定，则自动按照byName方式装配，如果没有匹配，则回退一个原始类型进行匹配，如果匹配则自动装配</li>
+</ol>
+</li>
 </ul>
 <h3 id="简要对比表格"><a href="#简要对比表格" class="headerlink" title="简要对比表格"></a>简要对比表格</h3><table>
 <thead>
@@ -232,7 +234,7 @@
         </div>
       
       <div>
-        版权声明: 本博客采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 对您有用请右下角点击打赏，转载请注明出处!
+        版权声明: 本博客采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 可右下角点击打赏，转载请注明出处!
       </div>
     </aside>
   
