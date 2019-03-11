@@ -174,7 +174,7 @@
 </blockquote>
 </li>
 </ul>
-<p><img src="https://img-blog.csdn.net/20180327171242547?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTIxMDIxMDQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="HashMap"></p>
+<p><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/36-1.png" alt="HashMap"></p>
 <h4 id="Hashtable"><a href="#Hashtable" class="headerlink" title="Hashtable"></a>Hashtable</h4><table>
 <thead>
 <tr>
@@ -210,7 +210,7 @@
 <p>Hashtable线程安全的策略实现代价很大，get/put所有相关操作都是synchronized的，在竞争激烈的并发场景中性能非常差。</p>
 </blockquote>
 <h4 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h4><p>&emsp;&emsp;ConcurrentHashMap是Java并发包中提供的一个线程安全且高效的HashMap实现，它采用了非常精妙的<strong>分段锁</strong>策略，ConcurrentHashMap的主干是Segment数组。Segment继承于ReentrantLock，是一种可重入锁。每个Segment都是一个子哈希表，Segment里维护了一个HashEntry数组，并发环境下，对于不同Segment的数据进行操作不用考虑锁竞争。  </p>
-<p><img src="https://img-blog.csdn.net/20180327171316531?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTIxMDIxMDQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="ConcurrentHashMap"></p>
+<p><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/36-2.png" alt="ConcurrentHashMap"></p>
 <h3 id="LinkedHashMap、TreeMap、TreeSet"><a href="#LinkedHashMap、TreeMap、TreeSet" class="headerlink" title="LinkedHashMap、TreeMap、TreeSet"></a>LinkedHashMap、TreeMap、TreeSet</h3><ul>
 <li>LinkedHashMap：顺序存取的HashMap（基于数组和双向链表实现）。</li>
 <li>TreeMap：内部排序（基于红黑树实现）。</li>
