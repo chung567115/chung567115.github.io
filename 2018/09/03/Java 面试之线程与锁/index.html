@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="博学de叫兽">
+  
+  
+  <title>Java面试之线程与锁 | 张冲的个人主页</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="笔经面经,Java,校招,">
+  
+
+  
+  <meta name="description" content="笔经面经归纳汇总：多线程和锁">
+
+  
+
+  <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"BC5HXTROXDidWBaQPTdAAcgU-gzGzoHsz","appkey":"tLTVFMxoabrQCkBOqTDYzzm7","comment":false,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-03-08",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "博学de叫兽",
+    share: {"twitter":false,"facebook":false,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: ""
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">博学de叫兽</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 博学之，审问之</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/chung567115" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2018-09-03
+    </span>
+    
+      <span>
+        | <a href="/categories/笔经面经/"><i class="fa fa-bookmark"></i>笔经面经</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    Java面试之线程与锁
+  </h1>
+  
+  <article class="passage-article">
+    <h1 id="Java面试之线程与锁"><a href="#Java面试之线程与锁" class="headerlink" title="Java面试之线程与锁"></a>Java面试之线程与锁</h1><h2 id="进程、线程"><a href="#进程、线程" class="headerlink" title="进程、线程"></a>进程、线程</h2><p>&emsp;&emsp;<strong>进程是操作系统分配资源的最小单元，线程是操作系统调度的最小单元</strong>。一个进程一般包括多个线程，这些线程共享本进程的内存和资源。</p>
+<h3 id="线程的状态"><a href="#线程的状态" class="headerlink" title="线程的状态"></a>线程的状态</h3><p><img src="https://img-blog.csdnimg.cn/20181210192426949.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTIxMDIxMDQ=,size_16,color_FFFFFF,t_70" alt="线程状态"></p>
+<h3 id="实现线程的几种方式"><a href="#实现线程的几种方式" class="headerlink" title="实现线程的几种方式"></a>实现线程的几种方式</h3><ul>
+<li>继承Thread类创建线程</li>
+<li>实现Runnable接口创建线程</li>
+<li>实现Callable接口创建新线程(可用Future返回结果)</li>
+</ul>
+<h3 id="ThreadLocal"><a href="#ThreadLocal" class="headerlink" title="ThreadLocal"></a>ThreadLocal</h3><p>&emsp;&emsp;设计理念是为了减少同一个线程内多个函数或者组件之间一些公共变量的传递的复杂度。作用是提供线程内部的局部变量，这些变量在多线程环境下访问(get/set)时能保证与其它线程里的变量相对独立。打个比方，多人(多个线程)使用自己的交通卡(线程私有变量)乘公交转地铁(两个函数)。<br>&emsp;&emsp;注意：使用 ThreadLocal 时要保证能够管理它的创建、销毁，否则会出问题。因为 ThreadLocal 是和 Thread 绑定的，如果 Thread 是从 ThreadPool 中拿出来的，那么意味着 Thread 可能会被复用。如果被复用，你就一定得保证这个 Thread 上一次结束的时候，其关联的 ThreadLocal 被清空掉，否则就会串到下一次使用。</p>
+<blockquote>
+<p>应用场景：银行转账包含一系列的操作，把转出账户的余额减少，把转入账户的余额增加，这两个操作要在同一个事务中完成，它们必须使用相同的数据库连接对象，而这个连接信息可以用ThreadLocal保存。</p>
+</blockquote>
+<h4 id="ThreadPool的用法"><a href="#ThreadPool的用法" class="headerlink" title="ThreadPool的用法"></a>ThreadPool的用法</h4><p>&emsp;&emsp;使用ThreadPoolExecutor创建线程池，其中5参构造函数参数列表如下：</p>
+<ul>
+<li>int corePoolSize：线程池中核心线程数，一般为cpu数量</li>
+<li>int maximumPoolSize： 线程池中线程总数，一般为2*cpu数量(<code>I/O密集型时maxSize设置大一点，提高cpu利用率</code>)</li>
+<li>long keepAliveTime：线程池中非核心线程闲置超时时长</li>
+<li>TimeUnit unit：keepAliveTime的单位</li>
+<li>BlockingQueue workQueue：线程池中的任务队列，维护着等待执行的Runnable对象 <ul>
+<li>SynchronousQueue：接收到任务时，会直接提交给线程处理，而不保留它</li>
+<li>LinkedBlockingQueue：接收到任务时，如果当前线程数小于核心线程数，则新建核心线程处理任务；如果当前线程数等于核心线程数，则进入队列等待</li>
+<li>ArrayBlockingQueue：接收到任务时，如果没有达到corePoolSize的值，则新建核心线程执行任务；如果达到了，则入队等候；如果队列已满，则新建非核心线程执行任务；如果总线程数到了maximumPool，且队列也满了，则发生错误</li>
+<li>DelayQueue：接收到任务时，首先先入队，只有达到了指定的延时时间，才会执行任务。注意：队列内元素必须实现Delayed接口，这就意味着你传进去的任务必须先实现Delayed接口</li>
+</ul>
+</li>
+<li><p>RejectedExecutionHandler handler：BlockingQueue 打满时的几种拒绝策略</p>
+<ul>
+<li>Abort策略：默认策略，新任务提交时直接抛出未检查的异常。</li>
+<li>RejectedExecutionException，该异常可由调用者捕获。</li>
+<li>CallerRuns策略：为调节机制，既不抛弃任务也不抛出异常，而是将某些任务回退到调用者。不会在线程池的线程中执行新的任务，而是在调用exector的线程中运行新的任务。</li>
+<li>Discard策略：新提交的任务被抛弃。</li>
+<li><p>DiscardOldest策略：队列的是“队头”的任务，然后尝试提交新的任务。</p>
+<blockquote>
+<p>向线程池提交一个要执行的任务<code>threadPoolExecutor.execute(runnable);</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p>&emsp;&emsp;当新提交一个任务时：</p>
+<ol>
+<li>如果<code>当前线程数&lt;corePoolSize</code>，新增一个核心线程处理新的任务。</li>
+<li>如果<code>当前线程数=corePoolSize</code>，新任务会被放入阻塞队列等待。</li>
+<li>如果阻塞队列满了，且<code>当前线程数&lt;maximumPoolSize</code>，新增线程来处理任务。</li>
+<li>如果阻塞队列满了，且<code>当前线程数=maximumPoolSize</code>，那么线程池已达极限，此时会根据饱和策略<code>RejectedExecutionHandler</code>拒绝新的任务。<h3 id="使用线程池的优势："><a href="#使用线程池的优势：" class="headerlink" title="使用线程池的优势："></a>使用线程池的优势：</h3></li>
+</ol>
+<ul>
+<li>降低资源消耗：重复利用已创建的线程，降低创建和销毁造成的消耗。</li>
+<li>提高响应速度：任务可以不需要等到线程创建就能立即执行(参考上条)。</li>
+<li>提高管理性：可以进行统一的分配、调优和监控。</li>
+</ul>
+<h3 id="三大常用并发工具类"><a href="#三大常用并发工具类" class="headerlink" title="三大常用并发工具类"></a>三大常用并发工具类</h3><ul>
+<li>Semaphore：并发控制，控制刷新账单并发数，tryAcquire()、release()</li>
+<li>CountDownLanch：计数器，与会人员到齐了会议才能开始，await()、countDown()</li>
+<li>Cyclicbarrier：同步屏障(可以被重用)，等待本周每天的账单都计算完之后，再计算日均开销，await()</li>
+</ul>
+<h3 id="concurrent包"><a href="#concurrent包" class="headerlink" title="concurrent包"></a>concurrent包</h3><ul>
+<li>Executor接口：具体Runnable任务的执行者。</li>
+<li>Executors类：创建线程池工具类（阿里手册禁止用此工具类）。</li>
+<li>ExecutorService接口：线程池管理者，可提交Runnable、Callable让其调度。</li>
+<li>ThreadPoolExecutor类：线程池工具类。（ExecutorService的一种具体实现）。</li>
+<li>CompletionService接口：ExecutorService的扩展，可以获得线程执行结果。</li>
+<li>ReentrantLock类：可重入互斥锁（实现Lock接口）。</li>
+<li>BlockingQueue接口：阻塞队列。</li>
+<li>Future接口：一个线程执行结束后取返回的结果，还提供了cancel()终止线程。</li>
+<li>CountDownLatch类：当计数器值到达0时，它表示所有的线程已经完成了任务，然后在闭锁上等待的线程就可以恢复执行任务。</li>
+</ul>
+<h2 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h2><h3 id="死锁产生的必要条件"><a href="#死锁产生的必要条件" class="headerlink" title="死锁产生的必要条件"></a>死锁产生的必要条件</h3><ul>
+<li><strong>互斥条件</strong>：进程对所分配的资源进行排他性控制，即在一段时间内某资源仅为一个进程所占有。此时若有其他进程请求该资源，则请求进程只能等待。</li>
+<li><strong>不剥夺条件</strong>：进程所获得的资源在未使用完毕之前，不能被其他进程强行夺走，即只能 由获得该资源的进程主动释放。</li>
+<li><strong>请求和保持条件</strong>：进程已经保持了至少一个资源，但又提出了新的资源请求，而该资源 已被其他进程占有，此时请求进程被阻塞，但对自己已获得的资源保持不放。</li>
+<li><strong>环路等待条件</strong>：存在一个进程——资源的环形链，即进程集合{P0，P1，P2，···，Pn}中的P0正在等待一个P1占用的资源；P1正在等待P2占用的资源，……，Pn正在等待已被P0占用的资源。</li>
+</ul>
+<h3 id="避免死锁"><a href="#避免死锁" class="headerlink" title="避免死锁"></a>避免死锁</h3><ul>
+<li>加锁顺序（线程按一定顺序加锁，若所有线程都按相同顺序获得锁，就能避免死锁） </li>
+<li>加锁时限（线程获取锁时加上时限，超时则放弃并释放所占有的锁，就能避免死锁）</li>
+<li>死锁检测（一个更优的预防机制，主要针对不可能实现按序加锁和加锁时限的场景）</li>
+</ul>
+<h3 id="锁的类型"><a href="#锁的类型" class="headerlink" title="锁的类型"></a>锁的类型</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">锁</th>
+<th style="text-align:center">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">公平锁/非公平锁</td>
+<td style="text-align:center">公平锁是指多个线程按照申请锁的顺序来获取锁</td>
+</tr>
+<tr>
+<td style="text-align:center">可重入锁</td>
+<td style="text-align:center">同一线程在外层方法已获取锁时，进入内层方法会自动获取锁</td>
+</tr>
+<tr>
+<td style="text-align:center">独享锁/共享锁</td>
+<td style="text-align:center">一次可被<strong>单个/多个</strong>线程所持有，例如ReadWriteLock的<strong>写锁/读锁</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">互斥锁/读写锁</td>
+<td style="text-align:center">一种互斥锁：ReentrantLock；一种读写锁：ReadWriteLock</td>
+</tr>
+<tr>
+<td style="text-align:center">乐观锁/悲观锁</td>
+<td style="text-align:center">悲观锁认为对于同一个数据的并发操作一定会发生修改</td>
+</tr>
+<tr>
+<td style="text-align:center">分段锁</td>
+<td style="text-align:center">一种锁的设计，具体应用有ConcurrentHashMap</td>
+</tr>
+<tr>
+<td style="text-align:center">自旋锁</td>
+<td style="text-align:center">尝试获取锁的线程不会立即阻塞，而是采用循环的方式去尝试获取</td>
+</tr>
+<tr>
+<td style="text-align:center">偏向锁/轻量级锁/重量级锁</td>
+<td style="text-align:center">指锁的状态，并且是针对synchronized</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>偏向锁</strong>是指一段同步代码一直被一个线程所访问，那么该线程会自动获取锁。<strong>轻量级锁</strong>是指当锁是偏向锁的时候，被另一个线程所访问，偏向锁就会升级为轻量级锁，其他线程会通过自旋的形式尝试获取锁，不会阻塞，提高性能。<strong>重量级锁</strong>是指当锁为轻量级锁的时候，另一个线程虽然是自旋，但当自旋一定次数还没获取到锁的时候，就会进入阻塞，该锁膨胀为重量级锁。</p>
+</blockquote>
+<h3 id="各种比较"><a href="#各种比较" class="headerlink" title="各种比较"></a>各种比较</h3><h4 id="synchronized和volatile"><a href="#synchronized和volatile" class="headerlink" title="synchronized和volatile"></a>synchronized和volatile</h4><ol>
+<li><p>synchronized是Java中的关键字，是一种同步锁。有如下几种用法：  </p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 修饰方法(方法锁)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">syncMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//doSomething</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2. 修饰代码块(对象锁)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">synMethod</span><span class="params">(<span class="keyword">int</span> arg)</span></span>&#123;</span><br><span class="line">    <span class="keyword">synchronized</span>(arg) &#123;</span><br><span class="line">        <span class="comment">//doSomething</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">//3. 修饰类(类锁)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SyncClass</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span>(SyncClass.class) &#123;</span><br><span class="line">            <span class="comment">//doSomething</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>锁的级别有对象级别和类级别，1和2属于对象级别，3属于类级别</p>
+</blockquote>
+</li>
+<li><p>volatile 是在告诉JVM当前变量在cpu缓存中的值是不确定的，需要从主存中读取（<strong>禁止指令的重排序</strong>）； synchronized则是锁定当前变量，只有当前线程可以访问该变量，其他线程被阻塞住。volatile与synchronized的区别如下：<br> |   比较点   |    volatile  |     synchronized |<br> |:———-:|:——–:|:———-:|<br> |    阻塞   |    不会发生线程阻塞  |  会发生线程阻塞|<br> |    修饰    |    变量  | 方法、代码块、类 |<br> |  原子性  |    不能保证  |     可以保证  |<br> |  安全性  |    非线程安全 |   线程安全  |<br> | 解决问题|  变量在多线程之间的可见性  | 多线程之间访问资源的同步性 |</p>
+</li>
+</ol>
+<h4 id="sychronized和Lock"><a href="#sychronized和Lock" class="headerlink" title="sychronized和Lock"></a>sychronized和Lock</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">比较点</th>
+<th style="text-align:center">sychronized</th>
+<th style="text-align:center">Lock</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">解释</td>
+<td style="text-align:center">Java关键字</td>
+<td style="text-align:center">Java接口</td>
+</tr>
+<tr>
+<td style="text-align:center">显隐</td>
+<td style="text-align:center">隐式锁</td>
+<td style="text-align:center">需显示指定起始位置和终止位置</td>
+</tr>
+<tr>
+<td style="text-align:center">释放锁</td>
+<td style="text-align:center">获取锁的线程会在执行完同步代码后自动释放锁（或者JVM会在线程执行发生异常时释放锁）</td>
+<td style="text-align:center">在finally中必须释放锁，不然容易造成线程死锁</td>
+</tr>
+<tr>
+<td style="text-align:center">等待</td>
+<td style="text-align:center">一个线程获得锁后阻塞，其他线程会一直等待</td>
+<td style="text-align:center">线程不会一直等待，超时会释放</td>
+</tr>
+<tr>
+<td style="text-align:center">锁类型</td>
+<td style="text-align:center">可重入但不可中断、非公平</td>
+<td style="text-align:center">可重入、可中断、可公平也可不公平</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sleep-和wait-，yield-和notify"><a href="#sleep-和wait-，yield-和notify" class="headerlink" title="sleep()和wait()，yield()和notify()"></a>sleep()和wait()，yield()和notify()</h4><ul>
+<li>sleep()是Thread类的一个静态函数，它会使调用线程睡眠(阻塞)一段时间，让其他线程有机会继续执行，但它<strong>不释放锁</strong>。</li>
+<li>wait()是Object类的方法，它会使当前线程阻塞，直到调用notify()，则被唤醒，它<strong>会释放锁</strong>。</li>
+<li>yield()是Thread类的方法，它会使运行中的线程重新变为就绪状态，让同优先级线程重新竞争。</li>
+<li>notify()是Object类的方法，它会唤醒单个线程。</li>
+</ul>
+<h3 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h3><p>&emsp;&emsp;一种跨服务器(JVM)控制共享资源访问的互斥机制。在分布式系统环境下，一个方法在同一时间只能被一台机器的一个线程执行。  </p>
+<ol>
+<li><strong>基于数据库实现分布式锁</strong>：在数据库中创建一张表，表中包含<strong>方法名</strong>字段，并在方法名字段上创建唯一索引，想要执行某个方法，就使用这个方法名向表中插入数据，成功插入则获取锁，执行完成后删除对应的行数据释放锁。</li>
+<li><p><strong>基于缓存（Redis等）实现分布式锁</strong>：获取锁的时候，使用<strong>setnx</strong>加锁，并使用<strong>expire</strong>命令为锁添加一个超时时间，超过该时间则自动释放锁，锁的value值为当前时间加上锁定时间，释放锁的时候执行<strong>delete</strong>进行释放。</p>
+<blockquote>
+<p>Redis实现分布式锁详见小博另一篇博客:&emsp;<a href="https://blog.csdn.net/u012102104/article/details/82966553" target="_blank" rel="noopener">点击查看</a></p>
+</blockquote>
+</li>
+<li><strong>基于Zookeeper实现分布式锁</strong>：①创建一个目录dislock；②线程A想获取锁就在dislock目录下创建临时顺序节点；③获取dislock目录下所有的子节点，然后获取比自己小的兄弟节点，如果不存在，则说明当前线程顺序号最小，获得锁；④线程B获取所有节点，判断自己不是最小节点，设置监听比自己次小的节点；⑤线程A处理完，删除自己的节点，线程B监听到变更事件，判断自己是不是最小的节点，如果是则获得锁。</li>
+</ol>
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java面试之线程与锁"><span class="toc-text">Java面试之线程与锁</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#进程、线程"><span class="toc-text">进程、线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#线程的状态"><span class="toc-text">线程的状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现线程的几种方式"><span class="toc-text">实现线程的几种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ThreadLocal"><span class="toc-text">ThreadLocal</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ThreadPool的用法"><span class="toc-text">ThreadPool的用法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用线程池的优势："><span class="toc-text">使用线程池的优势：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三大常用并发工具类"><span class="toc-text">三大常用并发工具类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#concurrent包"><span class="toc-text">concurrent包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#锁"><span class="toc-text">锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#死锁产生的必要条件"><span class="toc-text">死锁产生的必要条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#避免死锁"><span class="toc-text">避免死锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#锁的类型"><span class="toc-text">锁的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#各种比较"><span class="toc-text">各种比较</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#synchronized和volatile"><span class="toc-text">synchronized和volatile</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sychronized和Lock"><span class="toc-text">sychronized和Lock</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sleep-和wait-，yield-和notify"><span class="toc-text">sleep()和wait()，yield()和notify()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分布式锁"><span class="toc-text">分布式锁</span></a></li></ol></li></ol></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 博学de叫兽</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://zhangchong.xin/2018/09/03/Java 面试之线程与锁/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 可右下角点击打赏，转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/Java/"><i class="fa fa-tags"></i>Java</a>
+     
+      <a href="/tags/校招/"><i class="fa fa-tags"></i>校招</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">博客推荐</h5>
+        
+          <span class="site-footer-item">
+            <a href="http://youzhixueyuan.com" target="_blank">优知学院</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://github.com/Snailclimb/JavaGuide" target="_blank">Snailclimb</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">系列教程</h5>
+        
+          <span class="site-footer-item">
+            <a href="http://www.runoob.com" target="_blank">菜鸟教程</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://www.w3cschool.cn" target="_blank">W3Cschool</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">我的主页</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://github.com/chung567115" target="_blank">GitHub</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://chung567115.blog.csdn.net" target="_blank">CSDN</a>
+          </span>
+        
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: chung567115@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+        
+          <div>
+            <img src="/images/wechat.png" alt="微信">
+            
+              <p>微信</p>
+            
+          </div>
+        
+          <div>
+            <img src="/images/alipay.png" alt="支付宝">
+            
+              <p>支付宝</p>
+            
+          </div>
+        
+      </div>
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/2018/09/03/Java 面试之 JVM/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/2018/08/28/Java 面试之结束问答/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    <a href="javascript:void(0);" id="site-reward">
+      <i class="fa fa-thumbs-up"></i>
+    </a>
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+  <script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+  <script async>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+  </script>
+
+
+
+  <script async>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+
+
+
+    
+  </body>
+</html>

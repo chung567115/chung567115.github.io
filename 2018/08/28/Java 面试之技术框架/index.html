@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="博学de叫兽">
+  
+  
+  <title>Java面试之技术框架 | 张冲的个人主页</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="笔经面经,Java,校招,">
+  
+
+  
+  <meta name="description" content="笔经面经归纳汇总：技术框架">
+
+  
+
+  <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"BC5HXTROXDidWBaQPTdAAcgU-gzGzoHsz","appkey":"tLTVFMxoabrQCkBOqTDYzzm7","comment":false,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-03-08",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "博学de叫兽",
+    share: {"twitter":false,"facebook":false,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: ""
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">博学de叫兽</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 博学之，审问之</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/chung567115" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2018-08-28
+    </span>
+    
+      <span>
+        | <a href="/categories/笔经面经/"><i class="fa fa-bookmark"></i>笔经面经</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    Java面试之技术框架
+  </h1>
+  
+  <article class="passage-article">
+    <p></p>
+
+<h1 id="Java面试之技术框架"><a href="#Java面试之技术框架" class="headerlink" title="Java面试之技术框架"></a>Java面试之技术框架</h1><h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>&emsp;&emsp;Spring 是一种用来简化企业级应用开发的开源框架，包括Spring Framework, Spring Data, Spring Security，Spring Boot，SpringMVC等。Spring 家族最核心的概念当属 AOP 和 IoC，详解见下节。其中 Spring 优点如下：</p>
+<ol>
+<li>降低了组件之间的耦合性 ，实现了软件各层之间的解耦</li>
+<li>可以使用便捷的众多服务，如事务管理，消息服务等</li>
+<li>容器提供了AOP技术，利用它很容易实现如权限拦截，运行期监控等功能</li>
+<li>Spring对于主流的应用框架提供了集成支持，如Hibernate、JPA等</li>
+<li>Spring属于低侵入式设计，代码的污染极低</li>
+<li>Spring的高度开放性，开发者可以自由选择Spring的部分或全部</li>
+</ol>
+<h3 id="AOP和IOC"><a href="#AOP和IOC" class="headerlink" title="AOP和IOC"></a>AOP和IOC</h3><h4 id="AOP-Aspect-Oriented-Programming，面向切面编程"><a href="#AOP-Aspect-Oriented-Programming，面向切面编程" class="headerlink" title="AOP(Aspect Oriented Programming，面向切面编程)"></a>AOP(Aspect Oriented Programming，面向切面编程)</h4><p>&emsp;&emsp;AOP简单说就是在目标方法执行前后自定义一些操作，一般都是基于代理模式来实现的，Spring支持两种代理模式，JDK原生代理和CGLib代理。AOP给程序带来良好的扩展性和封装性，可以实现业务代码与非业务代码的隔离。比如可以在不改变目标代码的前提下实现目标方法的增强：埋点业务处理、方法执行时间监控，打印日志，权限控制等等。</p>
+<ol>
+<li>JDK动态代理是利用反射机制生成一个实现代理接口的匿名类，在调用具体方法前调用InvokeHandler来处理。只能对实现了接口的类生成代理。</li>
+<li>CGLib动态代理是利用ASM开源包，对代理对象类的Class文件加载进来，通过修改其字节码生成子类来处理。</li>
+</ol>
+<ul>
+<li>切面(Aspect)：类是对物体特征的抽象，切面就是对横切关注点的抽象。</li>
+<li>切点(Pointcut)：对连接点进行拦截的定义。</li>
+<li>连接点(Joinpoint)：被拦截到的点，比如方法(Spring中一般是方法)、字段、构造器。</li>
+<li>通知(Advice)：指拦截到连接点后要执行的代码，通知分为前置、后置、异常、最终、环绕五类。</li>
+</ul>
+<blockquote>
+<p>AOP：在运行时，动态地将代码切入到类的指定方法、指定位置上的编程思想</p>
+</blockquote>
+<h4 id="IoC-Inversion-of-Control，控制反转"><a href="#IoC-Inversion-of-Control，控制反转" class="headerlink" title="IoC(Inversion of Control，控制反转)"></a>IoC(Inversion of Control，控制反转)</h4><p>&emsp;&emsp;IOC (Inversion of Control，控制反转)：对象之间的依赖关系由容器来创建。本来对象之间的关系是由开发者自己创建和维护的，在使用Spring框架后，对象之间的关系由容器来创建和维护，将开发者做的事让容器做，这就是控制反转。<strong>BeanFactory接口是Spring Ioc容器的核心接口</strong>。<br>&emsp;&emsp;DI (Dependecy Injection，依赖注入)：我们在使用Spring容器的时候，容器通过调用set方法或者是构造器来建立对象之间的依赖关系。注入方式有设值注入、构造注入、注解注入、接口注入(<code>基本不用</code>)，设值注入直观，自然；构造注入可以在构造器中决定依赖关系的顺序。</p>
+<blockquote>
+<p>控制反转是目标，依赖注入是我们实现控制反转的一种手段。</p>
+</blockquote>
+<h3 id="SpringMVC和Struts"><a href="#SpringMVC和Struts" class="headerlink" title="SpringMVC和Struts"></a>SpringMVC和Struts</h3><p>&emsp;&emsp;SpringMVC执行流程如下：  </p>
+<ol>
+<li>客户端向Spring容器发起一个HTTP请求。</li>
+<li>发起的请求被<code>前端控制器</code>(DispatcherServlet)拦截。</li>
+<li>查询<code>处理器映射</code>（HandlerMapping）得到执行链，并请求相应的<code>处理器适配器</code>(HandlerAdapter)。</li>
+<li>执行<code>处理器</code>(Handler)并处理请求，以ModelAndView（属性值和返回页面）的形式返回。此处Handler即平时编写的Controller。</li>
+<li><code>前端控制器</code>查询<code>视图解析器</code>(ViewResolver)，并返回View。</li>
+<li>成功渲染视图则返回给客户端，否则抛异常。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">比较点</th>
+<th style="text-align:center">SpringMVC</th>
+<th style="text-align:center">Struts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">核心控制器</td>
+<td style="text-align:center">DispatcherServlet</td>
+<td style="text-align:center">FilterDispatcher</td>
+</tr>
+<tr>
+<td style="text-align:center">配置文件</td>
+<td style="text-align:center">量少（AOP）</td>
+<td style="text-align:center">量大（Interceptor机制）</td>
+</tr>
+<tr>
+<td style="text-align:center">RESTful API</td>
+<td style="text-align:center">易实现（方法级别）</td>
+<td style="text-align:center">实现费劲（类级别）</td>
+</tr>
+<tr>
+<td style="text-align:center">处理Ajax请求</td>
+<td style="text-align:center">@ResponseBody返回响应文本</td>
+<td style="text-align:center">拦截器集成Ajax</td>
+</tr>
+<tr>
+<td style="text-align:center">性能</td>
+<td style="text-align:center">稍快</td>
+<td style="text-align:center">稍慢</td>
+</tr>
+</tbody>
+</table>
+<p>&emsp;&emsp;DispatcherServlet初始化流程如下：</p>
+<ol>
+<li>加载配置文件</li>
+<li>扫描所有的相关类</li>
+<li>初始化所有相关类的Class实例，并将其保存到IoC容器</li>
+<li>自动化的依赖注入(Autowired)</li>
+<li>初始化HandlerMapping</li>
+</ol>
+<h3 id="Spring事务"><a href="#Spring事务" class="headerlink" title="Spring事务"></a>Spring事务</h3><h4 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h4><p>&emsp;&emsp;数据库事务是指作为单个逻辑工作单元执行的一系列操作，要么完全地执行，要么完全地不执行。事务满足<strong>原子性(Atomicity)</strong>、<strong>一致性(Consistency)</strong>、<strong>隔离性(Isolation)</strong>、<strong>持久性(Durability)</strong> 四大特性。</p>
+<blockquote>
+<p>详见： <a href="https://blog.csdn.net/u012102104/article/details/79773362" target="_blank" rel="noopener">Java 面试之数据库</a></p>
+</blockquote>
+<h4 id="事务管理"><a href="#事务管理" class="headerlink" title="事务管理"></a>事务管理</h4><p>&emsp;&emsp;Spring通过事务管理器接口<code>PlatformTransactionManager</code>为各平台如JDBC(<code>DataSourceTransactionManager</code>)、Hibernate(<code>HibernateTransactionManager</code>、<code>JpaTransactionManager</code>)等都提供了对应的事务管理器。  </p>
+<h4 id="事务的传播特性"><a href="#事务的传播特性" class="headerlink" title="事务的传播特性"></a>事务的传播特性</h4><p>&emsp;&emsp;当事务方法被另一个事务方法调用时，必须指定事务应该如何传播，根据如下代码中方法 A 有无事务，Spring定义了7种传播行为（默认为REQUIRED）：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Transactional</span>  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">A</span><span class="params">()</span></span>&#123;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="meta">@Transactional</span>  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">B</span><span class="params">()</span></span>&#123;  </span><br><span class="line">   A();  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">传播行为(简写)</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>REQUIRED</strong></td>
+<td style="text-align:center">如果没有，就开启一个事务；如果有，就加入当前事务（方法A加入到方法B）</td>
+</tr>
+<tr>
+<td style="text-align:center">REQUIRES_NEW</td>
+<td style="text-align:center">如果没有，就开启一个事务；如果有，就将当前事务挂起</td>
+</tr>
+<tr>
+<td style="text-align:center">NESTED</td>
+<td style="text-align:center">如果没有，就开启一个事务；如果有，就在当前事务中嵌套其他事务（主事务提交或回滚，子事务也会提交或回滚）</td>
+</tr>
+<tr>
+<td style="text-align:center">SUPPORTS</td>
+<td style="text-align:center">如果没有，就以非事务方式执行；如果有，就使用当前事务</td>
+</tr>
+<tr>
+<td style="text-align:center">NOT_SUPPORTED</td>
+<td style="text-align:center">如果没有，就以非事务方式执行；如果有，就将当前事务挂起</td>
+</tr>
+<tr>
+<td style="text-align:center">NEVER</td>
+<td style="text-align:center">如果没有，就以非事务方式执行；如果有，就抛出异常</td>
+</tr>
+<tr>
+<td style="text-align:center">MANDATORY</td>
+<td style="text-align:center">如果没有，就抛出异常；如果有，就使用当前事务</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h3><p>&emsp;&emsp;Spring Boot来自于 Spring 大家族，是一套全新的框架，它默认帮我们进行了很多配置，集成了大量常用的第三方库（例如 Jackson、JDBC、MongoDB、Redis、Mail 等），这些第三方库几乎都可以开箱即用。Spring Boot可以帮助我们快速搭建一个项目，从而让开发者能够更加专注于业务逻辑。  </p>
+<h3 id="Spring扩展"><a href="#Spring扩展" class="headerlink" title="Spring扩展"></a>Spring扩展</h3><ul>
+<li>实现BeanPostProcess接口在Bean生成前后进行操作。</li>
+<li>实现BeanFactoryPostProcessor接口配置Bean元属性。</li>
+<li>实现FactoryBean接口定制个性化的Bean。</li>
+</ul>
+<h2 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h2><p>&emsp;&emsp;MyBatis是一款优秀的持久层框架，它几乎避免了所有的JDBC代码和手动设置参数以及获取结果集，它可以使用XML或注解来将接口和POJO映射成数据库中的记录。<br>&emsp;&emsp;MyBatis与Spring集成的时候Spring提供了全局唯一的SqlSessionTemplate，SqlSessionTemplate 实现了SqlSession接口，那么如何保证多个线程调用同一个dao时拿到的SqlSession不会错乱呢？这个时候就用到了ThreadLocal，SqlSessionUtils.getSqlSession()会首先查看当前线程资源map有无SqlSession，有则返回无则新建然后返回，这样就能保证一条业务始终用的是同一个数据库连接，也就能正确处理数据库事务。</p>
+<h3 id="MyBatis和Hibernate"><a href="#MyBatis和Hibernate" class="headerlink" title="MyBatis和Hibernate"></a>MyBatis和Hibernate</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">比较点</th>
+<th style="text-align:center">MyBatis</th>
+<th style="text-align:center">Hibernate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">特点</td>
+<td style="text-align:center">半自动(手写SQL)</td>
+<td style="text-align:center">全自动(根据映射生成SQL)</td>
+</tr>
+<tr>
+<td style="text-align:center">SQL直接优化</td>
+<td style="text-align:center">方便</td>
+<td style="text-align:center">复杂</td>
+</tr>
+<tr>
+<td style="text-align:center">数据库移植性</td>
+<td style="text-align:center">弱</td>
+<td style="text-align:center">强</td>
+</tr>
+<tr>
+<td style="text-align:center">缓存机制</td>
+<td style="text-align:center">欠缺</td>
+<td style="text-align:center">更优</td>
+</tr>
+<tr>
+<td style="text-align:center">日志系统</td>
+<td style="text-align:center">欠缺</td>
+<td style="text-align:center">完整</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Statement和PreparedStatement的区别"><a href="#Statement和PreparedStatement的区别" class="headerlink" title="Statement和PreparedStatement的区别"></a>Statement和PreparedStatement的区别</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/***PreparedStatement extends Statement***/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Statement用法</span></span><br><span class="line">sql1 = <span class="string">"select * from tbl_user where username='"</span> + u + <span class="string">"' and password='"</span> + p + <span class="string">"'"</span>;</span><br><span class="line">statement = conn.createStatement();  </span><br><span class="line">result1 = statement.executeQuery(sql1);  </span><br><span class="line"></span><br><span class="line"><span class="comment">//PrepareStatement用法</span></span><br><span class="line">sql2 = <span class="string">"select * from tbl_user where username=? and password=?"</span>;  </span><br><span class="line">prepareStatement = conn.prepareStatement(sql2);  </span><br><span class="line">pstmt.setString(<span class="number">1</span>, u);  </span><br><span class="line">pstmt.setString(<span class="number">2</span>, p);  </span><br><span class="line">result2 = prepareStatement.executeQuery();</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">比较点</th>
+<th style="text-align:center">Statement</th>
+<th style="text-align:center">PreparedStatement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">用途</td>
+<td style="text-align:center">执行静态SQL语句并返回结果</td>
+<td style="text-align:center">执行已预编译SQL语句并返回结果</td>
+</tr>
+<tr>
+<td style="text-align:center">可读性</td>
+<td style="text-align:center">低(字符串拼接)</td>
+<td style="text-align:center">高(Set方法设值)</td>
+</tr>
+<tr>
+<td style="text-align:center">效率</td>
+<td style="text-align:center">低(字符串拼接)</td>
+<td style="text-align:center">高(占位符)</td>
+</tr>
+<tr>
+<td style="text-align:center">安全性</td>
+<td style="text-align:center">低(SQL注入)</td>
+<td style="text-align:center">高</td>
+</tr>
+</tbody>
+</table>
+<h2 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h2><ol>
+<li>消息队列中间件是分布式系统中重要的组件，主要主要解决应用耦合、异步消息、流量削锋等问题，具有异步性、可靠性（存储到本地硬盘）、松耦合、分布式的特性。  <ul>
+<li>主要特点是异步处理</li>
+<li>主要目的是减少请求响应时间、解耦</li>
+<li>主要使用场景是将比较耗时且不需同步返回结果的操作当做消息存入队列</li>
+</ul>
+</li>
+<li>流量削峰的一种解决方案  <ul>
+<li>MQ推送模式改为定时或者批量拉取模式</li>
+<li>消息接收方实现批量处理等方式</li>
+</ul>
+</li>
+<li>RabbitMQ<ul>
+<li>RabbitMQ 是一个由 ErLang 开发的AMQP的开源实现。</li>
+<li>交换机（Exchange）的功能主要是接收消息并且转发到绑定的队列，交换机不存储消息，<strong>交换机本质是一张路由查询表</strong>。<ul>
+<li>Direct：绑定时设定一个路由键，消息的路由键匹配才会被投送到队列中。</li>
+<li>Topic：根据模糊匹配转发消息（最灵活）。</li>
+<li>Headers：设置头部参数类型的交换机。</li>
+<li>Fanout：转发消息到所有绑定队列，消息广播的模式。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>路由键（routing_key）在消息中，而绑定键（binding_key）作用于交换机和队列之间。当消息中的路由键和绑定键对应上的时候，交换机就知道将该消息存入哪个队列。</p>
+</blockquote>
+<h2 id="分布式"><a href="#分布式" class="headerlink" title="分布式"></a>分布式</h2><ul>
+<li>分布式：一个业务分拆多个子业务，部署在不同的服务器上（厨师和配菜师的关系）</li>
+<li>集群：同一个业务，部署在多个服务器上（两个厨师的关系）</li>
+</ul>
+<h2 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h2><p>&emsp;&emsp;微服务架构风格是一种<strong>使用一套小服务来开发单个应用</strong>的方式，每个服务运行在自己的进程中，并使用轻量级机制通信（通常是<code>HTTP API</code>），这些服务能够通过自动化部署机制来独立部署、可以使用不同的编程语言实现、可以使用不同的数据存储技术，并保持最低限度的集中式管理。<br>&emsp;&emsp;时下热门的微服务开发框架有：<a href="http://projects.spring.io/spring-cloud" target="_blank" rel="noopener">Spring Cloud</a>、<a href="http://dubbo.io" target="_blank" rel="noopener">Dubbo</a></p>
+<h2 id="RESTful"><a href="#RESTful" class="headerlink" title="RESTful"></a>RESTful</h2><p>&emsp;&emsp;<strong>URL定位资源，HTTP动词描述操作</strong>    </p>
+<ul>
+<li>GET：读取资源</li>
+<li>POST：创建资源</li>
+<li>PUT：更新资源</li>
+<li>DELETE：删除资源</li>
+</ul>
+<blockquote>
+<p>使用PUT方式更新时，必须发送资源所有的属性</p>
+</blockquote>
+<h2 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h2><h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><ul>
+<li><p>正向代理：隐藏真实的请求客户端，服务端不知道真实的客户端是谁，正向代理服务器会代替客户端向服务器发送请求。<strong>正向代理代理的对象是客户端</strong>。</p>
+</li>
+<li><p>反向代理：隐藏真实的响应服务端，客户端不知道真实的服务端是谁，反向代理服务器会把请求转发到真实的服务器。<strong>反向代理代理的对象是服务端</strong>。</p>
+</li>
+</ul>
+<blockquote>
+<p>10086总机就是一种反向代理，客户不知道真正提供服务人的是谁。</p>
+</blockquote>
+<h3 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h3><ul>
+<li><strong>四层负载均衡</strong>：工作在OSI模型的<strong>传输层</strong>，它在接收到客户端的流量以后通过修改数据包的地址信息将流量转发到应用服务器，因此四层负载均衡的主要工作就是<strong>转发</strong>。</li>
+<li><strong>七层负载均衡</strong>：工作在OSI模型的<strong>应用层</strong>，七层负载均衡在接到客户端的流量以后，还需要一个完整的TCP/IP协议栈与客户端建立一条完整的连接，并将应用层的请求流量解析出来，再按照调度算法选择一个应用服务器，并与应用服务器建立另外一条连接将请求发送过去，因此七层负载均衡的主要工作就是<strong>代理</strong>。</li>
+</ul>
+<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><h3 id="设计模式的六大原则"><a href="#设计模式的六大原则" class="headerlink" title="设计模式的六大原则"></a>设计模式的六大原则</h3><ol>
+<li>单一职责原则：一个类只负责一个功能领域中的相应职责。</li>
+<li>开闭原则：一个软件实体应当对扩展开放，对修改关闭。</li>
+<li>里氏替换原则：所有引用父类的地方必须能透明地使用其子类的对象。</li>
+<li>依赖倒置原则：抽象不应该依赖于细节，细节应当依赖于抽象。(要针对接口编程，而不是针对实现编程)。</li>
+<li>接口隔离原则：使用多个专门的接口，而不使用单一的总接口。</li>
+<li>迪米特法则：一个软件实体应当尽可能少地与其他实体发生相互作用。</li>
+</ol>
+<h3 id="单例、工厂、观察者、适配器、责任链"><a href="#单例、工厂、观察者、适配器、责任链" class="headerlink" title="单例、工厂、观察者、适配器、责任链"></a>单例、工厂、观察者、适配器、责任链</h3><ul>
+<li>单例模式：一个类负责创建自己的对象，同时确保只有单个对象被创建，并提供一种访问其唯一对象的方式。</li>
+<li>工厂模式：在创建对象时不暴露创建逻辑，并通过使用一个共同的接口来指向新创建的对象。</li>
+<li>代理模式：一个类代表另一个类的功能，为其他对象提供一种代理以控制对这个对象的访问。</li>
+<li>模板模式：一个抽象类公开定义了方法，它的子类可以按需要重写方法，但以抽象类中定义的模板调用。</li>
+<li>策略模式：定义一系列的算法，把它们一个个封装起来,，并且使它们可相互替换。</li>
+<li>过滤器模式：允许开发人员使用不同的标准来过滤一组对象，通过逻辑运算以解耦的方式把它们连接起来。</li>
+<li>适配器模式：将一个类的接口转换成另一个接口，使原本由于接口不兼容而不能一起工作的类可以一起工作。</li>
+<li>观察者模式：定义对象间的依赖关系，当一个对象的状态改变时，所有依赖于它的对象都被通知并自动更新。</li>
+<li>责任链模式：为请求创建了一个接收者对象的链，沿着这条链传递请求，直到有对象处理它为止。<blockquote>
+<p>设计模式详见小博系列博客：<a href="https://blog.csdn.net/u012102104/article/details/85328253" target="_blank" rel="noopener">代码详解设计模式汇总</a></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="写出生产者消费者模式"><a href="#写出生产者消费者模式" class="headerlink" title="写出生产者消费者模式"></a>写出生产者消费者模式</h3><p>&emsp;&emsp;生产者生产数据到缓冲区中，消费者从缓冲区中取数据。如果缓冲区已经满了，则生产者线程阻塞；如果缓冲区为空，那么消费者线程阻塞。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProducerAndConsumer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> BlockingQueue resourceQueue = <span class="keyword">new</span> LinkedBlockingQueue&lt;Resource&gt;(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Producer p = <span class="keyword">new</span> Producer(); <span class="comment">//生产者</span></span><br><span class="line">        Consumer c1 = <span class="keyword">new</span> Consumer(); <span class="comment">//消费者1</span></span><br><span class="line">        Consumer c2 = <span class="keyword">new</span> Consumer(); <span class="comment">//消费者2</span></span><br><span class="line">        Consumer c3 = <span class="keyword">new</span> Consumer(); <span class="comment">//消费者3</span></span><br><span class="line">        p.start();</span><br><span class="line">        c1.start();</span><br><span class="line">        c2.start();</span><br><span class="line">        c3.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 资源</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Resource</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> id;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Resource</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 生产者</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Producer</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Resource resource = <span class="keyword">new</span> Resource(p++);</span><br><span class="line">                System.out.println(<span class="string">"生产资源"</span> + resource.id);</span><br><span class="line">                ProducerAndConsumer.resourceQueue.put(resource);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 消费者</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Consumer</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                System.out.println(<span class="string">"消费资源"</span> + </span><br><span class="line">                ((Resource) ProducerAndConsumer.resourceQueue.take()).id);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="高内聚、低耦合"><a href="#高内聚、低耦合" class="headerlink" title="高内聚、低耦合"></a>高内聚、低耦合</h2><ul>
+<li>耦合性：也称块间联系。指软件各模块之间相互联系紧密程度的一种度量。模块之间联系越紧密，则其耦合性就越强。模块间耦合高低取决于模块间接口的复杂性、调用的方式及传递的信息。</li>
+<li>内聚性：也称块内联系。指软件模块内部各元素彼此结合紧密程度的一种度量。模块内各元素（语名之间、程序段之间）联系越紧密，则其内聚性就越高。</li>
+</ul>
+<blockquote>
+<p>高内聚、低耦合的系统具有更好的重用性，维护性，扩展性，可以更高效的完成系统的维护开发，持续的支持业务的发展，而不会成为业务发展的障碍</p>
+</blockquote>
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java面试之技术框架"><span class="toc-text">Java面试之技术框架</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring"><span class="toc-text">Spring</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AOP和IOC"><span class="toc-text">AOP和IOC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#AOP-Aspect-Oriented-Programming，面向切面编程"><span class="toc-text">AOP(Aspect Oriented Programming，面向切面编程)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IoC-Inversion-of-Control，控制反转"><span class="toc-text">IoC(Inversion of Control，控制反转)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringMVC和Struts"><span class="toc-text">SpringMVC和Struts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring事务"><span class="toc-text">Spring事务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#事务"><span class="toc-text">事务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事务管理"><span class="toc-text">事务管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事务的传播特性"><span class="toc-text">事务的传播特性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring-Boot"><span class="toc-text">Spring Boot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring扩展"><span class="toc-text">Spring扩展</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MyBatis"><span class="toc-text">MyBatis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MyBatis和Hibernate"><span class="toc-text">MyBatis和Hibernate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Statement和PreparedStatement的区别"><span class="toc-text">Statement和PreparedStatement的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#消息队列"><span class="toc-text">消息队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分布式"><span class="toc-text">分布式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#微服务"><span class="toc-text">微服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RESTful"><span class="toc-text">RESTful</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx"><span class="toc-text">Nginx</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#反向代理"><span class="toc-text">反向代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#负载均衡"><span class="toc-text">负载均衡</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设计模式"><span class="toc-text">设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设计模式的六大原则"><span class="toc-text">设计模式的六大原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单例、工厂、观察者、适配器、责任链"><span class="toc-text">单例、工厂、观察者、适配器、责任链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写出生产者消费者模式"><span class="toc-text">写出生产者消费者模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高内聚、低耦合"><span class="toc-text">高内聚、低耦合</span></a></li></ol></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 博学de叫兽</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://zhangchong.xin/2018/08/28/Java 面试之技术框架/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 可右下角点击打赏，转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/Java/"><i class="fa fa-tags"></i>Java</a>
+     
+      <a href="/tags/校招/"><i class="fa fa-tags"></i>校招</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">博客推荐</h5>
+        
+          <span class="site-footer-item">
+            <a href="http://youzhixueyuan.com" target="_blank">优知学院</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://github.com/Snailclimb/JavaGuide" target="_blank">Snailclimb</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">系列教程</h5>
+        
+          <span class="site-footer-item">
+            <a href="http://www.runoob.com" target="_blank">菜鸟教程</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://www.w3cschool.cn" target="_blank">W3Cschool</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">我的主页</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://github.com/chung567115" target="_blank">GitHub</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://chung567115.blog.csdn.net" target="_blank">CSDN</a>
+          </span>
+        
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: chung567115@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+        
+          <div>
+            <img src="/images/wechat.png" alt="微信">
+            
+              <p>微信</p>
+            
+          </div>
+        
+          <div>
+            <img src="/images/alipay.png" alt="支付宝">
+            
+              <p>支付宝</p>
+            
+          </div>
+        
+      </div>
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/2018/08/28/Java 面试之数据结构/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/2018/08/28/Java 面试之语言基础/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    <a href="javascript:void(0);" id="site-reward">
+      <i class="fa fa-thumbs-up"></i>
+    </a>
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+  <script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+  <script async>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+  </script>
+
+
+
+  <script async>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="博学de叫兽">
+  
+  
+  <title>Java面试之计算机网络 | 张冲的个人主页</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="笔经面经,Java,校招,">
+  
+
+  
+  <meta name="description" content="笔经面经归纳汇总：计算机网络">
+
+  
+
+  <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"BC5HXTROXDidWBaQPTdAAcgU-gzGzoHsz","appkey":"tLTVFMxoabrQCkBOqTDYzzm7","comment":false,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-03-08",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "博学de叫兽",
+    share: {"twitter":false,"facebook":false,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: ""
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">博学de叫兽</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 博学之，审问之</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/chung567115" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2018-07-21
+    </span>
+    
+      <span>
+        | <a href="/categories/笔经面经/"><i class="fa fa-bookmark"></i>笔经面经</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    Java面试之计算机网络
+  </h1>
+  
+  <article class="passage-article">
+    <h1 id="Java面试之计算机网络"><a href="#Java面试之计算机网络" class="headerlink" title="Java面试之计算机网络"></a>Java面试之计算机网络</h1><h2 id="OSI与TCP-IP各层"><a href="#OSI与TCP-IP各层" class="headerlink" title="OSI与TCP/IP各层"></a>OSI与TCP/IP各层</h2><p><img src="https://img-blog.csdn.net/20180328110900214?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTIxMDIxMDQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="OSI与TCP/IP结构"></p>
+<h2 id="TCP、HTTP"><a href="#TCP、HTTP" class="headerlink" title="TCP、HTTP"></a>TCP、HTTP</h2><h3 id="TCP三次握手、四次挥手"><a href="#TCP三次握手、四次挥手" class="headerlink" title="TCP三次握手、四次挥手"></a>TCP三次握手、四次挥手</h3><h4 id="TCP三次握手（建立连接）"><a href="#TCP三次握手（建立连接）" class="headerlink" title="TCP三次握手（建立连接）"></a>TCP三次握手（建立连接）</h4><ol>
+<li>第一次握手：客户端向服务器发送SYN(seq=j)包到服务器；</li>
+<li>第二次握手：服务器收到SYN包，向客户端发送ACK包(ack=j+1)和SYN包(seq=k)；</li>
+<li>第三次握手：客户端收到SYN＋ACK包，向服务器发送ACK包(ack=k+1)，完成三次握手。<br><img src="https://img-blog.csdn.net/20180328121055566?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTIxMDIxMDQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="三次握手"></li>
+</ol>
+<h4 id="TCP四次挥手（终止连接）"><a href="#TCP四次挥手（终止连接）" class="headerlink" title="TCP四次挥手（终止连接）"></a>TCP四次挥手（终止连接）</h4><ol>
+<li>第一次挥手：客户端向服务器发送FIN包(seq=j)，关闭客户到服务器的数据传送；</li>
+<li>第二次挥手：服务器收到FIN包，向客户端发送ACK包(ack=j+1)；</li>
+<li>第三次挥手：服务器向客户端发送FIN包(seq=k)；</li>
+<li>第四次挥手：客户端收到FIN包，向客户端发送ACK包(ack=k+1)，完成四次挥手。<br><img src="https://img-blog.csdn.net/20180328121112534?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTIxMDIxMDQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="四次挥手"></li>
+</ol>
+<h4 id="为什么TCP连接是3次而终止是4次"><a href="#为什么TCP连接是3次而终止是4次" class="headerlink" title="为什么TCP连接是3次而终止是4次"></a>为什么TCP连接是3次而终止是4次</h4><p>&emsp;&emsp;连接时，服务端收到SYN后，把ACK和SYN一起打包回发给客户端，只有3次。<br>&emsp;&emsp;终止时，由于TCP连接是全双工的，每个方向都必须单独进行关闭，即FIN和ACK是分开发送的，所以有4次。<br>&emsp;&emsp;当一方完成它的数据发送任务后，发送一个FIN来终止连接。但收到一个FIN只表示对方没有数据发送，而己方仍能发送数据。因此必须单独关闭。  </p>
+<h3 id="HTTP相关"><a href="#HTTP相关" class="headerlink" title="HTTP相关"></a>HTTP相关</h3><h4 id="HTTP的状态码含义"><a href="#HTTP的状态码含义" class="headerlink" title="HTTP的状态码含义"></a>HTTP的状态码含义</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">分类</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1xx</td>
+<td style="text-align:center">信息，服务器收到请求，需要请求者继续执行操作</td>
+</tr>
+<tr>
+<td style="text-align:center">2xx</td>
+<td style="text-align:center">成功，操作被成功接收并处理</td>
+</tr>
+<tr>
+<td style="text-align:center">3xx</td>
+<td style="text-align:center">重定向，需要进一步的操作以完成请求</td>
+</tr>
+<tr>
+<td style="text-align:center">4xx</td>
+<td style="text-align:center">请求错误，请求包含语法错误或无法完成请求</td>
+</tr>
+<tr>
+<td style="text-align:center">5xx</td>
+<td style="text-align:center">服务器错误，服务器在处理请求时发生错误</td>
+</tr>
+</tbody>
+</table>
+<h4 id="HTTP-Request的几种类型"><a href="#HTTP-Request的几种类型" class="headerlink" title="HTTP Request的几种类型"></a>HTTP Request的几种类型</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">幂等性</th>
+<th style="text-align:center">安全性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">POST</td>
+<td style="text-align:center">向指定资源提交数据进行处理请求（例如提交表单或上传文件）</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td style="text-align:center">PUT</td>
+<td style="text-align:center">向指定资源位置上传其最新内容</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td style="text-align:center">DELETE</td>
+<td style="text-align:center">请求服务器删除所标识的资源</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td style="text-align:center">GET</td>
+<td style="text-align:center">向特定的资源发出请求</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center">HEAD</td>
+<td style="text-align:center">向服务器索要与GET请求相一致的响应，不过响应体不会被返回</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center">OPTIONS</td>
+<td style="text-align:center">返回服务器针对特定资源所支持的HTTP请求方法</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center">TRACE</td>
+<td style="text-align:center">回显服务器收到的请求，主要用于测试或诊断</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">CONNECT</td>
+<td style="text-align:center">HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>幂等性指该方法多次调用最终资源状态是一样的。<br>安全性指访问资源的时候资源本身不会发生改变。</p>
+</blockquote>
+<h4 id="HTTP-1-0、HTTP1-1、HTTP2-0"><a href="#HTTP-1-0、HTTP1-1、HTTP2-0" class="headerlink" title="HTTP 1.0、HTTP1.1、HTTP2.0"></a>HTTP 1.0、HTTP1.1、HTTP2.0</h4><ul>
+<li>HTTP 1.0中，客户端的每次请求都要建立一次单独的连接，在处理完本次请求后，就自动释放连接。</li>
+<li>HTTP 1.1中，支持<strong>长连接</strong>和<strong>流水线请求</strong>处理，在一个TCP连接上可以传送多个HTTP请求和响应，若干个请求串行化<strong>单线程</strong>处理。</li>
+<li>HTTP2.0中，基于<strong>二进制解析</strong>，可<strong>多路复用</strong>，多个请求可同时在一个连接上<strong>并行处理</strong>。</li>
+</ul>
+<p><img src="https://img-blog.csdn.net/20180329132435644?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTIxMDIxMDQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="HTTP比较"></p>
+<h3 id="TCP与HTTP的报文结构"><a href="#TCP与HTTP的报文结构" class="headerlink" title="TCP与HTTP的报文结构"></a>TCP与HTTP的报文结构</h3><p><img src="https://img-blog.csdn.net/20180328123635424?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTIxMDIxMDQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="tcp报文结构"><br><img src="https://img-blog.csdn.net/20180328123647627?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTIxMDIxMDQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="http报文结构"></p>
+<h2 id="Forward与Redirect"><a href="#Forward与Redirect" class="headerlink" title="Forward与Redirect"></a>Forward与Redirect</h2><ul>
+<li>直接转发（Forward）：也称<strong>转发</strong>，浏览器发出请求，服务器把响应内容读取过来，然后再把这些内容发给浏览器。<strong>地址栏显示原来的URL</strong>。</li>
+<li>间接转发（Redirect）：也称<strong>重定向</strong>，浏览器发出请求，服务器端在响应第一次请求的时候，让浏览器向另一个地址发出请求，然后得到响应。<strong>地址栏显示新的URL</strong>。</li>
+</ul>
+<h2 id="Cookie与Session"><a href="#Cookie与Session" class="headerlink" title="Cookie与Session"></a>Cookie与Session</h2><ul>
+<li>Cookie：为了辨别用户身份而储存在客户端的数据。服务器在Http响应头中添加Set-Cookie信息，浏览器收到响应后会根据头中的字段保存Cookie，下一次访问时在请求头中附带Cookie内容，供服务器根据Cookie值进行后续处理。</li>
+<li>Session：为了保存用户信息而储存在服务端的数据。当客户端第一次访问时，服务器会计算出一个sessionID，创建一个对应的Session对象并存储；然后将sessionID保存至浏览器Cookie，下一次访问时服务器根据sessionID来匹配Session，Session中可以存一些键值对。</li>
+</ul>
+<blockquote>
+<p>Cookie最典型的应用是：①判断用户是否登陆过网站，以便下次登录时能够直接登录。②购物车信息处理。</p>
+</blockquote>
+<h2 id="访问一个网页全过程"><a href="#访问一个网页全过程" class="headerlink" title="访问一个网页全过程"></a>访问一个网页全过程</h2><ol>
+<li>输入URL；</li>
+<li>DNS将域名解析成IP地址；</li>
+<li>建立TCP连接；</li>
+<li>OSPF（内部网关协议）决定经过哪些路由器，ARP（地址解析协议）负责求下一个节点地址；</li>
+<li>发送HTTP请求；</li>
+<li>得到响应，展现HTML界面。</li>
+</ol>
+<h2 id="使用Socket通信的几个关键函数"><a href="#使用Socket通信的几个关键函数" class="headerlink" title="使用Socket通信的几个关键函数"></a>使用Socket通信的几个关键函数</h2><ol>
+<li>初始化socket：<code>int socket(int domain, int type, int protocol);</code><ul>
+<li>domain ：指定通信协议族。</li>
+<li>type：指定socket类型。</li>
+<li>protocol ：协议类型。</li>
+<li>返回值：成功返回非负整数。</li>
+</ul>
+</li>
+<li>绑定端口：<code>int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen);</code><ul>
+<li>sockfd：socket函数返回的套接字。</li>
+<li>addr：要绑定的地址。</li>
+<li>addrlen：地址长度。</li>
+<li>返回值：成功返回0，失败返回-1。</li>
+</ul>
+</li>
+<li>监听端口：<code>int listen(int sockfd, int backlog);</code><ul>
+<li>sockfd：socket函数返回的套接字。</li>
+<li>backlog：已完成三次握手的最大连接个数。</li>
+<li>返回值：成功返回0，失败返回-1。</li>
+</ul>
+</li>
+<li>响应连接请求：<code>int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);</code><ul>
+<li>sockfd：服务器套接字。</li>
+<li>addr：将返回对等方的套接字地址。</li>
+<li>addrlen：返回对等方的套接字地址长度。</li>
+<li>返回值：成功返回非负整数，失败返回-1。</li>
+</ul>
+</li>
+<li>建立连接：<code>int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);</code><ul>
+<li>sockfd：未连接套接字。</li>
+<li>addr：要连接的套接字地址。</li>
+<li>addrlen：第二个参数addr长度。</li>
+<li>返回值：成功返回0，失败返回-1。</li>
+</ul>
+</li>
+</ol>
+<h2 id="IP地址分类"><a href="#IP地址分类" class="headerlink" title="IP地址分类"></a>IP地址分类</h2><p><img src="https://img-blog.csdn.net/20180328112304815?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTIxMDIxMDQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="IP地址分类"></p>
+<h2 id="交换机与路由器区别"><a href="#交换机与路由器区别" class="headerlink" title="交换机与路由器区别"></a>交换机与路由器区别</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">比较点</th>
+<th style="text-align:center">交换机</th>
+<th style="text-align:center">路由器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">作用</td>
+<td style="text-align:center">用于网络内部数据交换</td>
+<td style="text-align:center">用于不同网络间数据传输</td>
+</tr>
+<tr>
+<td style="text-align:center">工作层</td>
+<td style="text-align:center">数据链路层</td>
+<td style="text-align:center">网络层</td>
+</tr>
+<tr>
+<td style="text-align:center">处理方式</td>
+<td style="text-align:center">硬件处理</td>
+<td style="text-align:center">软件处理</td>
+</tr>
+<tr>
+<td style="text-align:center">工作依靠</td>
+<td style="text-align:center">MAC地址</td>
+<td style="text-align:center">IP地址</td>
+</tr>
+</tbody>
+</table>
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java面试之计算机网络"><span class="toc-text">Java面试之计算机网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#OSI与TCP-IP各层"><span class="toc-text">OSI与TCP/IP各层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP、HTTP"><span class="toc-text">TCP、HTTP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP三次握手、四次挥手"><span class="toc-text">TCP三次握手、四次挥手</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP三次握手（建立连接）"><span class="toc-text">TCP三次握手（建立连接）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP四次挥手（终止连接）"><span class="toc-text">TCP四次挥手（终止连接）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#为什么TCP连接是3次而终止是4次"><span class="toc-text">为什么TCP连接是3次而终止是4次</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP相关"><span class="toc-text">HTTP相关</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP的状态码含义"><span class="toc-text">HTTP的状态码含义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP-Request的几种类型"><span class="toc-text">HTTP Request的几种类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP-1-0、HTTP1-1、HTTP2-0"><span class="toc-text">HTTP 1.0、HTTP1.1、HTTP2.0</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP与HTTP的报文结构"><span class="toc-text">TCP与HTTP的报文结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Forward与Redirect"><span class="toc-text">Forward与Redirect</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cookie与Session"><span class="toc-text">Cookie与Session</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问一个网页全过程"><span class="toc-text">访问一个网页全过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用Socket通信的几个关键函数"><span class="toc-text">使用Socket通信的几个关键函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP地址分类"><span class="toc-text">IP地址分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#交换机与路由器区别"><span class="toc-text">交换机与路由器区别</span></a></li></ol></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 博学de叫兽</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://zhangchong.xin/2018/07/21/Java 面试之计算机网络/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 可右下角点击打赏，转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/Java/"><i class="fa fa-tags"></i>Java</a>
+     
+      <a href="/tags/校招/"><i class="fa fa-tags"></i>校招</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">博客推荐</h5>
+        
+          <span class="site-footer-item">
+            <a href="http://youzhixueyuan.com" target="_blank">优知学院</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://github.com/Snailclimb/JavaGuide" target="_blank">Snailclimb</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">系列教程</h5>
+        
+          <span class="site-footer-item">
+            <a href="http://www.runoob.com" target="_blank">菜鸟教程</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://www.w3cschool.cn" target="_blank">W3Cschool</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">我的主页</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://github.com/chung567115" target="_blank">GitHub</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://chung567115.blog.csdn.net" target="_blank">CSDN</a>
+          </span>
+        
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: chung567115@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+        
+          <div>
+            <img src="/images/wechat.png" alt="微信">
+            
+              <p>微信</p>
+            
+          </div>
+        
+          <div>
+            <img src="/images/alipay.png" alt="支付宝">
+            
+              <p>支付宝</p>
+            
+          </div>
+        
+      </div>
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/2018/07/21/Java 面试之数据库/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/2018/07/21/Java 面试之操作系统/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    <a href="javascript:void(0);" id="site-reward">
+      <i class="fa fa-thumbs-up"></i>
+    </a>
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+  <script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+  <script async>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+  </script>
+
+
+
+  <script async>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+
+
+
+    
+  </body>
+</html>

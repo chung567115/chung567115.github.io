@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="博学de叫兽">
+  
+  
+  <title>Java面试之语言基础 | 张冲的个人主页</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="笔经面经,Java,校招,">
+  
+
+  
+  <meta name="description" content="笔经面经归纳汇总：Java基础">
+
+  
+
+  <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"BC5HXTROXDidWBaQPTdAAcgU-gzGzoHsz","appkey":"tLTVFMxoabrQCkBOqTDYzzm7","comment":false,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-03-08",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "博学de叫兽",
+    share: {"twitter":false,"facebook":false,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: ""
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">博学de叫兽</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 博学之，审问之</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/chung567115" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2018-08-28
+    </span>
+    
+      <span>
+        | <a href="/categories/笔经面经/"><i class="fa fa-bookmark"></i>笔经面经</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    Java面试之语言基础
+  </h1>
+  
+  <article class="passage-article">
+    <p></p>
+
+<h1 id="Java面试之语言基础"><a href="#Java面试之语言基础" class="headerlink" title="Java面试之语言基础"></a>Java面试之语言基础</h1><h2 id="Java八种基本数据类型"><a href="#Java八种基本数据类型" class="headerlink" title="Java八种基本数据类型"></a>Java八种基本数据类型</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">类 型</th>
+<th style="text-align:center">大小</th>
+<th style="text-align:center">封 装 类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">byte</td>
+<td style="text-align:center">1字节</td>
+<td style="text-align:center">Byte</td>
+</tr>
+<tr>
+<td style="text-align:center">short</td>
+<td style="text-align:center">2字节</td>
+<td style="text-align:center">Short</td>
+</tr>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center">4字节</td>
+<td style="text-align:center">Integer</td>
+</tr>
+<tr>
+<td style="text-align:center">long</td>
+<td style="text-align:center">8字节</td>
+<td style="text-align:center">Long</td>
+</tr>
+<tr>
+<td style="text-align:center">float</td>
+<td style="text-align:center">4字节</td>
+<td style="text-align:center">Float</td>
+</tr>
+<tr>
+<td style="text-align:center">double</td>
+<td style="text-align:center">8字节</td>
+<td style="text-align:center">Double</td>
+</tr>
+<tr>
+<td style="text-align:center">char</td>
+<td style="text-align:center">2字节</td>
+<td style="text-align:center">Character</td>
+</tr>
+<tr>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">Boolean</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Java面向对象（四个基本特性）"><a href="#Java面向对象（四个基本特性）" class="headerlink" title="Java面向对象（四个基本特性）"></a>Java面向对象（四个基本特性）</h2><ol>
+<li><strong>封装</strong>：将客观事物包装成类，隐藏具体实现，提供操作接口。</li>
+<li><strong>继承</strong>：子类获得父类的属性和行为(<code>extends</code>)。</li>
+<li><strong>多态</strong>：同一行为多种表现形式。<ul>
+<li>重写<code>Override</code></li>
+<li>接口的不同实现<code>implements</code></li>
+<li>抽象类和抽象方法<code>abstract</code></li>
+</ul>
+</li>
+<li><strong>抽象</strong>：用代码描述客观事物。包括数据抽象(属性)和过程抽象(行为)。</li>
+</ol>
+<h2 id="Java与C-对比"><a href="#Java与C-对比" class="headerlink" title="Java与C++对比"></a>Java与C++对比</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">比较点</th>
+<th style="text-align:center">Java</th>
+<th style="text-align:center">C++</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">面向对象思想</td>
+<td style="text-align:center">完全对象化</td>
+<td style="text-align:center">可采用非面向对象(兼容C)</td>
+</tr>
+<tr>
+<td style="text-align:center">内存管理机制</td>
+<td style="text-align:center">Java自身管理</td>
+<td style="text-align:center">程序员管理</td>
+</tr>
+<tr>
+<td style="text-align:center">异常机制</td>
+<td style="text-align:center">完善</td>
+<td style="text-align:center">欠缺</td>
+</tr>
+<tr>
+<td style="text-align:center">第三方库</td>
+<td style="text-align:center">丰富(Log、JUnit等等)</td>
+<td style="text-align:center">较少(STL)</td>
+</tr>
+<tr>
+<td style="text-align:center">执行效率</td>
+<td style="text-align:center">慢</td>
+<td style="text-align:center">快</td>
+</tr>
+<tr>
+<td style="text-align:center">操控底层</td>
+<td style="text-align:center">麻烦</td>
+<td style="text-align:center">方便</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Java-8新特性"><a href="#Java-8新特性" class="headerlink" title="Java 8新特性"></a>Java 8新特性</h2><ul>
+<li><strong>默认方法</strong>：在接口里面有了一个实现的方法</li>
+<li>Lambda 表达式：Lambda允许把函数作为一个方法的参数</li>
+<li>Stream API：把真正的函数式编程风格引入到Java中</li>
+<li>Date Time API：加强对日期与时间的处理</li>
+<li>Optional 类：Optional 类已成为 Java 8类库的一部分，用来解决空指针异常</li>
+<li>方法引用：可以直接引用已有Java类或对象的方法或构造器</li>
+<li>新编译工具：Nashorn引擎（一个新的JavaScript引擎）、 类依赖分析器</li>
+</ul>
+<h2 id="Java反射机制"><a href="#Java反射机制" class="headerlink" title="Java反射机制"></a>Java反射机制</h2><p>&emsp;&emsp;在运行状态中，对于任意一个类，都能够知道其所有属性和方法；对于任意一个对象，都能够调用其任意方法和属性。这种动态获取信息及动态调用对象方法的功能称为Java语言的反射机制。Java反射API如下：  </p>
+<ul>
+<li>Class：反射的核心类。</li>
+<li>Field：类的成员变量。 </li>
+<li>Method：类的成员方法。 </li>
+<li>Constructor：类的构造方法。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**获取Class对象的三种方式**/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 调用某个对象的getClass()方法</span></span><br><span class="line">Class clazz = person.getClass();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 调用某个类的class属性</span></span><br><span class="line">Class clazz = Person.class;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 使用Class类的forName()静态方法</span></span><br><span class="line">Class clazz = Class.forName(<span class="string">"Person"</span>);</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;反射机制主要提供了以下功能：</p>
+<ol>
+<li>在运行时判断任意一个对象所属的类。</li>
+<li>在运行时构造任意一个类的对象。</li>
+<li>在运行时判断任意一个类所具有的成员变量和方法。</li>
+<li>在运行时调用任意一个对象的方法。</li>
+<li>生成动态代理。</li>
+</ol>
+<h2 id="Java异常机制"><a href="#Java异常机制" class="headerlink" title="Java异常机制"></a>Java异常机制</h2><h3 id="Error与Excption包结构"><a href="#Error与Excption包结构" class="headerlink" title="Error与Excption包结构"></a>Error与Excption包结构</h3><ol>
+<li>Error：程序无法处理的错误，继承自Throwable。</li>
+<li><p>Exception：程序可以处理的异常，继承自Throwable。</p>
+<pre><code>1. Checked Exception：**受检异常，需要强制catch**，是Exception的子类。
+2. Unchecked Exception：**不受检异常，无需强制catch**，是RuntimeException的子类。
+</code></pre><blockquote>
+<p>例如<code>list.size()</code>语句，若list为null，则会出现<code>NullPointerException</code>(Unchecked Exception)</p>
+</blockquote>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (ex <span class="keyword">instanceof</span> RuntimeException)&#123;</span><br><span class="line">    <span class="comment">// ex is unchecked exception</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (ex <span class="keyword">instanceof</span> Exception)&#123;</span><br><span class="line">    <span class="comment">// ex is checked exception</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// ex is a error</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdn.net/20180725100241729?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTIxMDIxMDQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="Throwable体系"></p>
+<h2 id="各种比较"><a href="#各种比较" class="headerlink" title="各种比较"></a>各种比较</h2><h3 id="Override和Overload的区别"><a href="#Override和Overload的区别" class="headerlink" title="Override和Overload的区别"></a>Override和Overload的区别</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">比较点</th>
+<th style="text-align:center">Override</th>
+<th style="text-align:center">Overload</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">中文</td>
+<td style="text-align:center">重写</td>
+<td style="text-align:center">重载</td>
+</tr>
+<tr>
+<td style="text-align:center">方法名</td>
+<td style="text-align:center">相同</td>
+<td style="text-align:center">相同</td>
+</tr>
+<tr>
+<td style="text-align:center">形参</td>
+<td style="text-align:center">相同</td>
+<td style="text-align:center">不同</td>
+</tr>
+<tr>
+<td style="text-align:center">返回类型</td>
+<td style="text-align:center">相同</td>
+<td style="text-align:center">可同可不同</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Override 典型例子：接口方法的重写<br>Overload 典型例子：构造方法的重载</p>
+</blockquote>
+<h3 id="Interface与abstract类的区别"><a href="#Interface与abstract类的区别" class="headerlink" title="Interface与abstract类的区别"></a>Interface与abstract类的区别</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">比较点</th>
+<th style="text-align:center">Interface</th>
+<th style="text-align:center">abstract类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">中文</td>
+<td style="text-align:center">接口</td>
+<td style="text-align:center">抽象类</td>
+</tr>
+<tr>
+<td style="text-align:center">能否实例化</td>
+<td style="text-align:center">不能</td>
+<td style="text-align:center">不能</td>
+</tr>
+<tr>
+<td style="text-align:center">方法能否实现</td>
+<td style="text-align:center">Java 8 可以</td>
+<td style="text-align:center">可以</td>
+</tr>
+<tr>
+<td style="text-align:center">一个类可以</td>
+<td style="text-align:center"><code>implements</code>多个</td>
+<td style="text-align:center"><code>extends</code>一个</td>
+</tr>
+</tbody>
+</table>
+<h3 id="equals-与-的区别"><a href="#equals-与-的区别" class="headerlink" title="equals()与==的区别"></a>equals()与==的区别</h3><p>&emsp;&emsp;<code>equals()</code>用于比较对象(内容)，<code>==</code>常用于比较原生类型(地址)。简单的说，<code>==</code>比较两个人的DNA，<code>equals()</code>一般用来比较两个人身高体重等等，可自定义。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> y = <span class="number">10</span>;</span><br><span class="line">String str1 = <span class="string">"abc"</span>;</span><br><span class="line">String str2 = <span class="string">"abc"</span>;</span><br><span class="line">String str3 = <span class="keyword">new</span> String(<span class="string">"abc"</span>);</span><br><span class="line">String str4 = <span class="keyword">new</span> String(<span class="string">"abc"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// == 比较两个(基本数据类型)地址值</span></span><br><span class="line">System.out.println(x == y); <span class="comment">// true</span></span><br><span class="line">System.out.println(str1 == str2); <span class="comment">// true</span></span><br><span class="line">System.out.println(str3 == str4); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// String重写的equals()比较两个对象内容</span></span><br><span class="line">System.out.println(str1.equals(str2)); <span class="comment">// true</span></span><br><span class="line">System.out.println(str3.equals(str4)); <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>要注意Object类中<code>equals()</code>即为<code>==</code>，<code>equals()</code>是可以重写(<code>Override</code>)的。  </p>
+</blockquote>
+<h3 id="String、StringBuffer、StringBuilder"><a href="#String、StringBuffer、StringBuilder" class="headerlink" title="String、StringBuffer、StringBuilder"></a>String、StringBuffer、StringBuilder</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">比较点</th>
+<th style="text-align:center">String</th>
+<th style="text-align:center">StringBuffer</th>
+<th style="text-align:center">StringBuilder</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">底层实现</td>
+<td style="text-align:center">final char value[]</td>
+<td style="text-align:center">char[] value</td>
+<td style="text-align:center">char[] value</td>
+</tr>
+<tr>
+<td style="text-align:center">可变性(参考底层)</td>
+<td style="text-align:center">不可变</td>
+<td style="text-align:center">可变</td>
+<td style="text-align:center">可变</td>
+</tr>
+<tr>
+<td style="text-align:center">修改时</td>
+<td style="text-align:center"><strong>不会</strong>改变自身</td>
+<td style="text-align:center"><strong>会</strong>改变自身</td>
+<td style="text-align:center"><strong>会</strong>改变自身</td>
+</tr>
+<tr>
+<td style="text-align:center">安全性</td>
+<td style="text-align:center">线程安全</td>
+<td style="text-align:center">线程安全</td>
+<td style="text-align:center">非线程安全</td>
+</tr>
+<tr>
+<td style="text-align:center">使用场景</td>
+<td style="text-align:center">少量数据</td>
+<td style="text-align:center">多线程大量数据</td>
+<td style="text-align:center">单线程大量数据</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">"abc"</span>; <span class="comment">// str只是一个String对象的引用</span></span><br><span class="line">str = <span class="string">"xyz"</span>; <span class="comment">// 创建了新对象"xyz"，而引用str重新指向新对象</span></span><br></pre></td></tr></table></figure>
+<h3 id="强弱软虚四种引用"><a href="#强弱软虚四种引用" class="headerlink" title="强弱软虚四种引用"></a>强弱软虚四种引用</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">比较点</th>
+<th style="text-align:center">强引用</th>
+<th style="text-align:center">软引用</th>
+<th style="text-align:center">弱引用</th>
+<th style="text-align:center">虚引用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">特性</td>
+<td style="text-align:center">不会被回收</td>
+<td style="text-align:center">内存足则不回收，内存不足则回收</td>
+<td style="text-align:center">一旦发现便回收</td>
+<td style="text-align:center">必须和引用队列联合使用</td>
+</tr>
+<tr>
+<td style="text-align:center">使用场景</td>
+<td style="text-align:center">平时工作接触的最多(<code>new</code>)</td>
+<td style="text-align:center">可用来实现内存敏感的高速缓存</td>
+<td style="text-align:center">常用于Map数据结构中，引用占用内存空间较大的对象</td>
+<td style="text-align:center">跟踪对象被回收的活动</td>
+</tr>
+</tbody>
+</table>
+<h3 id="comparable接口和comparator接口"><a href="#comparable接口和comparator接口" class="headerlink" title="comparable接口和comparator接口"></a>comparable接口和comparator接口</h3><ul>
+<li>Comparable：在集合内部实现排序的接口，位于java.lang包。</li>
+<li>Comparator：在集合外部实现排序的比较器接口，位于java.util包。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">Comparable</span> </span>&#123;</span><br><span class="line">    String name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 使用字符串的比较</span></span><br><span class="line">        <span class="keyword">int</span> i = name.compareTo(((Person) o).name); </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (i == <span class="number">0</span>) &#123; <span class="comment">// 如果名字一样,比较年龄, 返回比较年龄结果</span></span><br><span class="line">            <span class="keyword">return</span> age - ((Person) o).age;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> i; <span class="comment">// 名字不一样, 返回比较名字的结果.</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用Collections.sort(personList)即可排序</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    String name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span> </span>&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Object o1, Object o2)</span> </span>&#123;</span><br><span class="line">            <span class="comment">// 使用字符串的比较</span></span><br><span class="line">            <span class="keyword">int</span> i = ((Person) o1).name.compareTo(((Person) o2).name); </span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">0</span>) &#123; <span class="comment">// 如果名字一样,比较年龄,返回比较年龄结果</span></span><br><span class="line">                <span class="keyword">return</span> ((Person) o1).age - ((Person) o2).age;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> i; <span class="comment">// 名字不一样, 返回比较名字的结果.</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用Collections.sort(list, new Person.PersonComparator())即可排序</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Arrays内使用双轴快排(DualPivotQuicksort)，两个中心点三段数据。</p>
+</blockquote>
+<h3 id="IO，BIO，NIO，AIO"><a href="#IO，BIO，NIO，AIO" class="headerlink" title="IO，BIO，NIO，AIO"></a>IO，BIO，NIO，AIO</h3><p>&emsp;&emsp;Java中IO是以流为基础进行输入输出的，在网络编程中，接触到最多的就是利用Socket进行网络通信开发，主要有BIO、NIO、AIO三种实现方式。<br>|   比较点   |    BIO   |     NIO    |     AIO     |<br>|:———-:|:——–:|:———-:|:———–:|<br>|    中文    |  阻塞IO  |  非阻塞IO  |   异步IO    |<br>|     版本   |   –     | JDK 1.4提出|JDK 1.7 提出 |<br>|    描述   |服务端每次都需要创建一个线程来建立连接并处理消息。若建立连接、读写数据时发生阻碍，线程会阻塞。并发情况下，N个连接需要N个线程来处理。|使用一个线程来管理所有的Socket 通道，也就是基于Selector机制，查询到事件时(连接、读写)，转发给不同的处理线程(Handler)。  |在进行读写操作时，只需要调用相应的read/write方法，并传入CompletionHandler(动作完成处理器)，在动作完成后会调用CompletionHandler。 |</p>
+<h2 id="序列化与反序列化"><a href="#序列化与反序列化" class="headerlink" title="序列化与反序列化"></a>序列化与反序列化</h2><p>&emsp;&emsp;序列化即把对象转换为字节序列；反序列化即把字节序列恢复为对象。其使用场景大致有如下几种：  </p>
+<ul>
+<li>把内存中的对象状态保存到文件或者数据库中。</li>
+<li>用套接字在网络上传送对象。</li>
+<li>通过RMI传输对象。</li>
+</ul>
+<blockquote>
+<p>JVM会把字节流中的serialVersionUID与本地相应实体类的serialVersionUID进行比较，如果相同就认为是一致的，可以进行反序列化。</p>
+</blockquote>
+<h3 id="哪些情况会导致OOM或SOF，怎么解决"><a href="#哪些情况会导致OOM或SOF，怎么解决" class="headerlink" title="哪些情况会导致OOM或SOF，怎么解决"></a>哪些情况会导致OOM或SOF，怎么解决</h3><h4 id="OutOfMemory-OOM"><a href="#OutOfMemory-OOM" class="headerlink" title="OutOfMemory(OOM)"></a>OutOfMemory(OOM)</h4><ul>
+<li>Java堆溢出：一般由于内存泄露或者堆的大小设置不当引起。可以通过虚拟机参数<code>-Xms</code>、<code>-Xmx</code>等设置堆大小。</li>
+<li>方法区溢出：包括运行时常量池溢出，一般由于大量动态生成的Class导致。可以通过<code>-XX:PermSize</code>和<code>-XX:MaxPermSize</code>限制方法区的大小。<blockquote>
+<p>使用JConsole生成Heap Dump文件，然后使用MAT分析排查</p>
+<h3 id="StackOverflow-SOF"><a href="#StackOverflow-SOF" class="headerlink" title="StackOverflow(SOF)"></a>StackOverflow(SOF)</h3></blockquote>
+</li>
+<li>Java虚拟机栈和本地方法栈内存溢出：一般是由于程序中存在死循环或者深度递归调用造成的，栈设置太小也会出现此种溢出。可以通过虚拟机参数<code>-Xss</code>来设置栈大小。</li>
+</ul>
+<h2 id="JNI的使用"><a href="#JNI的使用" class="headerlink" title="JNI的使用"></a>JNI的使用</h2><p>&emsp;&emsp;JNI (Java Native Interface)允许Java代码和其他语言代码(主要是C和C++)进行交互。  </p>
+<ol>
+<li>定义本地native方法</li>
+<li>用javah命令生成.h头文件，拷贝至jni目录</li>
+<li>在jni目录中编写.c文件</li>
+<li>在jni目录中创建Android.mk文件，声明所引用的.c文件和生成的函数库名</li>
+<li>创建Application.mk文件，声明支持的平台(armeabi、armeabi-v7a、x86)</li>
+<li>使用ndk工具编译生成.so成动态链接库文件</li>
+</ol>
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java面试之语言基础"><span class="toc-text">Java面试之语言基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java八种基本数据类型"><span class="toc-text">Java八种基本数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java面向对象（四个基本特性）"><span class="toc-text">Java面向对象（四个基本特性）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java与C-对比"><span class="toc-text">Java与C++对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-8新特性"><span class="toc-text">Java 8新特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java反射机制"><span class="toc-text">Java反射机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java异常机制"><span class="toc-text">Java异常机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Error与Excption包结构"><span class="toc-text">Error与Excption包结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#各种比较"><span class="toc-text">各种比较</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Override和Overload的区别"><span class="toc-text">Override和Overload的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Interface与abstract类的区别"><span class="toc-text">Interface与abstract类的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#equals-与-的区别"><span class="toc-text">equals()与==的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String、StringBuffer、StringBuilder"><span class="toc-text">String、StringBuffer、StringBuilder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#强弱软虚四种引用"><span class="toc-text">强弱软虚四种引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#comparable接口和comparator接口"><span class="toc-text">comparable接口和comparator接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IO，BIO，NIO，AIO"><span class="toc-text">IO，BIO，NIO，AIO</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#序列化与反序列化"><span class="toc-text">序列化与反序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#哪些情况会导致OOM或SOF，怎么解决"><span class="toc-text">哪些情况会导致OOM或SOF，怎么解决</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#OutOfMemory-OOM"><span class="toc-text">OutOfMemory(OOM)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#StackOverflow-SOF"><span class="toc-text">StackOverflow(SOF)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JNI的使用"><span class="toc-text">JNI的使用</span></a></li></ol></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: 博学de叫兽</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://zhangchong.xin/2018/08/28/Java 面试之语言基础/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 可右下角点击打赏，转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/Java/"><i class="fa fa-tags"></i>Java</a>
+     
+      <a href="/tags/校招/"><i class="fa fa-tags"></i>校招</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">博客推荐</h5>
+        
+          <span class="site-footer-item">
+            <a href="http://youzhixueyuan.com" target="_blank">优知学院</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://github.com/Snailclimb/JavaGuide" target="_blank">Snailclimb</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">系列教程</h5>
+        
+          <span class="site-footer-item">
+            <a href="http://www.runoob.com" target="_blank">菜鸟教程</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://www.w3cschool.cn" target="_blank">W3Cschool</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">我的主页</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://github.com/chung567115" target="_blank">GitHub</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://chung567115.blog.csdn.net" target="_blank">CSDN</a>
+          </span>
+        
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: chung567115@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+        
+          <div>
+            <img src="/images/wechat.png" alt="微信">
+            
+              <p>微信</p>
+            
+          </div>
+        
+          <div>
+            <img src="/images/alipay.png" alt="支付宝">
+            
+              <p>支付宝</p>
+            
+          </div>
+        
+      </div>
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/2018/08/28/Java 面试之技术框架/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/2018/08/05/杭州(准)独角兽名单/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    <a href="javascript:void(0);" id="site-reward">
+      <i class="fa fa-thumbs-up"></i>
+    </a>
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+  <script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+  <script async>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+  </script>
+
+
+
+  <script async>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+
+
+
+    
+  </body>
+</html>
