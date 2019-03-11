@@ -6,7 +6,7 @@
   <meta name="author" content="博学de叫兽">
   
   
-  <title>Java面试之线程与锁 | 张冲的个人主页</title>
+  <title>Java面试之线程与锁 | 张冲的博客</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -296,7 +296,7 @@
 <p>锁的级别有对象级别和类级别，1和2属于对象级别，3属于类级别</p>
 </blockquote>
 </li>
-<li><p>volatile 是在告诉JVM当前变量在cpu缓存中的值是不确定的，需要从主存中读取（<strong>禁止指令的重排序</strong>）； synchronized则是锁定当前变量，只有当前线程可以访问该变量，其他线程被阻塞住。volatile与synchronized的区别如下：<br> |   比较点   |    volatile  |     synchronized |<br> |:———-:|:——–:|:———-:|<br> |    阻塞   |    不会发生线程阻塞  |  会发生线程阻塞|<br> |    修饰    |    变量  | 方法、代码块、类 |<br> |  原子性  |    不能保证  |     可以保证  |<br> |  安全性  |    非线程安全 |   线程安全  |<br> | 解决问题|  变量在多线程之间的可见性  | 多线程之间访问资源的同步性 |</p>
+<li><p>volatile 是在告诉JVM当前变量在cpu缓存中的值是不确定的，需要从主存中读取（<strong>禁止指令的重排序</strong>）； synchronized则是锁定当前变量，只有当前线程可以访问该变量，其他线程被阻塞住。volatile与synchronized的区别如下：<br>|   比较点   |    volatile  |     synchronized |<br>|:———-:|:——–:|:———-:|<br>|    阻塞   |    不会发生线程阻塞  |  会发生线程阻塞|<br>|    修饰    |    变量  | 方法、代码块、类 |<br>|  原子性  |    不能保证  |     可以保证  |<br>|  安全性  |    非线程安全 |   线程安全  |<br>| 解决问题|  变量在多线程之间的可见性  | 多线程之间访问资源的同步性 |</p>
 </li>
 </ol>
 <h4 id="sychronized和Lock"><a href="#sychronized和Lock" class="headerlink" title="sychronized和Lock"></a>sychronized和Lock</h4><table>

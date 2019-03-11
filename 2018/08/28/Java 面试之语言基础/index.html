@@ -6,7 +6,7 @@
   <meta name="author" content="博学de叫兽">
   
   
-  <title>Java面试之语言基础 | 张冲的个人主页</title>
+  <title>Java面试之语言基础 | 张冲的博客</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -300,11 +300,14 @@
 <h2 id="Java异常机制"><a href="#Java异常机制" class="headerlink" title="Java异常机制"></a>Java异常机制</h2><h3 id="Error与Excption包结构"><a href="#Error与Excption包结构" class="headerlink" title="Error与Excption包结构"></a>Error与Excption包结构</h3><ol>
 <li>Error：程序无法处理的错误，继承自Throwable。</li>
 <li><p>Exception：程序可以处理的异常，继承自Throwable。</p>
-<pre><code>1. Checked Exception：**受检异常，需要强制catch**，是Exception的子类。
-2. Unchecked Exception：**不受检异常，无需强制catch**，是RuntimeException的子类。
-</code></pre><blockquote>
+<ol>
+<li>Checked Exception：<strong>受检异常，需要强制catch</strong>，是Exception的子类。</li>
+<li><p>Unchecked Exception：<strong>不受检异常，无需强制catch</strong>，是RuntimeException的子类。</p>
+<blockquote>
 <p>例如<code>list.size()</code>语句，若list为null，则会出现<code>NullPointerException</code>(Unchecked Exception)</p>
 </blockquote>
+</li>
+</ol>
 </li>
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (ex <span class="keyword">instanceof</span> RuntimeException)&#123;</span><br><span class="line">    <span class="comment">// ex is unchecked exception</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (ex <span class="keyword">instanceof</span> Exception)&#123;</span><br><span class="line">    <span class="comment">// ex is checked exception</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// ex is a error</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

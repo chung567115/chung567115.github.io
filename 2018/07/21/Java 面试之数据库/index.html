@@ -6,7 +6,7 @@
   <meta name="author" content="博学de叫兽">
   
   
-  <title>Java面试之数据库 | 张冲的个人主页</title>
+  <title>Java面试之数据库 | 张冲的博客</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -174,8 +174,61 @@
 <li><strong>隔离性（Isolation）</strong>：数据库允许多个并发事务同时对其数据进行读写和修改的能力，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致。</li>
 <li><strong>持久性（Durability）</strong>：事务处理结束后，对数据的修改就是永久的，即便系统故障也不会丢失。</li>
 </ol>
-<h3 id="事务隔离级别"><a href="#事务隔离级别" class="headerlink" title="事务隔离级别"></a>事务隔离级别</h3><p>&emsp;&emsp;数据读的三类问题：<br>|问题  | 解释 |<br>|:——–:|:—:|<br>|脏读|事务 A 读取了事务 B 未提交的数据（发现读到的数据是脏数据） |<br>|  不可重复读 | 事务 A 读取了事务 B 已提交的更改数据（发现与前一次读的不一致）|<br>|幻读 | 事务 A 读取了事务 B 已提交的新增数据（发现之前没有这条数据的）|</p>
-<p>&emsp;&emsp;事务的四种隔离级别见下表，MySQL默认为<strong>REPEATABLE_READ</strong>：<br>| 隔离级别(简写) |    含义  | 隐患|<br>|:——–:|:—:|:—:|<br>|READ_UNCOMMITTED| 允许读未提交 | 脏读、不可重复读、幻读|<br>|READ_COMMITTED|    允许读已提交 | 不可重复读、幻读|<br>|REPEATABLE_READ|    允许重复读 | 幻读|<br>|SERIALIZABLE|    序列化读 | –|</p>
+<h3 id="事务隔离级别"><a href="#事务隔离级别" class="headerlink" title="事务隔离级别"></a>事务隔离级别</h3><p>&emsp;&emsp;数据读的三类问题：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">问题</th>
+<th style="text-align:center">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">脏读</td>
+<td style="text-align:center">事务 A 读取了事务 B 未提交的数据（发现读到的数据是脏数据）</td>
+</tr>
+<tr>
+<td style="text-align:center">不可重复读</td>
+<td style="text-align:center">事务 A 读取了事务 B 已提交的更改数据（发现与前一次读的不一致）</td>
+</tr>
+<tr>
+<td style="text-align:center">幻读</td>
+<td style="text-align:center">事务 A 读取了事务 B 已提交的新增数据（发现之前没有这条数据的）</td>
+</tr>
+</tbody>
+</table>
+<p>&emsp;&emsp;事务的四种隔离级别见下表，MySQL默认为<strong>REPEATABLE_READ</strong>：  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">隔离级别(简写)</th>
+<th style="text-align:center">含义</th>
+<th style="text-align:center">隐患</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">READ_UNCOMMITTED</td>
+<td style="text-align:center">允许读未提交</td>
+<td style="text-align:center">脏读、不可重复读、幻读</td>
+</tr>
+<tr>
+<td style="text-align:center">READ_COMMITTED</td>
+<td style="text-align:center">允许读已提交</td>
+<td style="text-align:center">不可重复读、幻读</td>
+</tr>
+<tr>
+<td style="text-align:center">REPEATABLE_READ</td>
+<td style="text-align:center">允许重复读</td>
+<td style="text-align:center">幻读</td>
+</tr>
+<tr>
+<td style="text-align:center">SERIALIZABLE</td>
+<td style="text-align:center">序列化读</td>
+<td style="text-align:center">–</td>
+</tr>
+</tbody>
+</table>
 <h3 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h3><table>
 <thead>
 <tr>
