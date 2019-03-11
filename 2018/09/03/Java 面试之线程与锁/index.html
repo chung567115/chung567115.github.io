@@ -193,11 +193,11 @@
 </li>
 <li><p>RejectedExecutionHandler handler：BlockingQueue 打满时的几种拒绝策略</p>
 <ul>
-<li>Abort策略：默认策略，新任务提交时直接抛出未检查的异常。</li>
-<li>RejectedExecutionException，该异常可由调用者捕获。</li>
-<li>CallerRuns策略：为调节机制，既不抛弃任务也不抛出异常，而是将某些任务回退到调用者。不会在线程池的线程中执行新的任务，而是在调用exector的线程中运行新的任务。</li>
-<li>Discard策略：新提交的任务被抛弃。</li>
-<li><p>DiscardOldest策略：队列的是“队头”的任务，然后尝试提交新的任务。</p>
+<li>Abort策略：默认策略，新任务提交时直接抛出未检查的异常</li>
+<li>RejectedExecutionException，该异常可由调用者捕获</li>
+<li>CallerRuns策略：为调节机制，既不抛弃任务也不抛出异常，而是将某些任务回退到调用者。不会在线程池的线程中执行新的任务，而是在调用exector的线程中运行新的任务</li>
+<li>Discard策略：新提交的任务被抛弃</li>
+<li><p>DiscardOldest策略：队列的是“队头”的任务，然后尝试提交新的任务</p>
 <blockquote>
 <p>向线程池提交一个要执行的任务<code>threadPoolExecutor.execute(runnable);</code></p>
 </blockquote>
@@ -207,10 +207,10 @@
 </ul>
 <p>&emsp;&emsp;当新提交一个任务时：</p>
 <ol>
-<li>如果<code>当前线程数&lt;corePoolSize</code>，新增一个核心线程处理新的任务。</li>
-<li>如果<code>当前线程数=corePoolSize</code>，新任务会被放入阻塞队列等待。</li>
-<li>如果阻塞队列满了，且<code>当前线程数&lt;maximumPoolSize</code>，新增线程来处理任务。</li>
-<li>如果阻塞队列满了，且<code>当前线程数=maximumPoolSize</code>，那么线程池已达极限，此时会根据饱和策略<code>RejectedExecutionHandler</code>拒绝新的任务。<h3 id="使用线程池的优势："><a href="#使用线程池的优势：" class="headerlink" title="使用线程池的优势："></a>使用线程池的优势：</h3></li>
+<li>如果<code>当前线程数&lt;corePoolSize</code>，新增一个核心线程处理新的任务</li>
+<li>如果<code>当前线程数=corePoolSize</code>，新任务会被放入阻塞队列等待</li>
+<li>如果阻塞队列满了，且<code>当前线程数&lt;maximumPoolSize</code>，新增线程来处理任务</li>
+<li>如果阻塞队列满了，且<code>当前线程数=maximumPoolSize</code>，那么线程池已达极限，此时会根据饱和策略<code>RejectedExecutionHandler</code>拒绝新任务<h3 id="使用线程池的优势："><a href="#使用线程池的优势：" class="headerlink" title="使用线程池的优势："></a>使用线程池的优势：</h3></li>
 </ol>
 <ul>
 <li>降低资源消耗：重复利用已创建的线程，降低创建和销毁造成的消耗。</li>
@@ -296,9 +296,45 @@
 <p>锁的级别有对象级别和类级别，1和2属于对象级别，3属于类级别</p>
 </blockquote>
 </li>
-<li><p>volatile 是在告诉JVM当前变量在cpu缓存中的值是不确定的，需要从主存中读取（<strong>禁止指令的重排序</strong>）； synchronized则是锁定当前变量，只有当前线程可以访问该变量，其他线程被阻塞住。volatile与synchronized的区别如下：<br>|   比较点   |    volatile  |     synchronized |<br>|:———-:|:——–:|:———-:|<br>|    阻塞   |    不会发生线程阻塞  |  会发生线程阻塞|<br>|    修饰    |    变量  | 方法、代码块、类 |<br>|  原子性  |    不能保证  |     可以保证  |<br>|  安全性  |    非线程安全 |   线程安全  |<br>| 解决问题|  变量在多线程之间的可见性  | 多线程之间访问资源的同步性 |</p>
+<li><p>volatile 是在告诉JVM当前变量在cpu缓存中的值是不确定的，需要从主存中读取（<strong>禁止指令的重排序</strong>）； synchronized则是锁定当前变量，只有当前线程可以访问该变量，其他线程被阻塞住。volatile与synchronized的区别如下：  </p>
 </li>
 </ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">比较点</th>
+<th style="text-align:center">volatile</th>
+<th style="text-align:center">synchronized</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">阻塞</td>
+<td style="text-align:center">不会发生线程阻塞</td>
+<td style="text-align:center">会发生线程阻塞</td>
+</tr>
+<tr>
+<td style="text-align:center">修饰</td>
+<td style="text-align:center">变量</td>
+<td style="text-align:center">方法、代码块、类</td>
+</tr>
+<tr>
+<td style="text-align:center">原子性</td>
+<td style="text-align:center">不能保证</td>
+<td style="text-align:center">可以保证</td>
+</tr>
+<tr>
+<td style="text-align:center">安全性</td>
+<td style="text-align:center">非线程安全</td>
+<td style="text-align:center">线程安全</td>
+</tr>
+<tr>
+<td style="text-align:center">解决问题</td>
+<td style="text-align:center">变量在多线程之间的可见性</td>
+<td style="text-align:center">多线程之间访问资源的同步性</td>
+</tr>
+</tbody>
+</table>
 <h4 id="sychronized和Lock"><a href="#sychronized和Lock" class="headerlink" title="sychronized和Lock"></a>sychronized和Lock</h4><table>
 <thead>
 <tr>
