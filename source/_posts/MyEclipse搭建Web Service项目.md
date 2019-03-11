@@ -16,13 +16,13 @@ date: 2017-12-25 14:48:16
 > [点击下载完整代码](http://download.csdn.net/download/u012102104/10172395)
 
 ① 创建Web Service Project。
-![1](http://img.blog.csdn.net/20171225141857950?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjEwMjEwNA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![1](/6-1.png)
 
 ② 新建类Hello
-![6](http://img.blog.csdn.net/20171225142007115?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjEwMjEwNA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![6](/6-2.png)
 
 目录结构如下图
-![2](http://img.blog.csdn.net/20171225142409137?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjEwMjEwNA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![2](/6-3.png)
 
 代码如下
 
@@ -43,22 +43,22 @@ public class Hello {
 ```
 
 ③运行Hello.java(Run As Java Application)，可以看到控制台输出：Web Service publish success，可见启动成功。浏览器访问[http://localhost:8080/Demo/Hello?wsdl](http://localhost:8080/Demo/Hello?wsdl)，可以看到如下界面。
-![3](http://img.blog.csdn.net/20171225141934617?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjEwMjEwNA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![3](/6-4.png)
 
 ④新建另一个Web Service Project，选中项目，点击工具栏按钮-->New Web Service Client
-![7](http://img.blog.csdn.net/20171225142020098?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjEwMjEwNA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![7](/6-5.png)
 
 ⑤选择JAX-WS，Next
-![5](http://img.blog.csdn.net/20171225141955102?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjEwMjEwNA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![5](/6-6.png)
 
 ⑥填写WSDL文件URL(即前面服务端测试的url)，Next
-![4](http://img.blog.csdn.net/20171225141922081?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjEwMjEwNA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![4](/6-7.png)
 
 ⑦进度条加载完后，点击Finish。
-![8](http://img.blog.csdn.net/20171225142031298?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjEwMjEwNA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![8](/6-8.png)
 
 ⑧这时候可以看到，目录下自动创建了如下一些文件
-![9](http://img.blog.csdn.net/20171225142047394?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjEwMjEwNA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![9](/6-9.png)
 
 ⑨新建TestHello.java文件调用服务端内容，代码如下
 

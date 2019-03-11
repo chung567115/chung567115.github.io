@@ -14,7 +14,7 @@ date: 2018-07-21 11:11:49
 
 # Java面试之算法
 ##  排序算法  
-![排序][16]
+![排序](/29-1.png)
 
  &emsp;&emsp;名词解释：  
 
@@ -206,7 +206,4 @@ void BFSTraverse(Graph G) {
 &emsp;&emsp;例：装载问题，旅行售货员问题  
 
 > 参考博文 https://blog.csdn.net/qq_32400847/article/details/51813606
-
-
-[16]: https://img-blog.csdn.net/20180328230742299?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTIxMDIxMDQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70
 

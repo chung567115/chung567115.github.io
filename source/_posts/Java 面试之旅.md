@@ -1,14 +1,14 @@
 ---
-title: Java中 List、Set、Map 之间的区别
+title: Java面试之旅
 categories: 
-  - Java
+  - 笔经面经
 tags:
   - Java
-  - 数据结构
-date: 2018-04-18 11:05:04
+  - 校招
+date: 2018-09-03 15:41:22
 ---
 
-> 小博此篇记录了开发过程中常用的几种集合详解，三者的区别对比均从`IDEA`相关层次图里面所得知，基于`JDK8`。
+> 校招笔经面经汇总
 
 <!-- more -->
 
@@ -18,14 +18,14 @@ https://gitbook.cn/gitchat/activity/5a444c451f6ee91a25846ac1
 # 小博Java面试路上的点点滴滴
 篇章                | 小博博客地址
 ------------------- | ---------------------------------------------------------
-Java 面试之基础篇      | https://chung567115.blog.csdn.net/article/details/79772903
-Java 面试之框架篇      | https://chung567115.blog.csdn.net/article/details/79772419
-Java 面试之数据结构篇   | https://chung567115.blog.csdn.net/article/details/79773794
-Java 面试之JVM篇       | https://chung567115.blog.csdn.net/article/details/79773328
-Java 面试之多线程篇     | https://chung567115.blog.csdn.net/article/details/79772952
-Java 面试之数据库篇     | https://chung567115.blog.csdn.net/article/details/79773362
-Java 面试之计算机网络篇  | https://chung567115.blog.csdn.net/article/details/79773863
-Java 面试之操作系统篇    | https://chung567115.blog.csdn.net/article/details/79773885
-Java 面试之算法篇       | https://chung567115.blog.csdn.net/article/details/79773907
-Java 面试之附加篇       | https://chung567115.blog.csdn.net/article/details/79773921
+Java 面试之基础篇      | http://zhangchong.xin/2018/08/28/Java%20%E9%9D%A2%E8%AF%95%E4%B9%8B%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/ 
+Java 面试之框架篇      | http://zhangchong.xin/2018/08/28/Java%20%E9%9D%A2%E8%AF%95%E4%B9%8B%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/ 
+Java 面试之数据结构篇   | http://zhangchong.xin/2018/08/28/Java%20%E9%9D%A2%E8%AF%95%E4%B9%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/ 
+Java 面试之JVM篇       | http://zhangchong.xin/2018/09/03/Java%20%E9%9D%A2%E8%AF%95%E4%B9%8B%20JVM/ 
+Java 面试之多线程篇     | http://zhangchong.xin/2018/09/03/Java%20%E9%9D%A2%E8%AF%95%E4%B9%8B%E7%BA%BF%E7%A8%8B%E4%B8%8E%E9%94%81/ 
+Java 面试之数据库篇     | http://zhangchong.xin/2018/07/21/Java%20%E9%9D%A2%E8%AF%95%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%BA%93/ 
+Java 面试之计算机网络篇  | http://zhangchong.xin/2018/07/21/Java%20%E9%9D%A2%E8%AF%95%E4%B9%8B%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/ 
+Java 面试之操作系统篇    | http://zhangchong.xin/2018/07/21/Java%20%E9%9D%A2%E8%AF%95%E4%B9%8B%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/ 
+Java 面试之算法篇       | http://zhangchong.xin/2018/07/21/Java%20%E9%9D%A2%E8%AF%95%E4%B9%8B%E7%AE%97%E6%B3%95/ 
+Java 面试之附加篇       | http://zhangchong.xin/2018/08/28/Java%20%E9%9D%A2%E8%AF%95%E4%B9%8B%E7%BB%93%E6%9D%9F%E9%97%AE%E7%AD%94/ 
 

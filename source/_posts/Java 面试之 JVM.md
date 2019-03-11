@@ -12,7 +12,7 @@ date: 2018-09-03 15:23:03
 <!-- more -->
 # Java面试之JVM
 ## JVM结构图
-![JVM](https://img-blog.csdn.net/20180920110415723?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTIxMDIxMDQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![JVM](/39-1.png)
 ## 类加载机制  
 ### 类加载的五个过程  
 - <kbd>加载</kbd>：类加载器获二进制字节流，将静态存储结构转化为方法区的运行时数据结构，并生成此类的Class对象。
@@ -27,7 +27,7 @@ date: 2018-09-03 15:23:03
 &emsp;&emsp;**类加载器**是实现**通过一个类的全限定名来获取描述此类的二进制文件流**的代码模块。类的加载是通过双亲委派模型来完成的，**双亲委派模型**即为下图所示的**类加载器之间的层次关系**。  
 &emsp;&emsp;双亲委派模型的工作过程是：如果一个类加载器接收到类加载的请求，它会先把这个请求委派给父加载器去完成，只有当父加载器反馈自己无法完成加载请求时，子加载器才会尝试自己去加载。可以得知，**所有的加载请求最终都会传送到启动类加载器中**。  
 
-![双亲委派模型][2]
+![双亲委派模型](/39-2.png)
 
 > 使用双亲委派模型组织类加载器之间的关系有一个显而易见的好处：**Java类随着它的类加载器一起具备了某种带优先级的层次关系**。如果没有使用双亲委派模型，而是由各类加载器自行加载，假如用户自己编写一个Object类放在ClassPath中，那么系统将会出现多个不同的Object类，Java体系中最基础的行为也就无法保证，应用程序将变得一片混乱。
 
@@ -39,7 +39,7 @@ date: 2018-09-03 15:23:03
 - **Java虚拟机栈**：用于描述Java方法执行的模型。每个方法在执行的同时都会创建一个栈帧，用于存储局部变量表、操作数栈、动态链接、方法出口等信息。`每一个方法从调用至执行完成，对应于一个栈帧在虚拟机栈中从入栈到出栈`。
 - **本地方法栈**：与虚拟机栈作用相似，只不过虚拟机栈为执行Java方法服务，而本地方法栈为执行Native方法服务，比如在Java中调用C/C++。
 
-	![Java虚拟机运行时数据区][3]
+	![Java虚拟机运行时数据区](/39-3.png)
 
 ### JVM内存分代机制，各代特点，分代回收优点  
 - **新生代（Young）**：HotSpot将新生代划分为三块，一块较大的Eden空间和两块较小的Survivor空间，默认比例为`8：1：1`。
@@ -48,7 +48,7 @@ date: 2018-09-03 15:23:03
 
 	> 新版已经删除永久代。
 
-	![JVM共享数据空间划分图][4]
+	![JVM共享数据空间划分图](/39-4.png)
 	
 	&emsp;&emsp;新生成的对象在Eden区分配（大对象除外，大对象直接进入老年代），**当Eden区没有足够的空间进行分配时，虚拟机将发起一次Minor GC**。GC开始时，对象只会存在于Eden区和From Survivor区，To Survivor区是空的（作为保留区域）。GC进行时，Eden区中所有存活的对象都会被复制到To Survivor区，而在From Survivor区中，仍存活的对象会根据它们的年龄值决定去向，年龄值达到年龄阀值（默认为15，新生代中的对象每熬过一轮垃圾回收，年龄值就加1，GC分代年龄存储在对象的Header中）的对象会被移到老年代中，没有达到阀值的对象会被复制到To Survivor区。接着清空Eden区和From Survivor区，新生代中存活的对象都在To Survivor区。接着， From Survivor区和To Survivor区会交换它们的角色，也就是新的To Survivor区就是上次GC清空的From Survivor区，新的From Survivor区就是上次GC的To Survivor区，总之，不管怎样都会保证To Survivor区在一轮GC后是空的。GC时当To Survivor区没有足够的空间存放上一次新生代收集下来的存活对象时，需要依赖老年代进行分配担保，将这些对象存放在老年代中。  
 
@@ -108,11 +108,3 @@ date: 2018-09-03 15:23:03
 	- 方法区空间不足时
 	- 老年代最大可用连续空间**小于**Minor GC历次晋升到老年代对象的平均大小
 	- CMS GC在垃圾回收的时候，当对象从Eden区进入Survivor区，Survivor区空间不足需要放入老年代，而老年代空间也不足时
-
-
-
-[2]: https://img-blog.csdn.net/20180326192225786?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTIxMDIxMDQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70
-
-[3]: https://img-blog.csdn.net/20180326195018417?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTIxMDIxMDQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70
-
-[4]: https://img-blog.csdn.net/20180326215901240?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTIxMDIxMDQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70

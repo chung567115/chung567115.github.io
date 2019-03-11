@@ -97,7 +97,7 @@ if (ex instanceof RuntimeException){
 }
 ```
 
-![Throwable体系](https://img-blog.csdn.net/20180725100241729?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTIxMDIxMDQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![Throwable体系](/34-1.png)
 
 ## 各种比较
 ### Override和Overload的区别  
