@@ -2056,7 +2056,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffc3db;
+  background: #ff2425;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3225,8 +3225,8 @@ pre .javascript .function {
   }
 }
 .post {
-  margin-top: 0px;
-  margin-bottom: 20px;
+  margin-top: 0px !important;
+  margin-bottom: 30px !important;
 }
 .posts-expand {
   padding-top: 0px;
