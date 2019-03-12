@@ -113,14 +113,14 @@
 <meta property="og:site_name" content="博学de叫兽">
 <meta property="og:description" content="笔经面经归纳汇总：计算机操作系统">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://zhangchong.xin/30-1.png">
-<meta property="og:image" content="http://zhangchong.xin/30-2.png">
-<meta property="og:image" content="http://zhangchong.xin/30-3.png">
-<meta property="og:updated_time" content="2019-03-11T15:10:13.286Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/30-1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/30-2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/30-3.png">
+<meta property="og:updated_time" content="2019-03-12T11:21:39.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java面试之操作系统">
 <meta name="twitter:description" content="笔经面经归纳汇总：计算机操作系统">
-<meta name="twitter:image" content="http://zhangchong.xin/30-1.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/30-1.png">
 
 
 
@@ -330,7 +330,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张冲">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.JPG">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -446,9 +446,9 @@
 <li>gcc命令：编译</li>
 </ul>
 <h2 id="内存管理方式"><a href="#内存管理方式" class="headerlink" title="内存管理方式"></a>内存管理方式</h2><p>&emsp;&emsp;用户程序的逻辑地址空间被划分成若干固定大小的区域，称为页或者页面，相应地，内存物理空间也分成相对应的若干个物理块，页和块的大小相等。可将用户程序的任一页放在内存的任一块中，实现了<strong>离散分配</strong>。  </p>
-<h3 id="页存储"><a href="#页存储" class="headerlink" title="页存储"></a>页存储</h3><p>&emsp;&emsp;为了便于在内存中找到进程的每个页面所对应的物理块，系统为每个进程建立一张页表，记录页面在内存中对应的物理块号，页表一般存放在内存中。在配置了页表后，进程执行时，通过查找该表，即可找到每页在内存中的物理块号。可见页表作用是实现从页号到物理块号的地址映射，这种是<strong>页存储</strong>管理方式。如下图所示：<br><img src="/30-1.png" alt="页表"></p>
-<h3 id="段存储"><a href="#段存储" class="headerlink" title="段存储"></a>段存储</h3><p>&emsp;&emsp;将用户程序地址空间分成若干个大小不等的段，每段可以定义一组相对完整的逻辑信息。存储分配时，以段为单位，段与段在内存中可以不相邻接，也实现了离散分配，这种是<strong>段存储</strong>管理方式。如下图所示：<br><img src="/30-2.png" alt="段表"></p>
-<h3 id="段页存储"><a href="#段页存储" class="headerlink" title="段页存储"></a>段页存储</h3><p>&emsp;&emsp;作业的地址空间首先被分成若干个逻辑分段，每段都有自己的段号，然后再将每段分成若干个大小相等的页。对于主存空间也分成大小相等的页，主存的分配以页为单位，这种是<strong>段页存储</strong>管理方式。如下图所示：<br><img src="/30-3.png" alt="段页表"></p>
+<h3 id="页存储"><a href="#页存储" class="headerlink" title="页存储"></a>页存储</h3><p>&emsp;&emsp;为了便于在内存中找到进程的每个页面所对应的物理块，系统为每个进程建立一张页表，记录页面在内存中对应的物理块号，页表一般存放在内存中。在配置了页表后，进程执行时，通过查找该表，即可找到每页在内存中的物理块号。可见页表作用是实现从页号到物理块号的地址映射，这种是<strong>页存储</strong>管理方式。如下图所示：<br><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/30-1.png" alt="页表"></p>
+<h3 id="段存储"><a href="#段存储" class="headerlink" title="段存储"></a>段存储</h3><p>&emsp;&emsp;将用户程序地址空间分成若干个大小不等的段，每段可以定义一组相对完整的逻辑信息。存储分配时，以段为单位，段与段在内存中可以不相邻接，也实现了离散分配，这种是<strong>段存储</strong>管理方式。如下图所示：<br><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/30-2.png" alt="段表"></p>
+<h3 id="段页存储"><a href="#段页存储" class="headerlink" title="段页存储"></a>段页存储</h3><p>&emsp;&emsp;作业的地址空间首先被分成若干个逻辑分段，每段都有自己的段号，然后再将每段分成若干个大小相等的页。对于主存空间也分成大小相等的页，主存的分配以页为单位，这种是<strong>段页存储</strong>管理方式。如下图所示：<br><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/30-3.png" alt="段页表"></p>
 <h2 id="物理地址、逻辑地址、虚拟地址"><a href="#物理地址、逻辑地址、虚拟地址" class="headerlink" title="物理地址、逻辑地址、虚拟地址"></a>物理地址、逻辑地址、虚拟地址</h2><ul>
 <li>物理地址：内存单元所限定地址范围中的地址（CPU地址总线传来的地址）。</li>
 <li>逻辑地址：也叫相对地址，机器语言指令中，用来指定一个操作数或一条指令的地址。</li>
@@ -612,7 +612,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="张冲">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.JPG" alt="张冲">
             
               <p class="site-author-name" itemprop="name">张冲</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -795,8 +795,6 @@
 
 
 
-  
-
 
 
   
@@ -827,11 +825,6 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-  
-  
-    <script id="ribbon" type="text/javascript" size="300" alpha="0.6" zindex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
   
 
 

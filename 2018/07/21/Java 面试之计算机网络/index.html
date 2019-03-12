@@ -113,18 +113,18 @@
 <meta property="og:site_name" content="博学de叫兽">
 <meta property="og:description" content="笔经面经归纳汇总：计算机网络">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://zhangchong.xin/31-1.png">
-<meta property="og:image" content="http://zhangchong.xin/31-2.png">
-<meta property="og:image" content="http://zhangchong.xin/31-3.png">
-<meta property="og:image" content="http://zhangchong.xin/31-4.png">
-<meta property="og:image" content="http://zhangchong.xin/31-5.png">
-<meta property="og:image" content="http://zhangchong.xin/31-6.png">
-<meta property="og:image" content="http://zhangchong.xin/31-7.png">
-<meta property="og:updated_time" content="2019-03-11T15:12:03.518Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-6.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-7.png">
+<meta property="og:updated_time" content="2019-03-12T11:24:53.149Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java面试之计算机网络">
 <meta name="twitter:description" content="笔经面经归纳汇总：计算机网络">
-<meta name="twitter:image" content="http://zhangchong.xin/31-1.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-1.png">
 
 
 
@@ -334,7 +334,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张冲">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.JPG">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -433,17 +433,17 @@
 <p>笔经面经归纳汇总：计算机网络</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="Java面试之计算机网络"><a href="#Java面试之计算机网络" class="headerlink" title="Java面试之计算机网络"></a>Java面试之计算机网络</h1><h2 id="OSI与TCP-IP各层"><a href="#OSI与TCP-IP各层" class="headerlink" title="OSI与TCP/IP各层"></a>OSI与TCP/IP各层</h2><p><img src="/31-1.png" alt="OSI与TCP/IP结构"></p>
+<h1 id="Java面试之计算机网络"><a href="#Java面试之计算机网络" class="headerlink" title="Java面试之计算机网络"></a>Java面试之计算机网络</h1><h2 id="OSI与TCP-IP各层"><a href="#OSI与TCP-IP各层" class="headerlink" title="OSI与TCP/IP各层"></a>OSI与TCP/IP各层</h2><p><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-1.png" alt="OSI与TCP/IP结构"></p>
 <h2 id="TCP、HTTP"><a href="#TCP、HTTP" class="headerlink" title="TCP、HTTP"></a>TCP、HTTP</h2><h3 id="TCP三次握手、四次挥手"><a href="#TCP三次握手、四次挥手" class="headerlink" title="TCP三次握手、四次挥手"></a>TCP三次握手、四次挥手</h3><h4 id="TCP三次握手（建立连接）"><a href="#TCP三次握手（建立连接）" class="headerlink" title="TCP三次握手（建立连接）"></a>TCP三次握手（建立连接）</h4><ol>
 <li>第一次握手：客户端向服务器发送SYN(seq=j)包到服务器；</li>
 <li>第二次握手：服务器收到SYN包，向客户端发送ACK包(ack=j+1)和SYN包(seq=k)；</li>
-<li>第三次握手：客户端收到SYN＋ACK包，向服务器发送ACK包(ack=k+1)，完成三次握手。<br><img src="/31-2.png" alt="三次握手"></li>
+<li>第三次握手：客户端收到SYN＋ACK包，向服务器发送ACK包(ack=k+1)，完成三次握手。<br><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-2.png" alt="三次握手"></li>
 </ol>
 <h4 id="TCP四次挥手（终止连接）"><a href="#TCP四次挥手（终止连接）" class="headerlink" title="TCP四次挥手（终止连接）"></a>TCP四次挥手（终止连接）</h4><ol>
 <li>第一次挥手：客户端向服务器发送FIN包(seq=j)，关闭客户到服务器的数据传送；</li>
 <li>第二次挥手：服务器收到FIN包，向客户端发送ACK包(ack=j+1)；</li>
 <li>第三次挥手：服务器向客户端发送FIN包(seq=k)；</li>
-<li>第四次挥手：客户端收到FIN包，向客户端发送ACK包(ack=k+1)，完成四次挥手。<br><img src="/31-3.png" alt="四次挥手"></li>
+<li>第四次挥手：客户端收到FIN包，向客户端发送ACK包(ack=k+1)，完成四次挥手。<br><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-3.png" alt="四次挥手"></li>
 </ol>
 <h4 id="为什么TCP连接是3次而终止是4次"><a href="#为什么TCP连接是3次而终止是4次" class="headerlink" title="为什么TCP连接是3次而终止是4次"></a>为什么TCP连接是3次而终止是4次</h4><p>&emsp;&emsp;连接时，服务端收到SYN后，把ACK和SYN一起打包回发给客户端，只有3次。<br>&emsp;&emsp;终止时，由于TCP连接是全双工的，每个方向都必须单独进行关闭，即FIN和ACK是分开发送的，所以有4次。<br>&emsp;&emsp;当一方完成它的数据发送任务后，发送一个FIN来终止连接。但收到一个FIN只表示对方没有数据发送，而己方仍能发送数据。因此必须单独关闭。  </p>
 <h3 id="HTTP相关"><a href="#HTTP相关" class="headerlink" title="HTTP相关"></a>HTTP相关</h3><h4 id="HTTP的状态码含义"><a href="#HTTP的状态码含义" class="headerlink" title="HTTP的状态码含义"></a>HTTP的状态码含义</h4><table>
@@ -544,8 +544,8 @@
 <li>HTTP 1.1中，支持<strong>长连接</strong>和<strong>流水线请求</strong>处理，在一个TCP连接上可以传送多个HTTP请求和响应，若干个请求串行化<strong>单线程</strong>处理。</li>
 <li>HTTP2.0中，基于<strong>二进制解析</strong>，可<strong>多路复用</strong>，多个请求可同时在一个连接上<strong>并行处理</strong>。</li>
 </ul>
-<p><img src="/31-4.png" alt="HTTP比较"></p>
-<h3 id="TCP与HTTP的报文结构"><a href="#TCP与HTTP的报文结构" class="headerlink" title="TCP与HTTP的报文结构"></a>TCP与HTTP的报文结构</h3><p><img src="/31-5.png" alt="tcp报文结构"><br><img src="/31-6.png" alt="http报文结构"></p>
+<p><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-4.png" alt="HTTP比较"></p>
+<h3 id="TCP与HTTP的报文结构"><a href="#TCP与HTTP的报文结构" class="headerlink" title="TCP与HTTP的报文结构"></a>TCP与HTTP的报文结构</h3><p><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-5.png" alt="tcp报文结构"><br><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-6.png" alt="http报文结构"></p>
 <h2 id="Forward与Redirect"><a href="#Forward与Redirect" class="headerlink" title="Forward与Redirect"></a>Forward与Redirect</h2><ul>
 <li>直接转发（Forward）：也称<strong>转发</strong>，浏览器发出请求，服务器把响应内容读取过来，然后再把这些内容发给浏览器。<strong>地址栏显示原来的URL</strong>。</li>
 <li>间接转发（Redirect）：也称<strong>重定向</strong>，浏览器发出请求，服务器端在响应第一次请求的时候，让浏览器向另一个地址发出请求，然后得到响应。<strong>地址栏显示新的URL</strong>。</li>
@@ -601,7 +601,7 @@
 </ul>
 </li>
 </ol>
-<h2 id="IP地址分类"><a href="#IP地址分类" class="headerlink" title="IP地址分类"></a>IP地址分类</h2><p><img src="/31-7.png" alt="IP地址分类"></p>
+<h2 id="IP地址分类"><a href="#IP地址分类" class="headerlink" title="IP地址分类"></a>IP地址分类</h2><p><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-7.png" alt="IP地址分类"></p>
 <h2 id="交换机与路由器区别"><a href="#交换机与路由器区别" class="headerlink" title="交换机与路由器区别"></a>交换机与路由器区别</h2><table>
 <thead>
 <tr>
@@ -790,7 +790,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="张冲">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.JPG" alt="张冲">
             
               <p class="site-author-name" itemprop="name">张冲</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -973,8 +973,6 @@
 
 
 
-  
-
 
 
   
@@ -1005,11 +1003,6 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-  
-  
-    <script id="ribbon" type="text/javascript" size="300" alpha="0.6" zindex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
   
 
 

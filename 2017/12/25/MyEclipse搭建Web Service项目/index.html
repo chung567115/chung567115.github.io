@@ -113,20 +113,20 @@
 <meta property="og:site_name" content="博学de叫兽">
 <meta property="og:description" content="本篇博客，小博将记录MyEclipse下，简单Web Service项目搭建的详细过程">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://zhangchong.xin/6-1.png">
-<meta property="og:image" content="http://zhangchong.xin/6-2.png">
-<meta property="og:image" content="http://zhangchong.xin/6-3.png">
-<meta property="og:image" content="http://zhangchong.xin/6-4.png">
-<meta property="og:image" content="http://zhangchong.xin/6-5.png">
-<meta property="og:image" content="http://zhangchong.xin/6-6.png">
-<meta property="og:image" content="http://zhangchong.xin/6-7.png">
-<meta property="og:image" content="http://zhangchong.xin/6-8.png">
-<meta property="og:image" content="http://zhangchong.xin/6-9.png">
-<meta property="og:updated_time" content="2019-03-11T14:57:02.333Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/6-1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/6-2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/6-3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/6-4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/6-5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/6-6.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/6-7.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/6-8.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/6-9.png">
+<meta property="og:updated_time" content="2019-03-12T11:26:24.320Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Myeclipse搭建Web Service项目">
 <meta name="twitter:description" content="本篇博客，小博将记录MyEclipse下，简单Web Service项目搭建的详细过程">
-<meta name="twitter:image" content="http://zhangchong.xin/6-1.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/6-1.png">
 
 
 
@@ -336,7 +336,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张冲">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.JPG">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -438,17 +438,17 @@
 <h1 id="Myeclipse搭建Web-Service项目"><a href="#Myeclipse搭建Web-Service项目" class="headerlink" title="Myeclipse搭建Web Service项目"></a>Myeclipse搭建Web Service项目</h1><blockquote>
 <p><a href="http://download.csdn.net/download/u012102104/10172395" target="_blank" rel="noopener">点击下载完整代码</a></p>
 </blockquote>
-<p>① 创建Web Service Project。<br><img src="/6-1.png" alt="1"></p>
-<p>② 新建类Hello<br><img src="/6-2.png" alt="6"></p>
-<p>目录结构如下图<br><img src="/6-3.png" alt="2"></p>
+<p>① 创建Web Service Project。<br><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/6-1.png" alt="1"></p>
+<p>② 新建类Hello<br><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/6-2.png" alt="6"></p>
+<p>目录结构如下图<br><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/6-3.png" alt="2"></p>
 <p>代码如下</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebService</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Method sayHello execute"</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"Hello "</span> + name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		String address = <span class="string">"http://localhost:8080/Demo/Hello"</span>;</span><br><span class="line">		Hello hello = <span class="keyword">new</span> Hello();</span><br><span class="line">		Endpoint.publish(address, hello);</span><br><span class="line">		System.out.println(<span class="string">"Web Service publish success"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>③运行Hello.java(Run As Java Application)，可以看到控制台输出：Web Service publish success，可见启动成功。浏览器访问<a href="http://localhost:8080/Demo/Hello?wsdl" target="_blank" rel="noopener">http://localhost:8080/Demo/Hello?wsdl</a>，可以看到如下界面。<br><img src="/6-4.png" alt="3"></p>
-<p>④新建另一个Web Service Project，选中项目，点击工具栏按钮–&gt;New Web Service Client<br><img src="/6-5.png" alt="7"></p>
-<p>⑤选择JAX-WS，Next<br><img src="/6-6.png" alt="5"></p>
-<p>⑥填写WSDL文件URL(即前面服务端测试的url)，Next<br><img src="/6-7.png" alt="4"></p>
-<p>⑦进度条加载完后，点击Finish。<br><img src="/6-8.png" alt="8"></p>
-<p>⑧这时候可以看到，目录下自动创建了如下一些文件<br><img src="/6-9.png" alt="9"></p>
+<p>③运行Hello.java(Run As Java Application)，可以看到控制台输出：Web Service publish success，可见启动成功。浏览器访问<a href="http://localhost:8080/Demo/Hello?wsdl" target="_blank" rel="noopener">http://localhost:8080/Demo/Hello?wsdl</a>，可以看到如下界面。<br><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/6-4.png" alt="3"></p>
+<p>④新建另一个Web Service Project，选中项目，点击工具栏按钮–&gt;New Web Service Client<br><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/6-5.png" alt="7"></p>
+<p>⑤选择JAX-WS，Next<br><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/6-6.png" alt="5"></p>
+<p>⑥填写WSDL文件URL(即前面服务端测试的url)，Next<br><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/6-7.png" alt="4"></p>
+<p>⑦进度条加载完后，点击Finish。<br><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/6-8.png" alt="8"></p>
+<p>⑧这时候可以看到，目录下自动创建了如下一些文件<br><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/6-9.png" alt="9"></p>
 <p>⑨新建TestHello.java文件调用服务端内容，代码如下</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestHello</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Hello hello = <span class="keyword">new</span> HelloService().getHelloPort();</span><br><span class="line">		String result = hello.sayHello(<span class="string">"Charles"</span>);</span><br><span class="line">		System.out.println(result);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>⑩运行TestHello.java，可以看到控制台输出：Hello Charles。可见调用成功。</p>
@@ -611,7 +611,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="张冲">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.JPG" alt="张冲">
             
               <p class="site-author-name" itemprop="name">张冲</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -794,8 +794,6 @@
 
 
 
-  
-
 
 
   
@@ -826,11 +824,6 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-  
-  
-    <script id="ribbon" type="text/javascript" size="300" alpha="0.6" zindex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
   
 
 
