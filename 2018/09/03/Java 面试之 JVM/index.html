@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java,校招,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="笔经面经归纳汇总：Java虚拟机">
+<meta name="keywords" content="Java,校招">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java面试之JVM">
+<meta property="og:url" content="http://zhangchong.xin/2018/09/03/Java 面试之 JVM/index.html">
+<meta property="og:site_name" content="博学de叫兽">
+<meta property="og:description" content="笔经面经归纳汇总：Java虚拟机">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/39-1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/39-1.png/39-2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/39-1.png/39-3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/39-1.png/39-4.png">
+<meta property="og:updated_time" content="2019-03-12T10:42:38.325Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java面试之JVM">
+<meta name="twitter:description" content="笔经面经归纳汇总：Java虚拟机">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/39-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zhangchong.xin/2018/09/03/Java 面试之 JVM/">
+
+
+
+
+
+  <title>Java面试之JVM | 博学de叫兽</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">博学de叫兽</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">博学之，审问之</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhangchong.xin/2018/09/03/Java 面试之 JVM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张冲">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博学de叫兽">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java面试之JVM</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-03T15:23:03+08:00">
+                2018-09-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔经面经/" itemprop="url" rel="index">
+                    <span itemprop="name">笔经面经</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>笔经面经归纳汇总：Java虚拟机</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="Java面试之JVM"><a href="#Java面试之JVM" class="headerlink" title="Java面试之JVM"></a>Java面试之JVM</h1><h2 id="JVM结构图"><a href="#JVM结构图" class="headerlink" title="JVM结构图"></a>JVM结构图</h2><p><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/39-1.png" alt="JVM"></p>
+<h2 id="类加载机制"><a href="#类加载机制" class="headerlink" title="类加载机制"></a>类加载机制</h2><h3 id="类加载的五个过程"><a href="#类加载的五个过程" class="headerlink" title="类加载的五个过程"></a>类加载的五个过程</h3><ul>
+<li><kbd>加载</kbd>：类加载器获二进制字节流，将静态存储结构转化为方法区的运行时数据结构，并生成此类的Class对象。</li>
+<li><kbd>验证</kbd>：验证文件格式、元数据、字节码、符号引用，确保Class的字节流中包含的信息符合当前虚拟机的要求。</li>
+<li><kbd>准备</kbd>：为类变量分配内存并设置其初始值，这些变量使用的内存都将在方法区中进行分配。</li>
+<li><kbd>解析</kbd>：将常量池内的符号引用替换为直接引用，包括类或接口的解析、字段解析、类方法解析、接口方法解析。</li>
+<li><p><kbd>初始化</kbd>：执行类中定义的Java程序代码（字节码）。</p>
+<blockquote>
+<p>类的生命周期(7个)：加载、验证、准备、解析、初始化、使用、卸载</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Java类加载器及如何加载类"><a href="#Java类加载器及如何加载类" class="headerlink" title="Java类加载器及如何加载类"></a>Java类加载器及如何加载类</h3><p>&emsp;&emsp;<strong>类加载器</strong>是实现<strong>通过一个类的全限定名来获取描述此类的二进制文件流</strong>的代码模块。类的加载是通过双亲委派模型来完成的，<strong>双亲委派模型</strong>即为下图所示的<strong>类加载器之间的层次关系</strong>。<br>&emsp;&emsp;双亲委派模型的工作过程是：如果一个类加载器接收到类加载的请求，它会先把这个请求委派给父加载器去完成，只有当父加载器反馈自己无法完成加载请求时，子加载器才会尝试自己去加载。可以得知，<strong>所有的加载请求最终都会传送到启动类加载器中</strong>。  </p>
+<p><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/39-1.png/39-2.png" alt="双亲委派模型"></p>
+<blockquote>
+<p>使用双亲委派模型组织类加载器之间的关系有一个显而易见的好处：<strong>Java类随着它的类加载器一起具备了某种带优先级的层次关系</strong>。如果没有使用双亲委派模型，而是由各类加载器自行加载，假如用户自己编写一个Object类放在ClassPath中，那么系统将会出现多个不同的Object类，Java体系中最基础的行为也就无法保证，应用程序将变得一片混乱。</p>
+</blockquote>
+<h2 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h2><h3 id="JVM内存结构"><a href="#JVM内存结构" class="headerlink" title="JVM内存结构"></a>JVM内存结构</h3><ul>
+<li><strong>Java堆</strong>：Java虚拟机所管理的内存中最大的一块，唯一的目的是存放对象实例。由于是垃圾收集器管理的主要区域，因此有时候也被称作<code>GC堆</code>。</li>
+<li><strong>方法区</strong>：用于存储已被虚拟机加载的类信息、常量、静态变量、及时编译器编译后的代码等数据。</li>
+<li><strong>程序计数器</strong>：当前线程所执行字节码的行号指示器。每一个线程都有一个独立的程序计数器，线程的阻塞、恢复、挂起等一系列操作都需要程序计数器的参与，因此必须是线程私有的。</li>
+<li><strong>Java虚拟机栈</strong>：用于描述Java方法执行的模型。每个方法在执行的同时都会创建一个栈帧，用于存储局部变量表、操作数栈、动态链接、方法出口等信息。<code>每一个方法从调用至执行完成，对应于一个栈帧在虚拟机栈中从入栈到出栈</code>。</li>
+<li><p><strong>本地方法栈</strong>：与虚拟机栈作用相似，只不过虚拟机栈为执行Java方法服务，而本地方法栈为执行Native方法服务，比如在Java中调用C/C++。</p>
+<p>  <img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/39-1.png/39-3.png" alt="Java虚拟机运行时数据区"></p>
+</li>
+</ul>
+<h3 id="JVM内存分代机制，各代特点，分代回收优点"><a href="#JVM内存分代机制，各代特点，分代回收优点" class="headerlink" title="JVM内存分代机制，各代特点，分代回收优点"></a>JVM内存分代机制，各代特点，分代回收优点</h3><ul>
+<li><strong>新生代（Young）</strong>：HotSpot将新生代划分为三块，一块较大的Eden空间和两块较小的Survivor空间，默认比例为<code>8：1：1</code>。</li>
+<li><strong>老年代（Old）</strong>：在新生代中经历了多次GC后仍然存活下来的对象会进入老年代中。老年代中的对象生命周期较长，存活率比较高，在老年代中进行GC的频率相对而言较低，而且回收的速度也比较慢。</li>
+<li><p><strong>永久代（Permanent）</strong>：永久代存储类信息、常量、静态变量、即时编译器编译后的代码等数据，对这一区域而言，一般而言不会进行垃圾回收。</p>
+<blockquote>
+<p>新版已经删除永久代。</p>
+</blockquote>
+<p>  <img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/39-1.png/39-4.png" alt="JVM共享数据空间划分图"></p>
+<p>  &emsp;&emsp;新生成的对象在Eden区分配（大对象除外，大对象直接进入老年代），<strong>当Eden区没有足够的空间进行分配时，虚拟机将发起一次Minor GC</strong>。GC开始时，对象只会存在于Eden区和From Survivor区，To Survivor区是空的（作为保留区域）。GC进行时，Eden区中所有存活的对象都会被复制到To Survivor区，而在From Survivor区中，仍存活的对象会根据它们的年龄值决定去向，年龄值达到年龄阀值（默认为15，新生代中的对象每熬过一轮垃圾回收，年龄值就加1，GC分代年龄存储在对象的Header中）的对象会被移到老年代中，没有达到阀值的对象会被复制到To Survivor区。接着清空Eden区和From Survivor区，新生代中存活的对象都在To Survivor区。接着， From Survivor区和To Survivor区会交换它们的角色，也就是新的To Survivor区就是上次GC清空的From Survivor区，新的From Survivor区就是上次GC的To Survivor区，总之，不管怎样都会保证To Survivor区在一轮GC后是空的。GC时当To Survivor区没有足够的空间存放上一次新生代收集下来的存活对象时，需要依赖老年代进行分配担保，将这些对象存放在老年代中。  </p>
+</li>
+</ul>
+<h3 id="常用的内存调试工具"><a href="#常用的内存调试工具" class="headerlink" title="常用的内存调试工具"></a>常用的内存调试工具</h3><ul>
+<li>JConsole（可视化工具，可排查死锁、生成Heap Dump文件等）</li>
+<li>Jmap</li>
+<li>jstack</li>
+</ul>
+<h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><p>&emsp;&emsp;垃圾回收需要完成的三件事：①哪些内存需要回收；②什么时候回收；③如何回收。  </p>
+<h3 id="哪些内存需要回收"><a href="#哪些内存需要回收" class="headerlink" title="哪些内存需要回收"></a>哪些内存需要回收</h3><ul>
+<li>堆</li>
+<li>方法区</li>
+</ul>
+<h3 id="什么时候回收"><a href="#什么时候回收" class="headerlink" title="什么时候回收"></a>什么时候回收</h3><ul>
+<li><strong>引用计数算法</strong>：给对象添加一个引用计数器，每当有一个地方引用它时，计数器加1，每当一个引用失效时，计数器减1，任何时刻计数器为0则代表对象不被引用。<blockquote>
+<p>注意：引用计数算法有一个比较大的问题，那就是它不能处理环形数据。即如果有两个对象相互引用，那么这两个对象计数器始终不为0，也就不能被回收。</p>
+</blockquote>
+</li>
+<li><strong>可达性分析算法</strong>：设立若干根对象（GC Roots），每个对象都是一个子节点。从根向下搜索所走过的路径叫<code>引用链</code>，当一个对象到根无任何引用链相连，证明此对象不可用。<br>  &emsp;&emsp;Java语言中可以作为GC Roots的对象包括以下几种：  <ul>
+<li>虚拟机栈中引用的对象</li>
+<li>方法区中类静态属性引用的对象</li>
+<li>方法区中常量引用的对象</li>
+<li>本地方法栈中<code>JNI</code>引用的对象</li>
+</ul>
+</li>
+</ul>
+<h3 id="如何回收"><a href="#如何回收" class="headerlink" title="如何回收"></a>如何回收</h3><ul>
+<li><strong>标记-清除算法</strong>：先标记出所有需要回收的对象，标记完成后统一回收所有被标记的对象。</li>
+<li><strong>复制算法</strong>：将可用内存分为大小相等的两块，每次只使用其中一块，当这一块内存用完了，就将存活的对象复制到另一块，最后将此块内存一次性清理掉。</li>
+<li><strong>标记-整理算法</strong>：先标记所有需要回收的对象，然后让所有存活的对象向一端移动，最后直接清理掉边界以外的另一端内存。</li>
+<li><strong>分代收集算法</strong>：把Java堆分为新生代和老年代。新生代中只有少量对象会存活，就选用<code>复制</code>算法；老年代中对象存活率较高，选用<code>标记-XX</code>算法。</li>
+</ul>
+<h3 id="垃圾收集器有哪些"><a href="#垃圾收集器有哪些" class="headerlink" title="垃圾收集器有哪些"></a>垃圾收集器有哪些</h3><ul>
+<li><strong>Serial收集器</strong>：单线程收集器。收集垃圾时必须暂停其他所有工作线程，直到它收集结束。</li>
+<li><strong>Parnew收集器</strong>：Serial收集器多线程版本。</li>
+<li><strong>Parallel Scavenge收集器</strong>：使用复制算法的新生代收集器。</li>
+<li><strong>Serial Old收集器</strong>：使用标记-整理算法的老年代单线程收集器。</li>
+<li><strong>Parallel Old收集器</strong>：使用标记-整理算法的老年代多线程收集器。</li>
+<li><strong>CMS收集器</strong>：基于标记-清除算法的低停顿并发收集器。运作步骤为①初始标记②并发标记③重新标记④并发清除。</li>
+<li><strong>G1收集器</strong>：最前沿的面向服务端应用的垃圾收集器。运作步骤为①初始标记②并发标记③最终标记④筛选回收。G1收集器有以下特点<ul>
+<li>并行与并发：无需停顿Java线程来执行GC动作。</li>
+<li>分代收集：可独立管理整个GC堆。</li>
+<li>空间整合：运行期间不会产生内存空间碎片。</li>
+<li>可预测的停顿：除了低停顿，还能建立可预测的停顿时间模型。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Minor-GC与Full-GC"><a href="#Minor-GC与Full-GC" class="headerlink" title="Minor GC与Full GC"></a>Minor GC与Full GC</h3><ul>
+<li>新生代 GC（Minor GC）：指发生在新生代的垃圾收集动作，因为 Java 对象大多都具备朝生夕灭的特性，所以 Minor GC 非常频繁，一般回收速度也比较快。</li>
+<li>老年代 GC（Major GC  / Full GC）：指发生在老年代的垃圾收集动作，出现了 Major GC，经常会伴随至少一次 Minor GC（非绝对），MajorGC 的速度一般会比 Minor GC 慢10倍以上。</li>
+</ul>
+<p>&emsp;&emsp;Minor GC与Full GC触发条件：  </p>
+<ul>
+<li>Minor GC触发条件：<ul>
+<li>当Eden区没有足够的空间进行分配时</li>
+<li>老年代最大可用连续空间<strong>大于</strong>Minor GC历次晋升到老年代对象的平均大小</li>
+</ul>
+</li>
+<li>Full GC触发条件：<ul>
+<li>调用System.gc()时（系统建议执行Full GC，但是不必然执行）</li>
+<li>老年代空间不足时</li>
+<li>方法区空间不足时</li>
+<li>老年代最大可用连续空间<strong>小于</strong>Minor GC历次晋升到老年代对象的平均大小</li>
+<li>CMS GC在垃圾回收的时候，当对象从Eden区进入Survivor区，Survivor区空间不足需要放入老年代，而老年代空间也不足时</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/校招/" rel="tag"># 校招</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/03/Java 面试之线程与锁/" rel="next" title="Java面试之线程与锁">
+                <i class="fa fa-chevron-left"></i> Java面试之线程与锁
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/03/Java 面试之旅/" rel="prev" title="Java面试之旅">
+                Java面试之旅 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">张冲</p>
+              <p class="site-description motion-element" itemprop="description">Java</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java面试之JVM"><span class="nav-number">1.</span> <span class="nav-text">Java面试之JVM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM结构图"><span class="nav-number">1.1.</span> <span class="nav-text">JVM结构图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类加载机制"><span class="nav-number">1.2.</span> <span class="nav-text">类加载机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类加载的五个过程"><span class="nav-number">1.2.1.</span> <span class="nav-text">类加载的五个过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java类加载器及如何加载类"><span class="nav-number">1.2.2.</span> <span class="nav-text">Java类加载器及如何加载类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存分配"><span class="nav-number">1.3.</span> <span class="nav-text">内存分配</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM内存结构"><span class="nav-number">1.3.1.</span> <span class="nav-text">JVM内存结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM内存分代机制，各代特点，分代回收优点"><span class="nav-number">1.3.2.</span> <span class="nav-text">JVM内存分代机制，各代特点，分代回收优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的内存调试工具"><span class="nav-number">1.3.3.</span> <span class="nav-text">常用的内存调试工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾回收"><span class="nav-number">1.4.</span> <span class="nav-text">垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#哪些内存需要回收"><span class="nav-number">1.4.1.</span> <span class="nav-text">哪些内存需要回收</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么时候回收"><span class="nav-number">1.4.2.</span> <span class="nav-text">什么时候回收</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何回收"><span class="nav-number">1.4.3.</span> <span class="nav-text">如何回收</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾收集器有哪些"><span class="nav-number">1.4.4.</span> <span class="nav-text">垃圾收集器有哪些</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Minor-GC与Full-GC"><span class="nav-number">1.4.5.</span> <span class="nav-text">Minor GC与Full GC</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张冲</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
