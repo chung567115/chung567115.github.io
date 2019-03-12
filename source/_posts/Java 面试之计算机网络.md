@@ -15,7 +15,7 @@ date: 2018-07-21 11:12:57
 # Java面试之计算机网络
 ## OSI与TCP/IP各层 
 
-![OSI与TCP/IP结构](/31-1.png)
+![OSI与TCP/IP结构](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-1.png)
 
 ## TCP、HTTP  
 ### TCP三次握手、四次挥手  
@@ -23,14 +23,14 @@ date: 2018-07-21 11:12:57
 1. 第一次握手：客户端向服务器发送SYN(seq=j)包到服务器；
 2. 第二次握手：服务器收到SYN包，向客户端发送ACK包(ack=j+1)和SYN包(seq=k)；
 3. 第三次握手：客户端收到SYN＋ACK包，向服务器发送ACK包(ack=k+1)，完成三次握手。 
-![三次握手](/31-2.png)
+![三次握手](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-2.png)
 
 #### TCP四次挥手（终止连接）
 1. 第一次挥手：客户端向服务器发送FIN包(seq=j)，关闭客户到服务器的数据传送；
 2. 第二次挥手：服务器收到FIN包，向客户端发送ACK包(ack=j+1)；
 3. 第三次挥手：服务器向客户端发送FIN包(seq=k)；
 4. 第四次挥手：客户端收到FIN包，向客户端发送ACK包(ack=k+1)，完成四次挥手。
-![四次挥手](/31-3.png)
+![四次挥手](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-3.png)
 
 #### 为什么TCP连接是3次而终止是4次  
 &emsp;&emsp;连接时，服务端收到SYN后，把ACK和SYN一起打包回发给客户端，只有3次。   
@@ -67,11 +67,11 @@ date: 2018-07-21 11:12:57
 - HTTP 1.1中，支持**长连接**和**流水线请求**处理，在一个TCP连接上可以传送多个HTTP请求和响应，若干个请求串行化**单线程**处理。
 - HTTP2.0中，基于**二进制解析**，可**多路复用**，多个请求可同时在一个连接上**并行处理**。
 
-![HTTP比较](/31-4.png)
+![HTTP比较](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-4.png)
 
 ### TCP与HTTP的报文结构  
-![tcp报文结构](/31-5.png)
-![http报文结构](/31-6.png)
+![tcp报文结构](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-5.png)
+![http报文结构](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-6.png)
 
 ## Forward与Redirect  
 - 直接转发（Forward）：也称**转发**，浏览器发出请求，服务器把响应内容读取过来，然后再把这些内容发给浏览器。**地址栏显示原来的URL**。
@@ -121,7 +121,7 @@ date: 2018-07-21 11:12:57
 
 ## IP地址分类  
 
-![IP地址分类](/31-7.png)
+![IP地址分类](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-7.png)
 
 ## 交换机与路由器区别  
 |  比较点  |           交换机        |            路由器             |

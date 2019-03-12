@@ -15,7 +15,7 @@ date: 2018-09-03 15:22:51
 ## 进程、线程  
 &emsp;&emsp;**进程是操作系统分配资源的最小单元，线程是操作系统调度的最小单元**。一个进程一般包括多个线程，这些线程共享本进程的内存和资源。
 ### 线程的状态  
-![线程状态](/38-1.png)
+![线程状态](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/38-1.png)
 ### 实现线程的几种方式  
 - 继承Thread类创建线程
 - 实现Runnable接口创建线程

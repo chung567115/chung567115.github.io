@@ -16,16 +16,16 @@ date: 2017-12-10 15:34:30
 # IDEA创建Spring SpringMVC MyBatis整合Maven项目，并提交至Github
 
 ①新建Maven项目，如下图顺序。第三张图片中，添加一个参数archetypeCatalog=internal，表示仅使用内部元数据，不用这个参数创建Maven项目会很慢哦。其他起名字什么的大家大家随意，就不一一解释了。
-![1](/4-1.png)
-![2](/4-2.png)
-![3](/4-3.png)
-![4](/4-4.png)
+![1](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/4-1.png)
+![2](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/4-2.png)
+![3](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/4-3.png)
+![4](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/4-4.png)
 
 ②将Java文件夹标记为源码目录，然后创建各种MVC模式对应的包
-![5](/4-5.png)
+![5](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/4-5.png)
 
 ③如下图，创建配置文件，然后进行各种配置文件的编写。后面贴出我的代码，篇幅太大就不逐一解释了，以后有时间再详细拉出来写写。
-![7](/4-6.png)
+![7](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/4-6.png)
 
 - pom.xml文件
 ```xml
@@ -459,9 +459,9 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 ```
 
 ④发布到Tomcat，开启服务器并运行调试，步骤如下图，其中各种命名具体情况具体对待。
-![8](/4-7.png)
-![9](/4-8.png)
-![10](/4-9.png)
+![8](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/4-7.png)
+![9](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/4-8.png)
+![10](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/4-9.png)
 
 ⑤编写下列文件，并开启Tomcat测试运行项目。
 
@@ -585,15 +585,15 @@ public class TestController {
 }
 ```
 - graduate数据库表t_testc结构及数据如下图
-![16](/4-10.png)
+![16](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/4-10.png)
 
 ⑥处理好以上内容后，开启Tomcat，浏览器访问http://localhost:8080/graduate/test/test.action?uid=1，如若项目配置正确，应出现如下JSON。
-![15](/4-11.png)
+![15](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/4-11.png)
 
 ⑦分享项目到Github
-![11](/4-12.png)
-![12](/4-13.png)
-![13](/4-14.png)
-![14](/4-15.png)
+![11](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/4-12.png)
+![12](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/4-13.png)
+![13](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/4-14.png)
+![14](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/4-15.png)
 
 ----------

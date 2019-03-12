@@ -34,25 +34,25 @@ date: 2017-12-24 23:45:07
 第一篇主题为项目搭建及简单开发与测试，[点击下载完整代码](http://download.csdn.net/download/u012102104/10172445)
 
 ①新建项目
-![1](/5-1.png)
+![1](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/5-1.png)
 
 ②选择Spring Initializr
-![2](/5-2.png)
+![2](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/5-2.png)
 
 ③填写项目相关信息（本系列博客以Maven为例）
-![3](/5-3.png)
+![3](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/5-3.png)
 
 ④选择依赖的核心组件DevTools
-![4](/5-4.png)
+![4](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/5-4.png)
 
 ⑤选择依赖的Web组件Web
-![5](/5-5.png)
+![5](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/5-5.png)
 
 ⑥填写项目名并创建新项目
-![6](/5-6.png)
+![6](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/5-6.png)
 
 ⑦src/main/java为源码文件包，src/mian/resources为配置文件包，src/test/java为测试程序包
-![7](/5-7.png)
+![7](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/5-7.png)
 
 ⑧一般来说，Spring Boot项目主要包括如下几个包和文件（图中可见的Java文件和properties文件均自动生成）
 com.chung.springbootdemo包下：
@@ -70,7 +70,7 @@ resources包下：
 - application.properties文件：项目配置信息
 
 最外层的pom.xml文件用于配置项目依赖包及其他配置
-![8](/5-8.png)
+![8](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/5-8.png)
 
  至此，一个Spring Boot项目搭建好了。下面进项简单的Web开发及测试。
 
@@ -179,11 +179,11 @@ Process finished with exit code 0
 </build>
 ```
 
- ![9](/5-9.png)
+ ![9](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/5-9.png)
 
- ![10](/5-10.png)
+ ![10](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/5-10.png)
 
- ![11](/5-11.png)
+ ![11](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/5-11.png)
 
 
 

@@ -19,7 +19,7 @@ date: 2018-08-28 15:09:07
 - 存储原理：当向HsahMap中添加元素的时候，首先计算Key对象的Hash值，得到数组下标，如果数组该位置为空则插入，否则遍历这个位置链表。当某个节点Key对象和Node对象均和新元素的equals时，用新元素的Value对象替换该节点的Value对象，否则插入新节点。（**注意**：JDK 8之后加入了红黑树）
 > HashMap长度为2的n次幂是为了让length-1的二进制值所有位全为1，这种情况下，hash值与(table.length - 1)进行&运算计算index时，其结果就等同于hashcode后几位的值，此时只要输入的hashcode本身分布均匀，Hash算法的结果就是均匀的。所以，HashMap的默认长度为16是为了降低hash碰撞的几率，同时也是一种合适的大小。
 
-![HashMap](/36-1.png)
+![HashMap](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/36-1.png)
 
 #### Hashtable  
 | 比较点 | HashMap | Hashtable |
@@ -34,7 +34,7 @@ date: 2018-08-28 15:09:07
 #### ConcurrentHashMap  
 &emsp;&emsp;ConcurrentHashMap是Java并发包中提供的一个线程安全且高效的HashMap实现，它采用了非常精妙的**分段锁**策略，ConcurrentHashMap的主干是Segment数组。Segment继承于ReentrantLock，是一种可重入锁。每个Segment都是一个子哈希表，Segment里维护了一个HashEntry数组，并发环境下，对于不同Segment的数据进行操作不用考虑锁竞争。  
 
-![ConcurrentHashMap](/36-2.png)
+![ConcurrentHashMap](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/36-2.png)
 
 ### LinkedHashMap、TreeMap、TreeSet  
 - LinkedHashMap：顺序存取的HashMap（基于数组和双向链表实现）。
@@ -52,7 +52,7 @@ date: 2018-08-28 15:09:07
 
 ## 二叉树  
 ### 常见二叉树概念  
-- B+树：见数据库部分*https://blog.csdn.net/u012102104/article/details/79773362*
+- B+树：见数据库部分*[点击跳转](http://zhangchong.xin/2018/07/21/Java%20%E9%9D%A2%E8%AF%95%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%BA%93/)*
 - 平衡二叉树（AVL树）：各个结点左右子树深度差的绝对值不超过1。
 - 哈夫曼树：带权路径长度最小的二叉树称为最优二叉树。哈夫曼树构造不唯一，但所有叶子结点的带权路径长度之和都是最小的。
 - 红黑树：一种自平衡二叉查找树，它的性质有：
@@ -116,9 +116,4 @@ void LevelOrder ( BinTree bt ) {
 // 非递归遍历二叉树一般借助栈实现
 
 ```
-
-
-[5]: https://img-blog.csdn.net/20180327171242547?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTIxMDIxMDQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70
-
-[6]: https://img-blog.csdn.net/20180327171316531?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTIxMDIxMDQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70
 

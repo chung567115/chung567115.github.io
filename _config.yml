@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 张冲的博客
-subtitle: 博学之，审问之，慎思之，明辨之，笃行之
+title: 博学de叫兽
+subtitle: 博学之，审问之
 description: Java
 keywords: Java
 author: 张冲
@@ -73,7 +73,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: ad
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

@@ -75,7 +75,7 @@ date: 2018-05-29 17:47:38
 
 ## Spring Boot 启动流程（不会）
 参考博文 https://www.cnblogs.com/zheting/p/6707035.html
-![Spring Boot 启动流程](/24-1.png)
+![Spring Boot 启动流程](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/24-1.png)
 
 ## 自定义starter（不会）
 参考博文 https://blog.csdn.net/liuchuanhong1/article/details/55057135

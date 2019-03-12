@@ -14,60 +14,60 @@ date: 2017-12-25 16:49:54
 # IDEA搭建Web Service项目
 
 1、新建Web Service服务端项目，见下两图
-![1](/7-1.png)
+![1](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/7-1.png)
 
-![2](/7-2.png)
+![2](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/7-2.png)
 
 2、项目建成后，会有如下文件。
-![3](/7-3.png)
+![3](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/7-3.png)
 
 3、在HelloWorld.java上右键-->WebService-->Generate WSDL From Java Code，生成对应的wsdl文件，见下三图。
-![4](/7-4.png)
+![4](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/7-4.png)
 
-![5](/7-5.png)
+![5](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/7-5.png)
 
-![6](/7-6.png)
+![6](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/7-6.png)
 
 4、配置项目Tomcat，Run-->Edit Configurations-->添加-->Tomcat Server-->Local，如下图。
-![7](/7-7.png)
+![7](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/7-7.png)
 
 5、命名tomcat，选择Deployment页，进行如下几图操作。
-![8](/7-8.png)
+![8](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/7-8.png)
 
-![9](/7-9.png)
+![9](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/7-9.png)
 
-![10](/7-10.png)
+![10](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/7-10.png)
 
 6、File-->Project Structure，按序进行如下四图操作。
-![11](/7-11.png)
+![11](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/7-11.png)
 
-![12](/7-12.png)
+![12](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/7-12.png)
 
-![13](/7-13.png)
+![13](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/7-13.png)
 
-![14](/7-14.png)
+![14](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/7-14.png)
 
 7、上述步骤完成后，启动Tomcat，访问 http://localhost:8080/services 若出现如下界面，则部署成功。
-![15](/7-15.png)
+![15](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/7-15.png)
 
 8、下面进行Web Service项目客户端的代码生成。新建WebService Client项目，如下两图。
-![16](/7-16.png)
+![16](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/7-16.png)
 
-![17](/7-17.png)
+![17](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/7-17.png)
 
 9、Web service wsdl url选项框中，选择前面搭好的Web Service服务端HelloWorld.wsdl文件。如下图。
-![18](/7-18.png)
+![18](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/7-18.png)
 
 新建成功后，目录结构以及生成的文件如下图。
-![19](/7-19.png)
+![19](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/7-19.png)
 
 10、File-->Project Structure，按序进行如下两图操作。
-![20](/7-20.png)
+![20](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/7-20.png)
 
-![21](7-21.png)
+![21](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/7-21.png)
 
 11、编写测试文件TestHelloWorld.java，如下图所示。
-![22](/7-22.png)
+![22](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/7-22.png)
 
 其中代码为
 ```java

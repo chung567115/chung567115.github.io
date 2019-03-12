@@ -23,11 +23,11 @@ date: 2017-08-01 21:30:57
 ​	> http://idea.iteblog.com/key.php
 ​	> http://idea.liyang.io
 
-![激活界面](/1-1.png)
+![激活界面](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/1-1.png)
 
 ----------
 
-![状态界面](/1-2.png)
+![状态界面](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/1-2.png)
 
 ----------
 

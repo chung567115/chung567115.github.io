@@ -14,7 +14,7 @@ date: 2018-07-21 11:11:49
 
 # Java面试之算法
 ##  排序算法  
-![排序](/29-1.png)
+![排序](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/29-1.png)
 
  &emsp;&emsp;名词解释：  
 
