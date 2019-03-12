@@ -186,7 +186,7 @@ th {
 body {
   position: relative;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 2;
   color: #555;
   background: #f5f7f9;
@@ -203,7 +203,7 @@ body {
 }
 @media (min-width: 1600px) {
   body {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 h1,
@@ -216,7 +216,7 @@ h6 {
   padding: 0;
   font-weight: bold;
   line-height: 1.5;
-  font-family: 'Roboto Slab', 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Inconsolata for Powerline', 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 h2,
 h3,
@@ -321,7 +321,7 @@ dd {
   padding: 0;
 }
 kbd {
-  border: 1px solid #ccc;
+  border: 1px solid #4d4d80;
   border-radius: 0.2em;
   box-shadow: 0.1em 0.1em 0.2em rgba(0,0,0,0.1);
   background-color: #f9f9f9;
@@ -425,7 +425,7 @@ td {
 th,
 td {
   border-bottom: 3px solid #ddd;
-  border-right: 1px solid #eee;
+  border-right: 1px solid #bbb;
 }
 th {
   padding-bottom: 10px;
@@ -548,24 +548,24 @@ body {
 pre,
 .highlight {
   overflow: auto;
-  margin: 20px 0;
+  margin: 34px 0px 0px 0px;
   padding: 0;
-  font-size: 13px;
+  font-size: 14px;
   color: #ccc;
   background: #2d2d2d;
   line-height: 1.6;
 }
 pre,
 code {
-  font-family: 'Roboto Mono', consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
+  font-family: 'Inconsolata for Powerline', consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
 }
 code {
   padding: 2px 4px;
   word-wrap: break-word;
   color: #555;
-  background: #eee;
+  background: #bbb;
   border-radius: 3px;
-  font-size: 13px;
+  font-size: 14px;
 }
 pre {
   padding: 10px;
@@ -708,6 +708,57 @@ pre .keyword,
 pre .javascript .function {
   color: #c9c;
 }
+.highlight-wrap[data-rel] {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 10px 30px 0px rgba(0,0,0,0.4);
+  margin: 35px 0;
+}
+.highlight-wrap[data-rel] ::-webkit-scrollbar {
+  height: 10px;
+}
+.highlight-wrap[data-rel] ::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+}
+.highlight-wrap[data-rel] ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+.highlight-wrap[data-rel]::before {
+  color: #fff;
+  content: attr(data-rel);
+  height: 38px;
+  line-height: 38px;
+  background: #21252b;
+  color: #fff;
+  font-size: 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: bold;
+  padding: 0px 80px;
+  text-indent: 15px;
+  float: left;
+}
+.highlight-wrap[data-rel]::after {
+  content: " ";
+  position: absolute;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background: #fc625d;
+  width: 12px;
+  height: 12px;
+  top: 0;
+  left: 20px;
+  margin-top: 13px;
+  -webkit-box-shadow: 20px 0px #fdbc40, 40px 0px #35cd4b;
+  box-shadow: 20px 0px #fdbc40, 40px 0px #35cd4b;
+  z-index: 3;
+}
 .full-image.full-image.full-image.full-image {
   border: none;
   max-width: 100%;
@@ -751,14 +802,14 @@ pre .javascript .function {
 .page-post-detail .post-type-quote blockquote::before {
   top: -20px;
   background-image: url("../images/quote-l.svg");
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #4d4d80;
 }
 .blockquote-center::after,
 .page-home .post-type-quote blockquote::after,
 .page-post-detail .post-type-quote blockquote::after {
   bottom: -20px;
   background-image: url("../images/quote-r.svg");
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #4d4d80;
   background-position: 100% 8px;
 }
 .blockquote-center p,
@@ -809,7 +860,7 @@ pre .javascript .function {
   position: relative;
   padding: 15px;
   margin-bottom: 20px;
-  border: 1px solid #eee;
+  border: 1px solid #bbb;
   border-left-width: 5px;
   border-radius: 3px;
 }
@@ -1040,7 +1091,7 @@ pre .javascript .function {
 .pagination {
   margin: 120px 0 40px;
   text-align: center;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #bbb;
 }
 .page-number-basic,
 .pagination .prev,
@@ -1066,7 +1117,7 @@ pre .javascript .function {
 .pagination .next,
 .pagination .page-number {
   border-bottom: 0;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #bbb;
   transition-property: border-color;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
@@ -1089,8 +1140,8 @@ pre .javascript .function {
 }
 .pagination .page-number.current {
   color: #fff;
-  background: #ccc;
-  border-top-color: #ccc;
+  background: #4d4d80;
+  border-top-color: #4d4d80;
 }
 @media (max-width: 767px) {
   .pagination {
@@ -1101,7 +1152,7 @@ pre .javascript .function {
   .pagination .page-number {
     margin-bottom: 10px;
     border-top: 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #bbb;
     padding: 0 10px;
   }
   .pagination .prev:hover,
@@ -1189,9 +1240,9 @@ pre .javascript .function {
   display: inline-block;
   vertical-align: top;
   line-height: 36px;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: normal;
-  font-family: 'Lobster', 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Georgia', 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 .site-subtitle {
   margin-top: 10px;
@@ -1298,7 +1349,7 @@ pre .javascript .function {
 .post-body .figure .caption {
   margin: -20px auto 15px;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   color: #999;
   font-weight: bold;
   line-height: 1;
@@ -1365,7 +1416,7 @@ pre .javascript .function {
 .posts-expand .post-body h6 .header-anchor {
   float: right;
   margin-left: 10px;
-  color: #ccc;
+  color: #4d4d80;
   border-bottom-style: none;
   visibility: hidden;
 }
@@ -1460,7 +1511,7 @@ pre .javascript .function {
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
   transition-property: border;
-  border-bottom: 1px dashed #ccc;
+  border-bottom: 1px dashed #4d4d80;
 }
 .posts-collapse .post-header::before {
   content: " ";
@@ -1621,7 +1672,7 @@ pre .javascript .function {
   display: table;
   margin-top: 15px;
   width: 100%;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #bbb;
 }
 .post-nav-divider {
   display: table-cell;
@@ -1672,7 +1723,7 @@ pre .javascript .function {
   margin: 80px auto 60px;
   width: 8%;
   height: 1px;
-  background: #ccc;
+  background: #4d4d80;
   text-align: center;
 }
 .post:last-child .post-eof.post-eof.post-eof {
@@ -1742,21 +1793,6 @@ pre .javascript .function {
   max-width: 100%;
   display: inline-block;
   margin: 0.8em 2em 0 2em;
-}
-#wechat:hover p {
-  animation: roll 0.1s infinite linear;
-  -webkit-animation: roll 0.1s infinite linear;
-  -moz-animation: roll 0.1s infinite linear;
-}
-#alipay:hover p {
-  animation: roll 0.1s infinite linear;
-  -webkit-animation: roll 0.1s infinite linear;
-  -moz-animation: roll 0.1s infinite linear;
-}
-#bitcoin:hover p {
-  animation: roll 0.1s infinite linear;
-  -webkit-animation: roll 0.1s infinite linear;
-  -moz-animation: roll 0.1s infinite linear;
 }
 @-moz-keyframes roll {
   from {
@@ -1846,6 +1882,16 @@ pre .javascript .function {
 .rtl.post-title {
   font-family: UKIJ Ekran;
 }
+.post-body p a {
+  color: #0593d3;
+  border-bottom: none;
+  border-bottom: 1px solid #0593d3;
+}
+.post-body p a:hover {
+  color: #fc6423;
+  border-bottom: none;
+  border-bottom: 1px solid #fc6423;
+}
 .sidebar {
   position: fixed;
   right: 0;
@@ -1862,7 +1908,7 @@ pre .javascript .function {
   border-bottom-color: #555;
 }
 .sidebar a:hover {
-  color: #eee;
+  color: #bbb;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .sidebar {
@@ -1928,7 +1974,7 @@ pre .javascript .function {
   padding: 2px;
   max-width: 120px;
   height: auto;
-  border: 1px solid #eee;
+  border: 1px solid #bbb;
 }
 .site-author-name {
   margin: 0;
@@ -1951,7 +1997,7 @@ pre .javascript .function {
 .site-state-item {
   display: inline-block;
   padding: 0 15px;
-  border-left: 1px solid #eee;
+  border-left: 1px solid #bbb;
 }
 .site-state-item:first-child {
   border-left: none;
@@ -2010,7 +2056,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #3d9596;
+  background: #ffc3db;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2095,7 +2141,7 @@ pre .javascript .function {
   transition-delay: 0s;
   transition-property: all;
   color: #666;
-  border-bottom-color: #ccc;
+  border-bottom-color: #4d4d80;
 }
 .post-toc ol a:hover {
   color: #000;
@@ -2786,7 +2832,7 @@ pre .javascript .function {
 .header {
   position: relative;
   margin: 0 auto;
-  width: 90%;
+  width: 60%;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .header {
@@ -2846,7 +2892,7 @@ pre .javascript .function {
   }
 }
 .container .main-inner {
-  width: 90%;
+  width: 60%;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .container .main-inner {
@@ -3085,8 +3131,8 @@ pre .javascript .function {
   text-decoration: underline;
 }
 .feed-link {
-  border-top: 1px dotted #ccc;
-  border-bottom: 1px dotted #ccc;
+  border-top: 1px dotted #4d4d80;
+  border-bottom: 1px dotted #4d4d80;
   text-align: center;
 }
 .feed-link a {
@@ -3127,7 +3173,7 @@ pre .javascript .function {
 }
 .links-of-author-item a:hover {
   border-radius: 4px;
-  background: #eee;
+  background: #bbb;
 }
 .links-of-author-item .fa {
   margin-right: 2px;
@@ -3140,7 +3186,7 @@ pre .javascript .function {
   text-align: center;
   margin-top: 20px;
   padding: 3px 0 0;
-  border-top: 1px dotted #ccc;
+  border-top: 1px dotted #4d4d80;
 }
 .links-of-blogroll-title {
   margin-top: 0;
@@ -3177,4 +3223,30 @@ pre .javascript .function {
   .post-body {
     text-align: justify;
   }
+}
+.post {
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+.posts-expand {
+  padding-top: 0px;
+}
+.posts-expand .post-meta {
+  margin: 3px 0 30px 0;
+}
+.post-button {
+  margin-top: 0px;
+}
+.posts-expand .post-eof {
+  margin: 30px auto 0px;
+}
+.pagination {
+  margin: 0px;
+}
+.post {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  padding: 25px;
+  -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
+  -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
 }
