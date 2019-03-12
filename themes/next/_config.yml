@@ -40,7 +40,7 @@ keywords: "张冲, Java"
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
 # Set rss to specific value if you have burned your feed already.
-rss:
+rss: /atom.xml
 
 footer:
   # Specify the date when the site was setup.
@@ -54,13 +54,13 @@ footer:
   copyright:
   # -------------------------------------------------------------
   # Hexo link (Powered by Hexo).
-  powered: true
+  powered: false
 
   theme:
     # Theme & scheme info link (Theme - NexT.scheme).
-    enable: true
+    enable: false
     # Version info of NexT after scheme info (vX.X.X).
-    version: true
+    version: false
   # -------------------------------------------------------------
   # Any custom text can be defined here.
   #custom_text: Hosted by <a target="_blank" href="https://pages.github.com">GitHub Pages</a>
@@ -126,9 +126,11 @@ scheme: Pisces
 # Key is the link label showing to end users.
 # Value before `||` delimeter is the target permalink.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
-#social:
-  #GitHub: https://github.com/yourname || github
-  #E-Mail: mailto:yourname@gmail.com || envelope
+social:
+  GitHub: https://github.com/chung567115 || github
+  CSDN: https://chung567115.blog.csdn.net
+  Gitee: https://gitee.com/chung567115
+  EMail: mailto:chung567115@gmail.com || envelope
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
   #FB Page: https://www.facebook.com/yourname || facebook
@@ -142,16 +144,24 @@ social_icons:
   enable: true
   icons_only: false
   transition: false
+  GitHub: github
+  CSDN: blog
+  Gitee: git
+  EMail: at
 
 # Blog rolls
 links_icon: link
-links_title: 推荐链接
-links_layout: block
-#links_layout: inline
+links_title: 推荐阅读
+#links_layout: block
+links_layout: inline
 links:
-  CSDN: https://chung567115.blog.csdn.net
   W3Cschool: https://www.w3cschool.cn
+  菜鸟教程: http://www.runoob.com
   优知学院: http://youzhixueyuan.com
+  eson_15: https://blog.csdn.net/eson_15
+  ityouknow: https://blog.csdn.net/ityouknow
+  xlgen157387: https://blog.csdn.net/xlgen157387
+  luanlouis: https://blog.csdn.net/luanlouis
 
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
@@ -184,8 +194,8 @@ sidebar:
   #  - always  expand for all pages automatically
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  Totally remove sidebar including sidebar toggle.
-  display: post
-  #display: always
+  #display: post
+  display: always
   #display: hide
   #display: remove
 
@@ -193,10 +203,10 @@ sidebar:
   offset: 12
 
   # Back to top in sidebar (only for Pisces | Gemini).
-  b2t: false
+  b2t: true
 
   # Scroll percent label in b2t button.
-  scrollpercent: false
+  scrollpercent: true
 
   # Enable sidebar on narrow view (only for Muse | Mist).
   onmobile: false
@@ -210,7 +220,7 @@ sidebar:
 scroll_to_more: true
 
 # Automatically saving scroll position on each post/page in cookies.
-save_scroll: false
+save_scroll: true
 
 # Automatically excerpt description in homepage as preamble text.
 excerpt_description: true
@@ -232,8 +242,8 @@ post_meta:
 # Dependencies: https://github.com/willin/hexo-wordcount
 post_wordcount:
   item_text: true
-  wordcount: false
-  min2read: false
+  wordcount: true
+  min2read: true
   totalcount: false
   separated_meta: true
 
@@ -261,7 +271,7 @@ post_copyright:
 # ---------------------------------------------------------------
 
 # Reduce padding / margin indents on devices with narrow width.
-mobile_layout_economy: false
+mobile_layout_economy: true
 
 # Android Chrome header panel color ($black-deep).
 android_chrome_color: "#222"
@@ -298,7 +308,7 @@ font:
   enable: true
 
   # Uri of fonts host. E.g. //fonts.googleapis.com (Default).
-  host:
+  host: //fonts.lug.ustc.edu.cn #中科大的源
 
   # Font options:
   # `external: true` will load this font family from `host` above.
@@ -309,14 +319,14 @@ font:
   global:
     external: true
     family: Lato
-    size:
+    size: 14
 
   # Font settings for Headlines (h1, h2, h3, h4, h5, h6).
   # Fallback to `global` font settings.
   headings:
     external: true
-    family:
-    size:
+    family: Inconsolata for Powerline
+    size: 
 
   # Font settings for posts.
   # Fallback to `global` font settings.
@@ -328,14 +338,14 @@ font:
   # Fallback to `global` font settings.
   logo:
     external: true
-    family:
-    size:
+    family: Georgia
+    size: 22
 
   # Font settings for <code> and code blocks.
   codes:
     external: true
-    family:
-    size:
+    family: Inconsolata for Powerline
+    size: 14
 
 
 # ---------------------------------------------------------------
@@ -677,7 +687,7 @@ motion:
 fancybox: true
 
 # Progress bar in the top during page loading.
-pace: false
+pace: true
 # Themes list:
 #pace-theme-big-counter
 #pace-theme-bounce
@@ -693,11 +703,10 @@ pace: false
 #pace-theme-mac-osx
 #pace-theme-minimal
 # For example
-# pace_theme: pace-theme-center-simple
 pace_theme: pace-theme-minimal
 
 # Canvas-nest
-canvas_nest: false
+canvas_nest: true
 
 # three_waves
 three_waves: false
@@ -813,3 +822,7 @@ images: images
 
 # Theme version
 version: 5.1.4
+
+# 文章末尾添加“本文结束”标记
+passage_end_tag:
+  enabled: true
