@@ -1,5 +1,5 @@
 ---
-title: Java面试之旅
+title: 【置顶】Java面试之旅
 categories: 
   - 笔经面经
 tags:
@@ -17,7 +17,7 @@ top: 3
 https://gitbook.cn/gitchat/activity/5a444c451f6ee91a25846ac1
 
 # 小博Java面试路上的点点滴滴
-篇章                | 小博博客地址
+篇章                | 博客地址 
 ------------------- | ---------------------------------------------------------
 Java 面试之基础篇      | [点击跳转](http://zhangchong.xin/2018/08/28/Java%20%E9%9D%A2%E8%AF%95%E4%B9%8B%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/)
 Java 面试之框架篇      | [点击跳转](http://zhangchong.xin/2018/08/28/Java%20%E9%9D%A2%E8%AF%95%E4%B9%8B%E6%8A%80%E6%9C%AF%E6%A1%86%E6%9E%B6/)

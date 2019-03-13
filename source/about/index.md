@@ -38,9 +38,19 @@ layout: about
 - 2017.05-2017.08&emsp;[浙江天科微生物检测云平台](http://www.tkgeneclub.com)
 	- 技术栈：Spring MVC + Spring + MyBatis + Bootstrap
 
-
-
- 
-
- 
+# 人生格言
+```java
+/**
+ * @Author 博学de叫兽
+ * @Date 2019/03/13 04:29
+ */
+public class Life {
+    public static final boolean alive = true;
+    public static void main(String[] args) {
+        while (alive){
+            System.out.println("keep learning!");
+        }
+    }
+}
+```
 

@@ -152,8 +152,8 @@ social_icons:
 # Blog rolls
 links_icon: link
 links_title: 推荐阅读
-#links_layout: block
-links_layout: inline
+links_layout: block
+#links_layout: inline
 links:
   W3Cschool: https://www.w3cschool.cn
   菜鸟教程: http://www.runoob.com

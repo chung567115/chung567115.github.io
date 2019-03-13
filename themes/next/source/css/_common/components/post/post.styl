@@ -60,7 +60,7 @@
 @import "post-rtl";
 
 // 文章内链接文本样式
-.post-body p a{
+.post-body p a, .post-body table a, .post-body ul a{
   color: #0593d3;
   border-bottom: none;
   border-bottom: 1px solid #0593d3;
@@ -69,4 +69,29 @@
     border-bottom: none;
     border-bottom: 1px solid #fc6423;
   }
+}
+
+// 文章表格样式
+th {
+    padding-bottom: 10px;
+    font-weight: bold;
+    background-color: #373737;
+    color: #fff;
+}
+
+th, td {
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+// KBD效果样式
+kbd {
+    border: 1px solid #555;
+    border-radius: 0.3em;
+    /* box-shadow: 0.1em 0.1em 0.2em rgba(0,0,0,0.1); */
+    background-color: #fff;
+    font-family: inherit;
+    /* background-image: -webkit-linear-gradient(top, #eee, #fff, #eee); */
+    padding: 0.2em 0.3em;
+    white-space: nowrap;
 }
