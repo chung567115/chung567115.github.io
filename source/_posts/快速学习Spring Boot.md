@@ -9,7 +9,7 @@ tags:
 date: 2017-12-24 23:45:07
 ---
 
-> 从今天开始，小博将撰写Spring Boot系列的博客
+> 从今天开始，小博将撰写Spring Boot系列博客
 
 <!-- more -->
 # 快速学习Spring Boot
