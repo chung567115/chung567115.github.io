@@ -1312,7 +1312,7 @@ pre .javascript .function {
 }
 .menu .menu-item a {
   display: block;
-  font-size: 13px;
+  font-size: 14px;
   line-height: inherit;
   border-bottom: 1px solid transparent;
   transition-property: border-color;
@@ -1999,7 +1999,6 @@ kbd {
   padding: 2px;
   max-width: 120px;
   height: auto;
-  border: 1px solid #bbb;
 }
 .site-author-name {
   margin: 0;
@@ -2064,6 +2063,7 @@ kbd {
 }
 .links-of-author {
   margin-top: 20px;
+  margin-left: 20px;
 }
 .links-of-author a {
   display: inline-block;
@@ -2081,18 +2081,17 @@ kbd {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #1f86b3;
+  background: #aa77f1;
 }
 .links-of-blogroll {
   font-size: 13px;
 }
 .links-of-blogroll-title {
-  margin-top: 20px;
+  margin-top: 20px !important;
   font-size: 14px;
   font-weight: 600;
 }
 .links-of-blogroll-list {
-  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -2978,6 +2977,7 @@ kbd {
 }
 .footer-inner {
   width: 960px;
+  padding-left: 260px;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .footer-inner {
