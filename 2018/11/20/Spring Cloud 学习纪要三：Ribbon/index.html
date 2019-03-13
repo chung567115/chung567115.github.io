@@ -155,7 +155,7 @@
 <meta property="og:site_name" content="博学de叫兽">
 <meta property="og:description" content="Spring Cloud微服务解决方案之负载均衡组件">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-13T10:28:10.548Z">
+<meta property="og:updated_time" content="2019-03-13T12:25:14.233Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Cloud Ribbon">
 <meta name="twitter:description" content="Spring Cloud微服务解决方案之负载均衡组件">
@@ -497,7 +497,7 @@
 </tbody>
 </table>
 <blockquote>
-<p><strong>特别注意</strong>：本系列纪要环环相扣，建议从第一节开始阅读&emsp;<a href="https://blog.csdn.net/u012102104/article/details/84286472" target="_blank" rel="noopener">点击跳转</a></p>
+<p><strong>特别注意</strong>：本系列纪要环环相扣，建议从第一节开始阅读&emsp;<a href="http://zhangchong.xin/2018/11/20/Spring%20Cloud%20%E5%AD%A6%E4%B9%A0%E7%BA%AA%E8%A6%81%E4%B8%80%EF%BC%9AEureka/">点击跳转</a></p>
 </blockquote>
 <h2 id="修改代码和配置"><a href="#修改代码和配置" class="headerlink" title="修改代码和配置"></a>修改代码和配置</h2><p>&emsp;&emsp;在IDEA的Run/Debug Configurations中，拷贝一份当前的运行配置，并将副本为VM options设置为<kbd>-DServer.port=8082</kbd>，为了区别不同实例接口的返回结果，新增IPConfig类：<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IPConfig</span> <span class="keyword">implements</span> <span class="title">ApplicationListener</span>&lt;<span class="title">WebServerInitializedEvent</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> serverPort;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onApplicationEvent</span><span class="params">(WebServerInitializedEvent event)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.serverPort = event.getWebServer().getPort();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getPort</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.serverPort;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
 <p>&emsp;&emsp;修改provider的HelloController代码：<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/hello"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> IPConfig ipConfig;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/chung"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">helloChung</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Hello Chung By Provider on :"</span> + ipConfig.getPort();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
@@ -861,7 +861,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">全站博客共计55.5k字</span>
+  <span class="post-count">全站博客共计55.4k字</span>
 </div>
 
 <span class="post-meta-divider">|</span>

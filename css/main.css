@@ -1910,10 +1910,10 @@ td {
 kbd {
   border: 1px solid #555;
   border-radius: 0.3em;
-/* box-shadow: 0.1em 0.1em 0.2em rgba(0,0,0,0.1); */
+  box-shadow: 0.1em 0.1em 0.1em rgba(0,0,0,0.3);
   background-color: #fff;
   font-family: inherit;
-/* background-image: -webkit-linear-gradient(top, #eee, #fff, #eee); */
+  background-image: -webkit-linear-gradient(top, #fff, #fff, #fff);
   padding: 0.2em 0.3em;
   white-space: nowrap;
 }
@@ -2081,7 +2081,7 @@ kbd {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #aa77f1;
+  background: #cd96ff;
 }
 .links-of-blogroll {
   font-size: 13px;
