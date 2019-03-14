@@ -946,31 +946,6 @@
 
   
   
-  
-  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
-
-  
-  
-  <script src="/lib/needsharebutton/needsharebutton.js"></script>
-
-  <script>
-    
-      pbOptions = {};
-      
-          pbOptions.iconStyle = "box";
-      
-          pbOptions.boxForm = "horizontal";
-      
-          pbOptions.position = "bottomCenter";
-      
-          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
-      
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-    
-    
-  </script>
-
-  
 
   
   
@@ -1002,6 +977,20 @@
 
 
   
+
+  
+<script type="text/javascript">
+	//enter your code
+	
+	<script type="text/javascript">
+	    //微信二维码点击背景关闭
+	    $('body').delegate('.-mob-share-weixin-qrcode-bg','click', function(){
+	        $(".-mob-share-weixin-qrcode-close").trigger("click");
+	    }); 
+	</script>
+	
+
+
 
 </body>
 </html>
