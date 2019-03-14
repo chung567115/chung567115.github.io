@@ -299,16 +299,6 @@
           </a>
         </li>
       
-        
-        <li class="menu-item menu-item-sitemap">
-          <a href="/sitemap.xml" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
-            
-            站点地图
-          </a>
-        </li>
-      
 
       
         <li class="menu-item menu-item-search">
@@ -318,7 +308,7 @@
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
-            搜索博客
+            搜索
           </a>
         </li>
       
@@ -728,7 +718,6 @@
     
 
     
-
   </div>
 
   
@@ -823,7 +812,6 @@
 
 
   <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
 
 
   
@@ -1358,9 +1346,78 @@
 
 
 
+  
+  <style>
+    .copy-btn {
+        display: inline-block;
+        padding: 6px 12px;
+        font-size: 10px;
+        font-weight: bold;
+        line-height: 20px;
+        color: #373737;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        background-color: #fff;
+        background-image: linear-gradient(#fff, #fff);
+        border: 1px solid #fff;
+        border-radius: 3px;
+        user-select: none;
+        outline: 0;
+    }
 
-  <!-- 代码块复制功能 -->
-  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('拷贝').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('拷贝成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('拷贝')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+
 </body>
 </html>
