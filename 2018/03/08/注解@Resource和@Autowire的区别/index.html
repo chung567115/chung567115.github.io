@@ -479,7 +479,7 @@
 </ul>
 <ul>
 <li><p><code>@Autowire</code>和<code>@Qualifier</code>配合使用效果和<code>@Resource</code>一样：</p>
-<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span>(required = <span class="keyword">false</span>) <span class="meta">@Qualifier</span>(<span class="string">"example"</span>)</span><br><span class="line"><span class="keyword">private</span> Example example;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Resource</span>(name = <span class="string">"example"</span>)</span><br><span class="line"><span class="keyword">private</span> Example example;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false" data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span>(required = <span class="keyword">false</span>) <span class="meta">@Qualifier</span>(<span class="string">"example"</span>)</span><br><span class="line"><span class="keyword">private</span> Example example;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Resource</span>(name = <span class="string">"example"</span>)</span><br><span class="line"><span class="keyword">private</span> Example example;</span><br></pre></td></tr></table></figure></div>
 </li>
 <li><p><code>@Resource</code>装配顺序</p>
 <ol>
@@ -637,7 +637,7 @@
     <div class="post-spread">
       
         <!--MOB SHARE BEGIN-->
-<div class="-hoofoo-share-title">分享到：</div>
+<!-- <div class="-hoofoo-share-title">分享本博客</div> -->
 <div class="-hoofoo-share-buttons">
     <div class="-mob-share-qq -hoofoo-share-qq -hoofoo-share-ui-button">
         <i class="fa fa-qq" aria-hidden="true"></i>
@@ -1262,5 +1262,9 @@
 
 
 
+
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
 </body>
 </html>

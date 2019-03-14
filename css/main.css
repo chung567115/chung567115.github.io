@@ -548,7 +548,7 @@ body {
 pre,
 .highlight {
   overflow: auto;
-  margin: 34px 0px 0px 0px;
+  margin: 35px 0px 0px 0px;
   padding: 0;
   font-size: 14px;
   color: #ccc;
@@ -716,7 +716,7 @@ pre .javascript .function {
   margin: 35px 0;
 }
 .highlight-wrap[data-rel] ::-webkit-scrollbar {
-  height: 10px;
+  height: 0px;
 }
 .highlight-wrap[data-rel] ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
@@ -2082,7 +2082,7 @@ kbd {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #20129a;
+  background: #ffff8c;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3398,7 +3398,42 @@ h2.about-title {
 .post {
   margin-top: 60px;
   margin-bottom: 60px;
-  padding: 25px;
+  padding: 10px 30px 20px 30px;
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
   -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
+}
+.highlight {
+  position: relative;
+}
+.btn-copy {
+  margin-top: 50px;
+  display: inline-block;
+  cursor: pointer;
+  background-color: #eee;
+  background-image: linear-gradient(#fcfcfc, #eee);
+  border: 1px solid #d5d5d5;
+  border-radius: 3px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-appearance: none;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #333;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  padding: 2px 6px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  opacity: 0;
+}
+.btn-copy span {
+  margin-left: 5px;
+}
+.highlight:hover .btn-copy {
+  opacity: 1;
 }
