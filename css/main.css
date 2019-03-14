@@ -1914,8 +1914,8 @@ kbd {
   background-color: #fff;
   font-family: inherit;
   background-image: -webkit-linear-gradient(top, #fff, #fff, #fff);
-  padding: 0.2em 0.3em;
-  margin: 0.2em 0.2em;
+  padding: 0.2em 0.3em !important;
+  margin: 0.2em 0.2em !important;
   white-space: nowrap;
 }
 .sidebar {
@@ -2082,7 +2082,7 @@ kbd {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ddff04;
+  background: #ffffc2;
 }
 .links-of-blogroll {
   font-size: 13px;
