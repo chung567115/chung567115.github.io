@@ -85,3 +85,9 @@ deploy:
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 plugins: hexo-generate-feed
+
+search:
+  path: ./public/search.xml
+  field: post
+  format: html
+  limit: 100

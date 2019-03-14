@@ -1,5 +1,5 @@
 <!--MOB SHARE BEGIN-->
-<div class="-hoofoo-share-title">分享到：</div>
+<!-- <div class="-hoofoo-share-title">分享本博客</div> -->
 <div class="-hoofoo-share-buttons">
     <div class="-mob-share-qq -hoofoo-share-qq -hoofoo-share-ui-button">
         <i class="fa fa-qq" aria-hidden="true"></i>

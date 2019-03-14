@@ -1,5 +1,5 @@
 ---
-title: 快速学习Spring Boot
+title: Spring Boot项目搭建极简教程
 categories: 
   - Spring Boot
 tags:
@@ -12,7 +12,7 @@ date: 2017-12-24 23:45:07
 > 从今天开始，小博将撰写Spring Boot系列博客
 
 <!-- more -->
-# 快速学习Spring Boot
+# Spring Boot项目搭建极简教程
 
 ## Spring Boot项目搭建
 
