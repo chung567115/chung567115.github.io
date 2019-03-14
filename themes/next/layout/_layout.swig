@@ -67,7 +67,6 @@
         </span>
       </div>
     {% endif %}
-
   </div>
 
   {% include '_scripts/vendors.swig' %}
@@ -79,7 +78,6 @@
   {% block script_extra %}{% endblock %}
 
   {% include '_scripts/boostrap.swig' %}
-
   {% include '_third-party/comments/index.swig' %}
   {% include '_third-party/search/index.swig' %}
   {% include '_third-party/analytics/lean-analytics.swig' %}
@@ -91,9 +89,7 @@
   {% include '_third-party/scroll-cookie.swig' %}
   {% include '_third-party/exturl.swig' %}
   {% include '_scripts/third-party/mob_share.swig' %}
+  {% include '_third-party/copy-code.swig' %}
 
-  <!-- 代码块复制功能 -->
-  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
 </body>
 </html>

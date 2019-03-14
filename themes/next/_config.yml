@@ -98,7 +98,7 @@ menu:
   categories: /categories/ || th
   archives: /archives/ || archive
   #schedule: /schedule/ || calendar
-  sitemap: /sitemap.xml || sitemap
+  #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
 
 # Enable/Disable menu icons.
@@ -246,6 +246,13 @@ post_wordcount:
   min2read: true
   totalcount: false
   separated_meta: true
+
+# Add copy button on codeblock
+codeblock:
+  copy_button:
+    enable: true
+    # Show text copy result
+    show_result: true
 
 # Wechat Subscriber
 #wechat_subscriber:
