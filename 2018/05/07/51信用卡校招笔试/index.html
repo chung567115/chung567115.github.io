@@ -155,7 +155,7 @@
 <meta property="og:site_name" content="博学de叫兽">
 <meta property="og:description" content="2018年5月7日19:00–21:00，参与了51信用卡春招在线考试，题型为20道单项选择题、10道不定项选择题、两道编程题、一道问答题。现将编程题记录如下：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-10T06:19:06.464Z">
+<meta property="og:updated_time" content="2019-03-15T06:25:18.507Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="51信用卡校招笔试">
 <meta name="twitter:description" content="2018年5月7日19:00–21:00，参与了51信用卡春招在线考试，题型为20道单项选择题、10道不定项选择题、两道编程题、一道问答题。现将编程题记录如下：">
@@ -460,7 +460,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  565
+                  558
                 </span>
               
 
@@ -501,7 +501,7 @@
 <p>2018年5月7日19:00–21:00，参与了51信用卡春招在线考试，题型为20道单项选择题、10道不定项选择题、两道编程题、一道问答题。现将编程题记录如下：</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="51信用卡校招笔试"><a href="#51信用卡校招笔试" class="headerlink" title="51信用卡校招笔试"></a>51信用卡校招笔试</h1><h2 id="字符串AB"><a href="#字符串AB" class="headerlink" title="字符串AB"></a>字符串AB</h2><p><strong>题目描述</strong><br>&emsp;&emsp;有两个都是大写的字符串 A 和 B ，判断 A 中是否包含 B 中所有的字符。<br>&emsp;&emsp;注意：字符串 B 里的字符在 A 中不需要连续或有序。</p>
+<h1 id="字符串AB"><a href="#字符串AB" class="headerlink" title="字符串AB"></a>字符串AB</h1><p><strong>题目描述</strong><br>&emsp;&emsp;有两个都是大写的字符串 A 和 B ，判断 A 中是否包含 B 中所有的字符。<br>&emsp;&emsp;注意：字符串 B 里的字符在 A 中不需要连续或有序。</p>
 <p><strong>输入示例 1</strong><br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ABCU51NB;NB51</span><br></pre></td></tr></table></figure></div></p>
 <p><strong>输出示例 1</strong><br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false" data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">true</span></span><br></pre></td></tr></table></figure></div></p>
 <p><strong>输入示例 2</strong><br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ACGBEF;DB</span><br></pre></td></tr></table></figure></div></p>
@@ -510,7 +510,7 @@
 <p>时间限制：C/C++语言 1 秒；其他语言 2 秒<br>空间限制：C/C++语言 32768 K；其他语言 65536 K</p>
 </blockquote>
 <div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false" data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 本题AC</span></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        String str = scanner.nextLine();</span><br><span class="line">        <span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">int</span> index = str.indexOf(<span class="string">";"</span>);</span><br><span class="line">        StringBuffer A = <span class="keyword">new</span> StringBuffer(str.substring(<span class="number">0</span>, index));</span><br><span class="line">        StringBuffer B = <span class="keyword">new</span> StringBuffer(str.substring(index + <span class="number">1</span>, str.length()));</span><br><span class="line">        <span class="keyword">if</span> (A.length() &lt; B.length()) &#123;</span><br><span class="line">            System.out.println(<span class="keyword">false</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; B.length(); i++) &#123;</span><br><span class="line">            String substr = B.substring(i, i + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">int</span> indexOfA = A.indexOf(substr);</span><br><span class="line">            <span class="keyword">if</span> (indexOfA &lt; <span class="number">0</span> || indexOfA &gt; A.length() - <span class="number">1</span>) &#123;</span><br><span class="line">                flag = <span class="keyword">false</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                A.deleteCharAt(indexOfA);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(flag);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<h2 id="红绿蓝"><a href="#红绿蓝" class="headerlink" title="红绿蓝"></a>红绿蓝</h2><p><strong>题目描述</strong><br>&emsp;&emsp;我们使用 R、G、B 分别表示红、绿、蓝三种颜色，给定一个包含这三个颜色的长度为 n 的数组，现在要求对数组进行分组，使相同颜色的相邻，并按照红、绿、蓝的顺序进行排序。<br>&emsp;&emsp;注意：排序需要在原数组中进行。</p>
+<h1 id="红绿蓝"><a href="#红绿蓝" class="headerlink" title="红绿蓝"></a>红绿蓝</h1><p><strong>题目描述</strong><br>&emsp;&emsp;我们使用 R、G、B 分别表示红、绿、蓝三种颜色，给定一个包含这三个颜色的长度为 n 的数组，现在要求对数组进行分组，使相同颜色的相邻，并按照红、绿、蓝的顺序进行排序。<br>&emsp;&emsp;注意：排序需要在原数组中进行。</p>
 <p><strong>输入示例 1</strong><br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RGRB</span><br></pre></td></tr></table></figure></div></p>
 <p><strong>输出示例 1</strong><br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RRGB</span><br></pre></td></tr></table></figure></div></p>
 <blockquote>
@@ -872,7 +872,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#51信用卡校招笔试"><span class="nav-number">1.</span> <span class="nav-text">51信用卡校招笔试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串AB"><span class="nav-number">1.1.</span> <span class="nav-text">字符串AB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#红绿蓝"><span class="nav-number">1.2.</span> <span class="nav-text">红绿蓝</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串AB"><span class="nav-number">1.</span> <span class="nav-text">字符串AB</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#红绿蓝"><span class="nav-number">2.</span> <span class="nav-text">红绿蓝</span></a></li></ol></div>
             
 
           </div>
@@ -916,7 +916,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">全站博客共计60.7k字</span>
+  <span class="post-count">全站博客共计60.1k字</span>
 </div>
 
 <span class="post-meta-divider">|</span>

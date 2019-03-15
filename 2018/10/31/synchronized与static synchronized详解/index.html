@@ -155,7 +155,7 @@
 <meta property="og:site_name" content="博学de叫兽">
 <meta property="og:description" content="详解synchronized与static synchronized的区别">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-13T09:28:01.833Z">
+<meta property="og:updated_time" content="2019-03-15T06:51:47.304Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="synchronized与static synchronized的区别">
 <meta name="twitter:description" content="详解synchronized与static synchronized的区别">
@@ -460,7 +460,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  382
+                  376
                 </span>
               
 
@@ -501,7 +501,7 @@
 <p>详解synchronized与static synchronized的区别</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="synchronized与static-synchronized的区别"><a href="#synchronized与static-synchronized的区别" class="headerlink" title="synchronized与static synchronized的区别"></a>synchronized与static synchronized的区别</h1><ul>
+<ul>
 <li><p><kbd>synchronized</kbd>是实例锁，对类的<strong>当前实例</strong>进行加锁，防止其他线程同时访问该实例的<strong>所有synchronized块</strong>。</p>
 <blockquote>
 <p>注意这里是<strong>类的当前实例</strong>， 类的两个不同实例就没有这种约束了</p>
@@ -510,12 +510,12 @@
 <li><p><kbd>static synchronized</kbd>是类锁，控制类的<strong>所有实例</strong>的并发访问，限制多线程中该类的<strong>所有实例</strong>同时访问JVM中该类所对应的代码块。</p>
 </li>
 </ul>
-<h2 id="例题讲解"><a href="#例题讲解" class="headerlink" title="例题讲解"></a>例题讲解</h2><p>&emsp;&emsp;假如有Something类的两个实例x与y，那么下列各组方法被多线程同时访问的情况是怎样的？<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false" data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pulbic <span class="class"><span class="keyword">class</span> <span class="title">Something</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">isSyncA</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">isSyncB</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">cSyncA</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">cSyncB</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">A.  x.isSyncA() 与 x.isSyncB()   </span><br><span class="line">B.  x.isSyncA() 与 y.isSyncA()  </span><br><span class="line">C.  x.cSyncA() 与 y.cSyncB()  </span><br><span class="line">D.  x.isSyncA() 与 Something.cSyncA()</span><br></pre></td></tr></table></figure></div></p>
+<h1 id="例题讲解"><a href="#例题讲解" class="headerlink" title="例题讲解"></a>例题讲解</h1><p>&emsp;&emsp;假如有Something类的两个实例x与y，那么下列各组方法被多线程同时访问的情况是怎样的？<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false" data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pulbic <span class="class"><span class="keyword">class</span> <span class="title">Something</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">isSyncA</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">isSyncB</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">cSyncA</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">cSyncB</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">A.  x.isSyncA() 与 x.isSyncB()   </span><br><span class="line">B.  x.isSyncA() 与 y.isSyncA()  </span><br><span class="line">C.  x.cSyncA() 与 y.cSyncB()  </span><br><span class="line">D.  x.isSyncA() 与 Something.cSyncA()</span><br></pre></td></tr></table></figure></div></p>
 <p><strong>A：</strong> 不能被同时访问，原因：是对相同实例<kbd>x</kbd>的不同<kbd>synchronized</kbd>域访问。</p>
 <p><strong>B：</strong> 可以被同时访问，原因：是对不同实例<kbd>x</kbd>和<kbd>y</kbd>的相同<kbd>synchronized</kbd>域访问。</p>
 <p><strong>C：</strong> 不能被同时访问，原因：是对不同实例<kbd>x</kbd>和<kbd>y</kbd>的不同<kbd>static synchronized</kbd>域访问。</p>
 <p><strong>D：</strong> 可以被同时访问，原因：是对实例<kbd>x</kbd>的<kbd>synchronized</kbd>域和类<kbd>Something</kbd>的<kbd>static synchronized</kbd>域同时访问。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
 <li><kbd>synchronized</kbd>锁的是实例对象，<kbd>static synchronized</kbd>锁的是类对象</li>
 <li>若实例被锁，则<strong>该实例</strong>的<strong>所有同步方法</strong>全部被锁</li>
 <li>若类被锁，则<strong>该类</strong>的<strong>所有同步方法</strong>全部被锁</li>
@@ -876,7 +876,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#synchronized与static-synchronized的区别"><span class="nav-number">1.</span> <span class="nav-text">synchronized与static synchronized的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#例题讲解"><span class="nav-number">1.1.</span> <span class="nav-text">例题讲解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.2.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#例题讲解"><span class="nav-number">1.</span> <span class="nav-text">例题讲解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
@@ -920,7 +920,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">全站博客共计60.7k字</span>
+  <span class="post-count">全站博客共计60.1k字</span>
 </div>
 
 <span class="post-meta-divider">|</span>

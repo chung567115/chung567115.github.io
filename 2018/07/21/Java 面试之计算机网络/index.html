@@ -162,7 +162,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-5.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-6.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-7.png">
-<meta property="og:updated_time" content="2019-03-12T11:24:53.149Z">
+<meta property="og:updated_time" content="2019-03-15T06:37:36.482Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java面试之计算机网络">
 <meta name="twitter:description" content="笔经面经归纳汇总：计算机网络">
@@ -509,20 +509,20 @@
 <p>笔经面经归纳汇总：计算机网络</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="Java面试之计算机网络"><a href="#Java面试之计算机网络" class="headerlink" title="Java面试之计算机网络"></a>Java面试之计算机网络</h1><h2 id="OSI与TCP-IP各层"><a href="#OSI与TCP-IP各层" class="headerlink" title="OSI与TCP/IP各层"></a>OSI与TCP/IP各层</h2><p><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-1.png" alt="OSI与TCP/IP结构"></p>
-<h2 id="TCP、HTTP"><a href="#TCP、HTTP" class="headerlink" title="TCP、HTTP"></a>TCP、HTTP</h2><h3 id="TCP三次握手、四次挥手"><a href="#TCP三次握手、四次挥手" class="headerlink" title="TCP三次握手、四次挥手"></a>TCP三次握手、四次挥手</h3><h4 id="TCP三次握手（建立连接）"><a href="#TCP三次握手（建立连接）" class="headerlink" title="TCP三次握手（建立连接）"></a>TCP三次握手（建立连接）</h4><ol>
+<h1 id="OSI与TCP-IP各层"><a href="#OSI与TCP-IP各层" class="headerlink" title="OSI与TCP/IP各层"></a>OSI与TCP/IP各层</h1><p><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-1.png" alt="OSI与TCP/IP结构"></p>
+<h1 id="TCP、HTTP"><a href="#TCP、HTTP" class="headerlink" title="TCP、HTTP"></a>TCP、HTTP</h1><h2 id="TCP三次握手、四次挥手"><a href="#TCP三次握手、四次挥手" class="headerlink" title="TCP三次握手、四次挥手"></a>TCP三次握手、四次挥手</h2><h3 id="TCP三次握手（建立连接）"><a href="#TCP三次握手（建立连接）" class="headerlink" title="TCP三次握手（建立连接）"></a>TCP三次握手（建立连接）</h3><ol>
 <li>第一次握手：客户端向服务器发送SYN(seq=j)包到服务器；</li>
 <li>第二次握手：服务器收到SYN包，向客户端发送ACK包(ack=j+1)和SYN包(seq=k)；</li>
 <li>第三次握手：客户端收到SYN＋ACK包，向服务器发送ACK包(ack=k+1)，完成三次握手。<br><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-2.png" alt="三次握手"></li>
 </ol>
-<h4 id="TCP四次挥手（终止连接）"><a href="#TCP四次挥手（终止连接）" class="headerlink" title="TCP四次挥手（终止连接）"></a>TCP四次挥手（终止连接）</h4><ol>
+<h3 id="TCP四次挥手（终止连接）"><a href="#TCP四次挥手（终止连接）" class="headerlink" title="TCP四次挥手（终止连接）"></a>TCP四次挥手（终止连接）</h3><ol>
 <li>第一次挥手：客户端向服务器发送FIN包(seq=j)，关闭客户到服务器的数据传送；</li>
 <li>第二次挥手：服务器收到FIN包，向客户端发送ACK包(ack=j+1)；</li>
 <li>第三次挥手：服务器向客户端发送FIN包(seq=k)；</li>
 <li>第四次挥手：客户端收到FIN包，向客户端发送ACK包(ack=k+1)，完成四次挥手。<br><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-3.png" alt="四次挥手"></li>
 </ol>
-<h4 id="为什么TCP连接是3次而终止是4次"><a href="#为什么TCP连接是3次而终止是4次" class="headerlink" title="为什么TCP连接是3次而终止是4次"></a>为什么TCP连接是3次而终止是4次</h4><p>&emsp;&emsp;连接时，服务端收到SYN后，把ACK和SYN一起打包回发给客户端，只有3次。<br>&emsp;&emsp;终止时，由于TCP连接是全双工的，每个方向都必须单独进行关闭，即FIN和ACK是分开发送的，所以有4次。<br>&emsp;&emsp;当一方完成它的数据发送任务后，发送一个FIN来终止连接。但收到一个FIN只表示对方没有数据发送，而己方仍能发送数据。因此必须单独关闭。  </p>
-<h3 id="HTTP相关"><a href="#HTTP相关" class="headerlink" title="HTTP相关"></a>HTTP相关</h3><h4 id="HTTP的状态码含义"><a href="#HTTP的状态码含义" class="headerlink" title="HTTP的状态码含义"></a>HTTP的状态码含义</h4><table>
+<h3 id="为什么TCP连接是3次而终止是4次"><a href="#为什么TCP连接是3次而终止是4次" class="headerlink" title="为什么TCP连接是3次而终止是4次"></a>为什么TCP连接是3次而终止是4次</h3><p>&emsp;&emsp;连接时，服务端收到SYN后，把ACK和SYN一起打包回发给客户端，只有3次。<br>&emsp;&emsp;终止时，由于TCP连接是全双工的，每个方向都必须单独进行关闭，即FIN和ACK是分开发送的，所以有4次。<br>&emsp;&emsp;当一方完成它的数据发送任务后，发送一个FIN来终止连接。但收到一个FIN只表示对方没有数据发送，而己方仍能发送数据。因此必须单独关闭。  </p>
+<h2 id="HTTP相关"><a href="#HTTP相关" class="headerlink" title="HTTP相关"></a>HTTP相关</h2><h3 id="HTTP的状态码含义"><a href="#HTTP的状态码含义" class="headerlink" title="HTTP的状态码含义"></a>HTTP的状态码含义</h3><table>
 <thead>
 <tr>
 <th style="text-align:center">分类</th>
@@ -552,7 +552,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="HTTP-Request的几种类型"><a href="#HTTP-Request的几种类型" class="headerlink" title="HTTP Request的几种类型"></a>HTTP Request的几种类型</h4><table>
+<h3 id="HTTP-Request的几种类型"><a href="#HTTP-Request的几种类型" class="headerlink" title="HTTP Request的几种类型"></a>HTTP Request的几种类型</h3><table>
 <thead>
 <tr>
 <th style="text-align:center">类型</th>
@@ -615,25 +615,25 @@
 <blockquote>
 <p>幂等性指该方法多次调用最终资源状态是一样的。<br>安全性指访问资源的时候资源本身不会发生改变。</p>
 </blockquote>
-<h4 id="HTTP-1-0、HTTP1-1、HTTP2-0"><a href="#HTTP-1-0、HTTP1-1、HTTP2-0" class="headerlink" title="HTTP 1.0、HTTP1.1、HTTP2.0"></a>HTTP 1.0、HTTP1.1、HTTP2.0</h4><ul>
+<h3 id="HTTP-1-0、HTTP1-1、HTTP2-0"><a href="#HTTP-1-0、HTTP1-1、HTTP2-0" class="headerlink" title="HTTP 1.0、HTTP1.1、HTTP2.0"></a>HTTP 1.0、HTTP1.1、HTTP2.0</h3><ul>
 <li>HTTP 1.0中，客户端的每次请求都要建立一次单独的连接，在处理完本次请求后，就自动释放连接。</li>
 <li>HTTP 1.1中，支持<strong>长连接</strong>和<strong>流水线请求</strong>处理，在一个TCP连接上可以传送多个HTTP请求和响应，若干个请求串行化<strong>单线程</strong>处理。</li>
 <li>HTTP2.0中，基于<strong>二进制解析</strong>，可<strong>多路复用</strong>，多个请求可同时在一个连接上<strong>并行处理</strong>。</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-4.png" alt="HTTP比较"></p>
-<h3 id="TCP与HTTP的报文结构"><a href="#TCP与HTTP的报文结构" class="headerlink" title="TCP与HTTP的报文结构"></a>TCP与HTTP的报文结构</h3><p><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-5.png" alt="tcp报文结构"><br><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-6.png" alt="http报文结构"></p>
-<h2 id="Forward与Redirect"><a href="#Forward与Redirect" class="headerlink" title="Forward与Redirect"></a>Forward与Redirect</h2><ul>
+<h2 id="TCP与HTTP的报文结构"><a href="#TCP与HTTP的报文结构" class="headerlink" title="TCP与HTTP的报文结构"></a>TCP与HTTP的报文结构</h2><p><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-5.png" alt="tcp报文结构"><br><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-6.png" alt="http报文结构"></p>
+<h1 id="Forward与Redirect"><a href="#Forward与Redirect" class="headerlink" title="Forward与Redirect"></a>Forward与Redirect</h1><ul>
 <li>直接转发（Forward）：也称<strong>转发</strong>，浏览器发出请求，服务器把响应内容读取过来，然后再把这些内容发给浏览器。<strong>地址栏显示原来的URL</strong>。</li>
 <li>间接转发（Redirect）：也称<strong>重定向</strong>，浏览器发出请求，服务器端在响应第一次请求的时候，让浏览器向另一个地址发出请求，然后得到响应。<strong>地址栏显示新的URL</strong>。</li>
 </ul>
-<h2 id="Cookie与Session"><a href="#Cookie与Session" class="headerlink" title="Cookie与Session"></a>Cookie与Session</h2><ul>
+<h1 id="Cookie与Session"><a href="#Cookie与Session" class="headerlink" title="Cookie与Session"></a>Cookie与Session</h1><ul>
 <li>Cookie：为了辨别用户身份而储存在客户端的数据。服务器在Http响应头中添加Set-Cookie信息，浏览器收到响应后会根据头中的字段保存Cookie，下一次访问时在请求头中附带Cookie内容，供服务器根据Cookie值进行后续处理。</li>
 <li>Session：为了保存用户信息而储存在服务端的数据。当客户端第一次访问时，服务器会计算出一个sessionID，创建一个对应的Session对象并存储；然后将sessionID保存至浏览器Cookie，下一次访问时服务器根据sessionID来匹配Session，Session中可以存一些键值对。</li>
 </ul>
 <blockquote>
 <p>Cookie最典型的应用是：①判断用户是否登陆过网站，以便下次登录时能够直接登录。②购物车信息处理。</p>
 </blockquote>
-<h2 id="访问一个网页全过程"><a href="#访问一个网页全过程" class="headerlink" title="访问一个网页全过程"></a>访问一个网页全过程</h2><ol>
+<h1 id="访问一个网页全过程"><a href="#访问一个网页全过程" class="headerlink" title="访问一个网页全过程"></a>访问一个网页全过程</h1><ol>
 <li>输入URL；</li>
 <li>DNS将域名解析成IP地址；</li>
 <li>建立TCP连接；</li>
@@ -641,7 +641,7 @@
 <li>发送HTTP请求；</li>
 <li>得到响应，展现HTML界面。</li>
 </ol>
-<h2 id="使用Socket通信的几个关键函数"><a href="#使用Socket通信的几个关键函数" class="headerlink" title="使用Socket通信的几个关键函数"></a>使用Socket通信的几个关键函数</h2><ol>
+<h1 id="使用Socket通信的几个关键函数"><a href="#使用Socket通信的几个关键函数" class="headerlink" title="使用Socket通信的几个关键函数"></a>使用Socket通信的几个关键函数</h1><ol>
 <li>初始化socket：<code>int socket(int domain, int type, int protocol);</code><ul>
 <li>domain ：指定通信协议族。</li>
 <li>type：指定socket类型。</li>
@@ -677,8 +677,8 @@
 </ul>
 </li>
 </ol>
-<h2 id="IP地址分类"><a href="#IP地址分类" class="headerlink" title="IP地址分类"></a>IP地址分类</h2><p><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-7.png" alt="IP地址分类"></p>
-<h2 id="交换机与路由器区别"><a href="#交换机与路由器区别" class="headerlink" title="交换机与路由器区别"></a>交换机与路由器区别</h2><table>
+<h1 id="IP地址分类"><a href="#IP地址分类" class="headerlink" title="IP地址分类"></a>IP地址分类</h1><p><img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/31-7.png" alt="IP地址分类"></p>
+<h1 id="交换机与路由器区别"><a href="#交换机与路由器区别" class="headerlink" title="交换机与路由器区别"></a>交换机与路由器区别</h1><table>
 <thead>
 <tr>
 <th style="text-align:center">比较点</th>
@@ -1062,7 +1062,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java面试之计算机网络"><span class="nav-number">1.</span> <span class="nav-text">Java面试之计算机网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OSI与TCP-IP各层"><span class="nav-number">1.1.</span> <span class="nav-text">OSI与TCP/IP各层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP、HTTP"><span class="nav-number">1.2.</span> <span class="nav-text">TCP、HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP三次握手、四次挥手"><span class="nav-number">1.2.1.</span> <span class="nav-text">TCP三次握手、四次挥手</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP三次握手（建立连接）"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">TCP三次握手（建立连接）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP四次挥手（终止连接）"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">TCP四次挥手（终止连接）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么TCP连接是3次而终止是4次"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">为什么TCP连接是3次而终止是4次</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP相关"><span class="nav-number">1.2.2.</span> <span class="nav-text">HTTP相关</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP的状态码含义"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">HTTP的状态码含义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-Request的几种类型"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">HTTP Request的几种类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-1-0、HTTP1-1、HTTP2-0"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">HTTP 1.0、HTTP1.1、HTTP2.0</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP与HTTP的报文结构"><span class="nav-number">1.2.3.</span> <span class="nav-text">TCP与HTTP的报文结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Forward与Redirect"><span class="nav-number">1.3.</span> <span class="nav-text">Forward与Redirect</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie与Session"><span class="nav-number">1.4.</span> <span class="nav-text">Cookie与Session</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问一个网页全过程"><span class="nav-number">1.5.</span> <span class="nav-text">访问一个网页全过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Socket通信的几个关键函数"><span class="nav-number">1.6.</span> <span class="nav-text">使用Socket通信的几个关键函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP地址分类"><span class="nav-number">1.7.</span> <span class="nav-text">IP地址分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交换机与路由器区别"><span class="nav-number">1.8.</span> <span class="nav-text">交换机与路由器区别</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OSI与TCP-IP各层"><span class="nav-number">1.</span> <span class="nav-text">OSI与TCP/IP各层</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP、HTTP"><span class="nav-number">2.</span> <span class="nav-text">TCP、HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP三次握手、四次挥手"><span class="nav-number">2.1.</span> <span class="nav-text">TCP三次握手、四次挥手</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP三次握手（建立连接）"><span class="nav-number">2.1.1.</span> <span class="nav-text">TCP三次握手（建立连接）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP四次挥手（终止连接）"><span class="nav-number">2.1.2.</span> <span class="nav-text">TCP四次挥手（终止连接）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么TCP连接是3次而终止是4次"><span class="nav-number">2.1.3.</span> <span class="nav-text">为什么TCP连接是3次而终止是4次</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP相关"><span class="nav-number">2.2.</span> <span class="nav-text">HTTP相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP的状态码含义"><span class="nav-number">2.2.1.</span> <span class="nav-text">HTTP的状态码含义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-Request的几种类型"><span class="nav-number">2.2.2.</span> <span class="nav-text">HTTP Request的几种类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-1-0、HTTP1-1、HTTP2-0"><span class="nav-number">2.2.3.</span> <span class="nav-text">HTTP 1.0、HTTP1.1、HTTP2.0</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP与HTTP的报文结构"><span class="nav-number">2.3.</span> <span class="nav-text">TCP与HTTP的报文结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Forward与Redirect"><span class="nav-number">3.</span> <span class="nav-text">Forward与Redirect</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cookie与Session"><span class="nav-number">4.</span> <span class="nav-text">Cookie与Session</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#访问一个网页全过程"><span class="nav-number">5.</span> <span class="nav-text">访问一个网页全过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Socket通信的几个关键函数"><span class="nav-number">6.</span> <span class="nav-text">使用Socket通信的几个关键函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IP地址分类"><span class="nav-number">7.</span> <span class="nav-text">IP地址分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#交换机与路由器区别"><span class="nav-number">8.</span> <span class="nav-text">交换机与路由器区别</span></a></li></ol></div>
             
 
           </div>
@@ -1106,7 +1106,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">全站博客共计60.7k字</span>
+  <span class="post-count">全站博客共计60.1k字</span>
 </div>
 
 <span class="post-meta-divider">|</span>

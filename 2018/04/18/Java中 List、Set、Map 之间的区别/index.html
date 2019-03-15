@@ -155,7 +155,7 @@
 <meta property="og:site_name" content="博学de叫兽">
 <meta property="og:description" content="小博此篇记录了开发过程中常用的几种集合详解，三者的区别对比均从IDEA相关层次图里面所得知，基于JDK8。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-10T06:58:53.000Z">
+<meta property="og:updated_time" content="2019-03-15T06:40:08.314Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java中 List、Set、Map 之间的区别">
 <meta name="twitter:description" content="小博此篇记录了开发过程中常用的几种集合详解，三者的区别对比均从IDEA相关层次图里面所得知，基于JDK8。">
@@ -460,7 +460,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1k
+                  995
                 </span>
               
 
@@ -501,24 +501,24 @@
 <p>小博此篇记录了开发过程中常用的几种集合详解，三者的区别对比均从<code>IDEA</code>相关层次图里面所得知，基于<code>JDK8</code>。</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="Java中-List、Set、Map-之间的区别"><a href="#Java中-List、Set、Map-之间的区别" class="headerlink" title="Java中 List、Set、Map 之间的区别"></a>Java中 List、Set、Map 之间的区别</h1><h2 id="List-列表"><a href="#List-列表" class="headerlink" title="List(列表)"></a>List(列表)</h2><p>&emsp;&emsp;<code>List</code>的元素以线性方式存储，可以存放重复对象，<code>List</code>主要有以下两个实现类：</p>
+<h1 id="List-列表"><a href="#List-列表" class="headerlink" title="List(列表)"></a>List(列表)</h1><p>&emsp;&emsp;<code>List</code>的元素以线性方式存储，可以存放重复对象，<code>List</code>主要有以下两个实现类：</p>
 <ul>
 <li><code>ArrayList</code> : 长度可变的数组，可以对元素进行随机的访问，向<code>ArrayList</code>中插入与删除元素的速度慢。 <code>JDK8</code> 中<code>ArrayList</code>扩容的实现是通过<code>grow()</code>方法里使用语句<code>newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1)</code>（即1.5倍扩容）计算容量，然后调用<code>Arrays.copyof()</code>方法进行对原数组进行复制。</li>
 <li><code>LinkedList</code>: 采用链表数据结构，插入和删除速度快，但访问速度慢。 </li>
 </ul>
-<h2 id="Set-集合"><a href="#Set-集合" class="headerlink" title="Set(集合)"></a>Set(集合)</h2><p>&emsp;&emsp;<code>Set</code>中的对象不按特定(HashCode)的方式排序，并且没有重复对象，<code>Set</code>主要有以下两个实现类：</p>
+<h1 id="Set-集合"><a href="#Set-集合" class="headerlink" title="Set(集合)"></a>Set(集合)</h1><p>&emsp;&emsp;<code>Set</code>中的对象不按特定(HashCode)的方式排序，并且没有重复对象，<code>Set</code>主要有以下两个实现类：</p>
 <ul>
 <li><code>HashSet</code>： <code>HashSet</code>按照哈希算法来存取集合中的对象，存取速度比较快。当<code>HashSet</code>中的元素个数超过数组大小*<code>loadFactor</code>（默认值为0.75）时，就会进行近似两倍扩容（<code>newCapacity = (oldCapacity &lt;&lt; 1) + 1</code>）。</li>
 <li><code>TreeSet</code> ：<code>TreeSet</code>实现了<code>SortedSet</code>接口，能够对集合中的对象进行排序。</li>
 </ul>
-<h2 id="Map-映射"><a href="#Map-映射" class="headerlink" title="Map(映射)"></a>Map(映射)</h2><p>&emsp;&emsp;<code>Map</code>是一种把键对象和值对象映射的集合，它的每一个元素都包含一个键对象和值对象。 <code>Map</code>主要有以下两个实现类：</p>
+<h1 id="Map-映射"><a href="#Map-映射" class="headerlink" title="Map(映射)"></a>Map(映射)</h1><p>&emsp;&emsp;<code>Map</code>是一种把键对象和值对象映射的集合，它的每一个元素都包含一个键对象和值对象。 <code>Map</code>主要有以下两个实现类：</p>
 <ul>
 <li><code>HashMap</code>：<code>HashMap</code>基于散列表实现，其插入和查询<code>&lt;K,V&gt;</code>的开销是固定的，可以通过构造器设置容量和负载因子来调整容器的性能。 </li>
 <li><code>LinkedHashMap</code>：类似于<code>HashMap</code>，但是迭代遍历它时，取得<code>&lt;K,V&gt;</code>的顺序是其插入次序，或者是最近最少使用(<code>LRU</code>)的次序。</li>
 <li><code>TreeMap</code>：<code>TreeMap</code>基于红黑树实现。查看<code>&lt;K,V&gt;</code>时，它们会被排序。<code>TreeMap</code>是唯一的带有<code>subMap()</code>方法的<code>Map</code>，<code>subMap()</code>可以返回一个子树。 </li>
 </ul>
-<h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><p>&emsp;&emsp;底层实现：<code>HashMap</code>底层整体结构是一个数组，数组中的每个元素又是一个链表。每次添加一个对象（put）时会产生一个链表对象（<code>Object</code>类型），<code>Map</code>中的每个<code>Entry</code>就是数组中的一个元素（<code>Map.Entry</code>就是一个<code>&lt;Key,Value&gt;</code>），它具有由当前元素指向下一个元素的引用，这就构成了链表。<br>&emsp;&emsp;存储原理：当向<code>HsahMap</code>中添加元素的时候，先根据<code>HashCode</code>重新计算<code>Key</code>的<code>Hash</code>值，得到数组下标，如果数组该位置已经存在其他元素，那么这个位置的元素将会以链表的形式存放，新加入的放在链头，最先加入的放在链尾，如果数组该位置元素不存在，那么就直接将该元素放到此数组中的该位置。<br>&emsp;&emsp;去重原理：不同的<code>Key</code>算到数组下标相同的几率很小，新建一个<code>&lt;K,V&gt;</code>放入到<code>HashMap</code>的时候，首先会计算Key的数组下标，如果数组该位置已经存在其他元素，则比较两个Key，若相同则覆盖写入，若不同则形成链表。<br>&emsp;&emsp;读取原理：从<code>HashMap</code>中读取（get）元素时，首先计算<code>Key</code>的<code>HashCode</code>，找到数组下标，然后在对应位置的链表中找到需要的元素。<br> &emsp;&emsp;扩容机制：当<code>HashMap</code>中的元素个数超过数组大小*<code>loadFactor</code>（默认值为0.75）时，就会进行2倍扩容（<code>oldThr &lt;&lt; 1</code>）。</p>
-<h2 id="三者区别"><a href="#三者区别" class="headerlink" title="三者区别"></a>三者区别</h2><table>
+<h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><p>&emsp;&emsp;底层实现：<code>HashMap</code>底层整体结构是一个数组，数组中的每个元素又是一个链表。每次添加一个对象（put）时会产生一个链表对象（<code>Object</code>类型），<code>Map</code>中的每个<code>Entry</code>就是数组中的一个元素（<code>Map.Entry</code>就是一个<code>&lt;Key,Value&gt;</code>），它具有由当前元素指向下一个元素的引用，这就构成了链表。<br>&emsp;&emsp;存储原理：当向<code>HsahMap</code>中添加元素的时候，先根据<code>HashCode</code>重新计算<code>Key</code>的<code>Hash</code>值，得到数组下标，如果数组该位置已经存在其他元素，那么这个位置的元素将会以链表的形式存放，新加入的放在链头，最先加入的放在链尾，如果数组该位置元素不存在，那么就直接将该元素放到此数组中的该位置。<br>&emsp;&emsp;去重原理：不同的<code>Key</code>算到数组下标相同的几率很小，新建一个<code>&lt;K,V&gt;</code>放入到<code>HashMap</code>的时候，首先会计算Key的数组下标，如果数组该位置已经存在其他元素，则比较两个Key，若相同则覆盖写入，若不同则形成链表。<br>&emsp;&emsp;读取原理：从<code>HashMap</code>中读取（get）元素时，首先计算<code>Key</code>的<code>HashCode</code>，找到数组下标，然后在对应位置的链表中找到需要的元素。<br> &emsp;&emsp;扩容机制：当<code>HashMap</code>中的元素个数超过数组大小*<code>loadFactor</code>（默认值为0.75）时，就会进行2倍扩容（<code>oldThr &lt;&lt; 1</code>）。</p>
+<h1 id="三者区别"><a href="#三者区别" class="headerlink" title="三者区别"></a>三者区别</h1><table>
 <thead>
 <tr>
 <th style="text-align:center">比较</th>
@@ -919,7 +919,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java中-List、Set、Map-之间的区别"><span class="nav-number">1.</span> <span class="nav-text">Java中 List、Set、Map 之间的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#List-列表"><span class="nav-number">1.1.</span> <span class="nav-text">List(列表)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set-集合"><span class="nav-number">1.2.</span> <span class="nav-text">Set(集合)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map-映射"><span class="nav-number">1.3.</span> <span class="nav-text">Map(映射)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap"><span class="nav-number">1.3.1.</span> <span class="nav-text">HashMap</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三者区别"><span class="nav-number">1.4.</span> <span class="nav-text">三者区别</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#List-列表"><span class="nav-number">1.</span> <span class="nav-text">List(列表)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Set-集合"><span class="nav-number">2.</span> <span class="nav-text">Set(集合)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Map-映射"><span class="nav-number">3.</span> <span class="nav-text">Map(映射)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap"><span class="nav-number">3.1.</span> <span class="nav-text">HashMap</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三者区别"><span class="nav-number">4.</span> <span class="nav-text">三者区别</span></a></li></ol></div>
             
 
           </div>
@@ -963,7 +963,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">全站博客共计60.7k字</span>
+  <span class="post-count">全站博客共计60.1k字</span>
 </div>
 
 <span class="post-meta-divider">|</span>

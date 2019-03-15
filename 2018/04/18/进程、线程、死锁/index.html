@@ -156,7 +156,7 @@
 <meta property="og:description" content="关于进程、线程、死锁，计算机操作系统课本里面怎么说~">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/18-1.png">
-<meta property="og:updated_time" content="2019-03-12T11:28:23.038Z">
+<meta property="og:updated_time" content="2019-03-15T07:03:49.269Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="进程、线程、死锁">
 <meta name="twitter:description" content="关于进程、线程、死锁，计算机操作系统课本里面怎么说~">
@@ -462,7 +462,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  974
+                  968
                 </span>
               
 
@@ -503,27 +503,27 @@
 <p>关于进程、线程、死锁，计算机操作系统课本里面怎么说~</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="进程、线程、死锁"><a href="#进程、线程、死锁" class="headerlink" title="进程、线程、死锁"></a>进程、线程、死锁</h1><h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><p>&emsp;&emsp;进程：系统进行资源分配和调度的一个独立单位。每一个进程都有一个自己的地址空间，即进程空间或（虚空间）。进程有 5 种基本状态：创建、就绪、阻塞、执行、终止。<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/18-1.png" alt="进程状态转换图"></p>
-<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><p>&emsp;&emsp;线程：CPU调度的一个基本单位。线程与同属一个进程的其他线程共享进程所拥有的全部资源。线程有 3 个基本状态：就绪、执行、阻塞。</p>
-<h2 id="进程和线程的区别"><a href="#进程和线程的区别" class="headerlink" title="进程和线程的区别"></a>进程和线程的区别</h2><ol>
+<h1 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h1><p>&emsp;&emsp;进程：系统进行资源分配和调度的一个独立单位。每一个进程都有一个自己的地址空间，即进程空间或（虚空间）。进程有 5 种基本状态：创建、就绪、阻塞、执行、终止。<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/18-1.png" alt="进程状态转换图"></p>
+<h1 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h1><p>&emsp;&emsp;线程：CPU调度的一个基本单位。线程与同属一个进程的其他线程共享进程所拥有的全部资源。线程有 3 个基本状态：就绪、执行、阻塞。</p>
+<h1 id="进程和线程的区别"><a href="#进程和线程的区别" class="headerlink" title="进程和线程的区别"></a>进程和线程的区别</h1><ol>
 <li>进程是资源的分配和调度的一个独立单元，而线程是CPU调度的基本单元</li>
 <li>进程拥有独立的资源，而各线程共享所属进程的所有资源（寄存器、堆栈等）</li>
 <li>进程结束后它拥有的所有线程都将销毁，而线程的结束不会影响同个进程中的其他线程</li>
 <li>一个程序至少有一个进程，一个进程至少有一个线程</li>
 <li>线程中执行时一般都要进行同步和互斥，因为他们共享同一进程的所有资源</li>
 </ol>
-<h2 id="并行和并发"><a href="#并行和并发" class="headerlink" title="并行和并发"></a>并行和并发</h2><ul>
+<h1 id="并行和并发"><a href="#并行和并发" class="headerlink" title="并行和并发"></a>并行和并发</h1><ul>
 <li>并行：CPU同时计算（一场象棋比赛）</li>
 <li>并发：CPU通过调度算法计算（一局象棋对战）</li>
 </ul>
-<h2 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h2><p>&emsp;&emsp;死锁是指多个进程在执行过程中，由于竞争资源或者由于彼此通信而造成的一种阻塞的现象，若无外力作用，它们都将无法推进下去。<br>&emsp;&emsp;死锁产生的必要条件（只要其中任一条件不成立，死锁就不会发生）：</p>
+<h1 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h1><p>&emsp;&emsp;死锁是指多个进程在执行过程中，由于竞争资源或者由于彼此通信而造成的一种阻塞的现象，若无外力作用，它们都将无法推进下去。<br>&emsp;&emsp;死锁产生的必要条件（只要其中任一条件不成立，死锁就不会发生）：</p>
 <ul>
 <li>互斥条件：进程对所分配的资源进行排他性控制，即在一段时间内某资源仅为一个进程所占有。此时若有其他进程请求该资源，则请求进程只能等待。</li>
 <li>不剥夺条件：进程所获得的资源在未使用完毕之前，不能被其他进程强行夺走，即只能 由获得该资源的进程主动释放。</li>
 <li>请求和保持条件：进程已经保持了至少一个资源，但又提出了新的资源请求，而该资源 已被其他进程占有，此时请求进程被阻塞，但对自己已获得的资源保持不放。</li>
 <li>环路等待条件：存在一个进程——资源的环形链，即进程集合{P0，P1，P2，···，Pn}中的P0正在等待一个P1占用的资源；P1正在等待P2占用的资源，……，Pn正在等待已被P0占用的资源。</li>
 </ul>
-<h3 id="避免死锁"><a href="#避免死锁" class="headerlink" title="避免死锁"></a>避免死锁</h3><p>&emsp;&emsp;可通过以下三种手段避免死锁：</p>
+<h2 id="避免死锁"><a href="#避免死锁" class="headerlink" title="避免死锁"></a>避免死锁</h2><p>&emsp;&emsp;可通过以下三种手段避免死锁：</p>
 <ol>
 <li>加锁顺序（线程按一定顺序加锁，若所有线程都按相同顺序获得锁，就能避免死锁）</li>
 <li>加锁时限（线程获取锁时加上时限，超时则放弃并释放所占有的锁，就能避免死锁）</li>
@@ -886,7 +886,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#进程、线程、死锁"><span class="nav-number">1.</span> <span class="nav-text">进程、线程、死锁</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#进程"><span class="nav-number">1.1.</span> <span class="nav-text">进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程"><span class="nav-number">1.2.</span> <span class="nav-text">线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程和线程的区别"><span class="nav-number">1.3.</span> <span class="nav-text">进程和线程的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并行和并发"><span class="nav-number">1.4.</span> <span class="nav-text">并行和并发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#死锁"><span class="nav-number">1.5.</span> <span class="nav-text">死锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#避免死锁"><span class="nav-number">1.5.1.</span> <span class="nav-text">避免死锁</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#进程"><span class="nav-number">1.</span> <span class="nav-text">进程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程"><span class="nav-number">2.</span> <span class="nav-text">线程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进程和线程的区别"><span class="nav-number">3.</span> <span class="nav-text">进程和线程的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#并行和并发"><span class="nav-number">4.</span> <span class="nav-text">并行和并发</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#死锁"><span class="nav-number">5.</span> <span class="nav-text">死锁</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#避免死锁"><span class="nav-number">5.1.</span> <span class="nav-text">避免死锁</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -930,7 +930,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">全站博客共计60.7k字</span>
+  <span class="post-count">全站博客共计60.1k字</span>
 </div>
 
 <span class="post-meta-divider">|</span>
