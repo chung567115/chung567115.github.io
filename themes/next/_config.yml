@@ -152,8 +152,8 @@ social_icons:
 # Blog rolls
 links_icon: link
 links_title: 推荐阅读
-links_layout: block
-#links_layout: inline
+#links_layout: block
+links_layout: inline
 links:
   W3Cschool: https://www.w3cschool.cn
   菜鸟教程: http://www.runoob.com
@@ -161,7 +161,7 @@ links:
   eson_15: https://blog.csdn.net/eson_15
   ityouknow: https://blog.csdn.net/ityouknow
   xlgen157387: https://blog.csdn.net/xlgen157387
-  luanlouis: https://blog.csdn.net/luanlouis
+  #luanlouis: https://blog.csdn.net/luanlouis
 
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
