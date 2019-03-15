@@ -13,7 +13,6 @@ date: 2018-11-24 22:11:29
 
 <!-- more -->
 
-# Spring Cloud Stream
 开发环境    |  版本
 -------- | -----
 IDEA | 2018.2.6
@@ -25,8 +24,8 @@ RabbitMQ| 3.7.8-management
 
 > **特别注意**：本系列纪要环环相扣，建议从第一节开始阅读&emsp;[点击跳转](http://zhangchong.xin/2018/11/20/Spring%20Cloud%20%E5%AD%A6%E4%B9%A0%E7%BA%AA%E8%A6%81%E4%B8%80%EF%BC%9AEureka/)
 
-## 增加provider和consumer项目
-### 添加依赖
+# 增加provider和consumer项目
+## 添加依赖
 ```xml
 <dependency>
     <groupId>org.springframework.cloud</groupId>
@@ -34,7 +33,7 @@ RabbitMQ| 3.7.8-management
 </dependency>
 ```
 
-### 添加RabbitMQ配置
+## 添加RabbitMQ配置
 ```yml
 spring:
   rabbitmq:
@@ -44,8 +43,8 @@ spring:
     port: 5672
 ```
 
-## 普通RabbitMQ使用方式
-### provider生产消息
+# 普通RabbitMQ使用方式
+## provider生产消息
 ```java
 @RestController
 @RequestMapping("/hello")
@@ -59,7 +58,7 @@ public class HelloController {
     }
 }
 ```
-### consumer消费消息
+## consumer消费消息
 ```java
 @Component
 public class MQReceiver {
@@ -74,8 +73,8 @@ public class MQReceiver {
 }
 ```
 
-## Stream生产和消费消息
-### provider生产消息
+# Stream生产和消费消息
+## provider生产消息
 &emsp;&emsp;provider项目增加配置：
 ```yml
 spring:
@@ -102,7 +101,7 @@ public class HelloController {
     }
 }
 ```
-### consumer消费消息
+## consumer消费消息
 &emsp;&emsp;consumer项目增加配置：
 ```yml
 spring:
@@ -127,7 +126,7 @@ public class MQReceiver {
 }
 ```
 
-## 写在后面
+# 写在后面
 &emsp;&emsp;不难发现，通过Stream可以极大简化消息队列的使用，不管是RabbitMQ还是Kafka，我们只需要关注Stream的使用，如此解耦也可以极大方便我们项目的消息中间件迁移。当然，本系列《Spring Cloud 学习纪要》小博只记录最简洁的入门Demo，更高阶的使用方法和技巧心得相信聪明的你能够自己掌握。
 
 <kbd>**附件**</kbd>

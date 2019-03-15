@@ -13,8 +13,7 @@ date: 2018-10-08 13:12:38
 
 <!-- more -->
 
-# 分布式锁之Redis实现
-## 旧版实现
+# 旧版实现
 &emsp;&emsp;实现思路：使用jedis.setnx()命令实现加锁，其中key是锁，value是锁的过期时间。
 1. 通过setnx()方法尝试加锁，如果当前锁不存在，返回加锁成功。
 2. 如果锁已经存在则获取锁的过期时间，和当前时间比较，如果锁已经过期，则设置新的过期时间，并校验是否当前线程请求锁，若是则返回加锁成功。
@@ -47,7 +46,7 @@ public static boolean tryLock(String lockKey, int expireTime) {
 3. 锁不具备拥有者标识，即任何客户端都可以解锁。
 
 
-## 新版实现
+# 新版实现
 &emsp;&emsp;更为严谨的做法如下：
 ```java
 public class RedisDistributeLock {

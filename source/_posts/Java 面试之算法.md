@@ -12,8 +12,7 @@ date: 2018-07-21 11:11:49
 
 <!-- more -->
 
-# Java面试之算法
-##  排序算法  
+#  排序算法  
 ![排序](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/29-1.png)
 
  &emsp;&emsp;名词解释：  
@@ -23,7 +22,7 @@ date: 2018-07-21 11:11:49
 - In-place: 占用常数内存，不占用额外内存
 - Out-place: 占用额外内存
 
-###  快排的Partition函数与归并的Merge函数  
+##  快排的Partition函数与归并的Merge函数  
 ```c
 // 快速排序
 void QuickSort(T a[], int low, int high) {
@@ -89,7 +88,7 @@ void Merge(T a[], int low, int mid, int high) {
 ```
 > 排序详解可参考博文 https://www.cnblogs.com/onepixel/articles/7674659.html
 
-## 二分查找
+# 二分查找
 ```c
 int BinarySearch( DataType a[], int low, int high, DataType x ) {
     if ( low>high ) {
@@ -106,7 +105,7 @@ int BinarySearch( DataType a[], int low, int high, DataType x ) {
 }
 ```
 
-## 图的DFS算法与BFS算法  
+# 图的DFS算法与BFS算法  
 ```c
 // DFS 深度优先搜索
 void DFSTraverse(Graph G) {
@@ -154,7 +153,7 @@ void BFSTraverse(Graph G) {
 
 ```
 
-## 最小生成树Kruskal算法、Prim算法
+# 最小生成树Kruskal算法、Prim算法
 - Kruskal：不构成环的情况下，每次选取最小边（边较少时特别有效）。
 - Prim：记 $V$ 是连通网的顶点集， $U$ 是求得生成树的顶点集， $TE$ 是求得生成树的边集：
 	1. 开始时， $U={v_0}$， $TE = \Phi$；
@@ -163,7 +162,7 @@ void BFSTraverse(Graph G) {
 
 > 同一个连通网的最小生成树可能是不唯一的，但其代价都是最小(唯一的)。
 
-## 最短路径Dijkstra算法  、Floyd算法
+# 最短路径Dijkstra算法  、Floyd算法
 - Dijkstra：求一个顶点到其他各顶点的最短路径：
 	1. 初始化：用起点 v 到该顶点 w 的直接边(弧)初始化最短路径，否则设为 $\infty$；
 	2. 从未求得最短路径的终点中选择路径长度最小的终点 $u$：即求得 $v$ 到 $u$ 的最短路径；
@@ -176,33 +175,33 @@ void BFSTraverse(Graph G) {
 	&emsp;&emsp;技巧：计算$A^{(k)}$的技巧。第$k$行、第$k$列、对角线的元素保持不变，对其余元素，考查$A(i,j)$与$A(i,k)+A(k,j)$（第 $k$ 列 $i$ 行元素加上第 $k$ 行 $j$ 列元素），如果后者更小则替换$A(i,j)$，同时修改路径。
 
 
-## 串匹配KMP算法  
+# 串匹配KMP算法  
 
 > 参考博文 http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html
 
 
-## 五大算法思想
-### 贪心算法  
+# 五大算法思想
+## 贪心算法  
  &emsp;&emsp;例：背包问题，均分纸牌，最大整数  
 
 > 参考博文 https://blog.csdn.net/qq_32400847/article/details/51336300
 
-### 动态规划算法  
+## 动态规划算法  
 &emsp;&emsp;例：0-1背包问题，钢条切割问题  
 
 > 参考博文 https://blog.csdn.net/qq_32400847/article/details/51148917
 
-### 分治算法  
+## 分治算法  
 &emsp;&emsp;例：棋盘覆盖、找出伪币、求最值  
 
 > 参考博文 https://blog.csdn.net/qq_32400847/article/details/51029121
 
-### 回溯算法  
+## 回溯算法  
 &emsp;&emsp;例：0-背包问题、旅行商问题、八皇后问题  
 
 > 参考博文 https://blog.csdn.net/qq_32400847/article/details/51474105
 
-### 分支限界算法  
+## 分支限界算法  
 &emsp;&emsp;例：装载问题，旅行售货员问题  
 
 > 参考博文 https://blog.csdn.net/qq_32400847/article/details/51813606

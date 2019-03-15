@@ -13,7 +13,6 @@ date: 2018-11-20 10:27:52
 
 <!-- more -->
 
-# Spring Cloud Eureka
 开发环境    |  版本
 -------- | -----
 IDEA | 2018.2.6
@@ -21,8 +20,8 @@ JDK  | 1.8
 Spring Boot| 2.1.0
 Spring Cloud| Greenwich.M1
 
-## Eureka服务端
-### 新建项目
+# Eureka服务端
+## 新建项目
 &emsp;&emsp;在IDEA中通过<kbd>Spring Initializr</kbd>创建项目，选择Spring Boot 2.1.0版本、选择Maven依赖Eureka Server(Cloud Discovery中)。
 ```xml
 <dependencies>
@@ -38,7 +37,7 @@ Spring Cloud| Greenwich.M1
 </dependencies>
 ```
 
-### 加入注解
+## 加入注解
 &emsp;&emsp;在入口类添加<kbd>@EnableEurekaServer</kbd>注解。
 ```java
 @SpringBootApplication
@@ -50,7 +49,7 @@ public class EurekaApplication {
 }
 ```
 
-### 添加配置
+## 添加配置
 &emsp;&emsp;在文件<kbd>application.yml</kbd>添加配置。
 ```yml
 eureka:
@@ -70,12 +69,12 @@ spring:
     name: eureka
 ```
 
-### 运行项目
+## 运行项目
 &emsp;&emsp;在VM options设置<kbd>-DServer.port=8761</kbd>，运行项目，浏览器打开[http://localhost:8761](http://localhost:8761)即可看到Eureka页面。
 ![Eureka Server](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/spring-cloud-1-1.png)
 
-## Eureka客户端
-### 新建项目
+# Eureka客户端
+## 新建项目
 &emsp;&emsp;在IDEA中通过<kbd>Spring Initializr</kbd>创建项目，选择Spring Boot 2.1.0版本、选择Maven依赖Web和Eureka Discovery(Cloud Discovery中)。
 ```xml
 <dependencies>
@@ -95,7 +94,7 @@ spring:
 </dependencies>
 ```
 
-### 加入注解
+## 加入注解
 &emsp;&emsp;在入口类添加<kbd>@EnableEurekaClient</kbd>注解。
 ```java
 @SpringBootApplication
@@ -107,7 +106,7 @@ public class FeignProviderApplication {
 }
 ```
 
-### 添加配置
+## 添加配置
 &emsp;&emsp;在文件<kbd>application.yml</kbd>添加配置。
 ```yml
 eureka:
@@ -123,7 +122,7 @@ spring:
     name: provider
 ```
 
-### 运行项目
+## 运行项目
 &emsp;&emsp;在VM options设置<kbd>-DServer.port=8081</kbd>，运行项目，在Eureka页面可以看到如下图线框处，证明本项目启动时已自动注册成功。
 ![EurekaClient](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/spring-cloud-1-2.png)
 

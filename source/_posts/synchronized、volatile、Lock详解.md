@@ -11,10 +11,10 @@ date: 2018-04-18 11:02:28
 > 在Java并发编程过程中，我们难免会遇到`synchronized`、`volatile`和`lock`，其中`lock`是一个类，而其余两个则是Java关键字。以下记录了小博开发过程中对这三者的理解
 
 <!-- more -->
-# synchronized、volatile、lock详解
+
 > 关于线程与进程请参考博文 [以操作系统的角度述说线程与进程](http://blog.csdn.net/luoweifu/article/details/46595285)
 
-## synchronized
+# synchronized
 &emsp;&emsp;`synchronized`是Java中的关键字，是一种同步锁。有以下几种用法：
 
 1、修饰方法：在范围操作符之后，返回类型声明之前使用。每次只能有一个线程进入该方法，此时线程获得的是成员锁。
@@ -62,7 +62,7 @@ public class syncClass {
 }
 ```
 
-## volatile
+# volatile
 &emsp;&emsp;`volatile` 关键字的作用是**禁止指令的重排序**，强制从公共堆栈中取得变量的值，而不是从线程私有的数据栈中取变量的值。
 `volatile`与`synchronized`的区别如下：
 
@@ -71,7 +71,7 @@ public class syncClass {
 - `volatile` 不能保证原子性（不能保证线程安全），而 `synchronized` 可以保证原子性。
 - `volatile` 解决的是变量在多线程之间的可见性，而 `synchronized` 解决的是多线程之间访问资源的同步性。
 
-## lock
+# lock
 &emsp;&emsp;`synchronized`是*隐式锁*，在需要同步的对象中加入此控制，而`lock`是*显示锁*，需要显示指定起始位置和终止位置。
 
 - 使用`lock`时在`finally`中必须释放锁，不然容易造成线程死锁；而使用`synchronized`时，获取锁的线程会在执行完同步代码后释放锁（或者JVM会在线程执行发生异常时释放锁）。

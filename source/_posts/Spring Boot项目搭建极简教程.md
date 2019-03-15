@@ -12,9 +12,6 @@ date: 2017-12-24 23:45:07
 > 从今天开始，小博将撰写Spring Boot系列博客
 
 <!-- more -->
-# Spring Boot项目搭建极简教程
-
-## Spring Boot项目搭建
 
 使用的开发环境是：
  - IDEA 2017.2
@@ -188,9 +185,3 @@ Process finished with exit code 0
 
 
 &emsp;&emsp;至此，就完成了Spring Boot项目的搭建和简单Web开发与测试、以及设置IDEA的热部署。可以看出，使用Spring Boot可以非常方便快速的搭建项目，而不用关心框架之间的兼容性、版本适用性等各种问题。想使用任何东西，仅仅添加一个配置就可以，所以Spring Boot非常适合构建微服务。
-
-&emsp;&emsp;本系列的下一篇博客，小博将记录自己的Spring Boot Web开发速体验备忘录，学习永无止境！一起加油！
-
-----------
-
-

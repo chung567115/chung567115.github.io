@@ -10,7 +10,7 @@ date: 2018-01-02 11:33:28
 > 在MarkDown文件中如果代码能高亮显示，界面会非常美观，那么MarkDown支持哪些语言的高亮显示呢？
 
 <!-- more -->
-# MarkDown支持高亮的语言
+
 使用前：
 public static void main(String[] args){
 ​	System.out.println("Hello");

@@ -12,7 +12,6 @@ date: 2018-01-12 10:20:53
 > Spring Boot 中JPA的使用真方便，那么它的命名要遵循哪些规则呢？
 
 <!-- more -->
-# Spring Boot JPA命名规则
 
 以下表格摘录自[官方文档](https://docs.spring.io/spring-data/jpa/docs/1.4.3.RELEASE/reference/html/jpa.repositories.html)
 

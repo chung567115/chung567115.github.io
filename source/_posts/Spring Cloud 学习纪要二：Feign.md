@@ -13,7 +13,6 @@ date: 2018-11-20 11:10:59
 
 <!-- more -->
 
-# Spring Cloud Feign
 开发环境    |  版本
 -------- | -----
 IDEA | 2018.2.6
@@ -23,7 +22,7 @@ Spring Cloud| Greenwich.M1
 
 > **特别注意**：本系列纪要环环相扣，建议从第一节开始阅读&emsp;[点击跳转](http://zhangchong.xin/2018/11/20/Spring%20Cloud%20%E5%AD%A6%E4%B9%A0%E7%BA%AA%E8%A6%81%E4%B8%80%EF%BC%9AEureka/)
 
-## 新建项目
+# 新建项目
 &emsp;&emsp;在IDEA中通过<kbd>Spring Initializr</kbd>创建项目，选择Spring Boot 2.1.0版本、选择Maven依赖Web、Eureka Discovery(Cloud Discovery中)和Feign(Cloud Routing中)。
 ```xml
 <dependencies>
@@ -47,7 +46,7 @@ Spring Cloud| Greenwich.M1
 </dependencies>
 ```
 
-## 加入注解
+# 加入注解
 &emsp;&emsp;在入口类添加<kbd>@EnableEurekaClient</kbd>和<kbd>@EnableFeignClients</kbd>注解。
 ```java
 @SpringBootApplication
@@ -60,7 +59,7 @@ public class FeignConsumerApplication {
 }
 ```
 
-## 添加配置
+# 添加配置
 &emsp;&emsp;在文件<kbd>application.yml</kbd>添加配置。
 ```yml
 eureka:
@@ -77,7 +76,7 @@ spring:
     name: consumer
 ```
 
-## 编写接口
+# 编写接口
 &emsp;&emsp;在上一篇的provider项目中，新建简单的Controller，代码如下，运行provider项目，访问[http://localhost:8081/hello/chung](http://localhost:8081/hello/chung)可得到`Hello Chung By Provider`。
 ```java
 @RestController
@@ -112,7 +111,7 @@ public class HelloController {
 }
 ```
 
-## 运行项目
+# 运行项目
 &emsp;&emsp;在VM options设置<kbd>-DServer.port=8091</kbd>，运行consumer项目，可以在Eureka页面看到本项目注册成功，访问[http://localhost:8091/hello/consumer](http://localhost:8091/hello/consumer)同样可以得到`Hello Chung By Provider`，证明服务间通信正常。
 ![Eureka](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/spring-cloud-2-1.png)
 

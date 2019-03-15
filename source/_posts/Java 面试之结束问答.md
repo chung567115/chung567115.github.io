@@ -12,9 +12,8 @@ date: 2018-08-28 15:12:53
 
 <!-- more -->
 
-# Java面试之结束问答
-## 技术优化
-### 线程池优化  
+# 技术优化
+## 线程池优化  
 - 设置最大线程数
 - 设置最小核心线程数
 - 设置额外线程存活时间
@@ -22,14 +21,14 @@ date: 2018-08-28 15:12:53
 - 选择合适的线程池
 - 选择合适的饱和策略
 
-### 锁优化  
+## 锁优化  
 - 尽量不要锁住方法
 - 缩小同步代码块，只锁数据
 - 锁中尽量不要再包含锁
 - 将锁私有化，在内部管理锁
 - 进行适当的锁分解
 
-### HTTP 1.1 $\rightarrow$ HTTP 2.0  
+## HTTP 1.1 $\rightarrow$ HTTP 2.0  
 - Tomcat 在 server.xml 里配置HTTP 协议版本
 ```xml
 <Connector port="8443" protocol="org.apache.coyote.http11.Http11AprProtocol"
@@ -50,8 +49,6 @@ server.http2.enabled=true
 server.tomcat.protocol-header-https-value=https
 ```
 
-## 通过什么形式学习新技术  
+# 通过什么形式学习新技术  
 
-## 还有什么要问的  
-
-
+# 还有什么要问的  

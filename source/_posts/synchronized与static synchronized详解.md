@@ -12,14 +12,13 @@ date: 2018-10-31 10:32:08
 
 <!-- more -->
 
-# synchronized与static synchronized的区别
 - <kbd>synchronized</kbd>是实例锁，对类的**当前实例**进行加锁，防止其他线程同时访问该实例的**所有synchronized块**。
 
   > 注意这里是**类的当前实例**， 类的两个不同实例就没有这种约束了
 
 - <kbd>static synchronized</kbd>是类锁，控制类的**所有实例**的并发访问，限制多线程中该类的**所有实例**同时访问JVM中该类所对应的代码块。
 
-## 例题讲解
+# 例题讲解
 &emsp;&emsp;假如有Something类的两个实例x与y，那么下列各组方法被多线程同时访问的情况是怎样的？
 ```java
 pulbic class Something{
@@ -43,7 +42,7 @@ D.  x.isSyncA() 与 Something.cSyncA()
 
 **D：** 可以被同时访问，原因：是对实例<kbd>x</kbd>的<kbd>synchronized</kbd>域和类<kbd>Something</kbd>的<kbd>static synchronized</kbd>域同时访问。
 
-## 总结
+# 总结
 - <kbd>synchronized</kbd>锁的是实例对象，<kbd>static synchronized</kbd>锁的是类对象
 - 若实例被锁，则**该实例**的**所有同步方法**全部被锁
 - 若类被锁，则**该类**的**所有同步方法**全部被锁

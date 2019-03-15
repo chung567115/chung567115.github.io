@@ -13,8 +13,6 @@ date: 2017-12-10 15:34:30
 
 <!-- more -->
 
-# IDEA创建Spring SpringMVC MyBatis整合Maven项目，并提交至Github
-
 ①新建Maven项目，如下图顺序。第三张图片中，添加一个参数archetypeCatalog=internal，表示仅使用内部元数据，不用这个参数创建Maven项目会很慢哦。其他起名字什么的大家大家随意，就不一一解释了。
 ![1](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/4-1.png)
 ![2](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/4-2.png)

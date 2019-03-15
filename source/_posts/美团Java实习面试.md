@@ -11,39 +11,37 @@ date: 2018-06-02 19:42:24
 > 2018年5月9日 11:00 ，接到美团Java实习生电话面试，面试进行了50分钟，记录如下：
 
 <!-- more -->
-# 美团Java实习面试
-## 自我介绍
 
-## Redis缓存更新策略
+# 自我介绍
 
-## RabbbitMQ削峰实现
+# Redis缓存更新策略
 
-## Java异常机制（Throwable能否catch）
+# RabbbitMQ削峰实现
 
-## HashMap、ConcurrentHashMap（几段）
+# Java异常机制（Throwable能否catch）
 
-## 访问一个网页全过程
+# HashMap、ConcurrentHashMap（几段）
 
-## Linux常用命令
+# 访问一个网页全过程
 
-## sleep()和wait()
+# Linux常用命令
 
-## solr
+# sleep()和wait()
 
-## http几种方法的区别，header里面的内容
+# solr
 
-## 查询所有科目成绩都大于80的学生 SQL 语句
+# http几种方法的区别，header里面的内容
 
-## 设计唯一且自增的 int 型 ID
+# 查询所有科目成绩都大于80的学生 SQL 语句
 
-## Integer  缓存
+# 设计唯一且自增的 int 型 ID
 
-## 堆结构
+# Integer  缓存
 
-## static 修饰的用法，静态类使用场景
+# 堆结构
 
-## Java 创建对象的几种方式：new clone 反射 反序列化
+# static 修饰的用法，静态类使用场景
 
-## 有什么问题要咨询
+# Java 创建对象的几种方式：new clone 反射 反序列化
 
-
+# 有什么问题要咨询

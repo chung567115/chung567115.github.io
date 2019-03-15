@@ -13,7 +13,6 @@ date: 2018-11-26 16:23:04
 
 <!-- more -->
 
-# Spring Cloud Hystrix
 开发环境    |  版本
 -------- | -----
 IDEA | 2018.2.6
@@ -23,7 +22,7 @@ Spring Cloud| Finchley.SR2
 
 > **特别注意**：本系列纪要环环相扣，建议从第一节开始阅读&emsp;[点击跳转](http://zhangchong.xin/2018/11/20/Spring%20Cloud%20%E5%AD%A6%E4%B9%A0%E7%BA%AA%E8%A6%81%E4%B8%80%EF%BC%9AEureka/)
 
-## consumer项目添加依赖
+# consumer项目添加依赖
 ```xml
 <dependency>
     <groupId>org.springframework.cloud</groupId>
@@ -35,7 +34,7 @@ Spring Cloud| Finchley.SR2
 </dependency>
 ```
 
-## consumer项目添加配置
+# consumer项目添加配置
 ```yml
 feign:
   client:
@@ -72,7 +71,7 @@ management:
         include: "*"
 ```
 
-## consumer项目修改代码
+# consumer项目修改代码
 &emsp;&emsp;通过<kbd>@EnableCircuitBreaker</kbd>开启服务容错功能，通过<kbd>@EnableHystrixDashboard</kbd>开启服务容错大盘，实际上，被注释的三行可以通过<kbd>@SpringCloudApplication</kbd>来代替。
 ```java
 //@SpringBootApplication
@@ -136,7 +135,7 @@ public class HelloController {
 ```
 > 为了测试方便，我们需要将provider项目中的hello接口添加Thread.sleep(2000);
 
-## 服务容错统计大盘
+# 服务容错统计大盘
 &emsp;&emsp;访问[http://localhost:8091/hystrix](http://localhost:8091/hystrix)，填写相关必要信息点击Monitor Stream按钮即可进入统计大盘，相关信息不再赘述。
 ![初始页面](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/spring-cloud-8-1.png)
 

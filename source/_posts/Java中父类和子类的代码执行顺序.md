@@ -10,8 +10,8 @@ date: 2018-05-02 14:12:13
 > Java中，父类和子类的各种静态的、非静态的函数或变量，到底是个什么样的初始化顺序呢？
 
 <!-- more -->
-# Java中父类和子类的代码执行顺序
-## 父类代码
+
+# 父类代码
 ```java
 public class Parent {
     static {
@@ -33,7 +33,7 @@ public class Parent {
 
 ```
 
-## 子类代码
+# 子类代码
 ```java
 public class Child extends Parent {
     static {
@@ -55,7 +55,7 @@ public class Child extends Parent {
 
 ```
 
-## 变量类代码
+# 变量类代码
 ```java
 public class Value {
     public Value(String value) {
@@ -65,7 +65,7 @@ public class Value {
 
 ```
 
-## 测试代码
+# 测试代码
 ```java
 public class Main {
     public static void main(String[] args) {
@@ -75,7 +75,7 @@ public class Main {
 
 ```
 
-## 打印结果
+# 打印结果
 ```xml
 Parent static block
 Parent static value
@@ -89,7 +89,7 @@ Child non static value
 Child Constructor
 ```
 
-## 分析总结
+# 分析总结
 &emsp;&emsp;单从结果可以看出，实例化一个子类对象时，程序步骤如下：
 1. 执行父类静态代码块和静态变量
 2. 执行子类静态代码块和静态变量

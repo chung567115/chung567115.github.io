@@ -13,7 +13,6 @@ date: 2018-11-25 20:14:23
 
 <!-- more -->
 
-# Spring Cloud Zuul
 开发环境    |  版本
 -------- | -----
 IDEA | 2018.2.6
@@ -23,8 +22,8 @@ Spring Cloud| Finchley.SR2
 
 > **特别注意**：本系列纪要环环相扣，建议从第一节开始阅读&emsp;[点击跳转](http://zhangchong.xin/2018/11/20/Spring%20Cloud%20%E5%AD%A6%E4%B9%A0%E7%BA%AA%E8%A6%81%E4%B8%80%EF%BC%9AEureka/)
 
-## 路由
-### 新建项目zuul
+# 路由
+## 新建项目zuul
 &emsp;&emsp;Maven依赖：
 ```xml
 <dependencies>
@@ -81,7 +80,7 @@ public class ZuulApplication {
 &emsp;&emsp;在前面几章的项目均已启动的前提下，将zuul项目VM options设置<kbd>-DServer.port=8061</kbd>，运行成功后访问[http://localhost:8061/provider/hello/chung](http://localhost:8061/provider/hello/chung)，发现zuul会自动将请求路由至provider服务。
 > 此路径中得到provider为serviceId
 
-### 自定义路由
+## 自定义路由
 &emsp;&emsp;进行如下配置，运行成功后访问[http://localhost:8061/myRoute/hello/chung](http://localhost:8061/myRoute/hello/chung)，zuul也会自动将请求路由至provider服务。
 ```yml
 zuul:
@@ -89,9 +88,9 @@ zuul:
     provider: /myRoute/**
 ```
 
-## PRE_TYPE Zuul Filter
+# PRE_TYPE Zuul Filter
 &emsp;&emsp;前置过滤器可以实现限流、鉴权、参数校验等功能。
-### 鉴权、参数校验
+## 鉴权、参数校验
 ```java
 @Component
 public class PreFilter extends ZuulFilter {
@@ -133,7 +132,7 @@ public class PreFilter extends ZuulFilter {
 }
 ```
 
-### API限流
+## API限流
 &emsp;&emsp;使用令牌桶算法，Google的RateLimiter工具。
 ```java
 @Component
@@ -167,7 +166,7 @@ public class RateLimitFilter extends ZuulFilter {
 }
 ```
 
-## POST_TYPE Zuul Filter
+# POST_TYPE Zuul Filter
 &emsp;&emsp;后置过滤器可以实现统计、日志记录等功能。
 ```java
 @Component

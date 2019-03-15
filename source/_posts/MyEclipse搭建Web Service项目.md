@@ -11,7 +11,6 @@ date: 2017-12-25 14:48:16
 > 本篇博客，小博将记录MyEclipse下，简单Web Service项目搭建的详细过程
 
 <!-- more -->
-# Myeclipse搭建Web Service项目
 
 > [点击下载完整代码](http://download.csdn.net/download/u012102104/10172395)
 
@@ -75,5 +74,3 @@ public class TestHello {
 ⑩运行TestHello.java，可以看到控制台输出：Hello Charles。可见调用成功。
 
 至此，简单的Web Service工程的服务端和客户端就搭建完成了。
-
-----------

@@ -13,7 +13,6 @@ date: 2018-11-26 22:10:00
 
 <!-- more -->
 
-# Spring Cloud Sleuth
 开发环境    |  版本
 -------- | -----
 IDEA | 2018.2.6
@@ -25,14 +24,14 @@ Zipkin| --
 
 > **特别注意**：本系列纪要环环相扣，建议从第一节开始阅读&emsp;[点击跳转](http://zhangchong.xin/2018/11/20/Spring%20Cloud%20%E5%AD%A6%E4%B9%A0%E7%BA%AA%E8%A6%81%E4%B8%80%EF%BC%9AEureka/)
 
-## Zipkin 容器搭建
+# Zipkin 容器搭建
 ```txt
 docker run -d -p 9411:9411 openzipkin/zipkin
 ```
 &emsp;&emsp;Docker下执行一个命令就能运行Zipkin容器，具体视个人PC情况而定，开启服务后访问[http://localhost:9411/zipkin/](http://localhost:9411/zipkin/)可以看到如下界面。
 ![Zipkin](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/spring-cloud-9-1.png)
 
-## 依赖添加
+# 依赖添加
 &emsp;&emsp;provider项目和consumer项目添加如下Maven依赖，**特别注意：**，因为我这边一直下载不到2.0.2的包，不知道是不是我的IDE的问题，将版本改为<kbd>2.1.0.M2</kbd>。
 ```xml
 <dependency>
@@ -42,7 +41,7 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 </dependency>
 ```
 
-## 配置文件修改
+# 配置文件修改
 &emsp;&emsp;provider项目和consumer项目添加如下配置：
 ```yml
 spring:
@@ -58,7 +57,7 @@ logging:
     org.springframework.cloud.openfeign: debug
 ```
 
-## 链路跟踪测试
+# 链路跟踪测试
 &emsp;&emsp;访问consumer的接口[http://localhost:8091/hello/consume?num=1](http://localhost:8091/hello/consume?num=1)，发现consumer项目控制台会打印如下日志，注意`cde8ad1de4f90441`。
 ```json
 2018-11-26 21:26:23.946  INFO [consumer,cde8ad1de4f90441,e3c14617dff44d76,true] 12488 --- [trix-provider-1] s.c.a.AnnotationConfigApplicationContext : Refreshing SpringClientFactory-provider: startup date [Mon Nov 26 21:26:23 CST 2018]; parent: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@777d0bc3
@@ -77,7 +76,7 @@ logging:
 &emsp;&emsp;点击某一行即可查看该调用的详细信息，包括其traceId`cde8ad1de4f90441`。
 ![2](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/spring-cloud-9-3.png)
 
-## 总结
+# 总结
 &emsp;&emsp;至此《Spring Cloud 学习纪要》系列博客就结束了，本系列博客介绍了包含服务治理组件Eureka、服务通信组件Feign、负载均衡组件Ribbon、配置中心组件Config、消息总线组件Bus、消息驱动组件Stream、统一网关组件Zuul、熔断降级组件Hystrix、链路跟踪组件Sleuth，此系列博客只适合入门小白，是一套极简教程，更多知识待您亲自探索。
 
 组件   |  功能 |  同类框架

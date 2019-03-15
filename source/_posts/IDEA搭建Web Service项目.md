@@ -11,7 +11,6 @@ date: 2017-12-25 16:49:54
 > 本篇博客，小博将记录IDEA下，简单Web Service项目搭建的详细过程
 
 <!-- more -->
-# IDEA搭建Web Service项目
 
 1、新建Web Service服务端项目，见下两图
 ![1](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/7-1.png)
@@ -83,4 +82,3 @@ public class TestHelloWorld {
 运行TestHelloWorld，可见控制台打印：Hello, world, from Charles。
 至此，IDEA下简单Web Service项目的搭建就完成了。 
 
-----------

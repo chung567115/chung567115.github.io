@@ -14,10 +14,9 @@ top: 4
 
 <!-- more -->
 
-# Spring Boot快速入门
 &emsp;&emsp;Spring Boot的优点及特性，就不再逐一罗列了，本场Chat针对Spring Boot的初学者，让我们先快速学会怎么用，至于更深入的探讨，留待后续Chat进行。
 
-## 版本列表
+# 版本列表
 名称            | 版本    | 	备注     	
 :------------: | :---:  | :-------------: 
  Spring Boot    | 1.5.9  |	
@@ -26,7 +25,7 @@ top: 4
  IDEA Ultimate  | 2017.2 | 不能用社区版	    
  Maven          | 3.5.2  |	可用阿里仓库提速   	 
 
-## 快速构建项目
+# 快速构建项目
 &emsp;&emsp;关于Spring Boot项目的构建，IDEA为我们提供了良好的支持，在IDEA中New-->Project-->Spring Initializr-->Next-->Next(可自己填写相关信息)-->选中Web栏目的Web依赖-->Next-->Finish(可自己填写相关信息)，一个简单Spring Boot项目搭建好了。没错不用惊讶，搭好了。接下来我们看看IDEA自动生成目录结构（以读者填写的具体信息为准）。
 
 - main
@@ -72,8 +71,8 @@ Started SpringbootApplication in 4.694 seconds (JVM running for 7.789)
 
 > 关于项目构建途径或项目启动的其他方式，大家可在读者圈一起交流。
 
-## 项目属性配置
-### 单元测试
+# 项目属性配置
+## 单元测试
 &emsp;&emsp;在后续话题开始之前，我们有必要先探讨下单元测试。以往我们写一段测试代码，有一个前置步骤：用`ClassPathXmlApplicationContext`装载上下文，然后用`ApplicationContext`对象获取Bean实例。接下来，才能进行我们的测试代码编写。
 &emsp;&emsp;而在Spring Boot中，极大简化了测试代码，它为我们提供了`@RunWith`注解和`@SpringBootTest`注解分别用来指定测试运行类和运行Spring Boot基础测试环境。此时，你可以直接使用`@Resource`或`@Autowired`注入所需Bean并使用，示例如下：
 
@@ -93,7 +92,7 @@ public class PropertiesTests {
 
 > 由于单元测试贯穿本场Chat，所以每个章节都会在相应的地方讨论Spring Boot中JUnit的具体使用方法，此处只写出最简单的使用示例
 
-### 属性配置
+## 属性配置
 &emsp;&emsp;在前面提到过的application.properties文件中，我们可以进行一些项目的配置，也可以自定义一些项目所需要的属性参数然后用`@Value`注解在Java文件中引用，例如：
 
 ``` properties
@@ -176,8 +175,8 @@ public void test() {
 
 &emsp;&emsp;可以看到，当属性越来越多，我们利用对象的方式优势也就越大，而至于`.properties`和`.yml`选哪种，就看个人喜好了。
 
-## 控制器基本用法
-### 关于Controller
+# 控制器基本用法
+## 关于Controller
 &emsp;&emsp;讨论完了项目的属性配置，让我们探讨一下在Spring Boot中如何使用控制器。在Spring Boot Controller的编码中，我们常用到的注解如下：
 - 标注控制层组件的注解`@Controller`、`@RestController`
 - 配置URL映射的注解`@RequestMapping`
@@ -296,7 +295,7 @@ public GitChat getGitChatByRequestParam(@RequestParam(defaultValue = "5a444c451f
 
 > **注意**：如果缺少`?id=*`这段，访问时将会报错，为避免这样的问题，我们可以设置默认值`@RequestParam(defaultValue = "5a444c451f6ee91a25846ac1")`。
 
-### 单元测试
+## 单元测试
 &emsp;&emsp;在上一章我们讨论了Spring Boot中JUnit的简单写法，其实，我们可以使用IDEA插入单元测试，这样更加便捷，省去了我们新建包、新建文件、新建类的时间，步骤如下：
 1. 在代码中选中`DemoController`右键-->Go To-->Test-->Create New Test-->勾选需要测试的方法-->OK
 2. 这时IDEA已经在test目录下相应的包内为我们创建好了`DemoControllerTest`文件
@@ -338,8 +337,8 @@ Redirected URL = null
 
 &emsp;&emsp;测试结果限于篇幅，我只贴出了一小部分，在真是测试日志中我们可以看到各种详细的数据，包括返回页面Body体的具体内容也打印了出来。这样的测试代码简单优雅而又霸气十足有木有。
 
-## 数据库基本操作
-### 关于Repository
+# 数据库基本操作
+## 关于Repository
 &emsp;&emsp;看完了与前端交互的部分，我们来讨论下Spring Boot在数据库操作方面，提供了哪些逆天的功能。
 &emsp;&emsp;提到持久化，不得不提`JPA(Java Persistence API)`，jpa是一种规范或者说标准，`Hibernate`很好的实现了它，而我们使用到的`Spring-Data-JPA`则是`Spring`对`Hibernate`的整合。探讨实例之前，我们先做好如下准备：
 
@@ -409,7 +408,7 @@ public interface GitChatRepository extends JpaRepository<GitChat, Integer> {
 }
 ```
 
-### 单元测试
+## 单元测试
 &emsp;&emsp;话说回来，还是来测试测试DAO层代码吧。首先我们提前插入几条测试数据到到数据库中备用：
 
 ```sql
@@ -470,8 +469,8 @@ GitChat{id=2, author='chung', date=2018-01-02 21:07:33.0, url='http://gitbook.cn
 
 &emsp;&emsp;以上我们只是简单地讨论了JPA的使用，其他的CURD操作，大家可以举一反三。实际上JPA的功能远不止如此，我们可以自己写实现类来自定义操作，也可以自己写`SQL`语句配合`@Query`来查询，基本上来说，只有你想不到，没有它办不到。是不是霸气侧漏？
 
-## 事务管理简介
-### 关于Service
+# 事务管理简介
+## 关于Service
 &emsp;&emsp;前面我们讨论了和前端打交道的控制器，也讨论了和数据库打交道的持久层，是时候讨论业务层了。与Controller类似，Service类，也有一个自己的注解，叫做`@Service`，配合我们曾编写过的`GitChatRepository`，我们可以编写一个简单的Service Demo，其中使用到了GitChatRepository的`save()`，这个方法也是框架为我们提供的，代码如下：
 
 ```java
@@ -507,7 +506,7 @@ public class GitChatServiceTest {
 
 &emsp;&emsp;测试完成后可以发现，数据库内只增加了一条记录。没关系，还记得我们前面设计数据库的时候，特意将`author`字段长度设置为6，这里由于我们插入的第二个实体对象`author`字段超长不符要求，所以导致第二条数据插入失败了，但是这并不影响我们判断：框架为我们提供的`save()`确实可用，而且一般情况下，添加异常处理之后，简单的Service层代码这么写，是没有问题的。
 
-### 关于事务管理
+## 关于事务管理
 &emsp;&emsp;很多时候，我们的业务层逻辑复杂，很多操作都需要在同一事务中进行，这个时候，`@Transactional`注解就派上了用场。
 它可以配置事务传播特性，默认是`REQUIRED`，`@Transactional`的使用也非常简单，你只需要在你的方法上加上这个注解便可：
 
@@ -541,8 +540,8 @@ Caused by: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long fo
 
 &emsp;&emsp;测试完我们发现，这一次日志中报错了，错误信息为`Data too long for column 'author' at row 1`。我们再去数据库查看，发现并没有任何新增的记录。对比上一次的测试结果可以知道，`@Transactional`将我们的两次插入操作置于同一事务中，当第二条数据插入失败时，进行了回滚操作，所以数据库不会有新增的记录。
 
-## 拓展进阶
-### 表单验证
+# 拓展进阶
+## 表单验证
 &emsp;&emsp;在接口开发的过程中，我们经常需要对提交的各种表单数据进行验证，这个时候，我们可以借助`@Valid`注解来轻松达到目的。话不多说，我们直接来看。再次改造GitChat实体类，在`author`字段上添加`@Size(min = 1, max = 6)`，他为我们限定了`author`字段的长度为1-6，在`url`字段上添加`@NotNull(message = "url不能为空")`，它为我们限制了url不能为null，并定义了错误信息。
 
 ```java
@@ -627,7 +626,7 @@ Redirected URL = null
       Cookies = []
 ```
 
-## 写在后面
+# 写在后面
 &emsp;&emsp;本场Chat旨在快速入门Spring Boot，了解相关的基础操作，因此未进行深入的探讨，如果发布之后效果还行的话，以后会考虑推出进阶的Chat或课程，有兴趣的小伙伴可以关注下。另外，本场Chat完整的代码已分享至GitHub[点击访问](https://github.com/chung567115/springboot)，可自行下载。
 &emsp;&emsp;码字不易，期待你的好评~
 

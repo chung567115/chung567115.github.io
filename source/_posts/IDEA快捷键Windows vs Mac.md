@@ -13,9 +13,7 @@ date: 2018-06-03 12:38:03
 
 <!-- more -->
 
-# IDEA快捷键Windows vs Mac
-
-## Mac 键盘符号说明
+# Mac 键盘符号说明
 - `⌘` == `Command`
 - `⇧` == `Shift`
 - `⇪` == `Caps Lock`
@@ -37,7 +35,7 @@ date: 2018-06-03 12:38:03
 - `⎋` == `Escape (Esc)`
 - `⏏` == `电源开关键`
 
-## Ctrl
+# Ctrl
 Win 快捷键	| Mac 快捷键  |	介绍
 :----------:|:----------:|:----------------:
 Ctrl + F	|Command + F	|在当前文件进行文本查找
@@ -67,7 +65,7 @@ Ctrl + 右方向键	|Option + 右方向键	|光标跳转到当前单词 / 中文
 Ctrl + 前方向键	|预设中没有该快捷键	|等效于鼠标滚轮向前效果
 Ctrl + 后方向键	|预设中没有该快捷键	|等效于鼠标滚轮向后效果
 
-## Alt
+# Alt
 Win 快捷键	|Mac 快捷键	|介绍
 :----------:|:----------:|:----------------:
 Alt + `	|Control + V	|显示版本控制常用操作菜单弹出层
@@ -81,7 +79,7 @@ Alt + 前方向键	|Control + 前方向键	|当前光标跳转到当前文件的
 Alt + 后方向键	|Control + 后方向键	|当前光标跳转到当前文件的后一个方法名位置
 Alt + 1,2,3...9	|Command + 1,2,3...9	|显示对应数值的选项卡，其中 1 是 Project 用得最多
 
-## Shift
+# Shift
 Win 快捷键	|Mac 快捷键	|介绍
 :----------:|:----------:|:----------------:
 Shift + F11	|Command + F3	|弹出书签显示层
@@ -89,7 +87,7 @@ Shift + Tab	|Shift + Tab	|取消缩进
 Shift + Enter	|Shift + Enter	|开始新一行。光标所在行下空出一行，光标定位到新行位置
 Shift + 左键单击	|Shift + 左键单击	|在打开的文件名上按此快捷键，可以关闭当前打开文件
 
-## Ctrl + Alt
+# Ctrl + Alt
 Win 快捷键|	Mac 快捷键	|介绍
 :----------:|:----------:|:----------------:
 Ctrl + Alt + L	|Command + Option + L	|格式化代码，可以对当前文件和整个包目录使用
@@ -100,7 +98,7 @@ Ctrl + Alt + Enter	|Command + Option + Enter	|光标所在行上空出一行，�
 Ctrl + Alt + 左方向键	|Command + Option + 左方向键	|退回到上一个操作的地方
 Ctrl + Alt + 右方向键	|Command + Option + 右方向键	|前进到上一个操作的地方
 
-## Ctrl + Shift
+# Ctrl + Shift
 Win 快捷键	|Mac 快捷键	|介绍
 :----------:|:----------:|:----------------:
 Ctrl + Shift + F	|Command + Shift + F	|根据输入内容查找整个项目 或 指定目录内文件
@@ -129,7 +127,7 @@ Ctrl + Shift + 右方向键	|Option + Shift + 右方向键	|在代码文件上�
 Ctrl + Shift + 前方向键|	Command + Shift + 前方向键	|光标放在方法名上，将方法移动到上一个方法前面，调整方法排序
 Ctrl + Shift + 后方向键	|Command + Shift + 后方向键	|光标放在方法名上，将方法移动到下一个方法前面，调整方法排序
 
-## Alt + Shift
+# Alt + Shift
 Win 快捷键|	Mac| 快捷键	|介绍
 :----------:|:----------:|:----------------:
 Alt + Shift + N|	Option + Shift + B	|选择 / 添加 task
@@ -137,13 +135,13 @@ Alt + Shift + 左键双击	|Option + Shift + 左键双击	|选择被双击的单
 Alt + Shift + 前方向键	|Option + Shift + 前方向键	|移动光标所在行向上移动
 Alt + Shift + 后方向键	|Option + Shift + 后方向键	|移动光标所在行向下移动
 
-## Ctrl + Shift + Alt
+# Ctrl + Shift + Alt
 Win 快捷键	|Mac 快捷键	|介绍
 :----------:|:----------:|:----------------:|
 Ctrl + Shift + Alt + V	|Command + Shift + Option + V	|无格式黏贴
 Ctrl + Shift + Alt + S	|Command + ;	|打开当前项目设置
 
-## 其他
+# 其他
 Win 快捷键	|Mac 快捷键	|介绍
 :----------:|:----------:|:----------------:
 F2	|F2	|跳转到下一个高亮错误 或 警告位置

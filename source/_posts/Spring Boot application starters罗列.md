@@ -12,7 +12,7 @@ date: 2018-02-01 11:29:33
 > Spring Boot确实方便，但是各式各样的starter真的是眼花缭乱...
 
 <!-- more -->
-## Spring Boot application starters
+
 [官网原文链接](https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#using-boot-starter)
 
  Name|	Description	

@@ -9,9 +9,7 @@ date: 2017-08-23 13:28:29
 
 > 今天小博带来Adobe Photoshop CC 2017的激活教程，老规矩，不废话
 
-
 <!-- more -->
-# Adobe Photoshop CC 2017 破解激活教程
 
 1.以试用模式安装Adobe Photoshop CC 2017
 

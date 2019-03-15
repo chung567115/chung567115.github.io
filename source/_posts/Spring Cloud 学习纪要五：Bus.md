@@ -13,7 +13,6 @@ date: 2018-11-24 16:58:46
 
 <!-- more -->
 
-# Spring Cloud Bus
 开发环境    |  版本
 -------- | -----
 IDEA | 2018.2.6
@@ -27,13 +26,13 @@ RabbitMQ| 3.7.8-management
 
 > bug官方github issue链接为[https://github.com/spring-cloud/spring-cloud-bus/issues/137](https://github.com/spring-cloud/spring-cloud-bus/issues/137)，可自行查阅。
 
-## 准备工作
+# 准备工作
 &emsp;&emsp;进行本章内容的学习前期需要准备好环境：Docker的安装、RabbitMQ容器的安装和运行、虚拟机IP到宿主机IP的映射等。
 &emsp;&emsp;简而言之，访问[http://localhost:15672](http://localhost:15672)，应可以到达RabbitMQ管理界面，当然，5672端口的服务也需要能正常运行。
 ![MQ管理页面](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/spring-cloud-5-1.png)
 
-## 修改Config项目配置
-### Maven依赖
+# 修改Config项目配置
+## Maven依赖
 &emsp;&emsp;在配置中心项目中添加bus组件的依赖，以及后续会用到的actuator和monitor依赖。
 ```xml
 <dependency>
@@ -49,7 +48,7 @@ RabbitMQ| 3.7.8-management
     <artifactId>spring-boot-starter-actuator</artifactId>
 </dependency>
 ```
-### 配置
+## 配置
 &emsp;&emsp;暴露配置中心的各项接口，在配置文件添加如下内容：
 ```yml
 management:
@@ -59,7 +58,7 @@ management:
         include: "*"
 ```
 
-## 修改provider项目
+# 修改provider项目
 &emsp;&emsp;我们以provider项目为例，添加bus组件的Maven依赖：
 ```xml
 <dependency>
@@ -83,14 +82,14 @@ public class HelloController {
 }
 ```
 
-## 验证配置项动态更新
+# 验证配置项动态更新
 &emsp;&emsp;**先后运行**config和provider项目（保证注册中心服务可用），发现RabbitMQ自动为我们创建了两个消息队列，如图所示。
 ![Queue](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/spring-cloud-5-2.png)
 &emsp;&emsp;此时我们访问provider的接口[http://localhost:8081/hello/chung](http://localhost:8081/hello/chung)可以得到`Hello Chung By Provider on env:dev`，接着我们修改git上的配置文件内容env的值`env : devDynamic`，然后用postman或curl命令以**post方式**访问config暴露的接口[http://127.0.0.1:8071/actuator/bus-refresh](http://127.0.0.1:8071/actuator/bus-refresh)，RabbitMQ的管理界面可以看到消息的消费情况，如图所示。
 ![MQ](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/spring-cloud-5-3.png)
 &emsp;&emsp;最后刷新[http://localhost:8081/hello/chung](http://localhost:8081/hello/chung)页面，发现内容变成了`Hello Chung By Provider on env:devDynamic`，证明我们实现了免重启修改配置。
 
-## 配置GitHub的Webhooks
+# 配置GitHub的Webhooks
 &emsp;&emsp;真实场景下，我们不可能每次修改配置后手动做一下post请求，而Webhook为我们提供了这样的功能。
 &emsp;&emsp;如果本机IP为内网地址，可以提前准备一下内网穿透工具，视个人情况而定。
 ![NATAPP](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/spring-cloud-5-4.png)

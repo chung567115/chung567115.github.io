@@ -13,11 +13,11 @@ top: 2
 > 从今天开始，小博将撰写Spring Cloud系列博客
 
 <!-- more -->
-# Spring Cloud学习纪要汇总
-## 小博Spring Boot快速入门GitChat
+
+# 小博Spring Boot快速入门GitChat
 https://gitbook.cn/gitchat/activity/5a444c451f6ee91a25846ac1
 
-## 小博Spring Cloud学习纪要
+# 小博Spring Cloud学习纪要
 篇章     | 博客地址
 -------- | -----
 Spring Cloud Eureka (服务治理)   | [点击跳转](http://zhangchong.xin/2018/11/20/Spring%20Cloud%20%E5%AD%A6%E4%B9%A0%E7%BA%AA%E8%A6%81%E4%B8%80%EF%BC%9AEureka/)   

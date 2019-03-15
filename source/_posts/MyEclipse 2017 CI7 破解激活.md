@@ -12,12 +12,9 @@ date: 2017-08-02 21:03:48
 
 <!-- more -->
 
-
-# MyEclipse 2017 CI7 破解激活
-
 > (根据评论反馈特此加注：**注意教程细节步骤以及MyEclipse[点击下载(密码0k8q)](https://pan.baidu.com/s/1c3n9Y1q)版本号2017 CI7 BuildID 15.0.1-20170704，以免破解失败**)，废话不多说，看招
 
-## 激活步骤如下：
+# 激活步骤如下：
 - 下载上述MyEclipse2017 CI7离线版安装包
 - 安装MyEclipse CI7，注意最后完成时，**去掉勾，点击Finish，千万别点打开程序**
 
@@ -48,7 +45,7 @@ date: 2017-08-02 21:03:48
 >***特作说明，有极小部分人一直破解失败的，请注意MyEclipse版本是否和文章提到得到一致，以及是否有按照严格教程步骤进行。（一旦安装时打开了IDE，很有可能需要卸载并清理注册表再重装破解）***
 
 -------------------
-## 写在后面
+# 写在后面
 > 对于MyEclipse 2017 CI7的 Darkest Dark 主题，小博吐血推荐！时隔多年，MyEclipse终于出了一款自带的炫酷主题，扁平化的图标与按钮，炫彩的字体颜色风格，酷到不行！有图有证据。设置方法：Window-->Preference-->General-->Appearance   Theme下拉框中选择Darkest Dark - It's a Total Eclipse即可
 
 ![Darkest Dark主题](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/2-6.png)
