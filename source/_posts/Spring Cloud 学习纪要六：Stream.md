@@ -9,13 +9,11 @@ tags:
 date: 2018-11-24 22:11:29
 ---
 
-> Spring Cloud微服务解决方案之消息驱动组件
+> Spring Cloud Stream 是一个构建消息驱动微服务的框架，应用程序通过 input 或者 output 来与 Spring Cloud Stream 中 binder 交互，而 binder 负责与消息中间件交互。
 
 <!-- more -->
 
 # Spring Cloud Stream
-&emsp;&emsp;Spring Cloud Stream 是一个构建消息驱动微服务的框架，应用程序通过 input 或者 output 来与 Spring Cloud Stream 中 binder 交互，而 binder 负责与消息中间件交互。
-
 开发环境    |  版本
 -------- | -----
 IDEA | 2018.2.6

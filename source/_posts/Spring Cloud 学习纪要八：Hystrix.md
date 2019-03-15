@@ -9,13 +9,11 @@ tags:
 date: 2018-11-26 16:23:04
 ---
 
-> Spring Cloud微服务解决方案之熔断降级组件
+> Spring Cloud Hystrix熔断降级组件是Netflix开源的一个延迟和容错库，用于隔离访问远程系统、服务或第三方库，防止级联失败，从而提高系统的可用性与容错性。
 
 <!-- more -->
 
 # Spring Cloud Hystrix
-&emsp;&emsp;Spring Cloud Hystrix是Netflix开源的一个延迟和容错库，用于隔离访问远程系统、服务或第三方库，防止级联失败，从而提高系统的可用性与容错性。
-
 开发环境    |  版本
 -------- | -----
 IDEA | 2018.2.6

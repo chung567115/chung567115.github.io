@@ -9,13 +9,11 @@ tags:
 date: 2018-11-20 12:03:44
 ---
 
-> Spring Cloud微服务解决方案之负载均衡组件
+> Spring Cloud Ribbon是基于Netflix Ribbon实现的一套客户端负载均衡的工具。它是一个基于HTTP和TCP的客户端负载均衡器，它可以通过在客户端中配置ribbonServerList来设置服务端列表去轮询访问以达到均衡负载的作用。
 
 <!-- more -->
 
 # Spring Cloud Ribbon
-&emsp;&emsp;Spring Cloud Ribbon是基于Netflix Ribbon实现的一套客户端负载均衡的工具。它是一个基于HTTP和TCP的客户端负载均衡器，它可以通过在客户端中配置ribbonServerList来设置服务端列表去轮询访问以达到均衡负载的作用。
-
 开发环境    |  版本
 -------- | -----
 IDEA | 2018.2.6

@@ -9,13 +9,11 @@ tags:
 date: 2018-11-20 11:10:59
 ---
 
-> Spring Cloud微服务解决方案之服务通信组件
+> Spring Cloud Feign是简化Java HTTP客户端开发的工具，它的灵感来自于Retrofit、JAXRS-2.0和WebSocket。接下来将展示一个入门Demo。
 
 <!-- more -->
 
 # Spring Cloud Feign
-&emsp;&emsp;Spring Cloud Feign是简化Java HTTP客户端开发的工具，它的灵感来自于Retrofit、JAXRS-2.0和WebSocket。接下来将展示一个入门Demo。
-
 开发环境    |  版本
 -------- | -----
 IDEA | 2018.2.6
