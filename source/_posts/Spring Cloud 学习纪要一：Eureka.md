@@ -9,7 +9,7 @@ tags:
 date: 2018-11-20 10:27:52
 ---
 
-> Spring Cloud Eureka是Spring Cloud Netflix服务套件中的一部分，它基于Netflix Eureka做了二次封装，主要负责完成微服务架构中的服务治理，接下来将展示入门Demo。
+> <kbd>Spring Cloud Eureka</kbd>是Spring Cloud Netflix服务套件中的一部分，它基于Netflix Eureka做了二次封装，主要负责完成微服务架构中的服务治理，接下来将展示入门Demo。
 
 <!-- more -->
 

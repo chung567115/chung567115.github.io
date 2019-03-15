@@ -9,7 +9,7 @@ tags:
 date: 2018-11-20 11:10:59
 ---
 
-> Spring Cloud Feign是简化Java HTTP客户端开发的工具，它的灵感来自于Retrofit、JAXRS-2.0和WebSocket。接下来将展示一个入门Demo。
+> <kbd>Spring Cloud Feign</kbd>是简化Java HTTP客户端开发的工具，它的灵感来自于Retrofit、JAXRS-2.0和WebSocket。接下来将展示一个入门Demo。
 
 <!-- more -->
 

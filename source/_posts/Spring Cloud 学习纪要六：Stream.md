@@ -9,7 +9,7 @@ tags:
 date: 2018-11-24 22:11:29
 ---
 
-> Spring Cloud Stream 是一个构建消息驱动微服务的框架，应用程序通过 input 或者 output 来与 Spring Cloud Stream 中 binder 交互，而 binder 负责与消息中间件交互。
+> <kbd>Spring Cloud Stream</kbd>是一个构建消息驱动微服务的框架，应用程序通过 input 或者 output 来与<kbd>Spring Cloud Stream</kbd>中 binder 交互，而 binder 负责与消息中间件交互。
 
 <!-- more -->
 

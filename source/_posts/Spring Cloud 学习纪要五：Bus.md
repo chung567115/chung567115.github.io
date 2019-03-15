@@ -9,7 +9,7 @@ tags:
 date: 2018-11-24 16:58:46
 ---
 
-> 上一篇我们讲到统一配置中心Spring Cloud Config，实现了分布式项目配置文件的统一管理，但是留下了一个问题：修改配置之后如何免重启自动生效。Spring Cloud Bus消息总线组件就可以用来做这件事，值得注意的是，前面我们所使用的版本<kbd>Greenwich.M1</kbd>的bus组件存在bug，我们将config和provider项目改为如下版本(其他项目建议一并修改)：
+> 上一篇我们讲到统一配置中心<kbd>Spring Cloud Config</kbd>，实现了分布式项目配置文件的统一管理，但是留下了一个问题：修改配置之后如何免重启自动生效。<kbd>Spring Cloud Bus</kbd>消息总线组件就可以用来做这件事，值得注意的是，前面我们所使用的版本<kbd>Greenwich.M1</kbd>的bus组件存在bug，我们将config和provider项目改为如下版本(其他项目建议一并修改)：
 
 <!-- more -->
 
