@@ -147,18 +147,18 @@
 
 
 
-<meta name="description" content="光速搭建个人免费博客">
+<meta name="description" content="利用好GitHub Pages，让你免费光速搭建私人博客，点击查看效果预览">
 <meta name="keywords" content="Hexo,GitHub">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Hexo在GitHub上搭建私人博客">
 <meta property="og:url" content="http://zhangchong.xin/2019/03/09/使用Hexo在GitHub上搭建私人博客/index.html">
 <meta property="og:site_name" content="博学de叫兽">
-<meta property="og:description" content="光速搭建个人免费博客">
+<meta property="og:description" content="利用好GitHub Pages，让你免费光速搭建私人博客，点击查看效果预览">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-09T11:22:46.906Z">
+<meta property="og:updated_time" content="2019-03-15T08:41:41.137Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Hexo在GitHub上搭建私人博客">
-<meta name="twitter:description" content="光速搭建个人免费博客">
+<meta name="twitter:description" content="利用好GitHub Pages，让你免费光速搭建私人博客，点击查看效果预览">
 
 
 
@@ -460,7 +460,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  10
+                  880
                 </span>
               
 
@@ -476,7 +476,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -498,10 +498,60 @@
 
       
         <blockquote>
-<p>光速搭建个人免费博客</p>
+<p>利用好GitHub Pages，让你免费光速搭建私人博客，<a href="http://zhangchong.xin">点击查看效果预览</a></p>
 </blockquote>
 <a id="more"></a>
-<!-- more -->
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;一般故事的开始，都要有好多准备工作，在使用Hexo之前，你要做好如下准备：</p>
+<ol>
+<li>注册GitHub账号</li>
+<li>电脑安装<code>node.js</code>、<code>npm</code>或<code>cnpm</code></li>
+<li>电脑安装git</li>
+</ol>
+<h1 id="GitHub上的操作"><a href="#GitHub上的操作" class="headerlink" title="GitHub上的操作"></a>GitHub上的操作</h1><h2 id="创建博客仓库"><a href="#创建博客仓库" class="headerlink" title="创建博客仓库"></a>创建博客仓库</h2><ol>
+<li>新建仓库<code>username.github.io</code>，其中username必须是你的github用户名</li>
+<li>在仓库Settings页面找到GitHub Pages页面，Choose a theme并保存</li>
+<li>此时访问<code>username.github.io</code>，就可以看到你的博客页面了</li>
+</ol>
+<h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><ol>
+<li>还是在仓库Settings页面找到GitHub Pages页面，Custom domain输入框内输入你的域名</li>
+<li>为自己的域名添加DNS解析，一般有两种类型<ul>
+<li>CNAME：将你自己的域名指向另一个域名，也就是<code>username.github.io</code></li>
+<li>A：将你自己的域名指向一个ip（可以ping <code>username.github.io</code>的ip）</li>
+</ul>
+</li>
+</ol>
+<h1 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h1><ol>
+<li>在git bash窗口中输入命令<code>cd ~/.ssh</code></li>
+<li>如果提示<code>No such file or directory</code>，则执行命令<code>h-keygen -t rsa -C &quot;your github email&quot;</code></li>
+<li>连续按三次回车</li>
+<li>在C盘本用户目录文件夹下打开<code>.ssh\id_rsa.pub</code>文件，复制所有内容</li>
+<li>打开GitHub，点击右上角头像，选择Settings</li>
+<li>选择<code>SSH and GPG keys</code>，点击<code>New SSH key</code></li>
+<li>链贴刚才复制的内容，并取一个名字(随意)</li>
+</ol>
+<h2 id="测试SSH"><a href="#测试SSH" class="headerlink" title="测试SSH"></a>测试SSH</h2><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com <span class="comment"># 注意邮箱地址不用改</span></span><br></pre></td></tr></table></figure></div>
+<p>&emsp;&emsp;如果提示<code>Are you sure you want to continue connecting (yes/no)?</code>，输入yes，然后会看到：<code>Hi XXX! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></p>
+<p>&emsp;&emsp;看到这个信息说明SSH已配置成功！此时你还需要配置：<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"youusername"</span>// 你的github用户名，非昵称</span><br><span class="line">git config --global user.email  <span class="string">"xxx@xx.xxx"</span>// 填写你的github注册邮箱</span><br></pre></td></tr></table></figure></div></p>
+<h1 id="使用Hexo"><a href="#使用Hexo" class="headerlink" title="使用Hexo"></a>使用Hexo</h1><h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><ol>
+<li>新建你博客的本地文件夹</li>
+<li>在文件夹根目录内右键打开git bash窗口</li>
+<li>按顺序执行以下三条命令（可用cnpm代替npm可以加速）</li>
+</ol>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line">hexo init</span><br><span class="line"></span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></div>
+<p>&emsp;&emsp;新建完成后，指定文件夹的目录如下：<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure></div></p>
+<p>&emsp;&emsp;此时按顺序执行以下两条命令，其中第一条用来生成静态文件，第二条用来启动本地服务器。在浏览器访问<code>http://localhost:4000/</code>，可以预览当前博客的效果。<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line"></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure></div></p>
+<h2 id="上传到github"><a href="#上传到github" class="headerlink" title="上传到github"></a>上传到github</h2><p>&emsp;&emsp;配置<kbd>站点配置文件</kbd><code>_config.yml</code>中有关deploy的部分，其中<code>username</code>改为自己的github用户名。<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false" data-rel="YML"><figure class="iseeu highlight /yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repository:</span> <span class="string">git@github.com:username/username.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure></div></p>
+<p>&emsp;&emsp;在博客本地文件夹的<code>source</code>子文件夹内，新建<code>CNAME</code>文件，注意不要后缀名，文件内容填写你自己绑定github.io的那个域名。</p>
+<p>&emsp;&emsp;按顺序执行以下命令：<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure></div></p>
+<h2 id="查看博客"><a href="#查看博客" class="headerlink" title="查看博客"></a>查看博客</h2><p>&emsp;&emsp;现在在浏览器打开你自己的域名，就可以看到Hexo为你渲染的博客啦。</p>
+<blockquote>
+<p>自定义主题配置，可参考其他教程，也可以download我的github仓库查看（注意在hexo-blog分支下）。<a href="https://github.com/chung567115/chung567115.github.io" target="_blank" rel="noopener">点击访问</a></p>
+</blockquote>
+<h2 id="常用hexo命令"><a href="#常用hexo命令" class="headerlink" title="常用hexo命令"></a>常用hexo命令</h2><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d <span class="comment">#一键生成并部署，最常用</span></span><br><span class="line">hexo new <span class="string">"postName"</span> <span class="comment">#新建文章</span></span><br><span class="line">hexo new page <span class="string">"pageName"</span> <span class="comment">#新建页面</span></span><br><span class="line">hexo g <span class="comment">#生成静态页面至public目录</span></span><br><span class="line">hexo s <span class="comment">#开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span></span><br><span class="line">hexo d <span class="comment">#部署到GitHub</span></span><br><span class="line">hexo clean <span class="comment">#清理旧文件</span></span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p>注意新建的博客markdown文件都在<code>source</code>文件夹下的<code>_posts</code>子文件夹中</p>
+</blockquote>
+
       
     </div>
     
@@ -695,8 +745,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -832,6 +891,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GitHub上的操作"><span class="nav-number">2.</span> <span class="nav-text">GitHub上的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建博客仓库"><span class="nav-number">2.1.</span> <span class="nav-text">创建博客仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定域名"><span class="nav-number">2.2.</span> <span class="nav-text">绑定域名</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置SSH"><span class="nav-number">3.</span> <span class="nav-text">配置SSH</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#测试SSH"><span class="nav-number">3.1.</span> <span class="nav-text">测试SSH</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Hexo"><span class="nav-number">4.</span> <span class="nav-text">使用Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo"><span class="nav-number">4.1.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传到github"><span class="nav-number">4.2.</span> <span class="nav-text">上传到github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看博客"><span class="nav-number">4.3.</span> <span class="nav-text">查看博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用hexo命令"><span class="nav-number">4.4.</span> <span class="nav-text">常用hexo命令</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -869,7 +944,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">全站博客共计60.1k字</span>
+  <span class="post-count">全站博客共计61k字</span>
 </div>
 
 <span class="post-meta-divider">|</span>

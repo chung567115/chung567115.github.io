@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://zhangchong.xin/2019/03/09/%E4%BD%BF%E7%94%A8Hexo%E5%9C%A8GitHub%E4%B8%8A%E6%90%AD%E5%BB%BA%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2019-03-15</lastmod>
+  </url>  <url>
     <loc>http://zhangchong.xin/2018/05/29/%E9%85%B7%E5%AE%B6%E4%B9%90Java%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95/</loc>
     <lastmod>2019-03-15</lastmod>
   </url>  <url>
@@ -201,8 +204,5 @@
   </url>  <url>
     <loc>http://zhangchong.xin/2018/05/07/51%E4%BF%A1%E7%94%A8%E5%8D%A1%E6%A0%A1%E6%8B%9B%E7%AC%94%E8%AF%95/</loc>
     <lastmod>2019-03-15</lastmod>
-  </url>  <url>
-    <loc>http://zhangchong.xin/2019/03/09/%E4%BD%BF%E7%94%A8Hexo%E5%9C%A8GitHub%E4%B8%8A%E6%90%AD%E5%BB%BA%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2019-03-09</lastmod>
   </url>
 </urlset>
