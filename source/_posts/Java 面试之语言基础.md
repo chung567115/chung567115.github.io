@@ -98,7 +98,7 @@ if (ex instanceof RuntimeException){
 }
 ```
 
-![Throwable体系](https://github.com/chung567115/chung567115.github.io/blob/hexo-blog/blog-img/34-1.png)
+![Throwable体系](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/34-1.png)
 
 # 各种比较
 ## Override和Overload的区别  
