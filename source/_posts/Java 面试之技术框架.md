@@ -68,7 +68,7 @@ date: 2018-08-28 15:08:16
 ## Spring事务
 ### 事务
 &emsp;&emsp;数据库事务是指作为单个逻辑工作单元执行的一系列操作，要么完全地执行，要么完全地不执行。事务满足**原子性(Atomicity)**、**一致性(Consistency)**、**隔离性(Isolation)**、**持久性(Durability)** 四大特性。
-> 详见： [Java 面试之数据库](https://blog.csdn.net/u012102104/article/details/79773362)
+> 详见： [Java 面试之数据库](http://zhangchong.xin/2018/07/21/Java%20%E9%9D%A2%E8%AF%95%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%BA%93/)
 
 ### 事务管理  
 &emsp;&emsp;Spring通过事务管理器接口`PlatformTransactionManager`为各平台如JDBC(`DataSourceTransactionManager`)、Hibernate(`HibernateTransactionManager`、`JpaTransactionManager`)等都提供了对应的事务管理器。  
@@ -211,7 +211,7 @@ result2 = prepareStatement.executeQuery();
 - 适配器模式：将一个类的接口转换成另一个接口，使原本由于接口不兼容而不能一起工作的类可以一起工作。
 - 观察者模式：定义对象间的依赖关系，当一个对象的状态改变时，所有依赖于它的对象都被通知并自动更新。
 - 责任链模式：为请求创建了一个接收者对象的链，沿着这条链传递请求，直到有对象处理它为止。
-> 设计模式详见小博系列博客：[代码详解设计模式汇总](https://blog.csdn.net/u012102104/article/details/85328253)
+> 设计模式详见小博系列博客：[代码详解设计模式汇总](http://zhangchong.xin/2018/12/28/%E4%BB%A3%E7%A0%81%E8%AF%A6%E8%A7%A3%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%B1%87%E6%80%BB/)
 
 ## 写出生产者消费者模式  
 &emsp;&emsp;生产者生产数据到缓冲区中，消费者从缓冲区中取数据。如果缓冲区已经满了，则生产者线程阻塞；如果缓冲区为空，那么消费者线程阻塞。  

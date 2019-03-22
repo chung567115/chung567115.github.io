@@ -627,7 +627,6 @@ Redirected URL = null
 ```
 
 # 写在后面
-&emsp;&emsp;本场Chat旨在快速入门Spring Boot，了解相关的基础操作，因此未进行深入的探讨，如果发布之后效果还行的话，以后会考虑推出进阶的Chat或课程，有兴趣的小伙伴可以关注下。另外，本场Chat完整的代码已分享至GitHub[点击访问](https://github.com/chung567115/springboot)，可自行下载。
-&emsp;&emsp;码字不易，期待你的好评~
+&emsp;&emsp;本博客旨在快速入门Spring Boot，了解相关的基础操作，完整的代码已分享至GitHub[点击访问](https://github.com/chung567115/springboot)，可自行下载。
 
-> 欢迎打赏，啊哈哈~
+> 码字不易，欢迎打赏，啊哈哈~
