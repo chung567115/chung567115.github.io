@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://zhangchong.xin/about/index.html</loc>
+    
+    <lastmod>2019-05-02T03:12:45.292Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://zhangchong.xin/404.html</loc>
     
     <lastmod>2019-03-22T06:58:48.218Z</lastmod>
@@ -488,13 +495,6 @@
     <loc>http://zhangchong.xin/2018/05/07/51%E4%BF%A1%E7%94%A8%E5%8D%A1%E6%A0%A1%E6%8B%9B%E7%AC%94%E8%AF%95/</loc>
     
     <lastmod>2019-03-15T06:25:18.507Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhangchong.xin/about/index.html</loc>
-    
-    <lastmod>2019-03-12T20:31:28.600Z</lastmod>
     
   </url>
   
