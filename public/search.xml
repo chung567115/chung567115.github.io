@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Git常用命令汇集</title>
+      <link href="/2019/05/25/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E9%9B%86/"/>
+      <url>/2019/05/25/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E9%9B%86/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>开发中常用到的Git命令大集合</p></blockquote><a id="more"></a><h1 id="最基础"><a href="#最基础" class="headerlink" title="最基础"></a>最基础</h1><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化git仓库，将会创建.git文件夹</span></span><br><span class="line">git init</span><br><span class="line"></span><br><span class="line"><span class="comment"># 克隆simaple项目</span></span><br><span class="line">git <span class="built_in">clone</span>  user@server:path/repo.git</span><br><span class="line">git <span class="built_in">clone</span> https://server/path/simpale</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将指定文件文件加入本地仓库</span></span><br><span class="line">git add simple-file</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将当前目录所有文件加入本地仓库</span></span><br><span class="line">git add</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将所有文件加入本地仓库</span></span><br><span class="line">git add -A</span><br><span class="line">git add --all</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从远仓库指定分支拉取并合并最新代码,默认为merge方式，可选用rebase参数</span></span><br><span class="line">git pull [remote] [branch] [--rebase]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提交文件到本地仓库,并附加备注信息msg</span></span><br><span class="line">git commit -m [msg]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提交文件到远程仓库指定分支,变基之后需要force参数才能正常提交</span></span><br><span class="line">git push [remote] [branch] [--force]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从远程仓库更新代码</span></span><br><span class="line">git fetch [remote]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并远程或指定branch分支到当前分支</span></span><br><span class="line">git merge [branch]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 相比于merge，多人同分支开发时可用rebase避免多次merge commit</span></span><br><span class="line">git rebase [branch]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解决冲突后继续处理</span></span><br><span class="line">git rebase --<span class="built_in">continue</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检出远程分支sample2到本地并命名为sample1</span></span><br><span class="line">git checkout -b featrues/sample1 origin/featrues/sample2</span><br></pre></td></tr></table></figure></div><h1 id="其他基础"><a href="#其他基础" class="headerlink" title="其他基础"></a>其他基础</h1><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">添加一个新的远程git仓库,此后便可以用字符串origin代替整个url</span><br><span class="line">git remote add [origin] [url]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看远程服务器</span></span><br><span class="line">git remote [-v]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前状态</span></span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看工作区和缓存区的不同</span></span><br><span class="line">git diff</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前分支版本历史</span></span><br><span class="line">git <span class="built_in">log</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###########################撤销############################</span></span><br><span class="line"><span class="comment"># 撤回上一个commit操作,软删除,代码还在</span></span><br><span class="line">git reset --soft HEAD~1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 恢复[commit]修改前</span></span><br><span class="line">git revert [commit]</span><br><span class="line"></span><br><span class="line"><span class="comment">############################分支###########################</span></span><br><span class="line"><span class="comment"># 新建本地分支</span></span><br><span class="line">git branch [branch-name]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到分支</span></span><br><span class="line">git checkout [branch-name]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看本地分支</span></span><br><span class="line">git branch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看远程分支</span></span><br><span class="line">git branch -r</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看所有分支</span></span><br><span class="line">git branch -a</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除本地指定分支</span></span><br><span class="line">git branch -d [branch]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除远程指定分支</span></span><br><span class="line">$ git push origin --delete [branch]</span><br><span class="line">$ git branch -dr [remote/branch]</span><br><span class="line"></span><br><span class="line"><span class="comment">#######################从远程master新建分支##################</span></span><br><span class="line">git checout master                   <span class="comment"># 切换到本地master</span></span><br><span class="line">git pull                             <span class="comment"># 更新本地master</span></span><br><span class="line">git checkout -b featrues/sample      <span class="comment"># 新建并切换到分支sample</span></span><br><span class="line">git push origin featrues/sample      <span class="comment"># 提交sample分支到远程</span></span><br><span class="line"><span class="comment">############################################################</span></span><br></pre></td></tr></table></figure></div><h1 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h1><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="false"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 缓存工作区当前分支内容</span></span><br><span class="line">git stash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看所有缓存栈</span></span><br><span class="line">git stash list</span><br><span class="line"></span><br><span class="line"> <span class="comment"># 选中版本n缓存出栈</span></span><br><span class="line">git stash apply stash@&#123;n&#125;</span><br></pre></td></tr></table></figure></div><!-- more -->]]></content>
+      
+      
+      <categories>
+          
+          <category> 开发工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2019杭州(准)独角兽名单</title>
       <link href="/2019/03/15/2019%E6%9D%AD%E5%B7%9E(%E5%87%86)%E7%8B%AC%E8%A7%92%E5%85%BD%E5%90%8D%E5%8D%95/"/>
       <url>/2019/03/15/2019%E6%9D%AD%E5%B7%9E(%E5%87%86)%E7%8B%AC%E8%A7%92%E5%85%BD%E5%90%8D%E5%8D%95/</url>
@@ -1347,33 +1372,6 @@
     
     
     <entry>
-      <title>进程、线程、死锁</title>
-      <link href="/2018/04/18/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E6%AD%BB%E9%94%81/"/>
-      <url>/2018/04/18/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E6%AD%BB%E9%94%81/</url>
-      
-        <content type="html"><![CDATA[<blockquote><p>关于进程、线程、死锁，计算机操作系统课本里面怎么说~</p></blockquote><a id="more"></a><h1 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h1><p>&emsp;&emsp;进程：系统进行资源分配和调度的一个独立单位。每一个进程都有一个自己的地址空间，即进程空间或（虚空间）。进程有 5 种基本状态：创建、就绪、阻塞、执行、终止。<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/18-1.png" alt="进程状态转换图"></p><h1 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h1><p>&emsp;&emsp;线程：CPU调度的一个基本单位。线程与同属一个进程的其他线程共享进程所拥有的全部资源。线程有 3 个基本状态：就绪、执行、阻塞。</p><h1 id="进程和线程的区别"><a href="#进程和线程的区别" class="headerlink" title="进程和线程的区别"></a>进程和线程的区别</h1><ol><li>进程是资源的分配和调度的一个独立单元，而线程是CPU调度的基本单元</li><li>进程拥有独立的资源，而各线程共享所属进程的所有资源（寄存器、堆栈等）</li><li>进程结束后它拥有的所有线程都将销毁，而线程的结束不会影响同个进程中的其他线程</li><li>一个程序至少有一个进程，一个进程至少有一个线程</li><li>线程中执行时一般都要进行同步和互斥，因为他们共享同一进程的所有资源</li></ol><h1 id="并行和并发"><a href="#并行和并发" class="headerlink" title="并行和并发"></a>并行和并发</h1><ul><li>并行：CPU同时计算（一场象棋比赛）</li><li>并发：CPU通过调度算法计算（一局象棋对战）</li></ul><h1 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h1><p>&emsp;&emsp;死锁是指多个进程在执行过程中，由于竞争资源或者由于彼此通信而造成的一种阻塞的现象，若无外力作用，它们都将无法推进下去。<br>&emsp;&emsp;死锁产生的必要条件（只要其中任一条件不成立，死锁就不会发生）：</p><ul><li>互斥条件：进程对所分配的资源进行排他性控制，即在一段时间内某资源仅为一个进程所占有。此时若有其他进程请求该资源，则请求进程只能等待。</li><li>不剥夺条件：进程所获得的资源在未使用完毕之前，不能被其他进程强行夺走，即只能 由获得该资源的进程主动释放。</li><li>请求和保持条件：进程已经保持了至少一个资源，但又提出了新的资源请求，而该资源 已被其他进程占有，此时请求进程被阻塞，但对自己已获得的资源保持不放。</li><li>环路等待条件：存在一个进程——资源的环形链，即进程集合{P0，P1，P2，···，Pn}中的P0正在等待一个P1占用的资源；P1正在等待P2占用的资源，……，Pn正在等待已被P0占用的资源。</li></ul><h2 id="避免死锁"><a href="#避免死锁" class="headerlink" title="避免死锁"></a>避免死锁</h2><p>&emsp;&emsp;可通过以下三种手段避免死锁：</p><ol><li>加锁顺序（线程按一定顺序加锁，若所有线程都按相同顺序获得锁，就能避免死锁）</li><li>加锁时限（线程获取锁时加上时限，超时则放弃并释放所占有的锁，就能避免死锁）</li><li>死锁检测（一个更优的预防机制，主要针对不可能实现按序加锁和加锁时限的场景）</li></ol><p>&emsp;&emsp;每当一个线程获得了锁，便在相关的数据结构中（Map、Graph等）将其记下。当一个线程请求锁失败时，这个线程可以遍历锁的关系图看看是否有死锁发生。<br>&emsp;&emsp;检测出死锁时，有一种解决方案是给这些线程设置优先级，让一个或多个线程回退，剩下的线程继续保持它们需要的锁。</p><blockquote><p>如果赋予这些线程的优先级是固定不变的，同一批线程总是会拥有更高的优先级。为避免这个问题，可以在死锁发生的时候设置随机的优先级。</p></blockquote>]]></content>
-      
-      
-      <categories>
-          
-          <category> Java </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Java </tag>
-            
-            <tag> 计算机操作系统 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Java中 List、Set、Map 之间的区别</title>
       <link href="/2018/04/18/Java%E4%B8%AD%20List%E3%80%81Set%E3%80%81Map%20%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
       <url>/2018/04/18/Java%E4%B8%AD%20List%E3%80%81Set%E3%80%81Map%20%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
@@ -1393,6 +1391,33 @@
             <tag> Java </tag>
             
             <tag> 数据结构 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>进程、线程、死锁</title>
+      <link href="/2018/04/18/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E6%AD%BB%E9%94%81/"/>
+      <url>/2018/04/18/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E6%AD%BB%E9%94%81/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>关于进程、线程、死锁，计算机操作系统课本里面怎么说~</p></blockquote><a id="more"></a><h1 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h1><p>&emsp;&emsp;进程：系统进行资源分配和调度的一个独立单位。每一个进程都有一个自己的地址空间，即进程空间或（虚空间）。进程有 5 种基本状态：创建、就绪、阻塞、执行、终止。<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/18-1.png" alt="进程状态转换图"></p><h1 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h1><p>&emsp;&emsp;线程：CPU调度的一个基本单位。线程与同属一个进程的其他线程共享进程所拥有的全部资源。线程有 3 个基本状态：就绪、执行、阻塞。</p><h1 id="进程和线程的区别"><a href="#进程和线程的区别" class="headerlink" title="进程和线程的区别"></a>进程和线程的区别</h1><ol><li>进程是资源的分配和调度的一个独立单元，而线程是CPU调度的基本单元</li><li>进程拥有独立的资源，而各线程共享所属进程的所有资源（寄存器、堆栈等）</li><li>进程结束后它拥有的所有线程都将销毁，而线程的结束不会影响同个进程中的其他线程</li><li>一个程序至少有一个进程，一个进程至少有一个线程</li><li>线程中执行时一般都要进行同步和互斥，因为他们共享同一进程的所有资源</li></ol><h1 id="并行和并发"><a href="#并行和并发" class="headerlink" title="并行和并发"></a>并行和并发</h1><ul><li>并行：CPU同时计算（一场象棋比赛）</li><li>并发：CPU通过调度算法计算（一局象棋对战）</li></ul><h1 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h1><p>&emsp;&emsp;死锁是指多个进程在执行过程中，由于竞争资源或者由于彼此通信而造成的一种阻塞的现象，若无外力作用，它们都将无法推进下去。<br>&emsp;&emsp;死锁产生的必要条件（只要其中任一条件不成立，死锁就不会发生）：</p><ul><li>互斥条件：进程对所分配的资源进行排他性控制，即在一段时间内某资源仅为一个进程所占有。此时若有其他进程请求该资源，则请求进程只能等待。</li><li>不剥夺条件：进程所获得的资源在未使用完毕之前，不能被其他进程强行夺走，即只能 由获得该资源的进程主动释放。</li><li>请求和保持条件：进程已经保持了至少一个资源，但又提出了新的资源请求，而该资源 已被其他进程占有，此时请求进程被阻塞，但对自己已获得的资源保持不放。</li><li>环路等待条件：存在一个进程——资源的环形链，即进程集合{P0，P1，P2，···，Pn}中的P0正在等待一个P1占用的资源；P1正在等待P2占用的资源，……，Pn正在等待已被P0占用的资源。</li></ul><h2 id="避免死锁"><a href="#避免死锁" class="headerlink" title="避免死锁"></a>避免死锁</h2><p>&emsp;&emsp;可通过以下三种手段避免死锁：</p><ol><li>加锁顺序（线程按一定顺序加锁，若所有线程都按相同顺序获得锁，就能避免死锁）</li><li>加锁时限（线程获取锁时加上时限，超时则放弃并释放所占有的锁，就能避免死锁）</li><li>死锁检测（一个更优的预防机制，主要针对不可能实现按序加锁和加锁时限的场景）</li></ol><p>&emsp;&emsp;每当一个线程获得了锁，便在相关的数据结构中（Map、Graph等）将其记下。当一个线程请求锁失败时，这个线程可以遍历锁的关系图看看是否有死锁发生。<br>&emsp;&emsp;检测出死锁时，有一种解决方案是给这些线程设置优先级，让一个或多个线程回退，剩下的线程继续保持它们需要的锁。</p><blockquote><p>如果赋予这些线程的优先级是固定不变的，同一批线程总是会拥有更高的优先级。为避免这个问题，可以在死锁发生的时候设置随机的优先级。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 计算机操作系统 </tag>
             
         </tags>
       
