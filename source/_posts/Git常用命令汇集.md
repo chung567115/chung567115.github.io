@@ -19,7 +19,7 @@ date: 2019-05-25 09:45:32
 - Remote: 远程仓库
 
 # 最基础的命令
-```bash
+```git
 # 初始化git仓库，将会创建.git文件夹
 git init
 
@@ -64,7 +64,7 @@ git checkout -b featrues/sample1 origin/featrues/sample2
 
 # 其他基础命令
 
-```bash
+```git
 添加一个新的远程git仓库,此后便可以用字符串origin代替整个url
 git remote add [origin] [url]
 
@@ -120,7 +120,7 @@ git push origin featrues/sample      # 提交sample分支到远程
 
 # 最常用的进阶命令
 &emsp;&emsp;工作中经常遇到需要临时改其他分支代码的场景，而此时本分支的改动尚不能提交，此时`stash`命令就派上了大用场。
-```bash
+```git
 # 缓存工作区当前分支内容
 git stash
 
