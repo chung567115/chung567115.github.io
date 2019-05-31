@@ -13,36 +13,32 @@ layout: about
  offer me  |  admin@zhangchong.xin
 
 # 教育背景
-- 2016.09-2019.03&emsp;&emsp;@[浙江理工大学](http://www.zstu.edu.cn)（硕士）&emsp;&emsp;计算机技术
-- 2012.09-2016.06&emsp;&emsp;@[浙江理工大学](http://www.zstu.edu.cn)（本科）&emsp;&emsp;计算机科学与技术
+- 2016.09--2019.03&emsp;@[浙江理工大学](http://www.zstu.edu.cn)（硕士）&emsp;计算机技术
+- 2012.09--2016.06&emsp;@[浙江理工大学](http://www.zstu.edu.cn)（本科）&emsp;计算机科学与技术
 
 # 工作经历
-- 2019.04-至今&emsp;&emsp;@[网易游戏](https://game.163.com)
+- 2019.04--至今&emsp;@[网易游戏](https://game.163.com)
 
 # 实习经历
-- 2018.12-2019.02&emsp;&emsp;@[阿里巴巴](https://www.alibabagroup.com)
-- 2018.05-2018.08&emsp;&emsp;@[51信用卡](https://www.u51.com)
+- 2018.12--2019.02&emsp;@[阿里巴巴](https://www.alibabagroup.com)
+- 2018.05--2018.08&emsp;@[51信用卡](https://www.u51.com)
 
 # 项目经验
-- 2019.04-至今&emsp;&emsp;[网易KM ☆&☆ 网易游戏学院](http://game.academy.163.com)
-	- 技术栈：Ruby + Rails + MySQL ☆&☆ Spring Cloud + MyBatis + RabbitMQ + Redis
-- 2018.12-2019.02&emsp;&emsp;[淘宝小镇](https://taobao.yuntrial.com)
-	- 技术栈：Pandora Boot + HSF + Diamond + MetaQ + Redis
-- 2018.05-2018.08&emsp;&emsp;[温行51信用卡](https://www.u51.com/credit/kaku/1876014.html)
-	- 技术栈：Base + Consul + Retrofit + TMC + Redis
-- 2018.03-2018.05&emsp;&emsp;[解放军总医院排队叫号系统](http://www.301hospital.mil.cn)
-	- 技术栈：Spring Boot + Dubbo + Redis + Vue
-- 2017.09-2018.01&emsp;&emsp;[在校生教务选课系统](http://www.chung.xin)
-	- 技术栈：Spring Boot + Redis + RabbitMQ + Bootstrap
-- 2017.05-2017.08&emsp;&emsp;[浙江天科微生物检测云平台](http://www.tkgeneclub.com)
-	- 技术栈：Spring MVC + Spring + MyBatis + Bootstrap
+- 2019.04--至今&emsp;[网易KM ☆&☆ 网易游戏学院](https://game.academy.163.com)
+	> 技术栈：Ruby + Rails + MySQL ☆&☆ Spring Cloud + MyBatis + RabbitMQ + Redis
+- 2018.12--2019.02&emsp;[淘宝小镇](https://taobao.yuntrial.com)
+	> 技术栈：Pandora Boot + HSF + Diamond + MetaQ + Redis
+- 2018.05--2018.08&emsp;[温行51信用卡](https://www.u51.com/credit/kaku/1876014.html)
+	> 技术栈：Base + Consul + Retrofit + TMC + Redis
+- 2018.03--2018.05&emsp;[解放军总医院排队叫号系统](http://www.301hospital.mil.cn)
+	> 技术栈：Spring Boot + Dubbo + Redis + Vue
+- 2017.09--2018.01&emsp;[在校生教务选课系统](http://www.chung.xin)
+	> 技术栈：Spring Boot + Redis + RabbitMQ + Bootstrap
+- 2017.05--2017.08&emsp;[浙江天科微生物检测云平台](http://www.tkgeneclub.com)
+	> 技术栈：Spring MVC + Spring + MyBatis + Bootstrap
 
 # 人生格言
 ```java
-/**
- * @Author 博学de叫兽
- * @Date 2019/03/13 04:29
- */
 public class Main {
     public static void main(String[] args) {
         System.out.println("Keep learning!");
@@ -50,10 +46,9 @@ public class Main {
 }
 ```
 
-```golang
+```go
 package main
 import "fmt"
-
 func main() {
    fmt.Println("Keep thinking!")
 }
