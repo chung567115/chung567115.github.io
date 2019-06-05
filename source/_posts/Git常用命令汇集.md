@@ -127,8 +127,14 @@ git stash
 # 查看所有缓存栈
 git stash list
 
- # 选中版本n缓存出栈
+# 缓存入栈保存
+git stash save [msg]
+
+# 选中版本n缓存出栈
 git stash apply stash@{n}
+
+# 删除选中版本缓存
+git stash drop stash@{n}
 ```
 
 <!-- more -->
