@@ -13,10 +13,10 @@ date: 2019-05-25 09:45:32
 ![Git命令](https://raw.githubusercontent.com/chung567115/chung567115.github.io/hexo-blog/blog-img/Git命令.jpg)
 
 &emsp;&emsp;图中名词解释
-- Workspace: 工作区
-- Stage: 暂存区
-- Local: 本地仓库
-- Remote: 远程仓库
+- <kbd>Workspace</kbd>: 工作区
+- <kbd>Stage</kbd>: 暂存区
+- <kbd>Local</kbd>: 本地仓库
+- <kbd>Remote</kbd>: 远程仓库
 
 # 最基础的命令
 ```bash
