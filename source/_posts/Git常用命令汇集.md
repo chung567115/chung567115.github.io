@@ -19,7 +19,7 @@ date: 2019-05-25 09:45:32
 - Remote: 远程仓库
 
 # 最基础的命令
-```git
+```bash
 # 初始化git仓库，将会创建.git文件夹
 git init
 
@@ -31,7 +31,7 @@ git clone https://server/path/simpale
 git add simple-file
 
 # 将当前目录所有文件加入本地仓库
-git add
+git add [file]
 
 # 将所有文件加入本地仓库
 git add -A
@@ -63,78 +63,55 @@ git checkout -b featrues/sample1 origin/featrues/sample2
 ```
 
 # 其他基础命令
-
-```git
-添加一个新的远程git仓库,此后便可以用字符串origin代替整个url
+```bash
+# 添加一个新的远程git仓库,此后便可以用字符串origin代替整个url
 git remote add [origin] [url]
 
-# 查看远程服务器
-git remote [-v]
+git remote [-v]                   # 查看远程服务器
+git status                        # 查看当前状态
+git log                           # 查看当前分支版本历史
+git diff                          # 查看工作区和缓存区的不同
 
-# 查看当前状态
-git status
 
-# 查看工作区和缓存区的不同
-git diff
-
-# 查看当前分支版本历史
-git log
-
-###########################撤销############################
 # 撤回上一个commit操作,软删除,代码还在
 git reset --soft HEAD~1
 
 # 恢复[commit]修改前
 git revert [commit]
 
+
 ############################分支###########################
-# 新建本地分支
-git branch [branch-name]
-
-# 切换到分支
-git checkout [branch-name]
-
-# 查看本地分支
-git branch
-
-# 查看远程分支
-git branch -r
-
-# 查看所有分支
-git branch -a
-
-# 删除本地指定分支
-git branch -d [branch]
+git branch                                # 查看本地分支
+git branch -r                             # 查看远程分支
+git branch -a                             # 查看所有分支
+git branch -d [branch-name]               # 删除本地指定分支
+git branch [branch-name]                  # 新建本地分支
+git checkout [branch-name]                # 切换到分支
 
 # 删除远程指定分支
 $ git push origin --delete [branch]
 $ git branch -dr [remote/branch]
+###########################################################
 
-#######################从远程master新建分支##################
+
+######################从远程master新建分支##################
 git checout master                   # 切换到本地master
 git pull                             # 更新本地master
 git checkout -b featrues/sample      # 新建并切换到分支sample
 git push origin featrues/sample      # 提交sample分支到远程
-############################################################
+###########################################################
 ```
 
-# 最常用的进阶命令
+# 常用的进阶命令
 &emsp;&emsp;工作中经常遇到需要临时改其他分支代码的场景，而此时本分支的改动尚不能提交，此时`stash`命令就派上了大用场。
-```git
-# 缓存工作区当前分支内容
-git stash
-
-# 查看所有缓存栈
-git stash list
-
-# 缓存入栈保存
-git stash save [msg]
-
-# 选中版本n缓存出栈
-git stash apply stash@{n}
-
-# 删除选中版本缓存
-git stash drop stash@{n}
+```bash
+git stash                            # 缓存入栈
+git pop                              # 缓存出栈
+git stash list                       # 查看所有缓存栈
+git stash save [msg]                 # 缓存入栈保存
+git stash apply stash@{n}            # 应用版本n缓存(不删除缓存)
+git stash pop stash@{n}              # 版本n缓存出栈(删除缓存)
+git stash drop stash@{n}             # 删除版本n缓存
 ```
 
 <!-- more -->
