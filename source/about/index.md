@@ -24,8 +24,8 @@ layout: about
 - 2018.05--2018.08&emsp;@[51信用卡](https://www.u51.com)
 
 # 项目经验
-- 2019.04--至今&emsp;[网易KM ☆&☆ 网易游戏学院](https://game.academy.163.com)
-	> 技术栈：Ruby + Rails + MySQL ☆&☆ Spring Cloud + MyBatis + RabbitMQ + Redis
+- 2019.04--至今&emsp;[网易KM](http://km.netease.com)
+	> 技术栈：Ruby on Rails/Spring Cloud + MyBatis + RabbitMQ + Redis + MySQL
 - 2018.12--2019.02&emsp;[淘宝小镇](https://taobao.yuntrial.com)
 	> 技术栈：Pandora Boot + HSF + Diamond + MetaQ + Redis
 - 2018.05--2018.08&emsp;[温行51信用卡](https://www.u51.com/credit/kaku/1876014.html)
@@ -41,7 +41,7 @@ layout: about
 ```java
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Keep learning!");
+        System.out.println("Keep coding!");
     }
 }
 ```
@@ -50,10 +50,10 @@ public class Main {
 package main
 import "fmt"
 func main() {
-   fmt.Println("Keep thinking!")
+   fmt.Println("Keep learning!")
 }
 ```
 
 ```ruby
-p "Keep coding!"
+p "Keep thinking!"
 ```
