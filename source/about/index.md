@@ -46,14 +46,10 @@ public class Main {
 }
 ```
 
-```go
-package main
-import "fmt"
-func main() {
-   fmt.Println("Keep learning!")
-}
+```python
+print("Keep learning!")
 ```
 
 ```ruby
-p "Keep thinking!"
+puts "Keep thinking!"
 ```
